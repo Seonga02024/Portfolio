@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go-Stop · 로보맞고 — Game Showcase &amp; Developer Portfolio</title>
+  <meta name="description" content="한국 전통 화투 게임 '맞고'의 Unity 6 구현. 멀티플레이 안정화, 로그인 플랫폼 통합, 세션-재화 흐름 안정화 작업 포트폴리오." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Theme tokens — 두 톤(따뜻한 게임 소개 / 다크 기술 소개)
+       ============================================================ */
+    :root {
+      /* Warm tone — Game introduction */
+      --w-bg: #fbf4e4;
+      --w-bg-soft: #f5e8c9;
+      --w-paper: #fffaf1;
+      --w-ink: #2a1a10;
+      --w-ink-soft: #5b4434;
+      --w-ink-muted: #8e7560;
+      --w-accent: #8b1a1a;
+      --w-accent-deep: #5d0f0f;
+      --w-gold: #c89a3a;
+      --w-gold-soft: #e9c97a;
+      --w-shadow: 0 10px 32px rgba(60, 30, 10, 0.15);
+
+      /* Dark tone — Technical deep-dive */
+      --d-bg-0: #0a0e17;
+      --d-bg-1: #111827;
+      --d-bg-2: #1a2236;
+      --d-bg-3: #232c44;
+      --d-line: #2a3550;
+      --d-text: #e6edf7;
+      --d-text-dim: #9aa7be;
+      --d-text-muted: #6b7894;
+      --d-accent: #6ee7ff;
+      --d-accent-2: #a78bfa;
+      --d-accent-3: #f472b6;
+      --d-green: #4ade80;
+      --d-amber: #fbbf24;
+      --d-code-bg: #0d1422;
+      --d-code-border: #1f2a44;
+      --d-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+    code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    /* ============================================================
+       Section base
+       ============================================================ */
+    section { padding: 100px 28px; position: relative; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ============================================================
+       Part 1 — Warm theme (Game introduction)
+       ============================================================ */
+    .warm {
+      background: var(--w-bg);
+      color: var(--w-ink);
+    }
+    .warm .section-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(139, 26, 26, 0.08);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .warm h2.section-title {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 16px;
+      color: var(--w-ink);
+    }
+    .warm .section-sub {
+      font-size: 18px; color: var(--w-ink-soft);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* ============================================================
+       Part 2 — Dark theme (Technical)
+       ============================================================ */
+    .dark {
+      background: var(--d-bg-0);
+      color: var(--d-text);
+    }
+    .dark .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 500;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .dark .section-eyebrow::before {
+      content: ""; width: 24px; height: 1px;
+      background: var(--d-accent);
+    }
+    .dark h2.section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      margin: 0 0 16px;
+      color: var(--d-text);
+    }
+    .dark .section-sub {
+      font-size: 17px; color: var(--d-text-dim);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* Dark grid background */
+    .dark::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(110, 231, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110, 231, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .dark .container { position: relative; z-index: 1; }
+
+    /* ============================================================
+       Nav (neutral — adapts)
+       ============================================================ */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251, 244, 228, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(139, 26, 26, 0.12);
+      transition: background .3s, border-color .3s;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 16px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--w-accent); text-decoration: none;
+    }
+    .brand img {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a {
+      color: var(--w-ink-soft); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--w-accent); }
+    .nav-links a.tech { color: var(--w-ink-muted); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+
+    /* ============================================================
+       Hero — warm
+       ============================================================ */
+    .hero {
+      padding: 90px 28px 90px;
+      background:
+        radial-gradient(ellipse at top left, rgba(200, 154, 58, 0.18), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(139, 26, 26, 0.10), transparent 60%),
+        var(--w-bg);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(139, 26, 26, 0.08);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+    .hero h1 {
+      font-family: "Gowun Batang", serif;
+      font-size: clamp(40px, 6.5vw, 76px);
+      line-height: 1.05;
+      margin: 0 0 22px;
+      color: var(--w-accent-deep);
+    }
+    .hero h1 .accent { color: var(--w-gold); }
+    .hero .lead {
+      font-size: 19px; color: var(--w-ink-soft);
+      max-width: 560px; margin: 0 0 36px;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: transform .15s, box-shadow .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--w-accent); color: white;
+      box-shadow: 0 8px 20px rgba(139, 26, 26, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(139, 26, 26, 0.42); }
+    .btn-ghost {
+      background: transparent; color: var(--w-accent);
+      border: 2px solid var(--w-accent);
+    }
+    .btn-ghost:hover { background: var(--w-accent); color: white; }
+
+    .hero-visual {
+      max-width: 560px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-screenshot {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(60, 30, 10, 0.35);
+      border: 6px solid white;
+      transform: rotate(-1.5deg);
+      transition: transform .3s;
+    }
+    .hero-screenshot:hover { transform: rotate(0); }
+    .hero-screenshot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .hero-screenshot .badge {
+      position: absolute; bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: white; padding: 12px 20px; border-radius: 12px;
+      box-shadow: var(--w-shadow);
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 14px;
+      color: var(--w-ink);
+      white-space: nowrap;
+    }
+    .hero-screenshot .badge .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #2b6043;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(43, 96, 67, 0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(43, 96, 67, 0); }
+    }
+
+    /* ============================================================
+       Features — warm
+       ============================================================ */
+    .features { background: linear-gradient(180deg, var(--w-bg), var(--w-paper)); }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: var(--w-shadow);
+      border-top: 4px solid var(--w-accent);
+      transition: transform .2s;
+    }
+    .feat-card:nth-child(2) { border-top-color: var(--w-gold); }
+    .feat-card:nth-child(3) { border-top-color: #2b6043; }
+    .feat-card:nth-child(4) { border-top-color: #4a2c8a; }
+    .feat-card:nth-child(5) { border-top-color: var(--w-accent); }
+    .feat-card:nth-child(6) { border-top-color: var(--w-gold); }
+    .feat-card:hover { transform: translateY(-4px); }
+    /* Kemi Friends 연동 카드 — 살짝 다른 톤 (시안+자주 그라데이션 상단 보더) */
+    .kemi {
+      background: linear-gradient(180deg, var(--w-paper), var(--w-bg-soft));
+    }
+    .feat-card.kemi-card {
+      border-top: none;
+      position: relative;
+    }
+    .feat-card.kemi-card::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      border-radius: 18px 18px 0 0;
+      background: linear-gradient(90deg, #4a8eb8, #b85a8c);
+    }
+    .feat-card.kemi-card .feat-icon {
+      background: linear-gradient(135deg, rgba(74, 142, 184, 0.12), rgba(184, 90, 140, 0.12));
+    }
+    .feat-card.kemi-card .kemi-preview {
+      margin: -28px -26px 20px;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--w-bg-soft);
+      position: relative;
+    }
+    .feat-card.kemi-card .kemi-preview::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(255, 250, 241, 0.5));
+      pointer-events: none;
+    }
+    .feat-card.kemi-card .kemi-preview img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .3s;
+    }
+    .feat-card.kemi-card:hover .kemi-preview img { transform: scale(1.04); }
+    .feat-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(139, 26, 26, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+    .feat-card h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
+    .feat-card p { margin: 0; color: var(--w-ink-soft); font-size: 14.5px; }
+
+    /* ============================================================
+       Gallery & Video — warm
+       ============================================================ */
+    .gallery { background: var(--w-bg); }
+    .gallery-main {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--w-shadow);
+      background: #000;
+      margin-bottom: 28px;
+    }
+    .gallery-main video {
+      width: 100%; height: 100%; display: block; object-fit: contain;
+      background: #000;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .shot {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--w-paper);
+      box-shadow: var(--w-shadow);
+      position: relative;
+      transition: transform .2s;
+      aspect-ratio: 16 / 9;
+    }
+    .shot:hover { transform: translateY(-4px); }
+    .shot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .shot figcaption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* 멀티플레이 두 시점 영상 */
+    .multi-view {
+      margin-top: 60px;
+      padding-top: 50px;
+      border-top: 1px dashed rgba(139, 26, 26, 0.2);
+    }
+    .multi-view-title {
+      font-family: "Gowun Batang", serif;
+      font-size: 26px;
+      margin: 0 0 8px;
+      color: var(--w-ink);
+      text-align: center;
+    }
+    .multi-view-sub {
+      text-align: center;
+      color: var(--w-ink-soft);
+      margin: 0 0 28px;
+      font-size: 15px;
+    }
+    .multi-view-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .multi-video {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--w-shadow);
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .multi-video video {
+      width: 100%; height: 100%; display: block; object-fit: contain;
+    }
+    .multi-label {
+      position: absolute;
+      top: 12px; left: 12px;
+      padding: 5px 12px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       Short description — warm
+       ============================================================ */
+    .story { background: var(--w-paper); padding: 80px 28px; }
+    .story-inner {
+      max-width: 860px; margin: 0 auto;
+      text-align: center;
+    }
+    .story p {
+      font-family: "Gowun Batang", serif;
+      font-size: 22px;
+      line-height: 1.85;
+      color: var(--w-ink);
+      margin: 0;
+    }
+    .story p strong { color: var(--w-accent); font-weight: 700; }
+
+    /* ============================================================
+       Section divider — transition between warm and dark
+       ============================================================ */
+    .divider {
+      background: linear-gradient(180deg, var(--w-paper) 0%, var(--d-bg-0) 100%);
+      padding: 80px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .divider .badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 12px 24px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .divider .badge::before {
+      content: "▼";
+      color: var(--d-accent-2);
+    }
+    .divider h2 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      margin: 0 0 12px;
+      color: var(--d-text);
+    }
+    .divider h2 .gradient {
+      background: linear-gradient(135deg, var(--d-accent), var(--d-accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .divider p {
+      color: var(--d-text-dim);
+      font-size: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       Metrics — dark
+       ============================================================ */
+    .metrics-bar {
+      background: var(--d-bg-0);
+      padding: 60px 28px 30px;
+    }
+    .hero-metrics {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .metric {
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .metric .val {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px; font-weight: 700;
+      color: var(--d-accent);
+      line-height: 1;
+    }
+    .metric .label {
+      font-size: 11.5px;
+      color: var(--d-text-muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       Stack — dark
+       ============================================================ */
+    .stack { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+    }
+    .stack-badge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 18px;
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      transition: border-color .15s, transform .15s;
+    }
+    .stack-badge:hover { border-color: var(--d-accent); transform: translateY(-2px); }
+    .stack-badge .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--d-bg-3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700; color: var(--d-accent);
+      font-size: 13px;
+    }
+    .stack-badge .name { font-weight: 600; font-size: 14px; color: var(--d-text); }
+    .stack-badge .role { font-size: 11px; color: var(--d-text-muted); margin-top: 2px; }
+
+    /* ============================================================
+       Architecture — dark
+       ============================================================ */
+    .arch { background: var(--d-bg-0); }
+    .arch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .arch-layers { display: flex; flex-direction: column; gap: 12px; }
+    .layer {
+      position: relative;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      padding: 18px 22px;
+      transition: border-color .15s, transform .15s;
+    }
+    .layer:hover { border-color: var(--d-accent); transform: translateX(4px); }
+    .layer::before {
+      content: ""; position: absolute;
+      left: -1px; top: 12px; bottom: 12px;
+      width: 4px; border-radius: 2px;
+      background: var(--d-accent);
+    }
+    .layer:nth-child(2)::before { background: var(--d-accent-2); }
+    .layer:nth-child(3)::before { background: var(--d-accent-3); }
+    .layer:nth-child(4)::before { background: var(--d-amber); }
+    .layer:nth-child(5)::before { background: var(--d-green); }
+    .layer .layer-num { font-family: "JetBrains Mono", monospace; color: var(--d-text-muted); font-size: 11px; margin-bottom: 4px; }
+    .layer h4 { margin: 0 0 4px; font-size: 16px; }
+    .layer .layer-path { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-accent); margin-bottom: 8px; }
+    .layer p { margin: 0; font-size: 13.5px; color: var(--d-text-dim); }
+    .arch-flow {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 12px;
+      padding: 24px;
+      position: sticky; top: 100px;
+    }
+    .arch-flow h4 { margin: 0 0 16px; font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--d-text-muted); letter-spacing: 0.04em; }
+    .arch-flow pre { margin: 0; font-size: 12.5px; color: var(--d-text); line-height: 1.7; overflow-x: auto; }
+    .arch-flow .ar { color: var(--d-accent); }
+    .arch-flow .cm { color: var(--d-text-muted); }
+    .arch-flow .kw { color: var(--d-accent-2); }
+    .arch-flow .st { color: var(--d-accent-3); }
+
+    /* ============================================================
+       My contributions — dark (highlight)
+       ============================================================ */
+    .mine {
+      background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1));
+      position: relative;
+    }
+    .mine-banner {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(110, 231, 255, 0.15), rgba(167, 139, 250, 0.15));
+      border: 1px solid var(--d-accent);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .mine-banner::before {
+      content: "★";
+      color: var(--d-accent-2);
+    }
+    .mine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .mine-card {
+      background:
+        linear-gradient(135deg, rgba(110, 231, 255, 0.04), rgba(167, 139, 250, 0.04)),
+        var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .mine-card:hover { transform: translateY(-6px); border-color: var(--d-accent); }
+    .mine-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .mine-card .area-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--d-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .mine-card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      color: var(--d-text);
+    }
+    .mine-card .desc {
+      margin: 0 0 18px;
+      color: var(--d-text-dim);
+      font-size: 14.5px;
+    }
+    .mine-card ul {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .mine-card ul li {
+      padding: 6px 0;
+      color: var(--d-text-dim);
+      font-size: 13.5px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .mine-card ul li::before {
+      content: "▸";
+      color: var(--d-accent-2);
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 11px;
+    }
+    .mine-card ul li code {
+      color: var(--d-accent);
+      background: rgba(110, 231, 255, 0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* ============================================================
+       Code showcase — dark
+       ============================================================ */
+    .codeshow { background: var(--d-bg-0); }
+    .code-tabs {
+      display: flex; gap: 4px;
+      margin-bottom: -1px;
+      flex-wrap: wrap;
+    }
+    .code-tab {
+      padding: 10px 18px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--d-text-muted);
+      cursor: pointer;
+    }
+    .code-tab.active {
+      background: var(--d-code-bg);
+      color: var(--d-accent);
+      border-color: var(--d-code-border);
+    }
+    .code-block {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 0 14px 14px 14px;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--d-code-border);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .code-header .file { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-text-muted); }
+    .code-header .lang {
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      color: var(--d-accent); padding: 2px 8px;
+      background: rgba(110, 231, 255, 0.08); border-radius: 4px;
+    }
+    pre.code {
+      margin: 0; padding: 22px 24px;
+      font-size: 13px; line-height: 1.75;
+      overflow-x: auto;
+      color: var(--d-text);
+    }
+    pre.code .kw { color: #c084fc; }
+    pre.code .ty { color: #6ee7ff; }
+    pre.code .st { color: #fbbf24; }
+    pre.code .cm { color: #64748b; font-style: italic; }
+    pre.code .fn { color: #a5f3fc; }
+    pre.code .nu { color: #fb923c; }
+    .code-pane { display: none; }
+    .code-pane.active { display: block; }
+
+    /* ============================================================
+       Challenges — dark
+       ============================================================ */
+    .challenges { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .chall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .chall {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 26px;
+      position: relative;
+    }
+    .chall::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .chall .label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .chall .problem { font-weight: 700; font-size: 16px; margin: 8px 0 16px; color: var(--d-text); }
+    .chall .solution { font-size: 13.5px; color: var(--d-text-dim); padding-top: 16px; border-top: 1px dashed var(--d-line); }
+    .chall .solution-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    footer {
+      background: var(--d-bg-0);
+      border-top: 1px solid var(--d-line);
+      padding: 50px 28px 40px;
+    }
+    .foot-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .foot-inner p { margin: 0; font-size: 13px; color: var(--d-text-muted); }
+    .foot-links { display: flex; gap: 20px; }
+    .foot-links a { color: var(--d-text-dim); text-decoration: none; font-size: 13px; }
+    .foot-links a:hover { color: var(--d-accent); }
+
+    /* ============================================================
+       Reveal
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 380px; }
+      .arch-grid { grid-template-columns: 1fr; gap: 40px; }
+      .arch-flow { position: static; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 70px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <img src="assets/맞고_앱아이콘.png" alt="로보맞고" onerror="this.style.display='none'" />
+        로보맞고 · Go-Stop
+      </a>
+      <nav class="nav-links">
+        <a href="#features">게임 소개</a>
+        <a href="#kemi">케미 연동</a>
+        <a href="#gallery">화면</a>
+        <a href="#technical" class="tech">// technical</a>
+        <a href="#mine" class="tech">// my work</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 1 — GAME INTRODUCTION (warm theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="warm hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">한국 전통 카드게임 · 화투 맞고</span>
+        <h1>한 판 어떠세요,<br /><span class="accent">고스톱</span> 한 판!</h1>
+        <p class="lead">
+          오랜 세월 사랑받아 온 한국의 전통 카드 놀이 <strong>맞고</strong>를
+          안드로이드 태블릿 위에서. 친근한 로봇 친구들, 다양한 AI 상대,
+          그리고 친구와의 실시간 멀티플레이까지.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#features">기능 살펴보기 →</a>
+          <a class="btn btn-ghost" href="#gallery">화면 미리보기</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-screenshot">
+          <img src="assets/맞고_타이틀.jpg" alt="로보맞고 타이틀 화면" />
+          <div class="badge"><span class="dot"></span> 지금 한 판 시작!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — 게임에 들어간 기능
+       ============================================================ -->
+  <section class="warm features reveal" id="features">
+    <div class="container">
+      <span class="section-eyebrow">FEATURES · 게임에 담은 것</span>
+      <h2 class="section-title">이런 기능들이 들어가 있어요</h2>
+      <p class="section-sub">
+        혼자서, 친구와, 그리고 로봇과 함께 즐기는 다양한 방식.
+        시니어부터 자녀까지 누구나 편안하게 즐길 수 있도록 구성했어요.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🤖</div>
+          <h3>4명의 AI 친구</h3>
+          <p>도리·보미·실벗·케미, 각자 성격과 실력이 다른 로봇 친구들과 한 판.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">👥</div>
+          <h3>실시간 멀티플레이</h3>
+          <p>친구·가족과 떨어져 있어도 인터넷 한 판. 매칭이 늦으면 AI가 자연스럽게 합류.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🎭</div>
+          <h3>로봇 인터랙션</h3>
+          <p>화면 너머 실제 로봇이 게임 상황에 맞춰 표정과 반응으로 함께해요.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🏆</div>
+          <h3>랭킹과 프로필</h3>
+          <p>케미 계정과 연동되는 리더보드, 점수와 함께 성장하는 닉네임·프로필 타이틀.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📱</div>
+          <h3>태블릿 최적화 UI</h3>
+          <p>큰 카드, 큼직한 버튼, 시니어도 편하게 — 손가락 터치 친화 디자인.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">💎</div>
+          <h3>완전한 맞고 룰</h3>
+          <p>광·고도리·청단/홍단/초단·고/스톱·박·흔들기·폭탄·쪽 — 전통 룰 그대로.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY — 게임 진행 화면 + 영상
+       ============================================================ -->
+  <section class="warm gallery reveal" id="gallery">
+    <div class="container">
+      <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
+      <h2 class="section-title">이렇게 진행됩니다</h2>
+      <p class="section-sub">
+        짧은 플레이 영상과 주요 화면들로 한눈에. 영상은 잠깐(약 30초)이면 한 판이 어떻게 흐르는지 감이 와요.
+      </p>
+
+      <!-- 게임 영상 — 그외기능.mp4 (가장 정리된 종합 영상) -->
+      <div class="gallery-main">
+        <video controls preload="metadata" poster="assets/맞고_로비.jpg">
+          <source src="assets/그외기능.mp4" type="video/mp4">
+          영상 재생을 지원하지 않는 브라우저입니다.
+        </video>
+      </div>
+
+      <!-- 스크린샷 그리드 — 실제 게임 화면 6장 -->
+      <div class="gallery-grid">
+        <figure class="shot">
+          <img src="assets/맞고_로비.jpg" alt="로비 화면" />
+          <figcaption>로비 · 메인 메뉴</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/맞고_매칭대기.jpg" alt="매칭 대기 화면" />
+          <figcaption>매칭 대기</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/맞고_선결정.jpg" alt="선 결정 화면" />
+          <figcaption>선 결정</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/맞고_게임.jpg" alt="게임 진행 화면" />
+          <figcaption>게임 진행 1</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/맞고_게임2.jpg" alt="게임 진행 화면" />
+          <figcaption>게임 진행 2</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/맞고_게임결과.jpg" alt="결과 화면" />
+          <figcaption>결과 · 점수 정산</figcaption>
+        </figure>
+      </div>
+
+      <!-- 멀티플레이 두 시점 영상 -->
+      <div class="multi-view">
+        <h3 class="multi-view-title">같은 한 판, 두 시점에서</h3>
+        <p class="multi-view-sub">멀티플레이의 양쪽 플레이어 화면을 비교해 보세요.</p>
+        <div class="multi-view-grid">
+          <div class="multi-video">
+            <video controls preload="none" poster="assets/맞고_게임.jpg">
+              <source src="assets/게임_플레이어1.mp4" type="video/mp4">
+            </video>
+            <span class="multi-label">플레이어 1 시점</span>
+          </div>
+          <div class="multi-video">
+            <video controls preload="none" poster="assets/맞고_게임2.jpg">
+              <source src="assets/게임_플레이어2.mp4" type="video/mp4">
+            </video>
+            <span class="multi-label">플레이어 2 시점</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       KEMI INTEGRATION — 케미 프렌즈 앱 연동
+       ============================================================ -->
+  <section class="warm kemi reveal" id="kemi">
+    <div class="container">
+      <span class="section-eyebrow">KEMI FRIENDS · 앱 연동</span>
+      <h2 class="section-title">케미 프렌즈 앱 유저라면 더 많이</h2>
+      <p class="section-sub">
+        케미 프렌즈 계정으로 로그인하면 기기를 옮겨도 기록이 따라오고,
+        매일 접속할수록 작은 보상도 쌓여요.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat-card kemi-card">
+          <div class="kemi-preview"><img src="assets/맞고_본인기록.jpg" alt="본인 기록 화면" /></div>
+          <div class="feat-icon">☁️</div>
+          <h3>데이터 동기화</h3>
+          <p>점수, 재화, 프로필 정보가 케미 계정에 안전하게 저장돼요. 기기를 바꿔도 그대로!</p>
+        </div>
+        <div class="feat-card kemi-card">
+          <div class="kemi-preview"><img src="assets/맞고_프로필.jpg" alt="사용자 프로필 화면" /></div>
+          <div class="feat-icon">🎖️</div>
+          <h3>사용자 프로필</h3>
+          <p>나만의 닉네임과 타이틀, 플레이 기록으로 성장하는 게이머 프로필.</p>
+        </div>
+        <div class="feat-card kemi-card">
+          <div class="kemi-preview"><img src="assets/맞고_출석체크.jpg" alt="출석체크 화면" /></div>
+          <div class="feat-icon">📅</div>
+          <h3>출석체크</h3>
+          <p>매일 한 번씩 들러서 출석. 꾸준히 모일수록 더 풍성해지는 보상.</p>
+        </div>
+        <div class="feat-card kemi-card">
+          <div class="kemi-preview"><img src="assets/맞고_랭킹.jpg" alt="랭킹 보드 화면" /></div>
+          <div class="feat-icon">🏆</div>
+          <h3>랭킹 보드</h3>
+          <p>케미 친구들과 함께 경쟁하는 실시간 리더보드. 오늘 내 자리는?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHORT STORY — 게임 한 줄 소개
+       ============================================================ -->
+  <section class="warm story reveal">
+    <div class="story-inner">
+      <p>
+        화투 48장. 내 손의 카드와 바닥의 카드를 짝짓고,
+        7점이 모이면 <strong>"고(go)"</strong>로 더 욕심내거나
+        <strong>"스톱(stop)"</strong>으로 한 판을 닫는 — 운과 전략이 절묘하게 섞인,
+        가장 한국적인 두뇌 놀이.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       DIVIDER — perspective shift
+       ════════════════════════════════════════════════════════════ -->
+  <section class="divider reveal" id="technical">
+    <div class="badge">PERSPECTIVE · TECHNICAL DEEP-DIVE</div>
+    <h2>이제 <span class="gradient">기술 관점</span>에서 살펴봅니다</h2>
+    <p>여기서부터는 개발자 관점의 아키텍처, 기술 스택, 그리고 제가 직접 작업한 영역을 소개합니다.</p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 2 — TECHNICAL (dark theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       METRICS
+       ============================================================ -->
+  <section class="dark metrics-bar reveal">
+    <div class="hero-metrics">
+      <div class="metric"><div class="val">176</div><div class="label">C# Scripts</div></div>
+      <div class="metric"><div class="val">61K+</div><div class="label">Lines of Code</div></div>
+      <div class="metric"><div class="val">5</div><div class="label">Layer Stack</div></div>
+      <div class="metric"><div class="val">60+</div><div class="label">Protocol Messages</div></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STACK
+       ============================================================ -->
+  <section class="dark stack reveal">
+    <div class="container">
+      <span class="section-eyebrow">// tech_stack</span>
+      <h2 class="section-title">Built with a focused, production stack</h2>
+      <p class="section-sub">
+        Unity 6 위에 서버-권위 게임 로직, 분산 권한 멀티플레이, 비동기 RPC, HTTP/MQTT 브리지.
+        외부 의존성은 명확한 책임을 가진 것만 선택했습니다.
+      </p>
+
+      <div class="stack-grid">
+        <div class="stack-badge"><div class="icon">U6</div><div><div class="name">Unity 6000.0.58</div><div class="role">Engine</div></div></div>
+        <div class="stack-badge"><div class="icon">C#</div><div><div class="name">.NET / C#</div><div class="role">Language</div></div></div>
+        <div class="stack-badge"><div class="icon">DA</div><div><div class="name">UGS Multiplayer</div><div class="role">Distributed Authority</div></div></div>
+        <div class="stack-badge"><div class="icon">FN</div><div><div class="name">FreeNet</div><div class="role">Packet Framework</div></div></div>
+        <div class="stack-badge"><div class="icon">UT</div><div><div class="name">UniTask</div><div class="role">Async / Await</div></div></div>
+        <div class="stack-badge"><div class="icon">DT</div><div><div class="name">DOTween</div><div class="role">Animation</div></div></div>
+        <div class="stack-badge"><div class="icon">TM</div><div><div class="name">TextMeshPro</div><div class="role">UI Text</div></div></div>
+        <div class="stack-badge"><div class="icon">JN</div><div><div class="name">Newtonsoft.Json</div><div class="role">Serialization</div></div></div>
+        <div class="stack-badge"><div class="icon">HT</div><div><div class="name">Best HTTP</div><div class="role">REST Client</div></div></div>
+        <div class="stack-badge"><div class="icon">MQ</div><div><div class="name">MQTT Bridge</div><div class="role">Robot Comm</div></div></div>
+        <div class="stack-badge"><div class="icon">SO</div><div><div class="name">ScriptableObject</div><div class="role">AI Tuning</div></div></div>
+        <div class="stack-badge"><div class="icon">AI</div><div><div class="name">MCTS + Heuristic</div><div class="role">Game AI</div></div></div>
+        <div class="stack-badge"><div class="icon">CS</div><div><div class="name">UGS Cloud Save</div><div class="role">Data Sync</div></div></div>
+        <div class="stack-badge"><div class="icon">CC</div><div><div class="name">UGS Cloud Code</div><div class="role">Server Validation</div></div></div>
+        <div class="stack-badge"><div class="icon">LB</div><div><div class="name">UGS Leaderboard</div><div class="role">Ranking</div></div></div>
+        <div class="stack-badge"><div class="icon">RC</div><div><div class="name">Remote Config</div><div class="role">Live Ops</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHITECTURE
+       ============================================================ -->
+  <section class="dark arch reveal">
+    <div class="container">
+      <span class="section-eyebrow">// architecture</span>
+      <h2 class="section-title">5-layer separation, top-down dependency</h2>
+      <p class="section-sub">
+        UI는 입력과 렌더링만, Engine은 순수 게임 규칙만. 그 사이를 Protocol 패킷이 일관되게 가로지릅니다.
+        싱글플레이와 멀티플레이가 동일한 코드 경로를 공유합니다.
+      </p>
+
+      <div class="arch-grid">
+        <div class="arch-layers">
+          <div class="layer">
+            <div class="layer-num">LAYER 01 · Top</div>
+            <h4>UI Layer</h4>
+            <div class="layer-path">Scripts/ui · Scripts/client</div>
+            <p>비주얼 렌더링, 입력 처리, DOTween 애니메이션.</p>
+          </div>
+          <div class="layer">
+            <div class="layer-num">LAYER 02</div>
+            <h4>Network Layer</h4>
+            <div class="layer-path">Scripts/network</div>
+            <p>Protocol 라우팅, CPacket 바이너리 직렬화, RPC 브리징.</p>
+          </div>
+          <div class="layer">
+            <div class="layer-num">LAYER 03</div>
+            <h4>Room Layer</h4>
+            <div class="layer-path">Scripts/CGameRoom.cs</div>
+            <p>서버측 오케스트레이션, 턴 소유권 검증, 프로토콜 디스패치.</p>
+          </div>
+          <div class="layer">
+            <div class="layer-num">LAYER 04</div>
+            <h4>Engine Layer</h4>
+            <div class="layer-path">Scripts/engine</div>
+            <p>순수 게임 규칙. 카드 분배, 점수 계산(stateless). Unity 의존성 0.</p>
+          </div>
+          <div class="layer">
+            <div class="layer-num">LAYER 05 · Bottom</div>
+            <h4>AI Layer</h4>
+            <div class="layer-path">Scripts/ai</div>
+            <p>Evaluation + MCTS. ScriptableObject 기반 가중치 튜닝.</p>
+          </div>
+        </div>
+
+        <div class="arch-flow">
+          <h4>// communication flow</h4>
+<pre><span class="cm">// 싱글플레이 — 동일 프로세스 로컬 서버</span>
+Human Input
+  <span class="ar">→</span> CPlayRoomUI
+  <span class="ar">→</span> CNetworkManager
+  <span class="ar">→</span> CLocalServer
+  <span class="ar">→</span> CGameRoom
+  <span class="ar">→</span> CGostopEngine
+        <span class="ar">↓</span>
+  <span class="ar">←</span> Broadcast result
+  <span class="ar">←</span> CAIPlayer
+
+<span class="cm">// 멀티플레이 — UGS Distributed Authority</span>
+<span class="kw">[Host]</span>      Input
+  <span class="ar">→</span> CPlayRoomUI
+  <span class="ar">→</span> MultiplayerBridge <span class="st">(RPC)</span>
+  <span class="ar">→</span> CLocalServer
+  <span class="ar">→</span> CGameRoom
+
+<span class="kw">[Client]</span>    Input
+  <span class="ar">→</span> CPlayRoomUI
+  <span class="ar">→</span> MultiplayerBridge <span class="st">(RPC)</span>
+        <span class="ar">⇅</span> RPC
+  <span class="kw">[Host]</span> MultiplayerBridge</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MY CONTRIBUTIONS — 강조 섹션
+       ============================================================ -->
+  <section class="dark mine reveal" id="mine">
+    <div class="container">
+      <div class="mine-banner">MY CONTRIBUTIONS · 내가 작업한 영역</div>
+      <h2 class="section-title">직접 설계 · 구현한 4가지 핵심 영역</h2>
+      <p class="section-sub">
+        UGS 멀티플레이 안정화부터 로그인 플랫폼 통합, 세션-재화 동기화까지.
+        프로덕션 환경에서 마주친 실제 문제들을 해결하며 게임의 안정성을 끌어올린 작업들입니다.
+      </p>
+
+      <div class="mine-grid">
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 01 · MULTIPLAYER STABILITY</div>
+          <h3>UGS 멀티플레이 안정화</h3>
+          <p class="desc">
+            Distributed Authority 세션 기반 1:1 매칭에서 발생하는 호스트 마이그레이션,
+            연결 끊김, 세션 검증 등 엣지 케이스를 안정화.
+          </p>
+          <ul>
+            <li>호스트 마이그레이션 시 disconnect 상태 전이 및 승자 판정 안정화</li>
+            <li><code>UpdatePeerHeartbeat</code> 도입으로 무응답 클라이언트 조기 감지</li>
+            <li>들어올 때 세션 검증 → 실패 시 AI 매칭으로 자연 폴백</li>
+            <li>disconnect 송신 위치 일원화 (호스트/비호스트 양쪽 모두)</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 02 · LOGIN PLATFORM</div>
+          <h3>로그인 / 플랫폼 통합</h3>
+          <p class="desc">
+            케미·하이보미·게스트 등 다중 플랫폼 로그인 흐름을 통합하고,
+            플랫폼별 닉네임·랭킹·재화 정책의 일관성을 확보.
+          </p>
+          <ul>
+            <li><code>LoginTokenReader</code> 패키지 오류 및 errorCode 매핑 정비</li>
+            <li>케미 로그인 시 닉네임 표기 일원화 (사용자 입력 우선)</li>
+            <li>게스트 모드 닉네임 고정 + 랜덤 닉네임 폴백 로직</li>
+            <li>랭킹보드 권한 분리 — 케미 사용자만 노출</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 03 · SESSION &amp; ECONOMY</div>
+          <h3>세션-재화-게임 흐름 통합</h3>
+          <p class="desc">
+            방 입장부터 게임 시작까지의 검증 시퀀스를 재설계하여,
+            재화 동기화 누락과 비정상 시작을 차단.
+          </p>
+          <ul>
+            <li>Spawn 대기 → 프로필 교환 → 서버 재화 검증 → 게임 시작 파이프라인</li>
+            <li>충전 이후 방 상태 갱신 동기화</li>
+            <li>게임 종료 후 재화 미반영 및 프로필 시점 불일치 이슈 해결</li>
+            <li>첫 뻑 보너스 재화 동기화 개선</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 04 · RESOURCE &amp; UI INTEGRATION</div>
+          <h3>2차 리소스 통합 + UI 이슈 정비</h3>
+          <p class="desc">
+            디자인팀에서 전달된 2차 제작 리소스를 게임 전반에 통합하고,
+            그에 맞춰 발생한 UI 정합성 이슈를 수정.
+          </p>
+          <ul>
+            <li>2차 제작 리소스 적용 및 설정 변경</li>
+            <li>프로필 타이틀 · 프로필 0로보 설정 등 메타 데이터 정비</li>
+            <li><code>FailErrorCodeText</code> 등 시니어 UX 친화 문구 다듬기</li>
+            <li>매칭 시간 조정 등 UX 파라미터 튜닝</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 05 · UGS CLOUD SERVICES</div>
+          <h3>UGS Cloud 서비스 통합</h3>
+          <p class="desc">
+            Unity Gaming Services 의 4개 모듈을 게임 전반에 통합하여
+            크로스-디바이스 데이터 동기화, 서버측 검증, 라이브 운영 채널을 구축.
+          </p>
+          <ul>
+            <li><code>UGS Cloud Save</code> — 점수·재화·프로필 크로스-디바이스 동기화</li>
+            <li><code>Cloud Code</code> — 재화 증감/출석 체크 서버측 검증 (클라이언트 변조 차단)</li>
+            <li><code>UGS LeaderBoard</code> — 케미 사용자 전용 실시간 랭킹 보드</li>
+            <li><code>Remote Config</code> — 인앱 업데이트 + 게임 수치 라이브 조정 (재배포 불필요)</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CODE SHOWCASE
+       ============================================================ -->
+  <section class="dark codeshow reveal" id="code">
+    <div class="container">
+      <span class="section-eyebrow">// code_excerpts</span>
+      <h2 class="section-title">Real code from the repository</h2>
+      <p class="section-sub">
+        본 작업 영역에서 다듬은 실제 코드 — 싱글톤 안전 초기화, 프로토콜 정의, 멀티플레이 RPC 추상화.
+      </p>
+
+      <div class="code-tabs">
+        <div class="code-tab active" data-tab="0">CUIManager.cs</div>
+        <div class="code-tab" data-tab="1">protocol.cs</div>
+        <div class="code-tab" data-tab="2">MultiplayerBridge.cs</div>
+      </div>
+
+      <div class="code-pane active">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">Assets/Scripts/ui/CUIManager.cs</span>
+            <span class="lang">C#</span>
+          </div>
+<pre class="code"><span class="cm">// 싱글톤 Awake 순서 의존성 제거 — 외부 진입점에서 lazy init 보장</span>
+<span class="kw">public class</span> <span class="ty">CUIManager</span> : <span class="ty">CSingletonMonobehaviour</span>&lt;<span class="ty">CUIManager</span>&gt;
+{
+    <span class="kw">readonly</span> <span class="ty">Dictionary</span>&lt;<span class="ty">UI_PAGE</span>, <span class="ty">GameObject</span>&gt; ui_objects = <span class="kw">new</span>();
+    <span class="kw">bool</span> initialized;
+
+    <span class="kw">private void</span> <span class="fn">Awake</span>() =&gt; <span class="fn">EnsureInitialized</span>();
+
+    <span class="kw">void</span> <span class="fn">EnsureInitialized</span>()
+    {
+        <span class="kw">if</span> (<span class="kw">this</span>.initialized) <span class="kw">return</span>;
+        <span class="kw">this</span>.initialized = <span class="kw">true</span>;
+
+        <span class="fn">TryRegister</span>(<span class="ty">UI_PAGE</span>.MAIN_MENU,    <span class="st">"main_menu"</span>);
+        <span class="fn">TryRegister</span>(<span class="ty">UI_PAGE</span>.POPUP_GO_STOP, <span class="st">"popup_gostop"</span>);
+        <span class="cm">// ... 30개의 UI 페이지를 단일 진입점에서 등록</span>
+    }
+
+    <span class="kw">public</span> <span class="ty">GameObject</span> <span class="fn">get_uipage</span>(<span class="ty">UI_PAGE</span> page)
+    {
+        <span class="fn">EnsureRegistered</span>(page);  <span class="cm">// 호출 순서 무관 — Awake보다 먼저 와도 안전</span>
+        <span class="kw">return</span> ui_objects.<span class="fn">TryGetValue</span>(page, <span class="kw">out var</span> obj) ? obj : <span class="kw">null</span>;
+    }
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">Assets/Scripts/network/protocol.cs</span>
+            <span class="lang">C#</span>
+          </div>
+<pre class="code"><span class="cm">// 모든 패킷은 단 하나의 enum으로 식별 — 요청/응답 페어 명명 컨벤션</span>
+<span class="kw">public enum</span> <span class="ty">PROTOCOL</span> : <span class="kw">short</span>
+{
+    <span class="fn">LOCAL_SERVER_STARTED</span>   = <span class="nu">1</span>,    <span class="cm">// S → C</span>
+
+    <span class="fn">SELECT_CARD_REQ</span>        = <span class="nu">13</span>,   <span class="cm">// C → S</span>
+    <span class="fn">SELECT_CARD_ACK</span>        = <span class="nu">14</span>,   <span class="cm">// S → C</span>
+    <span class="fn">FLIP_DECK_CARD_REQ</span>     = <span class="nu">18</span>,   <span class="cm">// C → S</span>
+    <span class="fn">FLIP_DECK_CARD_ACK</span>     = <span class="nu">19</span>,   <span class="cm">// S → C</span>
+    <span class="fn">TURN_RESULT</span>            = <span class="nu">20</span>,   <span class="cm">// S → C</span>
+
+    <span class="fn">ASK_GO_OR_STOP</span>         = <span class="nu">21</span>,   <span class="cm">// S → C</span>
+    <span class="fn">ANSWER_GO_OR_STOP</span>      = <span class="nu">22</span>,   <span class="cm">// C → S</span>
+    <span class="fn">GAME_RESULT</span>            = <span class="nu">28</span>,   <span class="cm">// S → C</span>
+    <span class="cm">// ... 60+ messages total</span>
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">Assets/Scripts/network/MultiplayerBridge.cs</span>
+            <span class="lang">C#</span>
+          </div>
+<pre class="code"><span class="cm">// 호스트/클라이언트 양쪽이 동일한 로컬 서버 인터페이스로 보이도록 추상화</span>
+<span class="kw">public class</span> <span class="ty">MultiplayerBridge</span> : <span class="ty">NetworkBehaviour</span>
+{
+    [<span class="ty">Rpc</span>(<span class="ty">SendTo</span>.Owner)]
+    <span class="kw">public void</span> <span class="fn">SubmitInputRpc</span>(<span class="ty">PROTOCOL</span> protocol, <span class="kw">byte</span>[] payload)
+    {
+        <span class="kw">if</span> (!<span class="ty">IsSessionOwner</span>) <span class="kw">return</span>;
+        <span class="ty">CLocalServer</span>.Instance.<span class="fn">OnReceiveFromRemote</span>(protocol, payload);
+    }
+
+    <span class="cm">// 매칭 실패 시 AI 폴백 — 3초 대기 후 로컬 AI로 자연 전환</span>
+    <span class="kw">async</span> <span class="ty">UniTask</span> <span class="fn">FallbackToAiAfterTimeout</span>()
+    {
+        <span class="kw">await</span> <span class="ty">UniTask</span>.<span class="fn">Delay</span>(<span class="nu">3000</span>);
+        <span class="kw">if</span> (!<span class="ty">IsMatched</span>) <span class="ty">CLocalServer</span>.Instance.<span class="fn">SpawnAiOpponent</span>();
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHALLENGES — 실제 사례
+       ============================================================ -->
+  <section class="dark challenges reveal" id="challenges">
+    <div class="container">
+      <span class="section-eyebrow">// problem_solving</span>
+      <h2 class="section-title">Real problems, shipped solutions</h2>
+      <p class="section-sub">
+        본인 작업 영역에서 실제로 마주친 문제와 해결 과정. git 히스토리에서 발췌한 사례입니다.
+      </p>
+
+      <div class="chall-grid">
+        <div class="chall">
+          <div class="label">Host Migration</div>
+          <div class="problem">매칭 및 호스트 마이그레이션 시 승자 판정이 어긋나 결과 화면이 깨짐</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            마이그레이션 시점에 disconnect 상태 전이를 명확히 분리하고 승자 판정 로직을 안정화. 호스트/비호스트 양쪽이 동일하게 disconnect를 송신하도록 위치 일원화.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Session Validation</div>
+          <div class="problem">방 입장 직후 검증 실패로 비정상 진입 시 재화·매칭이 어긋남</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            입장 시 세션 검증 단계를 도입. 실패하면 재화를 갱신한 뒤 AI 매칭으로 자연 폴백. 시작/종료 위치를 재정렬해 안정화.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Game Start Pipeline</div>
+          <div class="problem">Spawn 직후 게임이 시작되어 재화/프로필 정보가 동기화되지 않음</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            Spawn 대기 → 프로필 교환 → 서버 재화 갱신 → 게임 시작 검증의 4단계 파이프라인을 명확히 분리. 각 단계의 실패는 재시도 또는 폴백으로 분기.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Init Order</div>
+          <div class="problem">CUIManager 싱글톤 Awake 순서 의존으로 NullReferenceException</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            필드 선언 시점 초기화 + lazy init 패턴. 외부 호출 진입점에서 <code>EnsureInitialized</code> 호출로 호출 순서와 무관하게 안전.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="foot-inner">
+      <p>© Go-Stop · Robocare · Unity 6 · 2026</p>
+      <div class="foot-links">
+        <a href="#features">게임 소개</a>
+        <a href="#technical">// technical</a>
+        <a href="#mine">// my work</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Code tabs
+    const tabs = document.querySelectorAll('.code-tab');
+    const panes = document.querySelectorAll('.code-pane');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const i = +t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', +x.dataset.tab === i));
+      panes.forEach((p, idx) => p.classList.toggle('active', idx === i));
+    }));
+  </script>
+</body>
+</html>
