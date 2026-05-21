@@ -12,45 +12,45 @@
 
   <style>
     /* ============================================================
-       Theme tokens — Robocare warm + tech palette
+       Theme tokens — Robocare blue palette
        ============================================================ */
     :root {
-      --bg: #f7f4ee;
-      --bg-soft: #efe8db;
+      --bg: #f3f6fb;
+      --bg-soft: #e3ecf8;
       --paper: #ffffff;
-      --ink: #1f1d1a;
-      --ink-soft: #4a443c;
-      --ink-muted: #8a8175;
-      --line: #e3dccd;
+      --ink: #15243a;
+      --ink-soft: #34476a;
+      --ink-muted: #7888a8;
+      --line: #d3dff1;
 
-      --accent: #ff6a3d;        /* Robocare warm orange */
-      --accent-deep: #c44219;
-      --accent-soft: #ffe1d3;
+      --accent: #2c7be5;        /* Robocare blue (primary) */
+      --accent-deep: #1956b5;
+      --accent-soft: #d4e4fa;
 
-      --blue: #3a7bd5;
-      --blue-soft: #d8e6f7;
-      --teal: #2bb59a;
-      --teal-soft: #d3f1ea;
+      --blue: #5fb8e6;          /* secondary lighter blue */
+      --blue-soft: #d0ecf8;
+      --teal: #14b8a6;
+      --teal-soft: #ccede9;
       --purple: #8867cf;
       --purple-soft: #e4dcf7;
       --amber: #e0a93b;
       --amber-soft: #faedc9;
       --pink: #e8568a;
       --pink-soft: #fbdce6;
-      --green: #5fa56b;
-      --green-soft: #d9ecdc;
+      --green: #2dba6b;
+      --green-soft: #d2efde;
 
-      --shadow: 0 10px 32px rgba(60, 40, 25, 0.10);
-      --shadow-strong: 0 22px 50px rgba(60, 40, 25, 0.18);
+      --shadow: 0 10px 32px rgba(20, 50, 120, 0.10);
+      --shadow-strong: 0 22px 50px rgba(20, 50, 120, 0.18);
 
       /* Dark tone — for closing / tech overview */
-      --d-bg: #131419;
-      --d-bg-2: #1c1e26;
-      --d-line: #2a2c36;
-      --d-text: #ebebec;
-      --d-text-dim: #a1a2a8;
-      --d-text-muted: #6e7079;
-      --d-accent: #ff8b5a;
+      --d-bg: #0d1422;
+      --d-bg-2: #131c2e;
+      --d-line: #243047;
+      --d-text: #e8eef8;
+      --d-text-dim: #9aaac4;
+      --d-text-muted: #6b7894;
+      --d-accent: #5fb8e6;
     }
 
     * { box-sizing: border-box; }
@@ -75,7 +75,7 @@
     .section-eyebrow {
       display: inline-block;
       padding: 6px 14px;
-      background: rgba(255, 106, 61, 0.12);
+      background: rgba(44, 123, 229, 0.12);
       color: var(--accent-deep);
       border-radius: 999px;
       font-size: 13px; font-weight: 700;
@@ -98,7 +98,7 @@
        ============================================================ */
     header.nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(247, 244, 238, 0.92);
+      background: rgba(243, 246, 251, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -115,7 +115,7 @@
     .brand .logo-icon {
       width: 38px; height: 38px;
       border-radius: 11px;
-      background: linear-gradient(135deg, var(--accent), var(--amber));
+      background: linear-gradient(135deg, var(--accent), var(--blue));
       display: flex; align-items: center; justify-content: center;
       color: white; font-weight: 800;
       box-shadow: var(--shadow);
@@ -135,8 +135,8 @@
     .hero {
       padding: 100px 28px 110px;
       background:
-        radial-gradient(ellipse at top left, rgba(255, 106, 61, 0.16), transparent 60%),
-        radial-gradient(ellipse at bottom right, rgba(58, 123, 213, 0.14), transparent 60%),
+        radial-gradient(ellipse at top left, rgba(44, 123, 229, 0.16), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(95, 188, 245, 0.14), transparent 60%),
         var(--bg);
       overflow: hidden;
     }
@@ -147,7 +147,7 @@
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 14px;
-      background: rgba(255, 106, 61, 0.12);
+      background: rgba(44, 123, 229, 0.12);
       color: var(--accent-deep);
       border-radius: 999px;
       font-size: 13px; font-weight: 700;
@@ -177,9 +177,9 @@
     }
     .btn-primary {
       background: var(--accent); color: white;
-      box-shadow: 0 8px 20px rgba(255, 106, 61, 0.32);
+      box-shadow: 0 8px 20px rgba(44, 123, 229, 0.32);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255, 106, 61, 0.45); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(44, 123, 229, 0.45); }
     .btn-ghost {
       background: transparent; color: var(--accent-deep);
       border: 2px solid var(--accent);
@@ -235,12 +235,12 @@
       animation: pulse 1.8s infinite;
     }
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 4px rgba(255, 106, 61, 0.28); }
-      50% { box-shadow: 0 0 0 10px rgba(255, 106, 61, 0); }
+      0%, 100% { box-shadow: 0 0 0 4px rgba(44, 123, 229, 0.28); }
+      50% { box-shadow: 0 0 0 10px rgba(44, 123, 229, 0); }
     }
 
     /* ============================================================
-       Kemi intro (warm section)
+       Kemi intro
        ============================================================ */
     .kemi-intro {
       background: linear-gradient(180deg, var(--bg) 0%, var(--paper) 100%);
@@ -330,7 +330,7 @@
       padding: 8px 16px;
       border-radius: 999px;
       background: var(--accent-soft);
-      border: 1px solid rgba(255, 106, 61, 0.3);
+      border: 1px solid rgba(44, 123, 229, 0.3);
       transition: background .15s, transform .15s;
     }
     .project-head .open-link:hover { background: var(--accent); color: white; transform: translateX(2px); }
@@ -367,7 +367,7 @@
       color: white;
       width: max-content;
     }
-    .role-badge.main { background: var(--accent); box-shadow: 0 4px 10px rgba(255, 106, 61, 0.30); }
+    .role-badge.main { background: var(--accent); box-shadow: 0 4px 10px rgba(44, 123, 229, 0.30); }
     .role-badge.cowork { background: var(--purple); box-shadow: 0 4px 10px rgba(136, 103, 207, 0.30); }
     .role-badge.maint {
       background: var(--bg-soft);
@@ -404,7 +404,7 @@
       border-radius: 22px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      border: 1px solid rgba(255, 106, 61, 0.30);
+      border: 1px solid rgba(44, 123, 229, 0.30);
       border-left: 5px solid var(--accent);
       padding: 36px 38px;
       display: grid;
@@ -496,6 +496,8 @@
     .project-images {
       display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
     }
+    .project-images.single { grid-template-columns: 1fr; }
+    .project-images.single .img-slot { aspect-ratio: 16 / 11; }
     .project-images .img-slot {
       aspect-ratio: 4 / 5;
       background: linear-gradient(135deg, var(--bg-soft), var(--accent-soft));
@@ -543,8 +545,8 @@
       gap: 18px; flex-wrap: wrap;
       padding: 18px 24px;
       margin-top: 6px;
-      background: linear-gradient(135deg, rgba(255, 106, 61, 0.10), rgba(255, 106, 61, 0.03));
-      border: 1px solid rgba(255, 106, 61, 0.22);
+      background: linear-gradient(135deg, rgba(44, 123, 229, 0.10), rgba(44, 123, 229, 0.03));
+      border: 1px solid rgba(44, 123, 229, 0.22);
       border-radius: 14px;
       font-size: 14px;
       color: var(--ink-soft);
@@ -765,14 +767,9 @@
               <span>Unity</span><span>버그 수정</span><span>UX 개선</span>
             </div>
           </div>
-          <div class="project-images">
+          <div class="project-images single">
             <div class="img-slot">
-              <!-- 📸 assets/cognitive_1.jpg (4:5 권장) -->
-              <div><strong>대표 화면 ①</strong>assets/cognitive_1.jpg</div>
-            </div>
-            <div class="img-slot">
-              <!-- 📸 assets/cognitive_2.jpg -->
-              <div><strong>대표 화면 ②</strong>assets/cognitive_2.jpg</div>
+              <img src="assets/인지.jpg" alt="인지게임 대표 화면" />
             </div>
           </div>
         </div>
@@ -809,9 +806,10 @@
               <span>Unity</span><span>AI Engine</span><span>버그 수정</span>
             </div>
           </div>
-          <div class="project-images">
-            <div class="img-slot"><div><strong>대표 화면 ①</strong>assets/omok_1.jpg</div></div>
-            <div class="img-slot"><div><strong>대표 화면 ②</strong>assets/omok_2.jpg</div></div>
+          <div class="project-images single">
+            <div class="img-slot">
+              <img src="assets/오목.jpg" alt="오목게임 봄파고 대표 화면" />
+            </div>
           </div>
         </div>
       </article>
@@ -847,9 +845,10 @@
               <span>Unity</span><span>MediaPipe Hand</span><span>카메라 입력</span><span>버그 수정</span>
             </div>
           </div>
-          <div class="project-images">
-            <div class="img-slot"><div><strong>대표 화면 ①</strong>assets/rhythm_1.jpg</div></div>
-            <div class="img-slot"><div><strong>대표 화면 ②</strong>assets/rhythm_2.jpg</div></div>
+          <div class="project-images single">
+            <div class="img-slot">
+              <img src="assets/리듬.png" alt="리듬게임 손가락 댄스 대표 화면" />
+            </div>
           </div>
         </div>
       </article>
@@ -885,9 +884,10 @@
               <span>Unity 물리엔진</span><span>Haptic</span><span>버그 수정</span>
             </div>
           </div>
-          <div class="project-images">
-            <div class="img-slot"><div><strong>대표 화면 ①</strong>assets/pinball_1.jpg</div></div>
-            <div class="img-slot"><div><strong>대표 화면 ②</strong>assets/pinball_2.jpg</div></div>
+          <div class="project-images single">
+            <div class="img-slot">
+              <img src="assets/핀볼.jpg" alt="봄핀볼 대표 화면" />
+            </div>
           </div>
         </div>
       </article>
@@ -928,9 +928,10 @@
               <a href="../gostop/index.html">로보맞고 자세히 보기</a>
             </div>
           </div>
-          <div class="project-images">
-            <div class="img-slot"><div><strong>대표 화면 ①</strong>assets/matgo_1.jpg</div></div>
-            <div class="img-slot"><div><strong>대표 화면 ②</strong>assets/matgo_2.jpg</div></div>
+          <div class="project-images single">
+            <div class="img-slot">
+              <img src="assets/맞고_게임.jpg" alt="로보맞고 대표 화면" />
+            </div>
           </div>
         </div>
       </article>
@@ -972,8 +973,12 @@
             </div>
           </div>
           <div class="project-images">
-            <div class="img-slot"><div><strong>대표 화면 ①</strong>assets/carebrainfit_1.jpg</div></div>
-            <div class="img-slot"><div><strong>대표 화면 ②</strong>assets/carebrainfit_2.jpg</div></div>
+            <div class="img-slot">
+              <img src="assets/carebrainfit1.png" alt="케어 브레인 핏 체조 모드" />
+            </div>
+            <div class="img-slot">
+              <img src="assets/carebrainfit2.png" alt="케어 브레인 핏 아케이드 모드" />
+            </div>
           </div>
         </div>
       </article>
