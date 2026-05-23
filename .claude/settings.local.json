@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Move-Item -Path \"profile.jpg\" -Destination \"assets\\\\profile.jpg\")",
+      "WebFetch(domain:scholar.google.com)",
+      "WebSearch"
+    ]
+  }
+}
