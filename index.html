@@ -742,6 +742,303 @@
       transform: translateX(0);
     }
     .paper-card .paper-link:hover .search-icon { opacity: 1; }
+    .paper-card.has-detail { cursor: pointer; }
+    .paper-card.has-detail .paper-link { pointer-events: none; }
+
+    /* paper card thumbnail */
+    .paper-card .paper-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-3);
+      border: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .paper-card .paper-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease, filter .25s ease;
+      filter: saturate(0.92) brightness(0.94);
+    }
+    .paper-card:hover .paper-thumb img {
+      transform: scale(1.04);
+      filter: saturate(1.05) brightness(1);
+    }
+    .paper-card .paper-thumb.is-placeholder {
+      background:
+        repeating-linear-gradient(45deg,
+          rgba(255,255,255,0.02) 0 12px,
+          transparent 12px 24px),
+        var(--bg-3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+    .paper-card .paper-thumb .thumb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(15,19,28,0.6));
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       Paper Modal
+       ============================================================ */
+    .paper-modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(5, 7, 14, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+    .paper-modal-backdrop.is-open {
+      display: flex;
+      opacity: 1;
+    }
+    .paper-modal {
+      background: var(--bg-1);
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 820px;
+      max-height: 86vh;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--cyan-glow);
+      transform: translateY(12px) scale(0.985);
+      transition: transform .22s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .paper-modal-backdrop.is-open .paper-modal { transform: none; }
+    .paper-modal-header {
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 12px;
+      background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      position: relative;
+    }
+    .paper-modal-meta {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .paper-modal-meta .paper-tag,
+    .paper-modal-meta .paper-affiliation,
+    .paper-modal-meta .paper-date,
+    .paper-modal-meta .paper-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .paper-modal-meta .paper-tag {
+      color: var(--cyan);
+      border: 1px solid rgba(92, 242, 255, 0.3);
+      background: rgba(92, 242, 255, 0.08);
+    }
+    .paper-modal-meta .paper-affiliation.uni {
+      color: var(--text-muted);
+      background: var(--bg-3);
+      border: 1px solid var(--line);
+    }
+    .paper-modal-meta .paper-date,
+    .paper-modal-meta .paper-num {
+      color: var(--text-dim);
+      background: transparent;
+    }
+    .paper-modal-title {
+      font-size: 19px; font-weight: 700;
+      color: var(--text-bright);
+      margin: 0;
+      line-height: 1.5;
+      padding-right: 40px;
+    }
+    .paper-modal-authors {
+      font-size: 13px; color: var(--text-dim);
+      margin: 0;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .paper-modal-venue {
+      font-size: 12px; color: var(--text-muted);
+      margin: 0;
+      font-style: italic;
+    }
+    .paper-modal-close {
+      position: absolute; top: 16px; right: 18px;
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--bg-2);
+      color: var(--text-dim);
+      cursor: pointer;
+      font-size: 18px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .15s ease;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .paper-modal-close:hover {
+      background: var(--bg-3);
+      color: var(--cyan);
+      border-color: var(--cyan);
+    }
+    .paper-modal-body {
+      padding: 22px 28px 8px;
+      overflow-y: auto;
+      flex: 1;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line-strong) transparent;
+    }
+    .paper-modal-hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg-2);
+      margin-bottom: 22px;
+    }
+    .paper-modal-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .paper-modal-hero.empty { display: none; }
+    .paper-modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 10px 0 22px;
+    }
+    .paper-modal-gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--bg-2);
+    }
+    @media (max-width: 720px) {
+      .paper-modal-gallery { grid-template-columns: 1fr; }
+    }
+    .paper-modal-body::-webkit-scrollbar { width: 8px; }
+    .paper-modal-body::-webkit-scrollbar-thumb {
+      background: var(--line-strong);
+      border-radius: 4px;
+    }
+    .paper-modal-keywords {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .paper-modal-keywords .kw {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: var(--text-dim);
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+    }
+    .paper-modal-section { margin-bottom: 22px; }
+    .paper-modal-section h3 {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px; font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--line);
+    }
+    .paper-modal-section p {
+      font-size: 14px; color: var(--text-dim);
+      margin: 0 0 8px;
+      line-height: 1.75;
+    }
+    .paper-modal-section ul {
+      margin: 0; padding: 0 0 0 18px;
+      color: var(--text-dim); font-size: 14px;
+      line-height: 1.75;
+    }
+    .paper-modal-section ul li {
+      margin-bottom: 6px;
+    }
+    .paper-modal-section ul li strong {
+      color: var(--text-bright);
+    }
+    .paper-modal-section .figure-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 6px;
+      padding-left: 8px;
+      border-left: 2px solid var(--line);
+    }
+    .paper-modal-hardware {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 8px 14px;
+      margin: 8px 0 0;
+    }
+    .paper-modal-hardware li {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      list-style: none;
+      padding: 6px 10px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+    }
+    .paper-modal-footer {
+      padding: 16px 28px 22px;
+      border-top: 1px solid var(--line);
+      display: flex; gap: 10px; flex-wrap: wrap;
+      background: var(--bg-2);
+    }
+    .paper-modal-cta {
+      flex: 1; min-width: 180px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12.5px; font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all .15s ease;
+    }
+    .paper-modal-cta.primary {
+      color: #08111a;
+      background: var(--cyan);
+      border: 1px solid var(--cyan);
+    }
+    .paper-modal-cta.primary:hover {
+      background: var(--cyan-dim);
+      box-shadow: 0 4px 18px var(--cyan-glow);
+    }
+    .paper-modal-cta.ghost {
+      color: var(--text-dim);
+      background: transparent;
+      border: 1px solid var(--line-strong);
+    }
+    .paper-modal-cta.ghost:hover {
+      color: var(--cyan);
+      border-color: var(--cyan);
+    }
+    @media (max-width: 720px) {
+      .paper-modal-backdrop { padding: 12px; }
+      .paper-modal-header { padding: 18px 20px 14px; }
+      .paper-modal-body { padding: 18px 20px 4px; }
+      .paper-modal-footer { padding: 14px 20px 18px; flex-direction: column; }
+      .paper-modal-title { font-size: 17px; padding-right: 36px; }
+      .paper-modal-hardware { grid-template-columns: 1fr; }
+    }
 
     /* ============================================================
        Education
@@ -1059,6 +1356,7 @@
 
       <div class="paper-grid">
         <div class="paper-card" data-cat="GR">
+          <div class="paper-thumb is-placeholder">// no thumbnail</div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · ROBOT</span>
             <span class="paper-affiliation">@ Robocare</span>
@@ -1067,7 +1365,11 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12331363" target="_blank" rel="noopener" class="paper-link">사용자 몰입도 증가를 위한 Photon Network 기반의 실시간 랭킹 시스템이 반영된 그룹형 기반 노인 인지 향상 게임 시스템의 설계 및 구현 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="GV">
+        <div class="paper-card has-detail" data-cat="GV" data-paper-id="wrinkle_sketch_2023">
+          <div class="paper-thumb">
+            <img src="assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_1.jpg" alt="얼굴 주름 스케치 인터페이스" loading="lazy" />
+            <div class="thumb-overlay"></div>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1076,7 +1378,11 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11213506" target="_blank" rel="noopener" class="paper-link">사실적이고 효율적인 얼굴 주름과 근육 수축을 표현하기 위한 스케치 인터페이스 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="IV">
+        <div class="paper-card has-detail" data-cat="IV" data-paper-id="pulley_vr_2023">
+          <div class="paper-thumb">
+            <img src="assets/가상 환경에서 무게 감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 프로젝트_1.png" alt="도르래 방식 VR 인터페이스" loading="lazy" />
+            <div class="thumb-overlay"></div>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">IoT · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1086,6 +1392,10 @@
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11213510" target="_blank" rel="noopener" class="paper-link">가상환경에서 무게감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 <span class="search-icon">🔍</span></a></p>
         </div>
         <div class="paper-card" data-cat="IV">
+          <div class="paper-thumb">
+            <img src="assets/사용자의 걷기, 뛰기, 절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스 프로젝트_1.png" alt="걷기·뛰기·절름발이 VR 인터페이스" loading="lazy" />
+            <div class="thumb-overlay"></div>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">IoT · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1095,6 +1405,10 @@
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11140487" target="_blank" rel="noopener" class="paper-link">사용자의 걷기·뛰기·절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스 <span class="search-icon">🔍</span></a></p>
         </div>
         <div class="paper-card" data-cat="GV">
+          <div class="paper-thumb">
+            <img src="assets/장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 프로젝트 _1.png" alt="장애물 회전 벡터 음향 처리" loading="lazy" />
+            <div class="thumb-overlay"></div>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1104,6 +1418,7 @@
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11037805" target="_blank" rel="noopener" class="paper-link">장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 <span class="search-icon">🔍</span></a></p>
         </div>
         <div class="paper-card" data-cat="GV">
+          <div class="paper-thumb is-placeholder">// no thumbnail</div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1113,6 +1428,10 @@
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10593330" target="_blank" rel="noopener" class="paper-link">가상 환경에서 지형의 형태와 고도를 고려한 인터렉티브한 사운드 합성 <span class="search-icon">🔍</span></a></p>
         </div>
         <div class="paper-card" data-cat="GV">
+          <div class="paper-thumb">
+            <img src="assets/가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 제작 프로젝트_1.png" alt="사운드 반사와 회절" loading="lazy" />
+            <div class="thumb-overlay"></div>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1122,6 +1441,10 @@
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10532174" target="_blank" rel="noopener" class="paper-link">가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 <span class="search-icon">🔍</span></a></p>
         </div>
         <div class="paper-card" data-cat="VI">
+          <div class="paper-thumb">
+            <img src="assets/확장 현실에서 사용자의 팔 근육 연습 및 분석을 위한 립모션 기반 추적 프레임워크 프로젝트_1.png" alt="립모션 팔 근육 추적" loading="lazy" />
+            <div class="thumb-overlay"></div>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">VR · IoT</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1762,6 +2085,275 @@
       <a href="robocare/">robocare/</a>
     </div>
   </footer>
+
+  <!-- =================== PAPER MODAL =================== -->
+  <div class="paper-modal-backdrop" id="paperModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="paperModalTitle">
+    <div class="paper-modal" id="paperModal">
+      <div class="paper-modal-header">
+        <button type="button" class="paper-modal-close" id="paperModalClose" aria-label="Close">×</button>
+        <div class="paper-modal-meta" id="paperModalMeta"></div>
+        <h2 class="paper-modal-title" id="paperModalTitle"></h2>
+        <p class="paper-modal-authors" id="paperModalAuthors"></p>
+        <p class="paper-modal-venue" id="paperModalVenue"></p>
+      </div>
+      <div class="paper-modal-body" id="paperModalBody">
+        <div class="paper-modal-hero" id="paperModalHero"></div>
+        <div id="paperModalContent"></div>
+      </div>
+      <div class="paper-modal-footer" id="paperModalFooter"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const PAPERS = {
+        wrinkle_sketch_2023: {
+          category: 'GAME · VR',
+          categoryClass: 'GV',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2023.01',
+          num: '// paper_02',
+          title: '사실적이고 효율적인 얼굴 주름과 근육 수축을 표현하기 위한 스케치 인터페이스',
+          titleEn: 'Sketch Interface for Realistic and Efficient Expression of Facial Wrinkles and Muscle Contractions',
+          authors: '박소연 · 박성아 · 김종현',
+          venue: '한국컴퓨터정보학회 동계학술대회 논문집 제31권 제1호, pp. 365–368 (2023)',
+          hero: 'assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_1.jpg',
+          gallery: [
+            'assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_2.png'
+          ],
+          keywords: ['주름 (Wrinkle)', '스케치 (Sketch)', 'Normal Map', '근육 수축', 'Unity 3D'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: '태블릿으로 받은 사용자의 간단한 스케치를 분석해, 피부 패턴·나이·부위 특성을 자동 반영한 사실적인 얼굴 주름을 실시간 생성하는 인터페이스를 제안합니다. 3D 스캐너나 전문가 수작업 없이도, 일반 사용자가 노말 맵 위에 라인을 한 번 그으면 노말 벡터 회전 + 가중치 계산을 통해 자연스러운 주름 형태(파임·볼록·뾰족)와 잔주름·그림자까지 자동 생성됩니다.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>스케치 → 노말 맵 변환</strong> — 사용자 라인 주변 노말 벡터를 거리 가중치 기반으로 회전시켜 V자 단면 형성',
+                '<strong>볼록한 주름 형태</strong> — log10(x) 그래프 적용으로 실제 주름의 볼록한 단면 재현',
+                '<strong>양 끝 뾰족화</strong> — 계산 영역 양 끝점과 현재 점의 거리로 (0,0,1) 벡터 가중 → 마름모 단면',
+                '<strong>나이별/부위별 형태 차등</strong> — 9분할 얼굴 영역에서 잔주름(2,4,6,7,9)·볼록 주름(7,9)을 위치별로 자동 적용',
+                '<strong>잔주름 자동 생성</strong> — 짙은 주름 일부를 무작위 복사해 결을 살린 옅은 주름 0~7개 자동 배치',
+                '<strong>그림자 합성 (Skin Texture)</strong> — 피부 짙은 색을 추출해 주름 형태에 맞춰 그림자 강도 조절'
+              ]
+            },
+            {
+              heading: '🛠 인터페이스 구성',
+              type: 'hardware',
+              items: [
+                'Age Slide Bar',
+                'Intensity Slide Bar',
+                'Skin Texture Strength',
+                'Normal Map Sketch Pad',
+                'Tablet 입력 (스타일러스)',
+                'Unity 3D 실시간 적용'
+              ],
+              note: '사용자가 슬라이드 바로 나이·진하기·그림자 강도를 조절한 뒤 스케치하면, 자동 계산을 거쳐 완성된 노말 맵과 skin texture가 Unity 3D 모델에 즉시 적용됩니다.'
+            },
+            {
+              heading: '🧪 결과',
+              type: 'list',
+              items: [
+                '<strong>얼굴 모델 적용</strong> — 원본 → 스케치 드로잉 → 계산 결과 → 3D 모델 반영의 4단계 파이프라인 검증',
+                '<strong>잔주름 + 그림자</strong> — 눈가/입가/이마에 자연스러운 결의 잔주름과 그림자 동시 생성',
+                '<strong>다른 분야 응용</strong> — 얼굴뿐 아니라 사물·옷감·캐릭터 표면 주름까지 활용 가능'
+              ]
+            },
+            {
+              heading: '💡 의의',
+              type: 'paragraph',
+              body: '고가의 3D 스캐너나 전문 디자이너 수작업이 필요했던 사실적 주름 생성을 \"간단한 스케치 + 자동 계산\"으로 일반인에게도 접근 가능하게 만들었습니다. 가상현실 시장의 CG·디지털 휴먼·캐릭터 표면 디테일 분야에 직접 활용할 수 있는 저비용·실시간 인터페이스입니다.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11213506', primary: true },
+            { label: 'PDF 다운로드 →', href: 'assets/사실적이고 효율적인 얼굴 주름과 근육 수축을 표현하기 위한 스케치 인터페이스.pdf', primary: false }
+          ]
+        },
+        pulley_vr_2023: {
+          category: 'IoT · VR',
+          categoryClass: 'IV',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2023.01',
+          num: '// paper_03',
+          title: '가상환경에서 무게감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스',
+          titleEn: 'A Pulley-Type VR Interface that Efficiently Conveys a Sense of Weight to the User in a Virtual Environment',
+          authors: '박성아 · 문예린 · 박소연 · 김종현',
+          venue: '한국컴퓨터정보학회 동계학술대회 논문집 제31권 제1호, pp. 381–384 (2023)',
+          hero: 'assets/가상 환경에서 무게 감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 프로젝트_1.png',
+          gallery: [
+            'assets/가상 환경에서 무게 감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 프로젝트_2.png'
+          ],
+          keywords: ['혼합현실', '몰입', 'HoloLens', 'Arduino', '도르래 방식', 'VR Interface'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: 'Microsoft HoloLens를 이용한 손 위치 추적·모션 인식과 Arduino를 결합해, 가상 물체를 잡았을 때 실제 사용자 손에 무게감을 전달하는 VR 인터페이스를 제안합니다. 기존 HoloLens는 가상 물체와 물리적 상호작용이 없어 몰입을 떨어뜨리는데, 본 연구는 도르래·DC 모터·물병의 중력을 이용해 저비용으로 무게감을 재현하여 혼합현실 몰입을 개선합니다.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>손등 부착형 도르래 인터페이스</strong> — 장갑 위에 Arduino + 모터 + 도르래를 고정',
+                '<strong>중력 활용</strong> — 모터가 실을 감아 물병을 들어올리면 사용자 손에 무게감이 전달',
+                '<strong>3가지 상태 제어</strong> — (a) 초기/지면 안착 → (b) 모터 시계방향: 무게감 ON → (c) 반시계방향: 무게감 OFF',
+                '<strong>HMD/비-HMD 양쪽 지원</strong> — Mixed Reality + 일반 사용자 모두 활용 가능',
+                '<strong>저비용 접근</strong> — 고가의 햅틱 글러브 대비 Arduino 부품만으로 구현'
+              ]
+            },
+            {
+              heading: '🛠 하드웨어 구성',
+              type: 'hardware',
+              items: [
+                'Arduino Nano',
+                'Motor Driver L298N',
+                'DC Motor',
+                '9V Battery',
+                'Breadboard',
+                'USB / Jumper Cable',
+                '장갑 (장치 고정용)',
+                '실 + 물병 (가변 무게)'
+              ],
+              note: '모터 회전 속도는 0~255 단계로 L298N을 통해 제어. 통신 값 0 = 시계방향(감기, 무게 ON), 1 = 반시계방향(풀기, 무게 OFF).'
+            },
+            {
+              heading: '🧪 실험',
+              type: 'list',
+              items: [
+                '<strong>1) 단순 객체 잡기</strong> — 테이블 위의 캔을 HoloLens로 인식해 잡으면 모터가 실을 감아 무게감 ON, 놓으면 풀어져 OFF. Unity 3D ↔ HoloLens는 Hololens Remoting App으로 실시간 연동.',
+                '<strong>2) 낚시 시뮬레이션</strong> — 낚싯대 잡기 → 무작위 입질 시간 후 느낌표 UI → 모터 권취 속도로 점진적 무게 전달 → 낚시 끝나면 실 풀어 무게 해제. 빠른 무게 조절이 어려운 본 시스템의 특성에 맞춰 "긴 시간 무게 유지"가 자연스러운 시나리오로 선정.'
+              ]
+            },
+            {
+              heading: '🔮 한계 및 향후 과제',
+              type: 'paragraph',
+              body: '현재 시스템은 "일정한 무게"만 전달 가능 — 빠른 무게 변화·세밀한 무게 조절은 다음 단계 과제입니다. 향후 가변 무게 제어가 추가되면 재활·VR 스포츠·교육 시뮬레이션 등 더 넓은 영역에 응용 가능할 것으로 기대됩니다.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11213510', primary: true },
+            { label: 'PDF 다운로드 →', href: 'assets/가상환경에서 무게감을 효율적으로 사용자에게 전달하는 도르래 방식으 VR 인터페이스.pdf', primary: false }
+          ]
+        }
+      };
+
+      const backdrop = document.getElementById('paperModalBackdrop');
+      const closeBtn = document.getElementById('paperModalClose');
+      const metaEl = document.getElementById('paperModalMeta');
+      const titleEl = document.getElementById('paperModalTitle');
+      const authorsEl = document.getElementById('paperModalAuthors');
+      const venueEl = document.getElementById('paperModalVenue');
+      const heroEl = document.getElementById('paperModalHero');
+      const contentEl = document.getElementById('paperModalContent');
+      const footerEl = document.getElementById('paperModalFooter');
+
+      function buildMeta(p) {
+        return [
+          '<span class="paper-tag">' + p.category + '</span>',
+          '<span class="paper-affiliation ' + (p.affiliationClass || '') + '">' + p.affiliation + '</span>',
+          '<span class="paper-date">' + p.date + '</span>',
+          '<span class="paper-num">' + p.num + '</span>'
+        ].join('');
+      }
+
+      function buildKeywords(keywords) {
+        if (!keywords || !keywords.length) return '';
+        return '<div class="paper-modal-keywords">' +
+          keywords.map(k => '<span class="kw">' + k + '</span>').join('') +
+          '</div>';
+      }
+
+      function buildSection(s) {
+        let inner = '';
+        if (s.type === 'paragraph') {
+          inner = '<p>' + s.body + '</p>';
+        } else if (s.type === 'list') {
+          inner = '<ul>' + s.items.map(it => '<li>' + it + '</li>').join('') + '</ul>';
+        } else if (s.type === 'hardware') {
+          inner = '<ul class="paper-modal-hardware">' +
+            s.items.map(it => '<li>// ' + it + '</li>').join('') +
+            '</ul>';
+          if (s.note) inner += '<p class="figure-note">' + s.note + '</p>';
+        }
+        return '<div class="paper-modal-section"><h3>' + s.heading + '</h3>' + inner + '</div>';
+      }
+
+      function buildFooter(links) {
+        if (!links || !links.length) return '';
+        return links.map(l => {
+          const cls = l.primary ? 'paper-modal-cta primary' : 'paper-modal-cta ghost';
+          return '<a class="' + cls + '" href="' + l.href + '" target="_blank" rel="noopener">' + l.label + '</a>';
+        }).join('');
+      }
+
+      function buildGallery(images) {
+        if (!images || !images.length) return '';
+        return '<div class="paper-modal-gallery">' +
+          images.map(src => '<img src="' + src + '" loading="lazy" alt="" />').join('') +
+          '</div>';
+      }
+
+      function openPaper(paperId) {
+        const p = PAPERS[paperId];
+        if (!p) return;
+        metaEl.innerHTML = buildMeta(p);
+        titleEl.textContent = p.title;
+        authorsEl.textContent = p.authors;
+        venueEl.textContent = p.venue + (p.titleEn ? ' · ' + p.titleEn : '');
+
+        if (p.hero) {
+          heroEl.classList.remove('empty');
+          heroEl.innerHTML = '<img src="' + p.hero + '" alt="' + p.title + '" />';
+        } else {
+          heroEl.classList.add('empty');
+          heroEl.innerHTML = '';
+        }
+
+        contentEl.innerHTML = buildKeywords(p.keywords) +
+          p.sections.map(buildSection).join('') +
+          buildGallery(p.gallery);
+        footerEl.innerHTML = buildFooter(p.links);
+        backdrop.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+
+        // reset scroll
+        const body = document.getElementById('paperModalBody');
+        if (body) body.scrollTop = 0;
+      }
+
+      function closePaper() {
+        backdrop.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      // Attach to paper cards with data-paper-id
+      document.querySelectorAll('.paper-card.has-detail').forEach(card => {
+        const id = card.getAttribute('data-paper-id');
+        if (!id || !PAPERS[id]) return;
+        card.addEventListener('click', (e) => {
+          // Ignore if user explicitly held ctrl/meta (open external in new tab from link)
+          const link = e.target.closest('.paper-link');
+          if (link && (e.ctrlKey || e.metaKey || e.button === 1)) return;
+          e.preventDefault();
+          openPaper(id);
+        });
+      });
+
+      closeBtn.addEventListener('click', closePaper);
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closePaper();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && backdrop.classList.contains('is-open')) closePaper();
+      });
+    })();
+  </script>
 
 </body>
 </html>
