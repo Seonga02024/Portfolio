@@ -744,6 +744,8 @@
     .paper-card .paper-link:hover .search-icon { opacity: 1; }
     .paper-card.has-detail { cursor: pointer; }
     .paper-card.has-detail .paper-link { pointer-events: none; }
+    .award-list li.has-detail, .activity-list li.has-detail { cursor: pointer; transition: background .15s, transform .15s; }
+    .award-list li.has-detail:hover, .activity-list li.has-detail:hover { background: rgba(110, 231, 255, 0.06); transform: translateX(2px); }
 
     /* paper card thumbnail */
     .paper-card .paper-thumb {
@@ -1355,7 +1357,7 @@
       </p>
 
       <div class="paper-grid">
-        <div class="paper-card" data-cat="GR">
+        <div class="paper-card has-detail" data-cat="GR" data-paper-id="gostop_elderly_2025">
           <div class="paper-thumb is-placeholder">// no thumbnail</div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · ROBOT</span>
@@ -1363,7 +1365,7 @@
             <span class="paper-date">2025.06</span>
             <span class="paper-num">// paper_01</span>
           </div>
-          <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12331363" target="_blank" rel="noopener" class="paper-link">사용자 몰입도 증가를 위한 Photon Network 기반의 실시간 랭킹 시스템이 반영된 그룹형 기반 노인 인지 향상 게임 시스템의 설계 및 구현 <span class="search-icon">🔍</span></a></p>
+          <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12331363" target="_blank" rel="noopener" class="paper-link">사용자 몰입도 증가를 위한 Photon Network 기반의 실시간 랭킹 시스템이 반영된 그룹형 로봇 기반 노인 인지 향상 게임 시스템의 설계 및 구현 <span class="search-icon">🔍</span></a></p>
         </div>
         <div class="paper-card has-detail" data-cat="GV" data-paper-id="wrinkle_sketch_2023">
           <div class="paper-thumb">
@@ -1391,7 +1393,7 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11213510" target="_blank" rel="noopener" class="paper-link">가상환경에서 무게감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="IV">
+        <div class="paper-card has-detail" data-cat="IV" data-paper-id="walk_run_limp_vr_2022">
           <div class="paper-thumb">
             <img src="assets/사용자의 걷기, 뛰기, 절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스 프로젝트_1.png" alt="걷기·뛰기·절름발이 VR 인터페이스" loading="lazy" />
             <div class="thumb-overlay"></div>
@@ -1404,7 +1406,7 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11140487" target="_blank" rel="noopener" class="paper-link">사용자의 걷기·뛰기·절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="GV">
+        <div class="paper-card has-detail" data-cat="GV" data-paper-id="rotation_sound_vr_2022">
           <div class="paper-thumb">
             <img src="assets/장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 프로젝트 _1.png" alt="장애물 회전 벡터 음향 처리" loading="lazy" />
             <div class="thumb-overlay"></div>
@@ -1427,7 +1429,7 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10593330" target="_blank" rel="noopener" class="paper-link">가상 환경에서 지형의 형태와 고도를 고려한 인터렉티브한 사운드 합성 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="GV">
+        <div class="paper-card has-detail" data-cat="GV" data-paper-id="sound_reflection_2021">
           <div class="paper-thumb">
             <img src="assets/가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 제작 프로젝트_1.png" alt="사운드 반사와 회절" loading="lazy" />
             <div class="thumb-overlay"></div>
@@ -1440,7 +1442,7 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10532174" target="_blank" rel="noopener" class="paper-link">가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="VI">
+        <div class="paper-card has-detail" data-cat="VI" data-paper-id="leapmotion_arm_2020">
           <div class="paper-thumb">
             <img src="assets/확장 현실에서 사용자의 팔 근육 연습 및 분석을 위한 립모션 기반 추적 프레임워크 프로젝트_1.png" alt="립모션 팔 근육 추적" loading="lazy" />
             <div class="thumb-overlay"></div>
@@ -1470,84 +1472,84 @@
         <div class="awards-col">
           <h3>🏆 수상 경력 <span class="count">// 12 awards</span></h3>
           <ul class="award-list">
-            <li class="grand">
+            <li class="grand has-detail" data-paper-id="award_2021_minister">
               <div>
                 <div class="name">제2회 대한민국 신직업·미래직업 아이디어 공모전</div>
                 <div class="sub">고용노동부 · 2021.11.10</div>
               </div>
               <span class="prize">고용노동부장관상</span>
             </li>
-            <li class="grand">
+            <li class="grand has-detail" data-paper-id="award_2022_social_venture">
               <div>
                 <div class="name">2022학년도 소셜벤처 아이디어 경진대회</div>
                 <div class="sub">강남대학교 · 2022.09.28</div>
               </div>
               <span class="prize">대상</span>
             </li>
-            <li class="grand">
+            <li class="grand has-detail" data-paper-id="award_2020_startup_idea">
               <div>
                 <div class="name">2020학년도 창업아이디어경진대회</div>
                 <div class="sub">강남대학교 · 2020.06.17</div>
               </div>
               <span class="prize">대상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2022_smart_iabcd">
               <div>
                 <div class="name">SMART I_ABCD 기반 복지서비스 모델 제안 컴페티션</div>
                 <div class="sub">강남대학교 공과대학 · 2022.12.06</div>
               </div>
               <span class="prize">최우수상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2019_startup">
               <div>
                 <div class="name">2019학년도 창업아이디어 경진대회</div>
                 <div class="sub">강남대학교 · 2019.06.28</div>
               </div>
               <span class="prize">최우수상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2018_ict_welfare">
               <div>
                 <div class="name">ICT 건설융합 복지서비스 컴페티션</div>
                 <div class="sub">강남대학교 · 2018.11.26</div>
               </div>
               <span class="prize">최우수상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2022_yongin">
               <div>
                 <div class="name">제8회 용인시 대학연합 창업아이디어 경진대회</div>
                 <div class="sub">한국창업보육협회 · 2022.11.04</div>
               </div>
               <span class="prize">혁신상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2021_youth_leader">
               <div>
                 <div class="name">2021년 국제청소년리더 교류지원사업</div>
                 <div class="sub">강남대학교 · 2021.10.28</div>
               </div>
               <span class="prize">우수상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2020_yongin">
               <div>
                 <div class="name">제6회 용인시 대학연합 창업 아이디어 경진대회</div>
                 <div class="sub">용인시 · 2020.10.30</div>
               </div>
               <span class="prize">우수상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2019_best_engineer">
               <div>
                 <div class="name">베스트 엔지니어</div>
                 <div class="sub">강남대학교 ICT건설복지융합대학 · 2019.05.28</div>
               </div>
               <span class="prize">베스트 엔지니어상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2020_kt_cs">
               <div>
                 <div class="name">KT cs 유니벤터 경진대회</div>
                 <div class="sub">KT cs · 2020.09.23</div>
               </div>
               <span class="prize">장려상</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="award_2018_sharing">
               <div>
                 <div class="name">2018 공유경제 사업 아이디어 공모전</div>
                 <div class="sub">부산경제진흥원 · 2018.11.28</div>
@@ -1560,42 +1562,42 @@
         <div class="awards-col">
           <h3>📌 대외 활동 <span class="count">// 6 activities</span></h3>
           <ul class="activity-list">
-            <li>
+            <li class="has-detail" data-paper-id="activity_2025_google_study">
               <div>
                 <div class="name">2025 구글 스터디 잼 × 잇츠스터디</div>
                 <div class="sub">Google / 여성가족재단 · 직군간 학습·발표 모임</div>
               </div>
               <span class="when">2025.01~03</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="activity_2024_eveni_gameton">
               <div>
                 <div class="name">2024 상반기 이븐아이 게임톤</div>
                 <div class="sub">EvenI · 2달간 팀 게임 기획·개발·상용화</div>
               </div>
               <span class="when">2024.01~03</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="activity_2023_junction_asia">
               <div>
                 <div class="name">JUNCTION ASIA 2023 Hackathon</div>
                 <div class="sub">JUNCTION</div>
               </div>
               <span class="when">2023.08</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="activity_2022_content_empathy">
               <div>
                 <div class="name">콘텐츠, 공감하다 교육 과정 수료</div>
                 <div class="sub">한국콘텐츠진흥원 · 감성인식기술 X 인터랙티브콘텐츠</div>
               </div>
               <span class="when">2022.07~11</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="activity_2022_samsung_sds">
               <div>
                 <div class="name">하계 대학생 알고리즘 특강 수료</div>
                 <div class="sub">삼성SDS</div>
               </div>
               <span class="when">2022.07</span>
             </li>
-            <li>
+            <li class="has-detail" data-paper-id="activity_2019_vrar_hackathon">
               <div>
                 <div class="name">경기 VR AR 해커톤 수료</div>
                 <div class="sub">경기콘텐츠진흥원</div>
@@ -1693,10 +1695,10 @@
   <!-- =================== PROJECTS (merged) =================== -->
   <section class="projects" id="projects">
     <div class="container">
-      <span class="section-tag"><span class="num">05 /</span> PROJECTS · 3 COMPANIES · 10 SHIPPED</span>
+      <span class="section-tag"><span class="num">05 /</span> PROJECTS · 3 COMPANIES + PERSONAL</span>
       <h2 class="section-title">출시한 <span class="cyan">프로젝트</span> 정리</h2>
       <p class="section-sub">
-        로보케어(현재 재직) · 레드브릭 · 유니크 플래닛 — 세 회사에서 진행한 라이브 서비스 프로젝트들을 회사별로 묶어 정리했습니다.
+        로보케어(현재 재직) · 레드브릭 · 유니크 플래닛 — 세 회사 라이브 서비스 + <span class="cyan">개인 / 사이드 프로젝트</span>까지 묶어 정리했습니다.
       </p>
 
       <!-- ====== Robocare ====== -->
@@ -1805,7 +1807,7 @@
             <h3>레드브릭 <span class="en">Redbrick · Intern</span></h3>
             <p class="proj-group-meta">콘텐츠 개발팀 · 인턴 · 2024.09.30 ~ 2024.12.20 · Web Game Client</p>
           </div>
-          <span class="proj-group-status shipped">4 SHIPPED</span>
+          <span class="proj-group-status shipped">5 SHIPPED + EXTRA</span>
         </header>
 
         <div class="feat-grid">
@@ -1814,11 +1816,7 @@
             <div class="feat-image">
               <span class="feat-tag">// RHYTHM</span>
               <span class="role-badge main">● MAIN</span>
-              <div class="placeholder">
-                <strong>Melody Pang Pang</strong>
-                리듬 게임<br/>
-                2024.10.21 ship
-              </div>
+              <img src="assets/proj-melody-pangpang-1.png" alt="Melody Pang Pang" loading="lazy" />
             </div>
             <div class="feat-body">
               <h3>Melody Pang Pang</h3>
@@ -1827,49 +1825,46 @@
               <div class="feat-stack">
                 <span>Redbrick Engine</span><span>JavaScript</span>
               </div>
-              <span class="ship-status">● SHIPPED</span>
+              <a class="open-link" href="melody-pangpang/">VIEW DETAIL</a>
             </div>
           </div>
 
           <div class="feat-card">
             <div class="feat-image">
               <span class="feat-tag">// VR_PUZZLE</span>
-              <span class="role-badge main">● MAIN</span>
-              <div class="placeholder">
-                <strong>ESCAPE</strong>
-                VR Puzzle · 코엑스 전시<br/>
-                2024.11.14 ship
-              </div>
+              <span class="role-badge main">● MAIN · 1인</span>
+              <img src="assets/proj-xescape-1.png" alt="XESCAPE" loading="lazy" />
             </div>
             <div class="feat-body">
-              <h3>ESCAPE</h3>
-              <div class="feat-sub">// VR Puzzle · 2024.11.14 ship · 코엑스 전시</div>
-              <p>건물에 갇힌 플레이어가 5개의 퍼즐을 풀고 탈출하는 VR 게임. 3D 모델러·디자이너와 협업해 퍼즐 직접 기획·로직 설계. VR/PC 두 버전 제작. <strong>Redbrick Connect 2024 코엑스 전시</strong>에서 호평.</p>
+              <h3>XESCAPE</h3>
+              <div class="feat-sub">// VR 퍼즐 · 2024.11.14 출시 · 약 2주 개발 · 디자이너·3D 모델러 협업 1인 개발</div>
+              <p>아포칼립스 배경의 어둡고 기계적인 공간에서 모든 퍼즐을 풀고 엔딩을 보는 <strong>Meta Quest 3 VR 퍼즐 게임</strong> (약 10분 플레이, 1인칭). VR + PC <strong>두 버전 동시 출시</strong>. <strong>Redbrick Connect 2024 코엑스 전시</strong> 작품으로 선정.</p>
+              <p style="margin-top:8px;font-size:13.5px;opacity:0.85"><strong>개발 인사이트</strong> — 만들 수 있는 VR 퍼즐 예제 scene을 별도로 제작해 디자이너에게 제공 / 언제든 수정·추가가 쉬운 구조 설계 (게임 타이밍을 스토리 시작 전·후 / 게임 1 / 리프트 상승 / 게임 2 등 명확히 분기) / 터치 시 소리·물체 움직임 등 상호작용 정밀 구현.</p>
               <div class="feat-stack">
-                <span>Redbrick Engine</span><span>JavaScript</span><span>VR</span>
+                <span>Redbrick Engine</span><span>JavaScript</span><span>Meta Quest 3</span><span>VR</span><span>1인칭</span>
               </div>
-              <span class="ship-status">● SHIPPED</span>
+              <a class="open-link" href="https://redbrick.land/detail-play?pid=7f6764f0-1b38-4cf5-9d8a-038f512595cb" target="_blank" rel="noopener">PLAY VR →</a>
+              <a class="open-link" href="https://redbrick.land/detail-play?pid=5e287dd3-fd21-4254-99e1-90df702761d9" target="_blank" rel="noopener">PLAY PC →</a>
+              <a class="open-link" href="https://drive.google.com/file/d/18DDZNceOQ_JiaQMeDWiTcm-sJ3DdDq_Q/view?usp=sharing" target="_blank" rel="noopener">VR 실행 영상 →</a>
             </div>
           </div>
 
           <div class="feat-card">
             <div class="feat-image">
               <span class="feat-tag">// METAVERSE</span>
-              <span class="role-badge main">● MAIN</span>
-              <div class="placeholder">
-                <strong>Christmas Metaverse</strong>
-                시즈널 월드 + 미니게임<br/>
-                2024.12.20 ship
-              </div>
+              <span class="role-badge main">● MAIN · 1인</span>
+              <img src="assets/proj-christmas-village-1.png" alt="Christmas Village" loading="lazy" />
             </div>
             <div class="feat-body">
-              <h3>Christmas Metaverse</h3>
-              <div class="feat-sub">// 메타버스 월드 · 약 11일 개발 · 2024.12.20 ship</div>
-              <p>크리스마스 시즈널 월드 — 상호작용 요소 + 2개 미니 게임. 선물 줍기·음료 조합·종·썰매·운세·눈사람 NPC 등 직접 기획·구현.</p>
+              <h3>Christmas Village · 크리스마스 메타버스</h3>
+              <div class="feat-sub">// 크리스마스 시즈널 월드 · 약 11일 개발 · 2024.12.20 출시 · 3인칭</div>
+              <p><strong>3개 장소</strong> (크리스마스 메인 씬·스토어·펍)에 <strong>2종 미니게임</strong>과 다양한 상호작용을 결합한 시즈널 월드 — 인사하는 눈사람 NPC, 종소리 나는 크리스마스 벨, 실린더 형태로 도는 산타 썰매, 제한 시간 안에 많은 선물 줍기(메인), 카메라·상자 애니메이션이 들어간 운세 뽑기(스토어), 레시피에 맞춘 음료 조합(펍), 눈/나무 발자국 소리까지 직접 기획·구현.</p>
+              <p style="margin-top:8px;font-size:13.5px;opacity:0.85"><strong>개발 인사이트</strong> — 멀티 개발이 불가한 메타버스에서 혼자 있는 플레이어의 외로움을 달래기 위해 단순 장식이 아닌 <strong>다익스트라 알고리즘 기반 자연 산책 눈사람 NPC</strong>를 구현 (맵 내 일정 지점들을 그래프로 만들어 무작위 도착 지점으로 이동, 플레이어가 다가가면 인사). 유지·보수·재활용을 높이기 위해 기능별 분리 구현.</p>
               <div class="feat-stack">
-                <span>Redbrick Engine</span><span>JavaScript</span>
+                <span>Redbrick Engine</span><span>JavaScript</span><span>Dijkstra</span><span>NPC AI</span><span>시즈널 콘텐츠</span>
               </div>
-              <span class="ship-status">● SHIPPED</span>
+              <a class="open-link" href="https://redbrick.land/detail-play?pid=c404bdf7-1a2e-48d8-9b98-cfb3020f0149" target="_blank" rel="noopener">PLAY →</a>
+              <a class="open-link" href="https://tv.kakao.com/v/451983977" target="_blank" rel="noopener">PLAY VIDEO →</a>
             </div>
           </div>
 
@@ -1877,11 +1872,7 @@
             <div class="feat-image">
               <span class="feat-tag">// SURVIVAL</span>
               <span class="role-badge cowork">◐ CO-WORK</span>
-              <div class="placeholder">
-                <strong>RunToRoom</strong>
-                캐주얼 생존 · 합작<br/>
-                2024.11 ~ 2024.12
-              </div>
+              <img src="assets/proj-run-to-room-1.png" alt="RunToRoom" loading="lazy" />
             </div>
             <div class="feat-body">
               <h3>RunToRoom</h3>
@@ -1890,7 +1881,45 @@
               <div class="feat-stack">
                 <span>Redbrick Engine</span><span>JavaScript</span><span>합작</span>
               </div>
-              <span class="ship-status handoff">◐ HANDOFF</span>
+              <a class="open-link" href="run-to-room/">VIEW DETAIL</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// HORROR_ESCAPE</span>
+              <span class="role-badge main">● MAIN · 100%</span>
+              <img src="assets/proj-dangerous-lab-1.png" alt="Dangerous Laboratory" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>위험한 실험실 <span style="opacity:0.6;font-size:0.85em">(Dangerous Laboratory)</span></h3>
+              <div class="feat-sub">// 1인칭 호러 탈출 · 3일 개발 · 출시 운영 중</div>
+              <p>DEAD BY DAYLIGHT 레퍼런스의 1인칭 호러 탈출 게임 — 150초 안에 에너지 통 5개를 활성화해 탈출. <strong>다익스트라 알고리즘으로 귀신 AI 경로 탐색</strong> 직접 구현 (정찰 모드 ↔ 추적 모드 전환, 플레이어 인근 4지점 무작위 목표, 피격 후 무작위 순간이동, 점점 짙어지는 안개로 공포 연출).</p>
+              <div class="feat-stack">
+                <span>Redbrick Engine</span><span>JavaScript</span><span>Dijkstra</span><span>AI Pathfinding</span><span>3D</span>
+              </div>
+              <a class="open-link" href="https://redbrick.land/detail-play?pid=b5c80784-b43d-4e11-8f2c-3c8732917f11" target="_blank" rel="noopener">PLAY →</a>
+              <a class="open-link" href="https://88-it.tistory.com/436" target="_blank" rel="noopener">BLOG →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// EXTRA_ACTIVITY</span>
+              <span class="role-badge main">● MAIN</span>
+              <img src="assets/proj-redbrick-extra-1.png" alt="RedBrick 부가 활동" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>(주)레드브릭 그 외 활동</h3>
+              <div class="feat-sub">// 입사 1주차 개인 프로젝트 · 위키 편집 · Connect 2024 게임잼 운영</div>
+              <p><strong>입사 1주차 1인 프로젝트 2종</strong> (Jump Jump Game: 블럭 생존, Snow Disaster Game: 눈 대피 서바이벌) — 기획·제작·표지·publishing 단독. 이후 <strong>레드브릭 위키 VR 안내서 HTML 편집 + GitHub 버전 관리</strong>, VR 예제 프로젝트 제작, 외부 개발자 Discord Q&amp;A 서포트. <strong>Redbrick Connect 2024 코엑스 게임잼·청소년 콘테스트 운영·평가·서포트</strong>까지 참여.</p>
+              <div class="feat-stack">
+                <span>Redbrick Engine</span><span>HTML</span><span>GitHub</span><span>VR</span><span>게임잼 운영</span>
+              </div>
+              <a class="open-link" href="https://wiki.redbrick.land/en/snippet/vr/introduce" target="_blank" rel="noopener">WIKI →</a>
+              <a class="open-link" href="https://redbrick.land/detail-play?pid=8672297b-11e6-4f7c-b132-dbbfceb58d34" target="_blank" rel="noopener">SNOW GAME →</a>
+              <a class="open-link" href="https://redbrick.land/detail-play?pid=37f0ae87-4c49-46fb-8972-f5243ab3f733" target="_blank" rel="noopener">VR 예제 →</a>
+              <a class="open-link" href="https://www.gamemeca.com/view.php?gid=1755459" target="_blank" rel="noopener">CONNECT 2024 기사 →</a>
             </div>
           </div>
 
@@ -1904,7 +1933,7 @@
             <h3>유니크 플래닛 <span class="en">Unique Planet</span></h3>
             <p class="proj-group-meta">개발팀 · 사원 · 2023.05.10 ~ 2024.04.30 · Unity Game Client (Zepeto)</p>
           </div>
-          <span class="proj-group-status exited">3 SHIPPED · 폐업</span>
+          <span class="proj-group-status exited">4 SHIPPED · 폐업</span>
         </header>
         <div class="proj-group-note">// EXIT_REASON: 경영 악화로 인한 회사 폐업</div>
 
@@ -1914,20 +1943,18 @@
             <div class="feat-image">
               <span class="feat-tag">// METAVERSE</span>
               <span class="role-badge main">● MAIN · 100%</span>
-              <div class="placeholder">
-                <strong>Zepeto Gucci Project</strong>
-                커뮤니티 월드 · Gucci 콜라보<br/>
-                2023.08 ~ 2024.04
-              </div>
+              <img src="assets/proj-gucci-community-1.png" alt="Zepeto Gucci Community" loading="lazy" />
             </div>
             <div class="feat-body">
-              <h3>Zepeto Gucci Project</h3>
-              <div class="feat-sub">// 커뮤니티 월드 · 2023.08 ~ 2024.04 · 기여도 100%</div>
-              <p>Gucci 콜라보 월드 — 다수 사용자가 모여 소통하고 Gucci 옷·가방을 캐릭터에 착용·구매. 패션쇼 라이브 스트리밍·홍보 영상 송출. 단독 개발 + 시즌 이벤트·콘텐츠 업데이트 운영.</p>
+              <h3>Zepeto Gucci Community Project</h3>
+              <div class="feat-sub">// 메타버스 커뮤니티 월드 · 2023.08.28 ~ 09.29 개발 + 운영 1년 · 100% 단독 개발</div>
+              <p><strong>첫 메타버스 실무 프로젝트</strong> — Gucci 콜라보 월드를 100% 단독 개발해 출시. 다수 사용자가 모여 소통하고 Gucci 옷·가방을 캐릭터에 착용·구매. <strong>실제 Gucci 패션쇼 라이브 스트리밍 2회</strong>를 콘텐츠 내에서 진행, 크리스마스 이벤트(2023.12.24) + 패션쇼·상품 시즌 업데이트를 운영(업데이트 기여도 50%). <strong>누적 방문 882K</strong> (2024.5 기준), 콘텐츠 내 전시 아이템으로 수익 창출.</p>
+              <p style="margin-top:8px;font-size:13.5px;opacity:0.85"><strong>개발 인사이트</strong> — 제페토 API 기술 문서를 직접 읽고 활용해 콘텐츠 제작, 디자이너와 소통하며 사용자 경험 향상 기능 구현. 멀티플레이 환경에서 서버-클라이언트 통신 방식 이해, 실시간 라이브와 출시 이후 유지·보수·보완 작업을 경험하며 실무 역량 확보.</p>
               <div class="feat-stack">
-                <span>Unity</span><span>TypeScript</span><span>Zepeto</span>
+                <span>Unity</span><span>TypeScript</span><span>Zepeto SDK</span><span>Multi</span><span>Live Stream</span>
               </div>
-              <span class="ship-status">● SHIPPED</span>
+              <a class="open-link" href="https://tv.kakao.com/v/441553145" target="_blank" rel="noopener">PLAY VIDEO →</a>
+              <a class="open-link" href="https://biz.chosun.com/it-science/ict/2023/09/25/AL6JNBOUMFBV3PC4FZUGPR7UBU/" target="_blank" rel="noopener">기사 →</a>
             </div>
           </div>
 
@@ -1935,20 +1962,16 @@
             <div class="feat-image">
               <span class="feat-tag">// MULTI_SURVIVAL</span>
               <span class="role-badge cowork">◐ 50% → 80%</span>
-              <div class="placeholder">
-                <strong>Zepeto 진격의 거인</strong>
-                멀티 생존 · v2 업데이트<br/>
-                2023.10 ~ 2024.04
-              </div>
+              <img src="assets/proj-attack-on-titan-1.png" alt="Zepeto 진격의 거인" loading="lazy" />
             </div>
             <div class="feat-body">
               <h3>Zepeto 진격의 거인</h3>
-              <div class="feat-sub">// 멀티 생존 · 2023.10 ~ 2024.04 · 1차 50% / 2차 80%</div>
-              <p>일본 만화 진격의 거인 제작사 콜라보 — 재난 필드에서 무작위 등장하는 거인으로부터 살아남는 멀티 생존 게임. 핵심 "재난" 기능 구현·최적화·서버 연결, 2차 콘텐츠 업데이트(기여도 80%) 주도.</p>
+              <div class="feat-sub">// 멀티 생존 · 2023.10 ~ 2024.04 · 1차 50% / 2차 80% · 2.1M 누적 방문</div>
+              <p>일본 만화 진격의 거인 제작사 콜라보 — 재난 필드에서 무작위 등장하는 거인으로부터 살아남는 멀티 생존 게임. 핵심 "재난" 기능 구현·최적화·서버 연결, 2차 콘텐츠 업데이트(기여도 80%) 주도. <strong>누적 방문 2.1M, 인기 차트 10위권 1개월</strong>.</p>
               <div class="feat-stack">
-                <span>Unity</span><span>TypeScript</span><span>MultiServer</span>
+                <span>Unity</span><span>TypeScript</span><span>MultiServer</span><span>Object Pooling</span><span>Google Analytics</span>
               </div>
-              <span class="ship-status">● SHIPPED · v2</span>
+              <a class="open-link" href="attack-on-titan/">VIEW DETAIL</a>
             </div>
           </div>
 
@@ -1956,20 +1979,233 @@
             <div class="feat-image">
               <span class="feat-tag">// SPORTS_MULTI</span>
               <span class="role-badge main">● MAIN · 80%</span>
-              <div class="placeholder">
-                <strong>Zepeto Gucci Tennis</strong>
-                3D 테니스 멀티<br/>
-                2024.07.12 ship
-              </div>
+              <img src="assets/proj-gucci-tennis-1.png" alt="Zepeto Gucci Tennis" loading="lazy" />
             </div>
             <div class="feat-body">
               <h3>Zepeto Gucci Tennis Game</h3>
-              <div class="feat-sub">// 3D 테니스 · 2024.04 ~ 2024.07 · 2024.07.12 ship · 기여도 80%</div>
-              <p>Gucci 콜라보 3D 테니스 게임 — 자동 매칭 후 3판 2세트 룰로 진행, 승리치 누적·랭킹·보상. 클라이언트 핵심 게임플레이·실제 테니스 룰·서버 연결 + 출시 후 패치 담당.</p>
+              <div class="feat-sub">// 3D 테니스 · 2024.04 ~ 2024.07 · 80% · 193K 누적 방문</div>
+              <p>Gucci 콜라보 3D 테니스 게임 — 자동 매칭 후 3판 2세트 룰로 진행, 승리치 누적·랭킹·보상. 클라이언트 핵심 게임플레이·<strong>2D↔3D 좌표 변환 + 포물선 방정식</strong>으로 공 궤적 구현·서버 연결 + 출시 후 패치.</p>
               <div class="feat-stack">
-                <span>Unity</span><span>TypeScript</span><span>3D</span>
+                <span>Unity</span><span>TypeScript</span><span>3D</span><span>Parabola Math</span><span>멀티방 매칭</span>
               </div>
-              <span class="ship-status">● SHIPPED</span>
+              <a class="open-link" href="gucci-tennis/">VIEW DETAIL</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// VR_OCULUS</span>
+              <span class="role-badge cowork">◐ MAIN · 70%</span>
+              <img src="assets/proj-ocean-trash-vr-1.png" alt="해양 쓰레기 치우기 VR" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>해양 쓰레기 치우기 VR</h3>
+              <div class="feat-sub">// VR 콘텐츠 · 2024.02 기술 습득 + 2024.03.01 ~ 03.15 (2주 개발) · 기여도 70%</div>
+              <p>정부 산업 지원 프로그램 초기 예시 콘텐츠 — LG 콜라보 Zepeto "블루 포레스트"(잘피 식물·해양 보호)를 <strong>VR로 재구성</strong>. 섬 로비 — AI NPC와 대화하며 해양 보호 정보 습득, 바닷속 — 쓰레기 청소 미니게임 + 해양생물 구경. <strong>Oculus Meta API</strong>로 바닷속 상하 움직임·컨트롤러 인터랙션·시야 조절 직접 구현 (AI NPC 영역은 다른 개발자).</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>Oculus Meta 3</span><span>VR</span>
+              </div>
+              <a class="open-link" href="https://tv.kakao.com/v/446596955" target="_blank" rel="noopener">PLAY VIDEO 1 →</a>
+              <a class="open-link" href="https://tv.kakao.com/v/446596974" target="_blank" rel="noopener">PLAY VIDEO 2 →</a>
+              <a class="open-link" href="https://tv.kakao.com/v/446596994" target="_blank" rel="noopener">PLAY VIDEO 3 →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ====== Personal / Side Projects ====== -->
+      <div class="proj-group">
+        <header class="proj-group-head">
+          <div class="proj-group-info">
+            <h3>개인 / 사이드 프로젝트 <span class="en">Personal &amp; Side Projects</span></h3>
+            <p class="proj-group-meta">개인 시간 투자 · 해커톤 · 학부 졸업작품 · 2018 ~ NOW</p>
+          </div>
+          <span class="proj-group-status active">● ONGOING</span>
+        </header>
+        <div class="proj-group-note">// SCOPE: 회사 외 시간에 직접 기획·설계·구현한 사이드 프로젝트 모음</div>
+
+        <div class="feat-grid">
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// PIXEL_RUNNER</span>
+              <span class="role-badge main">● MAIN · 100%</span>
+              <div class="placeholder">
+                <strong>Rota Track</strong>
+                픽셀 무한 러너 + 타일 회전 퍼즐<br/>
+                2025 ~ ACTIVE
+              </div>
+            </div>
+            <div class="feat-body">
+              <h3>Rota Track (CatCatCat)</h3>
+              <div class="feat-sub">// Hybrid Casual · 2025 ~ NOW · Android APK</div>
+              <p>달리는 픽셀 고양이 앞의 타일을 미리 회전시켜 길을 잇는 캐주얼 퍼즐 러너. ScriptableObject 기반 데이터 주도 설계 + 일일 퀘스트 / 업적 / 다이아 화폐 / 캐릭터 선택 시스템 직접 설계·구현. AdMob 배너 + 리워드 광고 연동.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>ScriptableObject</span><span>AdMob</span><span>PlayerPrefs</span><span>Prefab YAML</span>
+              </div>
+              <a class="open-link" href="https://drive.google.com/file/d/1WPJXWCYJB3AMRkIJlg9GyYIqqfHl6Mqd/view?usp=sharing" target="_blank" rel="noopener">DOWNLOAD APK →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// AI_PYTHON_STUDY</span>
+              <span class="role-badge cowork">◐ TEAM · 서포트</span>
+              <img src="assets/proj-python-study-1.png" alt="Python Study" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>Python Study · 데이터 시각화 &amp; AI 게임 제작</h3>
+              <div class="feat-sub">// AI 베이스 데이터 시각화 + Python 게임 만들기 · 2025.08.01 ~ 2025.10.17</div>
+              <p>실무에 AI를 적극 활용하기 위한 약 3개월 팀 스터디 (역할: 팀원/서포트). 1~3주차 Python · 시각화 기초, 4·5주차 데이터 시각화 결과물 공유 — 게임 맵 사망 좌표 데이터를 sns.kdeplot 등고선 히트맵 + 맵 오버레이로 시각화해 위험 지형을 직관적으로 파악. 7~10주차에는 웹캠으로 실제 사물을 인식해 퀘스트를 푸는 AR 형태의 "현실 퀘스트" 게임을 기획·구현·최종 발표까지 진행.</p>
+              <div class="feat-stack">
+                <span>Python</span><span>seaborn</span><span>kdeplot</span><span>OpenCV</span><span>AR Quest</span>
+              </div>
+              <span class="ship-status">● 발표 완료</span>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// RPG_SIMULATION</span>
+              <span class="role-badge main">● MAIN · 100%</span>
+              <img src="assets/proj-rpg-test-1.png" alt="자동 사냥 시뮬레이션 RPG" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>자동 사냥 시뮬레이션 게임 <span style="opacity:0.6;font-size:0.85em">(RPG-Test-Game)</span></h3>
+              <div class="feat-sub">// 1인 개발 RPG · 1차 프로토타입 2024.05.16 ~ 05.23 · 추가 개발 중 · 기여도 100%</div>
+              <p>기사·도적·궁수·힐러 등 파티 조합을 짜 무한 스테이지를 깨고 업적을 모으는 자동 사냥 RPG. <strong>GameManager / CharactersController / MonstersController / SystemCanvas / SoundManager / SaveLoadManager</strong> 등으로 책임 분리. Character 추상 클래스를 상속한 4직군 (스탯·특수 스킬·강화·리셋) + Monster·BasicMonster·보스, 사거리 외 추적 AI, 스테이지별 강화·코인 보상, HP/EXP 자연스러운 UI 애니메이션, BGM/SFX 사운드, 카메라 추적·게임 배속·세팅(소리/리트라이/종료)·데이터 저장 등을 직접 설계·구현.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>OOP·상속</span><span>SaveLoad</span><span>UI 애니메이션</span><span>Camera Follow</span>
+              </div>
+              <a class="open-link" href="https://github.com/Seonga02024/RPG-Test-Game" target="_blank" rel="noopener">GITHUB →</a>
+              <a class="open-link" href="https://tv.kakao.com/v/447167825" target="_blank" rel="noopener">PLAY VIDEO →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// PHOTON_MULTI_RAIL</span>
+              <span class="role-badge main">● MAIN · 90%</span>
+              <img src="assets/proj-eatcat-1.png" alt="EatCat-Game" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>쭉쭉 내려가는 레일 위로 고양이가 폭식합니다</h3>
+              <div class="feat-sub">// 2024 포톤 게임잼 참여작 · PUN2 멀티 · 2024.07 ~ 2024.08 (약 1개월) · 기여도 90%</div>
+              <p>레일이 끝없이 내려오는 멀티플레이 캐주얼 게임 — Photon PUN2 기반 실시간 동기화, 다인 플레이 매칭·룸 시스템·고양이 움직임 동기화 구현.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>Photon PUN2</span><span>Multiplayer</span>
+              </div>
+              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.FOXES.CatEatEat" target="_blank" rel="noopener">PLAY STORE →</a>
+              <a class="open-link" href="https://github.com/Seonga02024/EatCat-Game" target="_blank" rel="noopener">GITHUB →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// EVENI_GAMETON</span>
+              <span class="role-badge cowork">◐ TEAM · 개발 1/2</span>
+              <img src="assets/proj-cracker-1.png" alt="Cracker 차원 여행자" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>Cracker: 차원 여행자</h3>
+              <div class="feat-sub">// 이븐아이 게임톤 2024 상반기 · 2024.01 ~ 2024.03 (약 2개월) · 개발자 2 / 기획 2 / PM·사업·마케팅 3</div>
+              <p>다양한 직군이 한 팀이 되어 2달 동안 기획·개발·상용화까지 진행한 대외 대회. 차원 사이를 떨어지며 진행하는 Drop 형식의 캐주얼 게임. 클라이언트 개발 + AdMob 광고 연동 담당.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>AdMob</span><span>팀 협업</span><span>상용화</span>
+              </div>
+              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.Comma.Cracker" target="_blank" rel="noopener">PLAY STORE →</a>
+              <a class="open-link" href="https://github.com/Comma-Game/Comma" target="_blank" rel="noopener">GITHUB →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// JUNCTION_ASIA</span>
+              <span class="role-badge cowork">◐ TEAM · 5인 / 20%</span>
+              <img src="assets/proj-chef-friend-1.png" alt="My Chef Friend" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>My Chef Friend <span style="opacity:0.6;font-size:0.85em">(JUNCTION ASIA 2023)</span></h3>
+              <div class="feat-sub">// 북유럽발 글로벌 해커톤 아시아 부문 · 2023.08 · 3일 · 프론트 + 서버 담당</div>
+              <p>5명 팀으로 3일 동안 기획·구현·발표를 완주. 사용자 식단·식재료 데이터를 활용하는 요리 추천 앱 — Unity 클라이언트 + REST API + Redis 캐시 + MySQL 백엔드를 함께 다뤘으며, 짧은 스프린트에서 풀스택을 처음 경험한 프로젝트.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>REST API</span><span>Redis</span><span>MySQL</span>
+              </div>
+              <a class="open-link" href="https://play.unity.com/mg/other/webgl-builds-365117" target="_blank" rel="noopener">WEBGL DEMO →</a>
+              <a class="open-link" href="https://github.com/Seonga02024/MyChefFriend" target="_blank" rel="noopener">GITHUB →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// MYSTERY_2D</span>
+              <span class="role-badge cowork">◐ 50% · 2인</span>
+              <img src="assets/proj-runa-1.png" alt="RUNA" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>단편 추리 게임 "RUNA"</h3>
+              <div class="feat-sub">// 2D 단편 추리 게임 · 2023.02 ~ 2023.03 (약 1개월) · 2인 협업 · 기여도 50%</div>
+              <p>단편 스토리 기반의 2D 추리 게임. 클라이언트 구현·UI·스토리 진행 시스템 담당, Play Store 출시까지 완료.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>2D</span><span>Story Game</span>
+              </div>
+              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.companyname.RUNA" target="_blank" rel="noopener">PLAY STORE →</a>
+              <a class="open-link" href="https://github.com/dreamEscapeMPP/RUNA" target="_blank" rel="noopener">GITHUB →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// PUZZLE_BFS</span>
+              <span class="role-badge main">● MAIN · 90%</span>
+              <img src="assets/proj-catcatcat-puzzle-1.png" alt="CatCatCat 퍼즐" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>CatCatCat · 대각선 퍼즐 게임</h3>
+              <div class="feat-sub">// 3매치 퍼즐 · 2023.02 (약 10일) · 2인(개발 1·디자인 1) · 기여도 90%</div>
+              <p>3줄 이상 같은 그림을 맞추면 사라지는 퍼즐 게임. <strong>대각선 매칭 작동 로직 직접 설계</strong>, <strong>BFS 알고리즘</strong>으로 3·4개 이상 블럭 매칭 판단, 사라진 블럭 위 블럭이 자연스럽게 떨어지는 낙하 시스템 + 빈 공간을 순차적으로 채우는 생성 로직 구현. 현재 진행 중인 Rota Track의 같은 앱 패키지 (CatCatCat) 전신 버전.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>BFS</span><span>Puzzle Logic</span>
+              </div>
+              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.companyname.CatCatCat" target="_blank" rel="noopener">PLAY STORE →</a>
+              <a class="open-link" href="https://github.com/Seonga02024/CatCatCat-Game" target="_blank" rel="noopener">GITHUB →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// SOLO_2D_RPG</span>
+              <span class="role-badge main">● SOLO · 80%</span>
+              <img src="assets/proj-knight-go-1.png" alt="기사가 간다" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>기사가 간다 <span style="opacity:0.6;font-size:0.85em">(Knight Goes)</span></h3>
+              <div class="feat-sub">// 1개월 단기 1인 개발 2D 게임 · 2022.02 · 기여도 80%</div>
+              <p>1개월 안에 기획부터 출시까지 혼자 마무리한 단기 2D 게임 프로젝트. Play Store 출시 + 회고를 블로그에 정리.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>C#</span><span>2D</span><span>1인 개발</span>
+              </div>
+              <a class="open-link" href="https://play.google.com/store/apps/details?id=com.FOXES.Knight_Go" target="_blank" rel="noopener">PLAY STORE →</a>
+              <a class="open-link" href="https://github.com/Seonga02024/knight-goes" target="_blank" rel="noopener">GITHUB →</a>
+              <a class="open-link" href="https://88-it.tistory.com/233" target="_blank" rel="noopener">BLOG →</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// SHADER_RAIN</span>
+              <span class="role-badge main">● SOLO · 100%</span>
+              <img src="assets/proj-unity-shader-1.png" alt="Unity Shader 비와 물결" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>Unity Shader · 비와 물결 구현</h3>
+              <div class="feat-sub">// 3D 게임 그래픽 셰이더 프로젝트 · 2019.10 ~ 2019.11 (약 2개월) · 100% 1인</div>
+              <p>Unity Shader로 비와 물결의 사실적인 표현을 구현 — Fresnel 효과, Particle System, Reflection Probe 등 그래픽 파이프라인 요소를 직접 다루며 렌더링 기초를 익힘.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>Shader</span><span>Fresnel</span><span>Particle</span><span>Reflection Probe</span>
+              </div>
+              <a class="open-link" href="https://88-it.tistory.com/87" target="_blank" rel="noopener">BLOG →</a>
             </div>
           </div>
 
@@ -2240,6 +2476,575 @@
             { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11213510', primary: true },
             { label: 'PDF 다운로드 →', href: 'assets/가상환경에서 무게감을 효율적으로 사용자에게 전달하는 도르래 방식으 VR 인터페이스.pdf', primary: false }
           ]
+        },
+        gostop_elderly_2025: {
+          category: 'GAME · ROBOT',
+          categoryClass: 'GR',
+          affiliation: '@ (주)로보케어',
+          affiliationClass: '',
+          date: '2025.06',
+          num: '// paper_01',
+          title: '사용자 몰입도 증가를 위한 Photon Network 기반의 실시간 랭킹 시스템이 반영된 그룹형 로봇 기반 노인 인지 향상 게임 시스템의 설계 및 구현',
+          titleEn: 'Design and Implementation of a Group-Oriented, Robot-Based Cognitive Enhancement Game System for the Elderly Incorporating a Photon Network-Based Real-Time Ranking System to Boost User Engagement',
+          authors: '박성아¹ · 이원준¹ · 이덕원¹* (¹(주)로보케어 · *교신저자)',
+          venue: '2025 하반기 대한전자공학회 학술대회 · 구두 발표 · 산업통상자원부·KEIT 지원 과제 (RS-2024-00468748)',
+          hero: '',
+          gallery: [],
+          keywords: ['Photon Network', '실시간 랭킹', '실벗3 로봇', 'KADAS', 'Socket 통신', '10원 게임', '치매 예방', 'Unity'],
+          sections: [
+            {
+              heading: '📋 Abstract',
+              type: 'paragraph',
+              body: '<strong>로봇 · TV · 태블릿 3종 디바이스</strong>를 통합해 그룹 기반 + 경쟁 상호작용 환경을 지원하는 노인 인지 훈련 시스템. 기존 ICT 기반 1인 학습 솔루션의 한계(낮은 동기 부여 / 단순 반복 문제)를 보완하고자 그룹 상호작용 · 실시간 피드백 · 경쟁 콘텐츠를 결합. 임베디드 SW는 Unity + Photon Network로 구현, 디바이스 통신은 socket 기반 네트워킹을 사용. → 사회적 참여 촉진 · 집중력 향상 · 사용자 동기 증진.'
+            },
+            {
+              heading: '🔬 시스템 아키텍처',
+              type: 'hardware',
+              items: [
+                '실벗3 로봇 (인터랙션 · 음성 · 표정 · 동작)',
+                'TV + KADAS (KAIST Android Display Adapter System · 무선 화면 공유)',
+                'Samsung Galaxy Tab A9+ (8.7" WUXGA+ / 4GB RAM / Android)',
+                '교사용 태블릿 (게임 진행 제어)',
+                '참여자용 태블릿 (그룹 멀티 플레이)',
+                'Unity (콘텐츠 엔진)',
+                'Photon Network (멀티 사용자 동기화)',
+                'Socket 기반 통신 (TV · 로봇 제어)'
+              ],
+              note: '교사 PC ↔ 다수 참여자 태블릿 ↔ TV ↔ 로봇이 동시에 연결되어 한 교실 단위로 운영. 본인 역할: 클라이언트 개발 100% (게임 기획 · 시스템 설계 · 실시간 랭킹 · 상호작용 핵심 구현).'
+            },
+            {
+              heading: '🤖 로보케어 실벗3 로봇',
+              type: 'list',
+              items: [
+                '<strong>크기</strong> — 480 × 520 × 1148 mm (W × D × H) / <strong>무게</strong> 25 kg',
+                '<strong>11 자유도</strong> — 얼굴 디스플레이로 표정 + 팔 움직임으로 교감형 인터랙션',
+                '<strong>4 기능</strong> — 표정 / 음성 / 주행 / 동작',
+                '음성·표정을 활용해 게임을 진행하고 사용자에게 지속적 피드백 제공'
+              ]
+            },
+            {
+              heading: '🎮 10원 게임 — 핵심 신규 콘텐츠',
+              type: 'paragraph',
+              body: '기존 22 종 인지 훈련 콘텐츠(전두엽 · 측두엽 · 두정엽 카테고리)는 대부분 개인 학습 중심으로 몰입도·집중력·흥미 유발에 한계가 있었음. 이를 보완하기 위해 본 연구가 신규 개발한 콘텐츠. <strong>제한 시간 안에 합이 10이 되도록 동전들을 최대한 많이 연결</strong>하는 게임으로, 인지 속도 · 수학적 사고력 · 문제 해결 능력 향상에 기여. 고령자도 쉽게 이용할 수 있도록 직관적 UI 설계. 게임은 개인별로 진행되지만, 특정 조건 충족 시 <strong>공격 아이템</strong>이 다른 참여자에게 전달되어 인터랙티브한 상호작용을 발생시킴.'
+            },
+            {
+              heading: '🏆 Photon 기반 실시간 랭킹 + 차별화 피드백',
+              type: 'list',
+              items: [
+                '<strong>Photon Network 동기화</strong> — 참여자들의 실시간 게임 데이터를 다른 참여자 + TV 시스템과 동기화',
+                '<strong>로봇 차별화 피드백</strong> — 상위권: 칭찬 메시지 / 하위권: 독려·응원 메시지 → 모두 소외감 없이 참여',
+                '<strong>TV 실시간 순위 공개</strong> — 경쟁심 자극으로 몰입과 집중력 상승',
+                '<strong>대형 디스플레이 + KADAS</strong> — 태블릿 화면을 무선으로 TV에 공유해 몰입감 강화',
+                '<strong>경쟁 + 협력 동시 설계</strong> — 개인 → 그룹 기반 경쟁적 상호작용 구조로 확장'
+              ]
+            },
+            {
+              heading: '🧪 적용 + 향후 연구',
+              type: 'paragraph',
+              body: '<strong>현재 상태</strong> — 실벗 로봇 콘텐츠로 탑재되어 <strong>복지관에서 치매 예방 인지 훈련</strong>에 활용 중. 실증 실험을 통해 인지 기능 향상 효과와 몰입도 증진 기여도를 실증적으로 검증할 예정. <strong>향후 연구</strong> — 인지 영역별 게임 콘텐츠 확장, 사용자 특성에 따른 맞춤형 피드백 고도화, 로봇 자연어 처리 · 감정 인식 기능 연계로 적용 가능성·활용성 확장 계획.'
+            },
+            {
+              heading: '💡 학술적 의의',
+              type: 'paragraph',
+              body: '기존 ICT 기반 치매 예방 콘텐츠는 1인 학습 중심이었으나, 본 시스템은 <strong>로봇·TV·태블릿 다중 디바이스 통합</strong> + <strong>그룹 경쟁 구조</strong> + <strong>실시간 차별화 피드백</strong>이라는 세 축으로 재설계. 실제 복지관 교실에서 즉시 사용 가능한 실무 솔루션을 학술적 형식으로 정리해, 이후 동종 분야 시스템 설계 가이드 역할.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12331363', primary: true },
+            { label: 'PDF 다운로드 →', href: 'assets/전자공학회_논문_박성아.pdf', primary: false }
+          ]
+        },
+        walk_run_limp_vr_2022: {
+          category: 'IoT · VR',
+          categoryClass: 'IV',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2022.07',
+          num: '// paper_04',
+          title: '사용자의 걷기·뛰기·절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스',
+          titleEn: 'A VR Interface for Immersive Representation of User Walking, Running, and Limping Movements',
+          authors: '박성아 외 2인 (3인 공동)',
+          venue: '한국컴퓨터그래픽스 학회 (DBpia 등재)',
+          hero: 'assets/사용자의 걷기, 뛰기, 절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스 프로젝트_1.png',
+          gallery: [],
+          keywords: ['Arduino', '가속도 센서', '보행 인터페이스', 'Photon Multiplayer', '접근성', 'VR'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: '아두이노로 직접 제작한 <strong>보행 인터페이스 장치</strong>로 사용자의 다리 가속도 정보를 수집하고, 가상현실 내 사용자 상태(걷기·뛰기·절름발이)에 맞는 패턴을 인식해 캐릭터 움직임을 제어. 보행 장애가 있는 사람이 VR 안에서는 평범하게 걸을 수 있게 하거나, 반대로 평범한 사람이 절름발이의 움직임을 체험할 수 있는 <strong>접근성·역지사지 콘텐츠</strong>로 연계.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>다리 가속도 데이터 기반 보행 패턴 인식</strong> — 걷기 / 뛰기 / 절름발이 3종 패턴 자동 식별',
+                '<strong>접근성 콘텐츠</strong> — 보행 장애 사용자도 VR에서 평범한 보행 가능',
+                '<strong>역지사지 체험</strong> — 비장애인이 보행 장애 움직임을 직접 체험',
+                '<strong>아두이노 + 가속도 센서</strong> 저비용 IoT 보행 인터페이스',
+                '<strong>Photon Multiplayer</strong> 환경에서 다인 동시 보행 데이터 처리'
+              ]
+            },
+            {
+              heading: '🛠 하드웨어 구성',
+              type: 'hardware',
+              items: [
+                'Arduino',
+                '가속도 센서 (다리 부착)',
+                'Unity 3D (테스트 환경)',
+                'Photon Network (멀티플레이)',
+                'C# 데이터 처리'
+              ],
+              note: '본인 역할(33%, 3인 공동) — 아두이노 기기 및 코드 제작 / Unity 내 테스트 환경 만들기 / Photon 활용 멀티플레이 환경 구축. 2022.02~07 약 5개월.'
+            },
+            {
+              heading: '💡 의의',
+              type: 'paragraph',
+              body: 'VR은 시각 위주 매체였으나, 본 연구는 <strong>다리 가속도라는 신체 데이터를 인터페이스</strong>로 끌어들여 입력 다양성을 확장. 특히 <strong>접근성</strong>(장애인의 평등한 VR 체험) + <strong>역지사지 교육</strong>(비장애인의 체험)이라는 사회적 함의가 강한 인터페이스 응용 사례.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11140487', primary: true }
+          ]
+        },
+        rotation_sound_vr_2022: {
+          category: 'GAME · VR',
+          categoryClass: 'GV',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2022.01',
+          num: '// paper_05',
+          title: '장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성',
+          titleEn: 'Efficient Sound Processing and Synthesis in VR using Rotation Vectors of Obstacle Objects',
+          authors: '박성아 외 1인 (2인 공동)',
+          venue: '한국컴퓨터그래픽스 학회 (DBpia 등재)',
+          hero: 'assets/장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 프로젝트 _1.png',
+          gallery: [],
+          keywords: ['음파 회전 벡터', '거리 감쇠', '시각화', 'Python', 'VR Audio'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: '현 가상현실은 시각적 요소 중심으로 발전했지만, 다음 단계는 <strong>청각적 사실성</strong>이라 판단해 기획한 연구. 가상 공간에 장애물이 존재할 때 음파가 표면을 따라 <strong>회전·이동</strong>하는 물리적 상호작용과 <strong>발원지로부터 거리에 따른 음량 감소</strong>를 함께 구현해, VR 안 소리의 사실성을 한 단계 끌어올림.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>음파의 회전 벡터 모델링</strong> — 음파가 닿은 물체 표면 법선에 따라 회전 / 이동',
+                '<strong>거리 기반 음량 감쇠</strong> — 발원지로부터 거리 측정 후 자동 음량 조절',
+                '<strong>좌표 → 도형 판단</strong> — 입력 좌표를 읽어 어떤 도형이 만들어지고 음향이 어떻게 흘러갈지 자동 판단',
+                '<strong>시각적 표현</strong> — 색상으로 음향 흐름·크기를 시각화'
+              ]
+            },
+            {
+              heading: '🛠 기술 구성',
+              type: 'hardware',
+              items: [
+                'Python (음향 시뮬레이션)',
+                '좌표 → 도형 파싱',
+                '거리 → 음량 자동 조절',
+                '색상 기반 음향 시각화'
+              ],
+              note: '본인 역할(50%, 2인 공동) — 좌표를 읽어 도형 + 음향 흐름 판단 기능 / 거리에 따른 음향 크기 자동 조절 + 시각화 기능. 2021.07~2022.01 약 7개월.'
+            },
+            {
+              heading: '💡 의의',
+              type: 'paragraph',
+              body: 'VR 청각 사실성은 발자국·환경음 등 단순 재생 수준에 머무는 경우가 많았으나, 본 연구는 <strong>장애물의 회전 벡터</strong>로 음파의 진행 방향을 물리적으로 추정하고 동시에 거리 감쇠까지 적용함으로써 게임 / 시뮬레이션 / 교육 콘텐츠에서 즉시 활용 가능한 사운드 처리 파이프라인을 제안.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11037805', primary: true }
+          ]
+        },
+        sound_reflection_2021: {
+          category: 'GAME · VR',
+          categoryClass: 'GV',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2021.01',
+          num: '// paper_07',
+          title: '가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법',
+          titleEn: 'Real-time Sound Control using Reflection and Diffraction in Virtual Environment',
+          authors: '박성아 외 1인 (2인 공동)',
+          venue: '한국컴퓨터그래픽스 학회 (DBpia 등재)',
+          hero: 'assets/가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 제작 프로젝트_1.png',
+          gallery: [],
+          keywords: ['소리 반사', '소리 회절', '벽 너머 사운드', '실시간 제어', 'Unity', 'C#'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: '가상현실에서 시각적 요소는 발전했지만 청각은 부족하다는 인식에서 출발한 연구. <strong>현실에서 벽 너머로 들리는 소리의 특징</strong>을 가상환경 내에서 사실적으로 구현하기 위해, 벽을 통한 <strong>소리의 반사</strong>와 <strong>회절</strong>을 이용한 실시간 소리 제어 방법을 연구·개발.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>벽을 통한 소리의 반사</strong> — 벽 표면 법선과 입사각 기반 반사각 계산',
+                '<strong>회절</strong> — 벽 모서리 / 틈에서 소리의 회절 경로 계산',
+                '<strong>실시간 소리 제어</strong> — 사용자 이동 + 음원 이동에 즉시 반응',
+                '<strong>소리 감소 계산</strong> — 반사 / 회절 거리·횟수에 따른 자동 감쇠',
+                '<strong>시각화</strong> — 결과를 시각적으로 표현해 디버깅 + 데모 용이'
+              ]
+            },
+            {
+              heading: '🛠 기술 구성',
+              type: 'hardware',
+              items: [
+                'Unity 3D',
+                'C# 사운드 처리',
+                '반사 / 회절 경로 계산',
+                '시각화 디버그 라인'
+              ],
+              note: '본인 역할(50%, 2인 공동) — 가상 환경에서 소리 반사 계산 + 감소 계산 방법 연구·구현, 최종 결과 시각화 기능 구현. 2020.07~2021.01 약 4개월.'
+            },
+            {
+              heading: '💡 의의',
+              type: 'paragraph',
+              body: '본 연구는 이후 진행된 <strong>"장애물 객체 회전 벡터 음향 처리"(paper_05, 2022.01)</strong>의 출발점. 사운드 반사·회절이라는 기본기를 먼저 실시간으로 제어 가능하도록 만들었고, 이를 토대로 다음 해에 보다 정교한 회전 벡터 기반 합성으로 확장. VR 사운드 분야의 기초 파이프라인 구축 사례.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10532174', primary: true }
+          ]
+        },
+        leapmotion_arm_2020: {
+          category: 'VR · IoT',
+          categoryClass: 'VI',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2020.07',
+          num: '// paper_08',
+          title: '확장 현실에서 사용자의 팔 근육 연습 및 분석을 위한 립모션 기반 추적 프레임워크',
+          titleEn: 'A Leap Motion-based Tracking Framework for Arm Muscle Practice and Analysis in Extended Reality',
+          authors: '박성아 외 1인 (2인 공동)',
+          venue: '한국컴퓨터그래픽스 학회 (DBpia 등재)',
+          hero: 'assets/확장 현실에서 사용자의 팔 근육 연습 및 분석을 위한 립모션 기반 추적 프레임워크 프로젝트_1.png',
+          gallery: [],
+          keywords: ['Leap Motion', '저글링', '포물선 방정식', '근육 분석', 'Extended Reality', '재활'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: '확장 현실(XR) 환경에서 <strong>립모션(Leap Motion)</strong>으로 손바닥의 가속도·방향·각도를 추적해 <strong>저글링 콘텐츠</strong>를 진행하면서, 손 움직임 패턴을 분석해 <strong>사용된 팔 근육 부위를 추론</strong>하고 시각화하는 프레임워크. 즐거운 게임이 곧 팔 근육 연습·분석이 되도록 설계.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>립모션 손바닥 추적</strong> — 가속도·방향·각도 데이터 수집',
+                '<strong>저글링 작동 방식 구현</strong> — <strong>포물선 방정식</strong>을 활용해 공의 궤적 계산',
+                '<strong>팔 근육 부위 추론</strong> — 손 움직임 패턴 → 사용된 팔 근육 부위 자동 분석',
+                '<strong>UI 시각화</strong> — 사용자에게 어떤 근육을 어느 정도 사용했는지 직관적으로 표시',
+                '<strong>재활·운동 응용 가능성</strong> — 게임을 즐기며 자연스럽게 근육 운동 + 데이터 수집'
+              ]
+            },
+            {
+              heading: '🛠 기술 구성',
+              type: 'hardware',
+              items: [
+                'Unity 3D',
+                'C#',
+                'Leap Motion 손 추적 SDK',
+                'VR HMD',
+                '포물선 방정식 (저글링 공 궤적)',
+                '근육 부위 추론 UI'
+              ],
+              note: '본인 역할(50%, 2인 공동) — Leap Motion 데이터를 통한 사용자 팔 근육 움직임 분석 / 저글링 작동 방식 구현(포물선 방정식 활용) / 시각적 UI 구현. 2020.02~07 약 5개월.'
+            },
+            {
+              heading: '💡 의의',
+              type: 'paragraph',
+              body: '재활 운동은 반복적이고 동기 부여가 어려운 영역. 본 연구는 <strong>저글링이라는 게임적 경험을 데이터 인터페이스</strong>로 활용해 사용자가 즐기는 사이 팔 근육 운동·데이터 수집이 동시에 이루어지도록 설계. 학부 첫 학술 논문 등재 작품이자, 이후 7편의 VR·IoT 인터페이스 연구의 출발점.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE09415080', primary: true }
+          ]
+        },
+
+        // ============ AWARDS (12) ============
+        award_2021_minister: {
+          category: '🏆 AWARD · 장관상',
+          categoryClass: 'GR',
+          affiliation: '@ 고용노동부',
+          date: '2021.11.10',
+          num: '// 고용노동부장관상',
+          title: '제2회 대한민국 신직업·미래직업 아이디어 공모전',
+          authors: '박성아 외 팀원',
+          venue: '주최: 고용노동부 · 미래의 직업과 일자리 아이디어를 발굴하는 국가 단위 공모전',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '고용노동부가 주최한 국가 단위 미래 직업·신직업 아이디어 공모전에서 <strong>고용노동부장관상</strong> 수상. 학부 시절 받은 가장 큰 정부 부처 단위 시상으로, 미래 사회 변화에 대응하는 새 직업·일자리 형태에 대한 기획안을 제출.' },
+            { heading: '💡 의의', type: 'paragraph', body: '학부생 단위에서 정부 부처 시상을 받은 사례로, 사회 변화·신기술이 일자리에 미치는 영향을 분석하는 통찰력을 인정받음.' }
+          ],
+          links: []
+        },
+        award_2022_social_venture: {
+          category: '🏆 AWARD · 대상',
+          categoryClass: 'GR',
+          affiliation: '@ 강남대학교',
+          date: '2022.09.28',
+          num: '// 대상',
+          title: '2022학년도 소셜벤처 아이디어 경진대회',
+          authors: '박성아 외 팀원',
+          venue: '주최: 강남대학교 · 사회 문제 해결형 벤처 아이디어 발굴',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '강남대학교가 주최한 소셜벤처 아이디어 경진대회에서 <strong>대상</strong> 수상. 사회 문제 해결형 비즈니스 아이디어 분야 최고상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '단순 수익성 비즈니스가 아닌 사회 임팩트 + 지속 가능성을 동시에 고려한 아이디어가 인정받은 사례.' }
+          ],
+          links: []
+        },
+        award_2020_startup_idea: {
+          category: '🏆 AWARD · 대상',
+          categoryClass: 'GR',
+          affiliation: '@ 강남대학교',
+          date: '2020.06.17',
+          num: '// 대상',
+          title: '2020학년도 창업아이디어 경진대회',
+          authors: '박성아 외 팀원',
+          venue: '주최: 강남대학교 · 학내 창업 아이디어 발굴',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '강남대학교 창업아이디어 경진대회에서 <strong>대상</strong> 수상. 학년 단위 창업 아이디어 발굴 대회의 최고상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '학부 2학년 차에 학교 단위 창업 대회 최고상을 수상하며 아이디어 구체화·발표 역량을 확보.' }
+          ],
+          links: []
+        },
+        award_2022_smart_iabcd: {
+          category: '🏆 AWARD · 최우수상',
+          categoryClass: 'IV',
+          affiliation: '@ 강남대학교 공과대학',
+          date: '2022.12.06',
+          num: '// 최우수상',
+          title: 'SMART I_ABCD 기반 복지서비스 모델 제안 컴페티션',
+          authors: '박성아 외 팀원',
+          venue: '주최: 강남대학교 공과대학 · IoT·AI·Big Data·Cloud·Data 기반 복지 서비스 모델 제안',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: 'IoT / AI / Big Data / Cloud / Data 등 차세대 기술(SMART I_ABCD)을 결합한 복지 서비스 모델 제안 컴페티션에서 <strong>최우수상</strong> 수상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '기술 단순 적용이 아닌 사회 복지 영역에 적용하는 응용·기획 역량을 인정받음. 이후 로보케어(복지 로봇 도메인) 입사로 이어진 연결점.' }
+          ],
+          links: []
+        },
+        award_2019_startup: {
+          category: '🏆 AWARD · 최우수상',
+          categoryClass: 'GR',
+          affiliation: '@ 강남대학교',
+          date: '2019.06.28',
+          num: '// 최우수상',
+          title: '2019학년도 창업아이디어 경진대회',
+          authors: '박성아 외 팀원',
+          venue: '주최: 강남대학교',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '강남대학교 창업아이디어 경진대회에서 <strong>최우수상</strong> 수상. 학부 1학년 차의 학교 단위 창업 대회 입상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '학부 입학 첫 해부터 창업 아이디어 발표 경험을 쌓은 시작점.' }
+          ],
+          links: []
+        },
+        award_2018_ict_welfare: {
+          category: '🏆 AWARD · 최우수상',
+          categoryClass: 'IV',
+          affiliation: '@ 강남대학교',
+          date: '2018.11.26',
+          num: '// 최우수상',
+          title: 'ICT 건설융합 복지서비스 컴페티션',
+          authors: '박성아 외 팀원',
+          venue: '주최: 강남대학교 · ICT × 건설 융합 + 복지 서비스',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: 'ICT × 건설 융합 분야의 복지 서비스 모델 발굴 컴페티션에서 <strong>최우수상</strong> 수상. 학부 1학년 첫 학기에 입상한 융합형 대회.' },
+            { heading: '💡 의의', type: 'paragraph', body: '소속 학부(ICT 건설복지융합대학)의 융합 방향성과 부합하는 첫 입상, 이후 SMART I_ABCD·로보케어 등 복지 기술 융합으로 연결.' }
+          ],
+          links: []
+        },
+        award_2022_yongin: {
+          category: '🏆 AWARD · 혁신상',
+          categoryClass: 'GR',
+          affiliation: '@ 한국창업보육협회',
+          date: '2022.11.04',
+          num: '// 혁신상',
+          title: '제8회 용인시 대학연합 창업아이디어 경진대회',
+          authors: '박성아 외 팀원',
+          venue: '주최: 한국창업보육협회 · 용인시 대학 연합 단위',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '용인시 내 대학 연합 단위 창업 아이디어 경진대회에서 <strong>혁신상</strong> 수상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '학교 단위가 아닌 지역 대학 연합 규모의 경쟁에서 입상.' }
+          ],
+          links: []
+        },
+        award_2021_youth_leader: {
+          category: '🏆 AWARD · 우수상',
+          categoryClass: 'GR',
+          affiliation: '@ 강남대학교',
+          date: '2021.10.28',
+          num: '// 우수상',
+          title: '2021년 국제청소년리더 교류지원사업',
+          authors: '박성아 외 팀원',
+          venue: '주최: 강남대학교 · 청소년 국제 교류 리더십 프로그램',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '청소년 국제 교류 지원 사업에서 <strong>우수상</strong> 수상. 글로벌 시야와 리더십을 평가받은 프로그램.' },
+            { heading: '💡 의의', type: 'paragraph', body: '국내 단위가 아닌 국제 교류 기반 프로그램에서의 입상으로, 다양한 문화·시각 노출 경험.' }
+          ],
+          links: []
+        },
+        award_2020_yongin: {
+          category: '🏆 AWARD · 우수상',
+          categoryClass: 'GR',
+          affiliation: '@ 용인시',
+          date: '2020.10.30',
+          num: '// 우수상',
+          title: '제6회 용인시 대학연합 창업 아이디어 경진대회',
+          authors: '박성아 외 팀원',
+          venue: '주최: 용인시 · 대학 연합 창업 경진대회',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '용인시 대학 연합 단위 창업 아이디어 경진대회에서 <strong>우수상</strong> 수상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '2년 연속(2020 우수상·2022 혁신상) 용인시 단위 경진대회 입상으로 지역 단위 발표·기획력 검증.' }
+          ],
+          links: []
+        },
+        award_2019_best_engineer: {
+          category: '🏆 AWARD · 학과상',
+          categoryClass: 'GR',
+          affiliation: '@ 강남대학교 ICT건설복지융합대학',
+          date: '2019.05.28',
+          num: '// 베스트 엔지니어상',
+          title: '베스트 엔지니어',
+          authors: '박성아',
+          venue: '주최: 강남대학교 ICT건설복지융합대학 · 학과 단위 우수 엔지니어 표창',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '강남대학교 ICT건설복지융합대학에서 우수 엔지니어로 선정되어 <strong>베스트 엔지니어상</strong> 수상. 학과 단위에서 개인의 엔지니어링 역량과 학업 성취를 인정받은 표창.' },
+            { heading: '💡 의의', type: 'paragraph', body: '팀 단위 공모전과 달리 개인 엔지니어로서의 역량을 학과가 직접 평가한 결과.' }
+          ],
+          links: []
+        },
+        award_2020_kt_cs: {
+          category: '🏆 AWARD · 장려상',
+          categoryClass: 'GR',
+          affiliation: '@ KT cs',
+          date: '2020.09.23',
+          num: '// 장려상',
+          title: 'KT cs 유니벤터 경진대회',
+          authors: '박성아 외 팀원',
+          venue: '주최: KT cs · 대학생 대상 비즈니스 아이디어 경진대회',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: 'KT cs가 주최한 대학생 대상 비즈니스 경진대회 \'유니벤터\'에서 <strong>장려상</strong> 수상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '학교 외부 기업 주최 대회 입상으로 외부 평가 기준에서도 발표·기획 역량 확보.' }
+          ],
+          links: []
+        },
+        award_2018_sharing: {
+          category: '🏆 AWARD · 장려상',
+          categoryClass: 'GR',
+          affiliation: '@ 부산경제진흥원',
+          date: '2018.11.28',
+          num: '// 장려상',
+          title: '2018 공유경제 사업 아이디어 공모전',
+          authors: '박성아 외 팀원',
+          venue: '주최: 부산광역시 부산경제진흥원 · 공유경제 비즈니스 모델 발굴',
+          sections: [
+            { heading: '📋 수상 개요', type: 'paragraph', body: '부산경제진흥원이 주최한 공유경제 사업 아이디어 공모전에서 <strong>장려상</strong> 수상. 학부 입학 첫 학기 외부 대회 입상.' },
+            { heading: '💡 의의', type: 'paragraph', body: '지역 단위(부산광역시)의 외부 공모전 입상으로 학부 초기부터 발표·기획 활동 시작.' }
+          ],
+          links: []
+        },
+
+        // ============ ACTIVITIES (6) ============
+        activity_2025_google_study: {
+          category: '📌 ACTIVITY · 스터디',
+          categoryClass: 'GR',
+          affiliation: '@ Google · 여성가족재단',
+          date: '2025.01 ~ 03',
+          num: '// 스터디',
+          title: '2025 구글 스터디 잼 × 잇츠스터디',
+          authors: '박성아 (참여)',
+          venue: '주최: Google · 협력: 여성가족재단',
+          sections: [
+            { heading: '📋 활동 개요', type: 'paragraph', body: '다양한 직군의 사람들이 특정 주제(Google Cloud, AI 등)를 가지고 지속적으로 모여 학습하고, 성과물을 만들어 발표하는 스터디 모임. 약 3개월간 진행.' },
+            { heading: '💡 의의', type: 'paragraph', body: '동일 직군이 아닌 다양한 직군 인원과의 학습 → 게임 개발자 시야 밖의 도구·관점을 익히는 기회.' }
+          ],
+          links: []
+        },
+        activity_2024_eveni_gameton: {
+          category: '📌 ACTIVITY · 게임톤',
+          categoryClass: 'GV',
+          affiliation: '@ EvenI',
+          date: '2024.01 ~ 03',
+          num: '// 게임톤',
+          title: '2024 상반기 이븐아이 게임톤',
+          authors: '박성아 (개발 2/4 + 기획·PM 3명, 총 7인)',
+          venue: '주최: EvenI · 2달 팀 게임 기획·개발·상용화 대회',
+          sections: [
+            { heading: '📋 활동 개요', type: 'paragraph', body: '다양한 직군(개발 2 · 기획 2 · PM · 사업 · 마케팅)이 한 팀이 되어 2달 동안 게임을 기획·개발·<strong>상용화</strong>까지 진행한 대외 대회. 본인 역할은 클라이언트 개발자.' },
+            { heading: '🎮 결과물', type: 'paragraph', body: '<strong>"Cracker: 차원 여행자"</strong> — 차원 사이를 떨어지며 진행하는 Drop 형식의 캐주얼 게임. Unity + C# + AdMob 광고 연동까지 완료해 Play Store 출시.' },
+            { heading: '💡 의의', type: 'paragraph', body: '게임 기획부터 출시·운영까지 전체 사이클을 다직군 팀과 짧은 기간 안에 경험.' }
+          ],
+          links: [
+            { label: 'Play Store →', href: 'https://play.google.com/store/apps/details?id=com.Comma.Cracker', primary: true },
+            { label: 'GitHub →', href: 'https://github.com/Comma-Game/Comma', primary: false }
+          ]
+        },
+        activity_2023_junction_asia: {
+          category: '📌 ACTIVITY · 해커톤',
+          categoryClass: 'GV',
+          affiliation: '@ JUNCTION',
+          date: '2023.08',
+          num: '// 국제 해커톤',
+          title: 'JUNCTION ASIA 2023 Hackathon',
+          authors: '박성아 (5인 팀 · 프론트 + 서버 / 기여도 20%)',
+          venue: '주최: JUNCTION · 북유럽 발 글로벌 해커톤 아시아 부문',
+          sections: [
+            { heading: '📋 활동 개요', type: 'paragraph', body: '북유럽 발 글로벌 해커톤 JUNCTION의 아시아 부문 참가. 5명 팀으로 <strong>3일 동안</strong> 즉석에서 기획·구현·발표까지 완주.' },
+            { heading: '🎮 결과물', type: 'paragraph', body: '<strong>"My Chef Friend"</strong> — 사용자 식단·식재료 데이터를 활용하는 요리 추천 앱. Unity 클라이언트 + REST API + Redis 캐시 + MySQL 백엔드를 함께 다룬 풀스택 단기 프로젝트.' },
+            { heading: '💡 의의', type: 'paragraph', body: '짧은 스프린트에서 풀스택을 처음 경험한 프로젝트. 게임 외 영역(앱·서버) 역량 확장.' }
+          ],
+          links: [
+            { label: 'WebGL Demo →', href: 'https://play.unity.com/mg/other/webgl-builds-365117', primary: true },
+            { label: 'GitHub →', href: 'https://github.com/Seonga02024/MyChefFriend', primary: false }
+          ]
+        },
+        activity_2022_content_empathy: {
+          category: '📌 ACTIVITY · 교육 과정',
+          categoryClass: 'IV',
+          affiliation: '@ 한국콘텐츠진흥원',
+          date: '2022.07 ~ 11',
+          num: '// 교육 수료',
+          title: '콘텐츠, 공감하다 교육 과정 수료',
+          authors: '박성아 (수강생)',
+          venue: '주최: 한국콘텐츠진흥원 · 감성인식기술 X 인터랙티브콘텐츠',
+          sections: [
+            { heading: '📋 활동 개요', type: 'paragraph', body: '한국콘텐츠진흥원이 운영한 <strong>"감성인식기술 X 인터랙티브 콘텐츠"</strong> 교육 과정 수료. 약 5개월간 진행된 수행 과제형 교육.' },
+            { heading: '💡 의의', type: 'paragraph', body: '감성·정서를 인식하는 기술과 인터랙티브 콘텐츠 결합 분야를 학습. 이후 VR/IoT 인터페이스 논문 연구로 이어진 기반.' }
+          ],
+          links: []
+        },
+        activity_2022_samsung_sds: {
+          category: '📌 ACTIVITY · 알고리즘 교육',
+          categoryClass: 'GR',
+          affiliation: '@ 삼성SDS',
+          date: '2022.07.04 ~ 07.15',
+          num: '// 교육 수료',
+          title: '하계 대학생 알고리즘 특강 수료',
+          authors: '박성아 (수강생)',
+          venue: '주최: 삼성SDS · 약 2주간 대학생 대상 알고리즘 집중 교육',
+          sections: [
+            { heading: '📋 활동 개요', type: 'paragraph', body: '삼성SDS가 주관한 대학생 대상 <strong>하계 알고리즘 특강</strong>을 약 2주(2022.07.04 ~ 07.15) 동안 수료. 알고리즘 문제 해결 능력 집중 강화 프로그램.' },
+            { heading: '💡 의의', type: 'paragraph', body: '기업 단위 외부 교육 수료로 알고리즘 사고력 기반 확보. 이후 다익스트라(위험한 실험실/Christmas)·A*(이동 궤적 NPC)·BFS(CatCatCat 퍼즐) 등 게임 로직에서 활용.' }
+          ],
+          links: []
+        },
+        activity_2019_vrar_hackathon: {
+          category: '📌 ACTIVITY · 해커톤',
+          categoryClass: 'IV',
+          affiliation: '@ 경기콘텐츠진흥원',
+          date: '2019.07.24 ~ 07.26',
+          num: '// 해커톤',
+          title: '경기 VR AR 해커톤 수료',
+          authors: '박성아 (참여)',
+          venue: '주최: 경기콘텐츠진흥원 · 3일간 VR/AR 콘텐츠 제작',
+          sections: [
+            { heading: '📋 활동 개요', type: 'paragraph', body: '경기콘텐츠진흥원이 주관한 3일간 VR/AR 콘텐츠 해커톤 (2019.07.24 ~ 07.26) 수료. 학부 1학년 차에 처음 VR/AR 분야에 진입한 계기.' },
+            { heading: '💡 의의', type: 'paragraph', body: '이후 학부 4년간 <strong>VR/IoT 인터페이스 논문 8편</strong>으로 이어진 시작점. 본 해커톤 직후 학부 졸업까지 VR 사운드·인터페이스·아두이노 IoT 인터페이스 연구에 몰입.' }
+          ],
+          links: []
         }
       };
 
@@ -2332,14 +3137,16 @@
         document.body.style.overflow = '';
       }
 
-      // Attach to paper cards with data-paper-id
-      document.querySelectorAll('.paper-card.has-detail').forEach(card => {
+      // Attach to ANY element with data-paper-id + has-detail (papers, awards, activities)
+      document.querySelectorAll('[data-paper-id].has-detail').forEach(card => {
         const id = card.getAttribute('data-paper-id');
         if (!id || !PAPERS[id]) return;
         card.addEventListener('click', (e) => {
-          // Ignore if user explicitly held ctrl/meta (open external in new tab from link)
-          const link = e.target.closest('.paper-link');
+          // Ignore if user explicitly held ctrl/meta on an internal link
+          const link = e.target.closest('a');
           if (link && (e.ctrlKey || e.metaKey || e.button === 1)) return;
+          // If clicking an actual external link, let it through
+          if (link && link.target === '_blank') return;
           e.preventDefault();
           openPaper(id);
         });

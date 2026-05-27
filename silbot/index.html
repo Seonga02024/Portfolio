@@ -997,6 +997,60 @@
       .catalog-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .hl-card h4 { padding-right: 0; padding-top: 28px; }
+      .video-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ============ System videos gallery ============ */
+    .system-videos {
+      margin-top: 50px; padding-top: 36px;
+      border-top: 1px dashed rgba(139, 26, 26, 0.18);
+    }
+    .system-videos-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; margin-bottom: 6px;
+    }
+    .system-videos-title {
+      margin: 0; font-size: 20px; color: var(--l-ink, #2a1a10);
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+    }
+    .system-videos-badge {
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      color: var(--l-accent, #8b1a1a);
+      padding: 4px 10px;
+      background: rgba(139, 26, 26, 0.08);
+      border-radius: 99px;
+    }
+    .system-videos-desc {
+      font-size: 14.5px; color: var(--l-ink-soft, #5b4434);
+      margin: 0 0 22px; max-width: 760px; line-height: 1.65;
+    }
+    .video-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .video-card {
+      margin: 0; border-radius: 14px; overflow: hidden;
+      background: #0a0a0a;
+      box-shadow: 0 10px 28px rgba(60, 30, 10, 0.16);
+      border: 1px solid rgba(139, 26, 26, 0.12);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .video-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(60, 30, 10, 0.22);
+    }
+    .video-card video {
+      display: block; width: 100%; aspect-ratio: 16 / 9;
+      object-fit: contain; background: #000;
+    }
+    .video-card figcaption {
+      padding: 12px 16px;
+      background: #fffaf1; color: #5b4434;
+      border-top: 1px solid #efe3c8;
+      font-family: "JetBrains Mono", monospace; font-size: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .video-card figcaption .vc-role {
+      color: var(--l-accent, #8b1a1a); font-weight: 700;
     }
   </style>
 </head>
@@ -1308,6 +1362,43 @@
             <li>RobotManager 가 소켓 명령을 받아 발화·움직임 실행</li>
             <li>HiBomi2 보조 로봇과의 연결도 지원</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- ===== Live demo videos: 합이 10! 사과 잡기 (3-디바이스 동시) ===== -->
+      <div class="system-videos">
+        <div class="system-videos-head">
+          <h3 class="system-videos-title">🎬 현장 시연 — "합이 10! 사과 잡기"</h3>
+          <span class="system-videos-badge">// LIVE · 3-DEVICE SYNC</span>
+        </div>
+        <p class="system-videos-desc">
+          위에서 설명한 <strong>교사 PC · 대화면(TV·KADAS) · 학생 태블릿</strong> 3-디바이스가 동시에 동작하는 흐름을 실제 영상으로 확인할 수 있습니다.
+          본 영상의 콘텐츠는 합이 10이 되도록 사과(동전)를 연결하는 인지 훈련 게임이지만, 화면 구조와 데이터 흐름은
+          모든 실벗 미니게임에 공통으로 적용되는 일반 구조입니다 — Photon PUN으로 학생 간 동기화, Socket.IO로 교사 명령 전달.
+        </p>
+
+        <div class="video-grid">
+          <figure class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="assets/결과영상2506/십원 선생님 화면.mp4" type="video/mp4" />
+              브라우저가 video 태그를 지원하지 않습니다.
+            </video>
+            <figcaption><span class="vc-role">// MASTER</span> 교사 PC · 진행 제어 + 모니터링</figcaption>
+          </figure>
+          <figure class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="assets/결과영상2506/십원 대화면 풀.mp4" type="video/mp4" />
+              브라우저가 video 태그를 지원하지 않습니다.
+            </video>
+            <figcaption><span class="vc-role">// DISPLAY</span> 대화면(TV·KADAS) · 실시간 랭킹 + 게임 진행 공유</figcaption>
+          </figure>
+          <figure class="video-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="assets/결과영상2506/십원 학생 풀 게임.mp4" type="video/mp4" />
+              브라우저가 video 태그를 지원하지 않습니다.
+            </video>
+            <figcaption><span class="vc-role">// CLIENT</span> 학생 태블릿 · 실제 게임 플레이</figcaption>
+          </figure>
         </div>
       </div>
     </div>

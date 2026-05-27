@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zepeto Gucci Tennis Game — 3D Multiplayer Tennis · Developer Portfolio</title>
+  <meta name="description" content="Naver Zepeto × Gucci 콜라보 3D 멀티 테니스 게임. 누적 방문 193K, Unity + TypeScript, 포물선 방정식 기반 공 궤적 + 2D↔3D 좌표 변환. 클라이언트 80% 메인 담당." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Theme tokens — Gucci × Tennis (Forest green + Gucci gold / Navy)
+       ============================================================ */
+    :root {
+      /* Warm tone — Court green + cream + Gucci gold */
+      --w-bg: #f4ecd8;
+      --w-bg-soft: #ece2c2;
+      --w-paper: #fffaf1;
+      --w-ink: #1a2418;
+      --w-ink-soft: #3d4d3a;
+      --w-ink-muted: #6f7e6a;
+      --w-accent: #166534;
+      --w-accent-deep: #0d4424;
+      --w-gold: #c89a3a;
+      --w-gold-soft: #e9c97a;
+      --w-shadow: 0 10px 32px rgba(20, 60, 30, 0.16);
+
+      /* Dark tone — Navy with subtle green/gold tints */
+      --d-bg-0: #08130d;
+      --d-bg-1: #0f1c1a;
+      --d-bg-2: #16282a;
+      --d-bg-3: #1f3438;
+      --d-line: #2a4044;
+      --d-text: #eaf2e8;
+      --d-text-dim: #a5b6a8;
+      --d-text-muted: #6f8478;
+      --d-accent: #6ee7a8;
+      --d-accent-2: #e9c97a;
+      --d-accent-3: #f472b6;
+      --d-green: #4ade80;
+      --d-amber: #fbbf24;
+      --d-code-bg: #0a1612;
+      --d-code-border: #1f3033;
+      --d-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+    code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    /* ============================================================
+       Section base
+       ============================================================ */
+    section { padding: 100px 28px; position: relative; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ============================================================
+       Part 1 — Warm theme
+       ============================================================ */
+    .warm { background: var(--w-bg); color: var(--w-ink); }
+    .warm .section-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(22, 101, 52, 0.10);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .warm h2.section-title {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 16px;
+      color: var(--w-ink);
+    }
+    .warm .section-sub {
+      font-size: 18px; color: var(--w-ink-soft);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* ============================================================
+       Part 2 — Dark theme
+       ============================================================ */
+    .dark { background: var(--d-bg-0); color: var(--d-text); }
+    .dark .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 500;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .dark .section-eyebrow::before {
+      content: ""; width: 24px; height: 1px;
+      background: var(--d-accent);
+    }
+    .dark h2.section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      margin: 0 0 16px;
+      color: var(--d-text);
+    }
+    .dark .section-sub {
+      font-size: 17px; color: var(--d-text-dim);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* Dark grid background */
+    .dark::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(110, 231, 168, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110, 231, 168, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .dark .container { position: relative; z-index: 1; }
+
+    /* ============================================================
+       Nav
+       ============================================================ */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(244, 236, 216, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(22, 101, 52, 0.14);
+      transition: background .3s, border-color .3s;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 16px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--w-accent); text-decoration: none;
+    }
+    .brand .brand-mark {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--w-accent), var(--w-gold));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-family: "Gowun Batang", serif;
+      font-size: 18px;
+    }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a {
+      color: var(--w-ink-soft); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--w-accent); }
+    .nav-links a.tech { color: var(--w-ink-muted); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+    .nav-back {
+      color: var(--w-ink-muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+    }
+
+    /* ============================================================
+       Hero — warm
+       ============================================================ */
+    .hero {
+      padding: 90px 28px 90px;
+      background:
+        radial-gradient(ellipse at top left, rgba(200, 154, 58, 0.20), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(22, 101, 52, 0.16), transparent 60%),
+        var(--w-bg);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(22, 101, 52, 0.10);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+    .hero h1 {
+      font-family: "Gowun Batang", serif;
+      font-size: clamp(36px, 5.6vw, 64px);
+      line-height: 1.08;
+      margin: 0 0 22px;
+      color: var(--w-accent-deep);
+    }
+    .hero h1 .accent { color: var(--w-gold); }
+    .hero h1 .big {
+      font-size: 1.25em;
+      background: linear-gradient(135deg, var(--w-accent), var(--w-gold));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .lead {
+      font-size: 19px; color: var(--w-ink-soft);
+      max-width: 560px; margin: 0 0 24px;
+    }
+    .hero-metrics-inline {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin: 0 0 32px;
+    }
+    .hero-metrics-inline .pill {
+      padding: 7px 14px;
+      background: white;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--w-ink);
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(20, 60, 30, 0.10);
+    }
+    .hero-metrics-inline .pill strong {
+      color: var(--w-accent);
+      font-family: "JetBrains Mono", monospace;
+      margin-right: 4px;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: transform .15s, box-shadow .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--w-accent); color: white;
+      box-shadow: 0 8px 20px rgba(22, 101, 52, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(22, 101, 52, 0.42); }
+    .btn-ghost {
+      background: transparent; color: var(--w-accent);
+      border: 2px solid var(--w-accent);
+    }
+    .btn-ghost:hover { background: var(--w-accent); color: white; }
+
+    .hero-visual { max-width: 560px; margin: 0 auto; position: relative; }
+    .hero-screenshot {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(20, 60, 30, 0.35);
+      border: 6px solid white;
+      transform: rotate(-1.5deg);
+      transition: transform .3s;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(135deg, #1a3a24, #0d4424 50%, #b88e2f);
+    }
+    .hero-screenshot:hover { transform: rotate(0); }
+    .hero-screenshot .placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.85);
+      font-family: "Gowun Batang", serif;
+      font-size: 18px;
+      text-align: center;
+      padding: 24px;
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 10px, transparent 10px 20px);
+    }
+    .hero-screenshot .badge {
+      position: absolute; bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: white; padding: 12px 20px; border-radius: 12px;
+      box-shadow: var(--w-shadow);
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 14px;
+      color: var(--w-ink);
+      white-space: nowrap;
+    }
+    .hero-screenshot .badge .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--w-accent);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(22, 101, 52, 0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(22, 101, 52, 0); }
+    }
+
+    /* ============================================================
+       Features — warm
+       ============================================================ */
+    .features { background: linear-gradient(180deg, var(--w-bg), var(--w-paper)); }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: var(--w-shadow);
+      border-top: 4px solid var(--w-accent);
+      transition: transform .2s;
+    }
+    .feat-card:nth-child(2) { border-top-color: var(--w-gold); }
+    .feat-card:nth-child(3) { border-top-color: var(--w-accent-deep); }
+    .feat-card:nth-child(4) { border-top-color: #4a2c8a; }
+    .feat-card:nth-child(5) { border-top-color: var(--w-accent); }
+    .feat-card:nth-child(6) { border-top-color: var(--w-gold); }
+    .feat-card:hover { transform: translateY(-4px); }
+    .feat-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(22, 101, 52, 0.10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+    .feat-card h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
+    .feat-card p { margin: 0; color: var(--w-ink-soft); font-size: 14.5px; }
+
+    /* ============================================================
+       Gallery — warm
+       ============================================================ */
+    .gallery { background: var(--w-bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .shot {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--w-paper);
+      box-shadow: var(--w-shadow);
+      position: relative;
+      transition: transform .2s;
+      aspect-ratio: 16 / 10;
+    }
+    .shot:hover { transform: translateY(-4px); }
+    .placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Gowun Batang", serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 16px;
+    }
+    .shot .placeholder {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.45)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 10px, transparent 10px 20px),
+        linear-gradient(135deg, var(--w-accent-deep) 0%, var(--w-accent) 60%, var(--w-gold) 100%);
+    }
+    .shot:nth-child(2) .placeholder { background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.45)), repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 10px, transparent 10px 20px), linear-gradient(135deg, #0d4424, #166534 50%, #4ade80); }
+    .shot:nth-child(3) .placeholder { background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.45)), repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 10px, transparent 10px 20px), linear-gradient(135deg, #14302a, #2a4040 60%, #c89a3a); }
+    .shot:nth-child(4) .placeholder { background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.45)), repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 10px, transparent 10px 20px), linear-gradient(135deg, #0d4424, #2c8a48 60%, #e9c97a); }
+    .shot:nth-child(5) .placeholder { background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.45)), repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 10px, transparent 10px 20px), linear-gradient(135deg, #2b1a0d, #5d3b14 50%, #c89a3a); }
+    .shot:nth-child(6) .placeholder { background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.45)), repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 10px, transparent 10px 20px), linear-gradient(135deg, #166534, #c89a3a 60%, #ffffff); }
+    .shot figcaption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       Section divider
+       ============================================================ */
+    .divider {
+      background: linear-gradient(180deg, var(--w-paper) 0%, var(--d-bg-0) 100%);
+      padding: 80px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .divider .badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 12px 24px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .divider .badge::before { content: "▼"; color: var(--d-accent-2); }
+    .divider h2 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      margin: 0 0 12px;
+      color: var(--d-text);
+    }
+    .divider h2 .gradient {
+      background: linear-gradient(135deg, var(--d-accent), var(--d-accent-2));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .divider p {
+      color: var(--d-text-dim);
+      font-size: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       Metrics — dark
+       ============================================================ */
+    .metrics-bar { background: var(--d-bg-0); padding: 60px 28px 30px; }
+    .hero-metrics {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .metric {
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+    .metric.hero-metric {
+      background: linear-gradient(135deg, rgba(110, 231, 168, 0.10), rgba(233, 201, 122, 0.08)), var(--d-bg-1);
+      border-color: var(--d-accent);
+    }
+    .metric .val {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px; font-weight: 700;
+      color: var(--d-accent);
+      line-height: 1;
+    }
+    .metric.hero-metric .val { color: var(--d-accent-2); font-size: 30px; }
+    .metric .label {
+      font-size: 11px;
+      color: var(--d-text-muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       Stack — dark
+       ============================================================ */
+    .stack { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+    .stack-badge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 18px;
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      transition: border-color .15s, transform .15s;
+    }
+    .stack-badge:hover { border-color: var(--d-accent); transform: translateY(-2px); }
+    .stack-badge .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--d-bg-3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700; color: var(--d-accent);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .stack-badge .name { font-weight: 600; font-size: 14px; color: var(--d-text); }
+    .stack-badge .role { font-size: 11px; color: var(--d-text-muted); margin-top: 2px; }
+
+    /* ============================================================
+       My contributions / Architecture — dark
+       ============================================================ */
+    .mine { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); position: relative; }
+    .mine-banner {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(110, 231, 168, 0.15), rgba(233, 201, 122, 0.15));
+      border: 1px solid var(--d-accent);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .mine-banner::before { content: "★"; color: var(--d-accent-2); }
+    .mine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .mine-card {
+      background:
+        linear-gradient(135deg, rgba(110, 231, 168, 0.04), rgba(233, 201, 122, 0.04)),
+        var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .mine-card:hover { transform: translateY(-6px); border-color: var(--d-accent); }
+    .mine-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .mine-card .area-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--d-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .mine-card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      color: var(--d-text);
+    }
+    .mine-card .desc {
+      margin: 0 0 18px;
+      color: var(--d-text-dim);
+      font-size: 14.5px;
+    }
+    .mine-card ul { list-style: none; padding: 0; margin: 0; }
+    .mine-card ul li {
+      padding: 6px 0;
+      color: var(--d-text-dim);
+      font-size: 13.5px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .mine-card ul li::before {
+      content: "▸";
+      color: var(--d-accent-2);
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 11px;
+    }
+    .mine-card ul li code {
+      color: var(--d-accent);
+      background: rgba(110, 231, 168, 0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* ============================================================
+       Code showcase — dark
+       ============================================================ */
+    .codeshow { background: var(--d-bg-0); }
+    .code-disclaimer {
+      display: inline-flex; gap: 8px; align-items: center;
+      padding: 6px 14px;
+      background: rgba(233, 201, 122, 0.08);
+      border: 1px dashed rgba(233, 201, 122, 0.35);
+      border-radius: 6px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--d-accent-2);
+      margin-bottom: 22px;
+    }
+    .code-tabs {
+      display: flex; gap: 4px;
+      margin-bottom: -1px;
+      flex-wrap: wrap;
+    }
+    .code-tab {
+      padding: 10px 18px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--d-text-muted);
+      cursor: pointer;
+    }
+    .code-tab.active {
+      background: var(--d-code-bg);
+      color: var(--d-accent);
+      border-color: var(--d-code-border);
+    }
+    .code-block {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 0 14px 14px 14px;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--d-code-border);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .code-header .file { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-text-muted); }
+    .code-header .lang {
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      color: var(--d-accent); padding: 2px 8px;
+      background: rgba(110, 231, 168, 0.08); border-radius: 4px;
+    }
+    pre.code {
+      margin: 0; padding: 22px 24px;
+      font-size: 13px; line-height: 1.75;
+      overflow-x: auto;
+      color: var(--d-text);
+    }
+    pre.code .kw { color: #c084fc; }
+    pre.code .ty { color: #6ee7a8; }
+    pre.code .st { color: #e9c97a; }
+    pre.code .cm { color: #64748b; font-style: italic; }
+    pre.code .fn { color: #a5f3cf; }
+    pre.code .nu { color: #fb923c; }
+    .code-pane { display: none; }
+    .code-pane.active { display: block; }
+
+    /* ============================================================
+       Challenges — dark
+       ============================================================ */
+    .challenges { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .chall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .chall {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 26px;
+      position: relative;
+    }
+    .chall::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .chall .label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .chall .problem { font-weight: 700; font-size: 16px; margin: 8px 0 16px; color: var(--d-text); }
+    .chall .solution { font-size: 13.5px; color: var(--d-text-dim); padding-top: 16px; border-top: 1px dashed var(--d-line); }
+    .chall .solution-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* ============================================================
+       Metrics detail — dark
+       ============================================================ */
+    .metrics-detail { background: var(--d-bg-1); }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .impact-card {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 26px 24px;
+      position: relative;
+    }
+    .impact-card.highlight {
+      background:
+        linear-gradient(135deg, rgba(110, 231, 168, 0.10), rgba(233, 201, 122, 0.08)),
+        var(--d-bg-2);
+      border-color: var(--d-accent);
+    }
+    .impact-card .big {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 36px; font-weight: 700;
+      color: var(--d-accent-2);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .impact-card.highlight .big { color: var(--d-accent); font-size: 44px; }
+    .impact-card h4 { margin: 12px 0 8px; font-size: 16px; color: var(--d-text); }
+    .impact-card p { margin: 0; font-size: 13.5px; color: var(--d-text-dim); }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    footer {
+      background: var(--d-bg-0);
+      border-top: 1px solid var(--d-line);
+      padding: 50px 28px 40px;
+    }
+    .foot-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .foot-inner p { margin: 0; font-size: 13px; color: var(--d-text-muted); }
+    .foot-links { display: flex; gap: 20px; }
+    .foot-links a { color: var(--d-text-dim); text-decoration: none; font-size: 13px; }
+    .foot-links a:hover { color: var(--d-accent); }
+
+    /* ============================================================
+       Reveal
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 380px; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 70px 22px; }
+    }
+    @media (max-width: 560px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-metrics { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">G</span>
+        Gucci Tennis · Zepeto
+      </a>
+      <nav class="nav-links">
+        <a href="#features">게임 소개</a>
+        <a href="#gallery">화면</a>
+        <a href="#technical" class="tech">// technical</a>
+        <a href="#mine" class="tech">// my work</a>
+        <a href="#code" class="tech">// code</a>
+        <a href="../index.html" class="nav-back">← Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 1 — GAME INTRODUCTION (warm)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="warm hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">Gucci × Zepeto 콜라보 · 3D 멀티 테니스</span>
+        <h1>포물선 방정식 위에서 —<br /><span class="big">193K</span> 명이<br />라켓을 휘둘렀다</h1>
+        <p class="lead">
+          Gucci 콜라보 메타버스 3D 테니스 게임. 자동 매칭부터 3판 2세트 룰까지.
+          클라이언트 <strong>80%</strong> 메인 담당, 출시 + 패치까지 풀 사이클.
+        </p>
+        <div class="hero-metrics-inline">
+          <span class="pill"><strong>193K</strong> 누적 방문</span>
+          <span class="pill"><strong>3</strong> 개월 개발</span>
+          <span class="pill"><strong>80%</strong> 메인 담당</span>
+          <span class="pill"><strong>LIVE</strong> 출시 운영 중</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://tv.kakao.com/v/446596912" target="_blank" rel="noopener">▶ WATCH GAMEPLAY</a>
+          <a class="btn btn-ghost" href="https://github.com/Seonga02024/3D-Tennis-Game" target="_blank" rel="noopener">VIEW CODE →</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-screenshot">
+          <img src="assets/proj-gucci-tennis-1.png" alt="Zepeto Gucci Tennis" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:18px;" />
+          <div class="badge"><span class="dot"></span> 출시 운영 중 · 193K+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES
+       ============================================================ -->
+  <section class="warm features reveal" id="features">
+    <div class="container">
+      <span class="section-eyebrow">FEATURES · 게임에 담은 것</span>
+      <h2 class="section-title">이런 기능들이 들어가 있어요</h2>
+      <p class="section-sub">
+        Zepeto 월드에 입장하면 매칭부터 한 세트 매치까지 매끄럽게.
+        실제 테니스 룰을 그대로 살리면서, 메타버스 안에서 한 판 즐길 수 있도록 구성했어요.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🎾</div>
+          <h3>실제 테니스 룰</h3>
+          <p>3판 중 2세트 승리 시 게임 종료. 점수·듀스·어드밴티지까지 그대로 구현했어요.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🤝</div>
+          <h3>자동 매칭</h3>
+          <p>월드 입장 → 게임 시작 버튼 한 번이면 즉시 상대 매칭. 대기 시간 최소화.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🏆</div>
+          <h3>랭킹 + 보상</h3>
+          <p>승리가 누적될수록 랭킹에 등록되고, 그에 따른 인게임 보상까지.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">👜</div>
+          <h3>Gucci 브랜드 콜라보</h3>
+          <p>게임 내 Gucci 의상·물품 전시. 브랜드 홍보 + 콘텐츠 내 수익 창출을 동시에.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🌐</div>
+          <h3>멀티방 매칭</h3>
+          <p>멀티방 구조 + 서버 데이터 분할로 매칭 성공률과 동시 접속 안정성을 끌어올렸어요.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📐</div>
+          <h3>포물선 방정식</h3>
+          <p>입력 위치 + 강도 → 포물선 방정식으로 공의 자연스러운 궤적을 계산.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY
+       ============================================================ -->
+  <section class="warm gallery reveal" id="gallery">
+    <div class="container">
+      <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
+      <h2 class="section-title">이렇게 진행됩니다</h2>
+      <p class="section-sub">
+        Gucci 콜라보 키 비주얼, 매칭, 랠리, 랭킹 보상 UI까지 — 게임의 주요 화면들.
+        실제 플레이 영상은 상단 <em>WATCH GAMEPLAY</em> 버튼에서 확인할 수 있어요.
+      </p>
+
+      <div class="gallery-grid">
+        <figure class="shot">
+          <img src="assets/proj-gucci-tennis-1.png" alt="Gucci Tennis launch" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>출시 키 비주얼 · Gucci × Zepeto</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/proj-gucci-tennis-2.jpg" alt="Gucci Tennis gameplay" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>인게임 · 3D 테니스 랠리</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">매칭 직전<br/>화면</div>
+          <figcaption>자동 매칭 · 입장 직전</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">랠리<br/>진행 컷</div>
+          <figcaption>3D 랠리 · 포물선 궤적</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">랭킹 · 보상<br/>UI</div>
+          <figcaption>랭킹 등록 · 보상 화면</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">Gucci 의상<br/>착용 캐릭터</div>
+          <figcaption>Gucci 의상 착용 · 브랜드 홍보</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       DIVIDER
+       ════════════════════════════════════════════════════════════ -->
+  <section class="divider reveal" id="technical">
+    <div class="badge">PERSPECTIVE · TECHNICAL DEEP-DIVE</div>
+    <h2>이제 <span class="gradient">기술 관점</span>에서 살펴봅니다</h2>
+    <p>여기서부터는 매칭 시스템·테니스 룰 엔진·포물선 방정식·2D↔3D 좌표 변환을 어떻게 구현했는지 살펴봅니다.</p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 2 — TECHNICAL (dark)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       METRICS BAR
+       ============================================================ -->
+  <section class="dark metrics-bar reveal">
+    <div class="hero-metrics">
+      <div class="metric hero-metric"><div class="val">193K</div><div class="label">누적 방문</div></div>
+      <div class="metric"><div class="val">3개월</div><div class="label">개발 기간</div></div>
+      <div class="metric"><div class="val">80%</div><div class="label">기여도</div></div>
+      <div class="metric"><div class="val">U+TS</div><div class="label">Unity + TypeScript</div></div>
+      <div class="metric"><div class="val">1주</div><div class="label">출시 + 패치</div></div>
+      <div class="metric"><div class="val">OSS</div><div class="label">GitHub 공개</div></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STACK
+       ============================================================ -->
+  <section class="dark stack reveal">
+    <div class="container">
+      <span class="section-eyebrow">// tech_stack</span>
+      <h2 class="section-title">Unity + TypeScript on Zepeto SDK</h2>
+      <p class="section-sub">
+        Zepeto 플랫폼 SDK 위에서 Unity 클라이언트 + TypeScript 서버 스크립트.
+        멀티방 매칭, 서버 데이터 분할, 그리고 핵심인 수학(포물선 방정식 + 2D↔3D 좌표 변환).
+      </p>
+
+      <div class="stack-grid">
+        <div class="stack-badge"><div class="icon">U</div><div><div class="name">Unity</div><div class="role">3D Engine</div></div></div>
+        <div class="stack-badge"><div class="icon">TS</div><div><div class="name">TypeScript</div><div class="role">Game Script</div></div></div>
+        <div class="stack-badge"><div class="icon">ZP</div><div><div class="name">Zepeto SDK</div><div class="role">Platform</div></div></div>
+        <div class="stack-badge"><div class="icon">MR</div><div><div class="name">Multiplay Room</div><div class="role">Matching</div></div></div>
+        <div class="stack-badge"><div class="icon">SV</div><div><div class="name">Server Data</div><div class="role">Sharding</div></div></div>
+        <div class="stack-badge"><div class="icon">∫</div><div><div class="name">포물선 방정식</div><div class="role">Ball Physics</div></div></div>
+        <div class="stack-badge"><div class="icon">2D</div><div><div class="name">2D ↔ 3D Map</div><div class="role">Coord. Math</div></div></div>
+        <div class="stack-badge"><div class="icon">FSM</div><div><div class="name">State Machine</div><div class="role">Score Engine</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHITECTURE / MY WORK
+       ============================================================ -->
+  <section class="dark mine reveal" id="mine">
+    <div class="container">
+      <div class="mine-banner">MY CONTRIBUTIONS · 클라이언트 80% 메인</div>
+      <h2 class="section-title">직접 설계 · 구현한 4가지 핵심 영역</h2>
+      <p class="section-sub">
+        기획자와 처음부터 끝까지 협업하며, 기획 변경에 강건한 구조로 설계.
+        함수 분리 + 의존성 최소화 — 출시 이후 패치 작업도 빠르게 흡수했어요.
+      </p>
+
+      <div class="mine-grid">
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 01 · MATCH SYSTEM</div>
+          <h3>매칭 + 멀티방 시스템</h3>
+          <p class="desc">
+            월드 입장 → 게임 시작 버튼 → 자동 매칭. 멀티방 진입과 서버 데이터 분할로
+            매칭 성공률과 동시 처리 안정성을 끌어올렸어요.
+          </p>
+          <ul>
+            <li>월드 입장 직후 <code>roomId</code> 발급 및 멀티방 진입</li>
+            <li>매칭 풀을 멀티방 단위로 분할 → 충돌·대기 감소</li>
+            <li>서버 데이터 분할 — 방별로 상태 격리해 부하 균등 분산</li>
+            <li>매칭 실패 시 폴백 경로 — 자연스러운 재시도 흐름</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 02 · TENNIS RULE ENGINE</div>
+          <h3>실제 테니스 룰 엔진</h3>
+          <p class="desc">
+            점수(15·30·40), 듀스, 어드밴티지, 세트, 매치까지 — 실제 테니스 룰을
+            그대로 코드로 옮긴 점수 시스템.
+          </p>
+          <ul>
+            <li>State machine — Game / Deuce / Advantage / Set / Match 분리</li>
+            <li>3판 중 2세트 승리 시 자동 종료</li>
+            <li>점수 갱신 시 양 클라이언트로 즉시 브로드캐스트</li>
+            <li>기획 변경(가령 2판제) 대응을 위한 모듈화 설계</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 03 · BALL PHYSICS</div>
+          <h3>포물선 방정식 기반 공 궤적</h3>
+          <p class="desc">
+            입력 위치와 강도에 따라 공의 위치·속도·중력을 계산.
+            <code>y = y₀ + v_y·t − ½g·t²</code> — 수학으로 자연스러운 궤적을.
+          </p>
+          <ul>
+            <li>입력 강도 → 초기 속도 벡터 <code>(vₓ, v_y, v_z)</code> 변환</li>
+            <li>중력 상수 적용한 포물선 운동 적분</li>
+            <li>코트 바닥/네트/라인 충돌 처리</li>
+            <li>스핀·바운스 파라미터화 — 향후 확장 여지</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 04 · COORDINATE SYSTEM</div>
+          <h3>2D UI 입력 → 3D 월드 매핑</h3>
+          <p class="desc">
+            UI 화면 좌표 (2D)를 3D 코트 좌표로 변환. <code>Camera.ScreenToWorldPoint</code>
+            패턴을 활용한 직관적 조작감의 핵심.
+          </p>
+          <ul>
+            <li><code>Vector2</code> 입력 → 정규화된 코트 좌표 <code>[0,1]</code></li>
+            <li>카메라 행렬과 코트 평면의 교점 계산</li>
+            <li>플레이어 위치 기준 상대 좌표 보정</li>
+            <li>강도 게이지 → 공 속도 스칼라 매핑</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CODE DEEP-DIVE
+       ============================================================ -->
+  <section class="dark codeshow reveal" id="code">
+    <div class="container">
+      <span class="section-eyebrow">// code_deep_dive</span>
+      <h2 class="section-title">The math behind the rally</h2>
+      <p class="section-sub">
+        세 가지 핵심 기능의 개념적 구현 — 포물선 공 궤적, 2D→3D 좌표 매핑,
+        그리고 듀스/어드밴티지를 포함한 점수 상태 기계.
+      </p>
+      <div class="code-disclaimer">⚠ Conceptual sketch — production code is on GitHub (Seonga02024/3D-Tennis-Game)</div>
+
+      <div class="code-tabs">
+        <div class="code-tab active" data-tab="0">Parabola Ball</div>
+        <div class="code-tab" data-tab="1">2D→3D Mapping</div>
+        <div class="code-tab" data-tab="2">Tennis Score</div>
+      </div>
+
+      <div class="code-pane active">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/physics/ParabolaBall.ts</span>
+            <span class="lang">TypeScript</span>
+          </div>
+<pre class="code"><span class="cm">// 포물선 방정식 — 입력 강도 + 방향 → 시간에 따른 공 위치</span>
+<span class="cm">//   x(t) = x₀ + vₓ · t</span>
+<span class="cm">//   y(t) = y₀ + v_y · t − ½ · g · t²    ← 중력 적분</span>
+<span class="cm">//   z(t) = z₀ + v_z · t</span>
+
+<span class="kw">const</span> <span class="ty">GRAVITY</span> = <span class="nu">9.81</span>;  <span class="cm">// m/s²</span>
+
+<span class="kw">interface</span> <span class="ty">LaunchInput</span> {
+    <span class="fn">origin</span>: <span class="ty">Vector3</span>;          <span class="cm">// 공 출발점</span>
+    <span class="fn">target</span>: <span class="ty">Vector3</span>;          <span class="cm">// 사용자가 누른 코트 좌표</span>
+    <span class="fn">power</span>: <span class="kw">number</span>;            <span class="cm">// 강도 게이지 [0..1]</span>
+}
+
+<span class="kw">function</span> <span class="fn">launchBall</span>(<span class="fn">input</span>: <span class="ty">LaunchInput</span>): <span class="ty">BallTrajectory</span> {
+    <span class="kw">const</span> dir = input.target.<span class="fn">subtract</span>(input.origin);
+    <span class="kw">const</span> dist = dir.<span class="fn">magnitude</span>();
+
+    <span class="cm">// 강도에 따른 초기 속도 + 발사 각도 (45°가 최대 거리)</span>
+    <span class="kw">const</span> speed = <span class="fn">lerp</span>(<span class="nu">8</span>, <span class="nu">22</span>, input.power);
+    <span class="kw">const</span> angle = <span class="fn">computeLaunchAngle</span>(dist, speed);
+
+    <span class="kw">const</span> v0 = {
+        x: speed * <span class="ty">Math</span>.<span class="fn">cos</span>(angle) * dir.x / dist,
+        y: speed * <span class="ty">Math</span>.<span class="fn">sin</span>(angle),
+        z: speed * <span class="ty">Math</span>.<span class="fn">cos</span>(angle) * dir.z / dist,
+    };
+
+    <span class="cm">// 포물선 위치 함수 — 매 프레임 t로 호출</span>
+    <span class="kw">const</span> <span class="fn">positionAt</span> = (<span class="fn">t</span>: <span class="kw">number</span>): <span class="ty">Vector3</span> =&gt; ({
+        x: input.origin.x + v0.x * t,
+        y: input.origin.y + v0.y * t - <span class="nu">0.5</span> * <span class="ty">GRAVITY</span> * t * t,
+        z: input.origin.z + v0.z * t,
+    });
+
+    <span class="cm">// 착지 시각 — y(t) = floor 일 때의 t (이차방정식 해)</span>
+    <span class="kw">const</span> tLand = <span class="fn">solveQuadratic</span>(-<span class="nu">0.5</span> * <span class="ty">GRAVITY</span>, v0.y, input.origin.y - <span class="ty">COURT_Y</span>);
+
+    <span class="kw">return</span> { positionAt, tLand, v0 };
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/input/ScreenToCourt.ts</span>
+            <span class="lang">TypeScript</span>
+          </div>
+<pre class="code"><span class="cm">// 2D UI 입력 (화면 좌표) → 3D 월드 코트 좌표 변환</span>
+<span class="cm">// 카메라가 비추는 코트 평면(y = 0)과 입력 광선의 교점을 구함</span>
+
+<span class="kw">interface</span> <span class="ty">CourtPoint</span> { <span class="fn">x</span>: <span class="kw">number</span>; <span class="fn">z</span>: <span class="kw">number</span>; }
+
+<span class="kw">function</span> <span class="fn">screenToCourt</span>(
+    <span class="fn">screen</span>: <span class="ty">Vector2</span>,        <span class="cm">// 사용자가 누른 UI 좌표</span>
+    <span class="fn">camera</span>: <span class="ty">Camera</span>,           <span class="cm">// 현재 카메라</span>
+): <span class="ty">CourtPoint</span> {
+    <span class="cm">// 1. 화면 좌표를 카메라 광선으로 변환 (Camera.ScreenToWorldPoint 패턴)</span>
+    <span class="kw">const</span> nearPt = camera.<span class="fn">ScreenToWorldPoint</span>({ x: screen.x, y: screen.y, z: camera.nearClip });
+    <span class="kw">const</span> farPt  = camera.<span class="fn">ScreenToWorldPoint</span>({ x: screen.x, y: screen.y, z: camera.farClip });
+
+    <span class="kw">const</span> ray = farPt.<span class="fn">subtract</span>(nearPt).<span class="fn">normalized</span>();
+
+    <span class="cm">// 2. 코트 평면 y = COURT_Y 와 광선의 교점</span>
+    <span class="cm">//    t = (COURT_Y − origin.y) / ray.y</span>
+    <span class="kw">const</span> t = (<span class="ty">COURT_Y</span> - nearPt.y) / ray.y;
+
+    <span class="kw">if</span> (t &lt; <span class="nu">0</span>) <span class="kw">throw new</span> <span class="ty">Error</span>(<span class="st">"Ray does not hit court"</span>);
+
+    <span class="cm">// 3. 코트 평면 위 3D 좌표</span>
+    <span class="kw">const</span> world = {
+        x: nearPt.x + ray.x * t,
+        z: nearPt.z + ray.z * t,
+    };
+
+    <span class="cm">// 4. 플레이어 진영 기준으로 코트 좌표 정규화 (반대편이면 좌우 반전)</span>
+    <span class="kw">return</span> <span class="fn">normalizeToPlayerSide</span>(world);
+}
+
+<span class="cm">// 강도 게이지(2D) → 공 속도 스칼라(3D 발사 강도)</span>
+<span class="kw">function</span> <span class="fn">gaugeToPower</span>(<span class="fn">gauge</span>: <span class="kw">number</span>): <span class="kw">number</span> {
+    <span class="kw">return</span> <span class="ty">Math</span>.<span class="fn">min</span>(<span class="ty">Math</span>.<span class="fn">max</span>(gauge, <span class="nu">0</span>), <span class="nu">1</span>);
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/rules/TennisScore.ts</span>
+            <span class="lang">TypeScript</span>
+          </div>
+<pre class="code"><span class="cm">// 테니스 점수 상태 기계 — 0/15/30/40, 듀스, 어드밴티지, 세트, 매치</span>
+
+<span class="kw">type</span> <span class="ty">Point</span> = <span class="st">"0"</span> | <span class="st">"15"</span> | <span class="st">"30"</span> | <span class="st">"40"</span>;
+
+<span class="kw">enum</span> <span class="ty">GameState</span> {
+    <span class="fn">NORMAL</span>,        <span class="cm">// 일반 진행</span>
+    <span class="fn">DEUCE</span>,         <span class="cm">// 40-40</span>
+    <span class="fn">ADVANTAGE_A</span>,   <span class="cm">// A가 어드밴티지</span>
+    <span class="fn">ADVANTAGE_B</span>,   <span class="cm">// B가 어드밴티지</span>
+    <span class="fn">GAME_OVER</span>,
+}
+
+<span class="kw">class</span> <span class="ty">TennisMatch</span> {
+    <span class="fn">scoreA</span>: <span class="ty">Point</span> = <span class="st">"0"</span>;
+    <span class="fn">scoreB</span>: <span class="ty">Point</span> = <span class="st">"0"</span>;
+    <span class="fn">setsA</span>: <span class="kw">number</span> = <span class="nu">0</span>;
+    <span class="fn">setsB</span>: <span class="kw">number</span> = <span class="nu">0</span>;
+    <span class="fn">state</span>: <span class="ty">GameState</span> = <span class="ty">GameState</span>.<span class="fn">NORMAL</span>;
+
+    <span class="fn">awardPoint</span>(<span class="fn">winner</span>: <span class="st">"A"</span> | <span class="st">"B"</span>): <span class="kw">void</span> {
+        <span class="kw">switch</span> (<span class="kw">this</span>.state) {
+            <span class="kw">case</span> <span class="ty">GameState</span>.<span class="fn">NORMAL</span>:
+                <span class="kw">this</span>.<span class="fn">incrementNormal</span>(winner);
+                <span class="kw">if</span> (<span class="kw">this</span>.scoreA === <span class="st">"40"</span> &amp;&amp; <span class="kw">this</span>.scoreB === <span class="st">"40"</span>)
+                    <span class="kw">this</span>.state = <span class="ty">GameState</span>.<span class="fn">DEUCE</span>;
+                <span class="kw">break</span>;
+
+            <span class="kw">case</span> <span class="ty">GameState</span>.<span class="fn">DEUCE</span>:
+                <span class="kw">this</span>.state = winner === <span class="st">"A"</span>
+                    ? <span class="ty">GameState</span>.<span class="fn">ADVANTAGE_A</span>
+                    : <span class="ty">GameState</span>.<span class="fn">ADVANTAGE_B</span>;
+                <span class="kw">break</span>;
+
+            <span class="kw">case</span> <span class="ty">GameState</span>.<span class="fn">ADVANTAGE_A</span>:
+                <span class="kw">if</span> (winner === <span class="st">"A"</span>) <span class="kw">this</span>.<span class="fn">winGame</span>(<span class="st">"A"</span>);
+                <span class="kw">else</span> <span class="kw">this</span>.state = <span class="ty">GameState</span>.<span class="fn">DEUCE</span>;   <span class="cm">// 듀스로 복귀</span>
+                <span class="kw">break</span>;
+
+            <span class="kw">case</span> <span class="ty">GameState</span>.<span class="fn">ADVANTAGE_B</span>:
+                <span class="kw">if</span> (winner === <span class="st">"B"</span>) <span class="kw">this</span>.<span class="fn">winGame</span>(<span class="st">"B"</span>);
+                <span class="kw">else</span> <span class="kw">this</span>.state = <span class="ty">GameState</span>.<span class="fn">DEUCE</span>;
+                <span class="kw">break</span>;
+        }
+    }
+
+    <span class="fn">winGame</span>(<span class="fn">player</span>: <span class="st">"A"</span> | <span class="st">"B"</span>): <span class="kw">void</span> {
+        <span class="kw">if</span> (player === <span class="st">"A"</span>) <span class="kw">this</span>.setsA++; <span class="kw">else</span> <span class="kw">this</span>.setsB++;
+
+        <span class="cm">// 3판 중 2세트 승리 시 매치 종료</span>
+        <span class="kw">if</span> (<span class="kw">this</span>.setsA === <span class="nu">2</span> || <span class="kw">this</span>.setsB === <span class="nu">2</span>) {
+            <span class="kw">this</span>.state = <span class="ty">GameState</span>.<span class="fn">GAME_OVER</span>;
+            <span class="kw">return</span>;
+        }
+        <span class="kw">this</span>.<span class="fn">resetForNextSet</span>();
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHALLENGES
+       ============================================================ -->
+  <section class="dark challenges reveal" id="challenges">
+    <div class="container">
+      <span class="section-eyebrow">// problem_solving</span>
+      <h2 class="section-title">Real problems, shipped solutions</h2>
+      <p class="section-sub">
+        개발 사이클 동안 실제로 마주친 문제와 해결 과정 — 수학·매칭·기획 변경·룰 복잡도까지.
+      </p>
+
+      <div class="chall-grid">
+        <div class="chall">
+          <div class="label">Ball Physics</div>
+          <div class="problem">단순 2D 입력만으로는 3D 공 궤적이 부자연스럽고 어색했음</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            포물선 방정식으로 위치·속도·중력을 시간 함수로 계산.
+            <code>y = y₀ + v_y·t − ½g·t²</code> 로 매 프레임 위치 갱신,
+            발사 각도까지 거리·강도에 맞게 자동 산출.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Matchmaking</div>
+          <div class="problem">매칭 실패·매칭 지연으로 첫 인상 UX가 깨지는 위험</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            멀티방 구조로 매칭 풀을 분할하고, 서버 데이터까지 방 단위로 격리.
+            동시 매칭 충돌 감소 + 매칭 성공률 상승.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Spec Volatility</div>
+          <div class="problem">개발 중후반 기획 변경 시 코드 전면 수정 위험</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            기획자와 사전 협업으로 변경 가능성 큰 영역 식별,
+            함수 분리 + 의존성 최소화로 모듈화. 중간 추가·수정도 국소 변경으로 흡수.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Rule Complexity</div>
+          <div class="problem">테니스 룰 (듀스·어드밴티지·세트·매치) 구현 복잡도 ↑</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            State machine 패턴으로 NORMAL · DEUCE · ADVANTAGE · GAME_OVER 단계 분리.
+            각 상태에서 입력에 따른 전이만 정의 → 룰 변경도 표 형태로 관리.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       METRICS DETAIL — 성과 강조
+       ============================================================ -->
+  <section class="dark metrics-detail reveal">
+    <div class="container">
+      <span class="section-eyebrow">// impact</span>
+      <h2 class="section-title">출시 이후의 성과</h2>
+      <p class="section-sub">
+        기획·개발·서버·출시·유지보수까지 풀 사이클을 거치며 얻은 정량·정성 성과.
+      </p>
+
+      <div class="impact-grid">
+        <div class="impact-card highlight">
+          <div class="big">193K+</div>
+          <h4>누적 방문 수 (2024.8 기준)</h4>
+          <p>출시 약 1개월 만에 193,000+ 누적 방문 — 메타버스 콜라보 게임의 성공 지표.</p>
+        </div>
+        <div class="impact-card">
+          <div class="big">Gucci</div>
+          <h4>브랜드 홍보 효과</h4>
+          <p>게임 내 Gucci 의상·물품 전시 — 플레이어가 직접 입어보고 체험하는 브랜드 노출.</p>
+        </div>
+        <div class="impact-card">
+          <div class="big">$</div>
+          <h4>인게임 수익</h4>
+          <p>콘텐츠 내 전시 아이템을 통한 직접 수익 창출 — 메타버스 커머스 검증.</p>
+        </div>
+        <div class="impact-card">
+          <div class="big">1주</div>
+          <h4>출시 + 유지보수</h4>
+          <p>2024.07.12 출시 → 1주간 집중 패치 → 안정화 완료. 빠른 대응 사이클.</p>
+        </div>
+        <div class="impact-card">
+          <div class="big">OSS</div>
+          <h4>GitHub 코드 공개</h4>
+          <p><a href="https://github.com/Seonga02024/3D-Tennis-Game" target="_blank" rel="noopener" style="color:var(--d-accent);text-decoration:none;">Seonga02024/3D-Tennis-Game</a> — 다른 개발자에게 참고 자산으로 공유.</p>
+        </div>
+        <div class="impact-card">
+          <div class="big">100%</div>
+          <h4>풀 사이클 경험</h4>
+          <p>기획 협업 → 개발 → 서버 연결 → 출시 → 패치 → 운영까지 전 과정을 직접 수행.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="foot-inner">
+      <p>© Zepeto Gucci Tennis · 2024 · Unity + TypeScript · Built with Zepeto SDK</p>
+      <div class="foot-links">
+        <a href="../index.html">← Portfolio</a>
+        <a href="https://tv.kakao.com/v/446596912" target="_blank" rel="noopener">▶ Gameplay Video</a>
+        <a href="https://github.com/Seonga02024/3D-Tennis-Game" target="_blank" rel="noopener">// GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Code tabs
+    const tabs = document.querySelectorAll('.code-tab');
+    const panes = document.querySelectorAll('.code-pane');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const i = +t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', +x.dataset.tab === i));
+      panes.forEach((p, idx) => p.classList.toggle('active', idx === i));
+    }));
+  </script>
+</body>
+</html>

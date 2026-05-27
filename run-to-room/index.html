@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RunToRoom · 캐주얼 생존 게임 — Game Showcase &amp; Developer Portfolio</title>
+  <meta name="description" content="레드브릭 웹 게임 합작 프로젝트. 다른 웹 게임이 보낸 건물 번호 데이터를 받아 자동으로 맵 컨셉을 구성하는 캐주얼 서바이벌 게임." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Theme tokens — 두 톤(따뜻한 게임 소개 / 다크 기술 소개)
+       Accent: 서바이벌 / 위급함 / 도시 — burnt orange + amber/green
+       ============================================================ */
+    :root {
+      /* Warm tone — Game introduction (burnt orange / rust) */
+      --w-bg: #fbf4e4;
+      --w-bg-soft: #f5e3cf;
+      --w-paper: #fffaf1;
+      --w-ink: #2a1a10;
+      --w-ink-soft: #5b4434;
+      --w-ink-muted: #8e7560;
+      --w-accent: #c2410c;       /* burnt orange */
+      --w-accent-deep: #7c2d12;  /* deep rust */
+      --w-gold: #d97706;         /* amber gold */
+      --w-gold-soft: #fbbf24;
+      --w-shadow: 0 10px 32px rgba(80, 35, 12, 0.16);
+
+      /* Dark tone — Technical deep-dive (navy + amber + green) */
+      --d-bg-0: #0a0e17;
+      --d-bg-1: #111827;
+      --d-bg-2: #1a2236;
+      --d-bg-3: #232c44;
+      --d-line: #2a3550;
+      --d-text: #e6edf7;
+      --d-text-dim: #9aa7be;
+      --d-text-muted: #6b7894;
+      --d-accent: #fbbf24;       /* amber as primary accent */
+      --d-accent-2: #4ade80;     /* green as secondary */
+      --d-accent-3: #f472b6;
+      --d-green: #4ade80;
+      --d-amber: #fbbf24;
+      --d-code-bg: #0d1422;
+      --d-code-border: #1f2a44;
+      --d-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+    code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    /* ============================================================
+       Section base
+       ============================================================ */
+    section { padding: 100px 28px; position: relative; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ============================================================
+       Part 1 — Warm theme (Game introduction)
+       ============================================================ */
+    .warm {
+      background: var(--w-bg);
+      color: var(--w-ink);
+    }
+    .warm .section-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(194, 65, 12, 0.10);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .warm h2.section-title {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 16px;
+      color: var(--w-ink);
+    }
+    .warm .section-sub {
+      font-size: 18px; color: var(--w-ink-soft);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* ============================================================
+       Part 2 — Dark theme (Technical)
+       ============================================================ */
+    .dark {
+      background: var(--d-bg-0);
+      color: var(--d-text);
+    }
+    .dark .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 500;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .dark .section-eyebrow::before {
+      content: ""; width: 24px; height: 1px;
+      background: var(--d-accent);
+    }
+    .dark h2.section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      margin: 0 0 16px;
+      color: var(--d-text);
+    }
+    .dark .section-sub {
+      font-size: 17px; color: var(--d-text-dim);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* Dark grid background */
+    .dark::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(251, 191, 36, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(251, 191, 36, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .dark .container { position: relative; z-index: 1; }
+
+    /* ============================================================
+       Nav (neutral — adapts)
+       ============================================================ */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251, 244, 228, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(194, 65, 12, 0.14);
+      transition: background .3s, border-color .3s;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 16px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--w-accent); text-decoration: none;
+    }
+    .brand .brand-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--w-accent), var(--w-gold));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 800; font-size: 14px;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a {
+      color: var(--w-ink-soft); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--w-accent); }
+    .nav-links a.tech { color: var(--w-ink-muted); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+    .nav-links a.back {
+      padding: 6px 12px;
+      border: 1px solid rgba(194, 65, 12, 0.25);
+      border-radius: 999px;
+      color: var(--w-accent);
+    }
+    .nav-links a.back:hover {
+      background: var(--w-accent);
+      color: white;
+    }
+
+    /* ============================================================
+       Hero — warm
+       ============================================================ */
+    .hero {
+      padding: 90px 28px 90px;
+      background:
+        radial-gradient(ellipse at top left, rgba(217, 119, 6, 0.22), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(194, 65, 12, 0.16), transparent 60%),
+        var(--w-bg);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(194, 65, 12, 0.10);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+    .hero h1 {
+      font-family: "Gowun Batang", serif;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1.08;
+      margin: 0 0 22px;
+      color: var(--w-accent-deep);
+    }
+    .hero h1 .accent { color: var(--w-gold); }
+    .hero .lead {
+      font-size: 19px; color: var(--w-ink-soft);
+      max-width: 560px; margin: 0 0 36px;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: transform .15s, box-shadow .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--w-accent); color: white;
+      box-shadow: 0 8px 20px rgba(194, 65, 12, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(194, 65, 12, 0.45); }
+    .btn-ghost {
+      background: transparent; color: var(--w-accent);
+      border: 2px solid var(--w-accent);
+    }
+    .btn-ghost:hover { background: var(--w-accent); color: white; }
+
+    .hero-visual {
+      max-width: 560px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-screenshot {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(80, 35, 12, 0.35);
+      border: 6px solid white;
+      transform: rotate(-1.5deg);
+      transition: transform .3s;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #2a1a10, #5b4434);
+    }
+    .hero-screenshot:hover { transform: rotate(0); }
+    .hero-screenshot .placeholder-hero {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: rgba(255, 250, 241, 0.9);
+      background:
+        radial-gradient(ellipse at top, rgba(217, 119, 6, 0.4), transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(194, 65, 12, 0.3), transparent 70%),
+        repeating-linear-gradient(45deg,
+          rgba(255, 255, 255, 0.02) 0px,
+          rgba(255, 255, 255, 0.02) 2px,
+          transparent 2px,
+          transparent 24px);
+      font-family: "JetBrains Mono", monospace;
+      gap: 8px;
+    }
+    .hero-screenshot .placeholder-hero .big {
+      font-size: 42px; font-weight: 800;
+      color: var(--w-gold-soft);
+      letter-spacing: 0.06em;
+    }
+    .hero-screenshot .placeholder-hero .small {
+      font-size: 13px; opacity: 0.8;
+      letter-spacing: 0.1em;
+    }
+    .hero-screenshot .badge {
+      position: absolute; bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: white; padding: 12px 20px; border-radius: 12px;
+      box-shadow: var(--w-shadow);
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 14px;
+      color: var(--w-ink);
+      white-space: nowrap;
+    }
+    .hero-screenshot .badge .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--w-accent);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(194, 65, 12, 0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(194, 65, 12, 0); }
+    }
+
+    /* ============================================================
+       Features — warm
+       ============================================================ */
+    .features { background: linear-gradient(180deg, var(--w-bg), var(--w-paper)); }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: var(--w-shadow);
+      border-top: 4px solid var(--w-accent);
+      transition: transform .2s;
+    }
+    .feat-card:nth-child(2) { border-top-color: var(--w-gold); }
+    .feat-card:nth-child(3) { border-top-color: #4a7a35; }
+    .feat-card:nth-child(4) { border-top-color: #6b3aa0; }
+    .feat-card:nth-child(5) { border-top-color: var(--w-accent); }
+    .feat-card:nth-child(6) { border-top-color: var(--w-gold); }
+    .feat-card:hover { transform: translateY(-4px); }
+    .feat-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(194, 65, 12, 0.10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+    .feat-card h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
+    .feat-card p { margin: 0; color: var(--w-ink-soft); font-size: 14.5px; }
+
+    /* ============================================================
+       Gallery — warm (placeholders)
+       ============================================================ */
+    .gallery { background: var(--w-bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .shot {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--w-paper);
+      box-shadow: var(--w-shadow);
+      position: relative;
+      transition: transform .2s;
+      aspect-ratio: 16 / 10;
+    }
+    .shot:hover { transform: translateY(-4px); }
+    .placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+      background:
+        repeating-linear-gradient(45deg,
+          rgba(194, 65, 12, 0.04) 0px,
+          rgba(194, 65, 12, 0.04) 12px,
+          transparent 12px,
+          transparent 24px),
+        linear-gradient(135deg, var(--w-bg-soft), var(--w-paper));
+      color: var(--w-ink-soft);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      padding: 16px;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .placeholder .pl-icon {
+      font-size: 32px;
+      filter: grayscale(0.3) opacity(0.75);
+    }
+    .placeholder .pl-text {
+      font-weight: 600;
+      color: var(--w-accent-deep);
+      font-size: 13px;
+    }
+    .shot figcaption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), transparent);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* External video link block */
+    .video-link {
+      margin-top: 40px;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(194, 65, 12, 0.06), rgba(217, 119, 6, 0.04));
+      border: 1px dashed rgba(194, 65, 12, 0.3);
+      border-radius: 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .video-link .vl-text h4 {
+      margin: 0 0 6px;
+      font-family: "Gowun Batang", serif;
+      font-size: 20px;
+      color: var(--w-accent-deep);
+    }
+    .video-link .vl-text p {
+      margin: 0;
+      color: var(--w-ink-soft);
+      font-size: 14px;
+    }
+
+    /* ============================================================
+       Short description — warm
+       ============================================================ */
+    .story { background: var(--w-paper); padding: 80px 28px; }
+    .story-inner {
+      max-width: 860px; margin: 0 auto;
+      text-align: center;
+    }
+    .story p {
+      font-family: "Gowun Batang", serif;
+      font-size: 22px;
+      line-height: 1.85;
+      color: var(--w-ink);
+      margin: 0;
+    }
+    .story p strong { color: var(--w-accent); font-weight: 700; }
+
+    /* ============================================================
+       Section divider — transition between warm and dark
+       ============================================================ */
+    .divider {
+      background: linear-gradient(180deg, var(--w-paper) 0%, var(--d-bg-0) 100%);
+      padding: 80px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .divider .badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 12px 24px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .divider .badge::before {
+      content: "▼";
+      color: var(--d-accent-2);
+    }
+    .divider h2 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      margin: 0 0 12px;
+      color: var(--d-text);
+    }
+    .divider h2 .gradient {
+      background: linear-gradient(135deg, var(--d-accent), var(--d-accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .divider p {
+      color: var(--d-text-dim);
+      font-size: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       Metrics — dark
+       ============================================================ */
+    .metrics-bar {
+      background: var(--d-bg-0);
+      padding: 60px 28px 30px;
+    }
+    .hero-metrics {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .metric {
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .metric .val {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px; font-weight: 700;
+      color: var(--d-accent);
+      line-height: 1;
+    }
+    .metric .label {
+      font-size: 11.5px;
+      color: var(--d-text-muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .metric.handoff .val { color: var(--d-accent-2); font-size: 22px; }
+
+    /* ============================================================
+       Stack — dark
+       ============================================================ */
+    .stack { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .stack-badge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 18px;
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      transition: border-color .15s, transform .15s;
+    }
+    .stack-badge:hover { border-color: var(--d-accent); transform: translateY(-2px); }
+    .stack-badge .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--d-bg-3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700; color: var(--d-accent);
+      font-size: 13px;
+    }
+    .stack-badge .name { font-weight: 600; font-size: 14px; color: var(--d-text); }
+    .stack-badge .role { font-size: 11px; color: var(--d-text-muted); margin-top: 2px; }
+
+    /* ============================================================
+       Architecture flow diagram — dark
+       ============================================================ */
+    .arch { background: var(--d-bg-0); }
+    .arch-flow-card {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+    .arch-flow-card h4 {
+      margin: 0 0 16px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      color: var(--d-text-muted);
+      letter-spacing: 0.04em;
+    }
+    .arch-flow-card pre {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--d-text);
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+    .arch-flow-card pre .ar { color: var(--d-accent); }
+    .arch-flow-card pre .cm { color: var(--d-text-muted); font-style: italic; }
+    .arch-flow-card pre .kw { color: var(--d-accent-2); }
+    .arch-flow-card pre .st { color: var(--d-accent-3); }
+
+    /* ============================================================
+       My contributions / Areas — dark (highlight)
+       ============================================================ */
+    .mine {
+      background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1));
+      position: relative;
+    }
+    .mine-banner {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(74, 222, 128, 0.15));
+      border: 1px solid var(--d-accent);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .mine-banner::before {
+      content: "★";
+      color: var(--d-accent-2);
+    }
+    .mine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .mine-card {
+      background:
+        linear-gradient(135deg, rgba(251, 191, 36, 0.04), rgba(74, 222, 128, 0.04)),
+        var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .mine-card:hover { transform: translateY(-6px); border-color: var(--d-accent); }
+    .mine-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .mine-card .area-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--d-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .mine-card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      color: var(--d-text);
+    }
+    .mine-card .desc {
+      margin: 0 0 18px;
+      color: var(--d-text-dim);
+      font-size: 14.5px;
+    }
+    .mine-card ul {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .mine-card ul li {
+      padding: 6px 0;
+      color: var(--d-text-dim);
+      font-size: 13.5px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .mine-card ul li::before {
+      content: "▸";
+      color: var(--d-accent-2);
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 11px;
+    }
+    .mine-card ul li code {
+      color: var(--d-accent);
+      background: rgba(251, 191, 36, 0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* ============================================================
+       Code / pseudo block (Manager structure)
+       ============================================================ */
+    .codeshow { background: var(--d-bg-0); }
+    .code-block {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .code-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--d-code-border);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .code-header .file { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-text-muted); }
+    .code-header .lang {
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      color: var(--d-accent); padding: 2px 8px;
+      background: rgba(251, 191, 36, 0.08); border-radius: 4px;
+    }
+    pre.code {
+      margin: 0; padding: 22px 24px;
+      font-size: 13px; line-height: 1.75;
+      overflow-x: auto;
+      color: var(--d-text);
+    }
+    pre.code .kw { color: #c084fc; }
+    pre.code .ty { color: #fbbf24; }
+    pre.code .st { color: #4ade80; }
+    pre.code .cm { color: #64748b; font-style: italic; }
+    pre.code .fn { color: #fde68a; }
+    pre.code .nu { color: #fb923c; }
+
+    /* ============================================================
+       Challenges — dark
+       ============================================================ */
+    .challenges { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .chall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .chall {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 26px;
+      position: relative;
+    }
+    .chall::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .chall .label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .chall .problem { font-weight: 700; font-size: 16px; margin: 8px 0 16px; color: var(--d-text); }
+    .chall .solution { font-size: 13.5px; color: var(--d-text-dim); padding-top: 16px; border-top: 1px dashed var(--d-line); }
+    .chall .solution-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* ============================================================
+       Handoff note — dark
+       ============================================================ */
+    .handoff { background: var(--d-bg-1); }
+    .handoff-card {
+      max-width: 880px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(251, 191, 36, 0.06), rgba(74, 222, 128, 0.04)),
+        var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-left: 4px solid var(--d-accent-2);
+      border-radius: 14px;
+      padding: 36px 40px;
+    }
+    .handoff-card .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--d-accent-2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .handoff-card .tag::before {
+      content: "◐";
+      font-size: 14px;
+    }
+    .handoff-card h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      color: var(--d-text);
+    }
+    .handoff-card p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: var(--d-text-dim);
+      line-height: 1.8;
+    }
+    .handoff-card p:last-child { margin-bottom: 0; }
+    .handoff-card strong {
+      color: var(--d-accent);
+      font-weight: 700;
+    }
+    .handoff-card a {
+      color: var(--d-accent-2);
+      text-decoration: underline;
+      text-decoration-color: rgba(74, 222, 128, 0.4);
+      text-underline-offset: 3px;
+    }
+    .handoff-card a:hover {
+      text-decoration-color: var(--d-accent-2);
+    }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    footer {
+      background: var(--d-bg-0);
+      border-top: 1px solid var(--d-line);
+      padding: 50px 28px 40px;
+    }
+    .foot-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .foot-inner p { margin: 0; font-size: 13px; color: var(--d-text-muted); }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links a { color: var(--d-text-dim); text-decoration: none; font-size: 13px; }
+    .foot-links a:hover { color: var(--d-accent); }
+
+    /* ============================================================
+       Reveal
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 900px) {
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.back) { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 380px; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .video-link { flex-direction: column; align-items: stretch; }
+      section { padding: 70px 22px; }
+      .handoff-card { padding: 28px 24px; }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-icon">R2R</span>
+        RunToRoom · 캐주얼 생존
+      </a>
+      <nav class="nav-links">
+        <a href="#features">게임 소개</a>
+        <a href="#gallery">화면</a>
+        <a href="#technical" class="tech">// technical</a>
+        <a href="#mine" class="tech">// my work</a>
+        <a href="../index.html" class="back">← Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 1 — GAME INTRODUCTION (warm theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="warm hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">웹 게임 간 데이터 연동 실험 · 캐주얼 생존</span>
+        <h1>다른 게임이 보낸<br /><span class="accent">건물 번호</span>로 —<br />매번 새로운 맵</h1>
+        <p class="lead">
+          <strong>3개 게임이 데이터를 주고받는 합작 프로젝트</strong>.
+          본인은 <strong>캐주얼 생존</strong> 파트를 맡아, 외부 웹 게임이 보낸 건물 데이터에 따라
+          맵 컨셉·난이도·아이템을 자동으로 세팅하고, 플레이어가 획득한 아이템을 다음 게임으로 전달하는
+          시스템을 설계했습니다.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://redbrick.land/detail-play?pid=ffa5a330-296a-4188-a426-fa64d3510c01" target="_blank" rel="noopener">▶ PLAY NOW</a>
+          <a class="btn btn-ghost" href="https://github.com/Seonga02024/Casual_Survivor_Game" target="_blank" rel="noopener">VIEW CODE →</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-screenshot">
+          <div class="placeholder-hero">
+            <div class="small">// CASUAL SURVIVOR</div>
+            <div class="big">RUN TO ROOM</div>
+            <div class="small">REDBRICK · 2024.11 — 12</div>
+          </div>
+          <div class="badge"><span class="dot"></span> 지금 한 판 도전!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — 게임에 들어간 기능
+       ============================================================ -->
+  <section class="warm features reveal" id="features">
+    <div class="container">
+      <span class="section-eyebrow">FEATURES · 게임에 담은 것</span>
+      <h2 class="section-title">이런 시스템이 들어가 있어요</h2>
+      <p class="section-sub">
+        매번 다른 맵, 매번 다른 건물 컨셉, 그리고 다른 웹 게임과 데이터를 주고받는 연결성.
+        캐주얼하지만 시스템적으로는 꽤 깊은 구조를 시도했습니다.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🗺️</div>
+          <h3>자동 맵 생성</h3>
+          <p>고정된 맵이 아닌, 입장할 때마다 새로 구성되는 절차적 맵. 장애물 주변 예외 처리로 막힌 구조 방지.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🏢</div>
+          <h3>6개 건물 컨셉</h3>
+          <p>외부 게임이 보낸 건물 번호에 따라 배경·난이도·아이템이 분기. 동일한 블록을 재활용해 컨셉만 갈아끼움.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📊</div>
+          <h3>엑셀 기반 밸런싱</h3>
+          <p>아이템 확률·등장 횟수를 엑셀로 관리. 기획자·디자이너가 코드 수정 없이 직접 조정 가능.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🧩</div>
+          <h3>매니저 분리 구조</h3>
+          <p>아이템 매니저 · 적 매니저 · 중간 이벤트 매니저를 독립 모듈로 분리. 룰 변경 시 한 곳만 수정.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🔗</div>
+          <h3>게임 간 데이터 연동</h3>
+          <p>다른 웹 게임이 보낸 건물 번호로 맵 구성 → 획득 아이템 데이터를 저장 후 다음 게임으로 전달.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🎯</div>
+          <h3>동적 배치 변경</h3>
+          <p>게임 중에도 룰·아이템 배치 방법을 동적으로 갈아끼울 수 있는 구조. 테스트와 라이브 튜닝 모두 용이.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY — 화면 (placeholder)
+       ============================================================ -->
+  <section class="warm gallery reveal" id="gallery">
+    <div class="container">
+      <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
+      <h2 class="section-title">건물마다 다른 도시 풍경</h2>
+      <p class="section-sub">
+        같은 게임이지만 입장하는 건물에 따라 완전히 다른 분위기. 폐허·골목·빌딩 사이를 누비며
+        쫓아오는 적을 피해 아이템을 모으세요.
+      </p>
+
+      <div class="gallery-grid">
+        <figure class="shot">
+          <img src="assets/proj-run-to-room-1.png" alt="RunToRoom city 1" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>도시 컨셉 #1</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/proj-run-to-room-2.png" alt="RunToRoom city 2" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>도시 컨셉 #2 · 동적 맵 생성</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">
+            <div class="pl-icon">🏢</div>
+            <div class="pl-text">CONCEPT 03</div>
+            <div>도시 컨셉 3 — 빌딩</div>
+          </div>
+          <figcaption>건물 #3 · 도심 빌딩</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">
+            <div class="pl-icon">📊</div>
+            <div class="pl-text">DATA TABLE</div>
+            <div>엑셀 기반 아이템 확률표</div>
+          </div>
+          <figcaption>엑셀 아이템 확률 테이블</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">
+            <div class="pl-icon">🏃</div>
+            <div class="pl-text">GAMEPLAY</div>
+            <div>적의 추격 회피 플레이</div>
+          </div>
+          <figcaption>적 추격 · 회피 플레이</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">
+            <div class="pl-icon">🧱</div>
+            <div class="pl-text">PROCEDURAL</div>
+            <div>장애물 자동 배치 예시</div>
+          </div>
+          <figcaption>장애물 절차적 배치</figcaption>
+        </figure>
+      </div>
+
+      <!-- External video link -->
+      <div class="video-link">
+        <div class="vl-text">
+          <h4>▶ 실제 플레이 영상</h4>
+          <p>카카오TV에서 게임의 실제 플레이 영상을 확인할 수 있어요. (소리는 미포함)</p>
+        </div>
+        <a class="btn btn-primary" href="https://tv.kakao.com/v/451983974" target="_blank" rel="noopener">영상 보러가기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHORT STORY
+       ============================================================ -->
+  <section class="warm story reveal">
+    <div class="story-inner">
+      <p>
+        쫓아오는 적, 매번 달라지는 맵, 손에 잡히는 아이템.
+        그리고 <strong>이 게임이 끝나면</strong> 내가 모은 아이템 데이터가
+        <strong>다음 게임으로 넘어간다</strong> — 웹 게임끼리도 연결될 수 있다는 작은 실험.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       DIVIDER — perspective shift
+       ════════════════════════════════════════════════════════════ -->
+  <section class="divider reveal" id="technical">
+    <div class="badge">PERSPECTIVE · TECHNICAL DEEP-DIVE</div>
+    <h2>이제 <span class="gradient">시스템 관점</span>에서 살펴봅니다</h2>
+    <p>여기서부터는 절차적 맵 생성, 매니저 분리, 엑셀 기반 밸런싱, 그리고 게임 간 데이터 통신 구조를 깊게 다룹니다.</p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 2 — TECHNICAL (dark theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       METRICS
+       ============================================================ -->
+  <section class="dark metrics-bar reveal">
+    <div class="hero-metrics">
+      <div class="metric"><div class="val">2개월</div><div class="label">Development</div></div>
+      <div class="metric"><div class="val">3인</div><div class="label">Co-work</div></div>
+      <div class="metric"><div class="val">6</div><div class="label">Building Concepts</div></div>
+      <div class="metric"><div class="val">2-15<span style="font-size:14px">분</span></div><div class="label">Play Time</div></div>
+      <div class="metric handoff"><div class="val">◐ HANDOFF</div><div class="label">Status</div></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STACK
+       ============================================================ -->
+  <section class="dark stack reveal">
+    <div class="container">
+      <span class="section-eyebrow">// tech_stack</span>
+      <h2 class="section-title">Built on Redbrick + JavaScript</h2>
+      <p class="section-sub">
+        웹 게임 엔진 Redbrick 위에서 절차적 맵 생성과 외부 데이터 연동을 구현.
+        브라우저 표준 API와 Redbrick 시그널을 함께 활용해 게임-간 통신 채널을 구성했습니다.
+      </p>
+
+      <div class="stack-grid">
+        <div class="stack-badge"><div class="icon">RB</div><div><div class="name">Redbrick Engine</div><div class="role">Web Game Engine</div></div></div>
+        <div class="stack-badge"><div class="icon">JS</div><div><div class="name">JavaScript</div><div class="role">Language</div></div></div>
+        <div class="stack-badge"><div class="icon">SG</div><div><div class="name">Redbrick Signal</div><div class="role">Cross-Game IPC</div></div></div>
+        <div class="stack-badge"><div class="icon">PM</div><div><div class="name">postMessage API</div><div class="role">Browser IPC</div></div></div>
+        <div class="stack-badge"><div class="icon">LS</div><div><div class="name">LocalStorage</div><div class="role">Persistent State</div></div></div>
+        <div class="stack-badge"><div class="icon">XL</div><div><div class="name">Excel → JSON</div><div class="role">Data Pipeline</div></div></div>
+        <div class="stack-badge"><div class="icon">PG</div><div><div class="name">Procedural Gen</div><div class="role">Map Algorithm</div></div></div>
+        <div class="stack-badge"><div class="icon">PF</div><div><div class="name">Prefab Reuse</div><div class="role">Optimization</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHITECTURE — signal flow diagram
+       ============================================================ -->
+  <section class="dark arch reveal">
+    <div class="container">
+      <span class="section-eyebrow">// architecture</span>
+      <h2 class="section-title">3개 게임을 잇는 데이터 흐름</h2>
+      <p class="section-sub">
+        외부 게임 → 건물 번호 수신 → 맵 컨셉 분기 → 매니저들이 각자 역할 수행 → 결과 데이터를 다음 게임으로 송신.
+        시그널/postMessage 채널을 따라 데이터가 한 방향으로 흐르도록 설계했습니다.
+      </p>
+
+      <div class="arch-flow-card">
+        <h4>// cross-game data flow · signal pipeline</h4>
+<pre><span class="cm">// 1. 외부 게임 → RunToRoom (입장 시 건물 번호 수신)</span>
+<span class="kw">[External Game A]</span>
+  <span class="ar">→</span> Redbrick Signal <span class="st">{ buildingId: 3 }</span>
+  <span class="ar">→</span> postMessage / LocalStorage
+        <span class="ar">↓</span>
+<span class="kw">[RunToRoom Boot]</span>
+  <span class="ar">→</span> SignalReceiver.<span class="ar">on</span>(<span class="st">'buildingData'</span>)
+  <span class="ar">→</span> MapGenerator.<span class="ar">build</span>(buildingId)
+        <span class="ar">↓</span>
+<span class="cm">// 2. 내부 시스템 — 매니저 분리 구조</span>
+  MapGenerator
+    <span class="ar">→</span> ItemManager       <span class="cm">// 엑셀 확률표 기반 스폰</span>
+    <span class="ar">→</span> EnemyManager      <span class="cm">// 건물별 적 패턴</span>
+    <span class="ar">→</span> EventManager      <span class="cm">// 중간 이벤트 트리거</span>
+        <span class="ar">↓</span>
+<span class="cm">// 3. 게임 종료 → 다음 게임으로 결과 데이터 송신</span>
+<span class="kw">[RunToRoom End]</span>
+  <span class="ar">→</span> ResultCollector <span class="st">{ items: [...], buildingId }</span>
+  <span class="ar">→</span> Redbrick Signal <span class="ar">emit</span>(<span class="st">'survivorResult'</span>)
+  <span class="ar">→</span> LocalStorage <span class="ar">persist</span>
+        <span class="ar">↓</span>
+<span class="kw">[External Game B]</span> — 받아서 자기 게임에 반영</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MY WORK — 4 areas
+       ============================================================ -->
+  <section class="dark mine reveal" id="mine">
+    <div class="container">
+      <div class="mine-banner">MY WORK · 직접 설계한 4가지 핵심 시스템</div>
+      <h2 class="section-title">자동 맵 · 매니저 분리 · 엑셀 밸런싱 · 외부 데이터</h2>
+      <p class="section-sub">
+        합작 프로젝트 중 본인이 맡은 캐주얼 생존 게임 파트에서 직접 설계·구현한 핵심 영역입니다.
+        각 영역은 서로 독립적으로 동작하지만, MapGenerator를 중심으로 하나의 흐름으로 묶여 있습니다.
+      </p>
+
+      <div class="mine-grid">
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 01 · MAP GENERATOR</div>
+          <h3>자동 맵 생성기</h3>
+          <p class="desc">
+            건물 번호를 입력으로 받아 맵 컨셉·블록 배치·장애물 배치를 절차적으로 구성.
+            동일 prefab을 회전·재배치하여 6개 컨셉을 표현.
+          </p>
+          <ul>
+            <li>입장 시마다 다른 레이아웃 — 반복성 제거</li>
+            <li><code>buildingId</code> → 컨셉 매핑 테이블</li>
+            <li>장애물 주변 예외 처리 — 막힌 구조·고립 영역 방지</li>
+            <li>블록 prefab 재활용으로 6컨셉을 1세트 자산으로 표현</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 02 · MANAGER SEPARATION</div>
+          <h3>매니저 분리 구조</h3>
+          <p class="desc">
+            아이템·적·중간 이벤트를 각각 독립 매니저로 분리.
+            테스트 및 룰 변경 시 한 모듈만 수정하면 되도록 책임을 명확히 가름.
+          </p>
+          <ul>
+            <li><code>ItemManager</code> — 아이템 스폰 / 회수 / 인벤토리</li>
+            <li><code>EnemyManager</code> — 적 스폰 · 추격 AI · 난이도 곡선</li>
+            <li><code>EventManager</code> — 중간 이벤트 트리거 · 보너스 페이즈</li>
+            <li>각 매니저는 MapGenerator로부터 컨셉 정보만 받음</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 03 · EXCEL-DRIVEN BALANCE</div>
+          <h3>엑셀 기반 밸런싱</h3>
+          <p class="desc">
+            아이템 확률·등장 횟수를 엑셀 시트로 관리하고, 게임 빌드 시 JSON으로 변환해 로딩.
+            코드 수정 없이 밸런스 패치가 가능한 파이프라인.
+          </p>
+          <ul>
+            <li>엑셀 시트 → JSON 변환 (빌드 파이프라인)</li>
+            <li>아이템별 <code>probability</code>, <code>maxCount</code>, <code>buildingFilter</code></li>
+            <li>기획자/디자이너가 직접 시트만 수정해도 반영</li>
+            <li>건물별 등장 풀(pool) 분리로 컨셉 일관성 확보</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 04 · CROSS-GAME DATA</div>
+          <h3>게임 간 데이터 수신·송신</h3>
+          <p class="desc">
+            Redbrick Signal과 postMessage API를 함께 사용해 다른 웹 게임으로부터 건물 번호를 받고,
+            플레이 결과를 다음 게임으로 전달.
+          </p>
+          <ul>
+            <li><code>SignalReceiver</code> — 외부 게임의 건물 데이터 수신</li>
+            <li><code>ResultCollector</code> — 획득 아이템 누적 · 직렬화</li>
+            <li><code>LocalStorage</code> 폴백 — 시그널 미수신 시 백업 채널</li>
+            <li>건물 데이터 부재 시 랜덤 컨셉으로 안전 폴백</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PSEUDOCODE — Manager structure
+       ============================================================ -->
+  <section class="dark codeshow reveal">
+    <div class="container">
+      <span class="section-eyebrow">// pseudocode</span>
+      <h2 class="section-title">매니저 분리 구조 — 의사 코드</h2>
+      <p class="section-sub">
+        실제 코드는 GitHub에 공개되어 있지만, 여기서는 설계 의도를 한눈에 보여주기 위해
+        핵심 인터페이스만 간추렸습니다.
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="file">map_generator.js · pseudo</span>
+          <span class="lang">JS</span>
+        </div>
+<pre class="code"><span class="cm">// 건물 번호 → 맵 컨셉 매핑 + 매니저 초기화</span>
+<span class="kw">class</span> <span class="ty">MapGenerator</span> {
+  <span class="fn">build</span>(buildingId) {
+    <span class="kw">const</span> concept = <span class="kw">this</span>.<span class="fn">resolveConcept</span>(buildingId);  <span class="cm">// 1~6</span>
+
+    <span class="kw">this</span>.<span class="fn">placeBlocks</span>(concept.layout);         <span class="cm">// prefab 재활용</span>
+    <span class="kw">this</span>.<span class="fn">placeObstacles</span>(concept.obstacleRule); <span class="cm">// 주변 예외 처리</span>
+
+    <span class="cm">// 매니저는 컨셉 정보만 받아 각자 초기화 — 결합도 최소</span>
+    <span class="ty">ItemManager</span>.<span class="fn">init</span>(concept.itemPool);     <span class="cm">// 엑셀 → JSON</span>
+    <span class="ty">EnemyManager</span>.<span class="fn">init</span>(concept.enemyPattern);
+    <span class="ty">EventManager</span>.<span class="fn">init</span>(concept.eventSchedule);
+  }
+}</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="file">cross_game_bridge.js · pseudo</span>
+          <span class="lang">JS</span>
+        </div>
+<pre class="code"><span class="cm">// 외부 게임 → 본 게임 (입장 시) / 본 게임 → 다음 게임 (종료 시)</span>
+<span class="ty">SignalReceiver</span>.<span class="fn">on</span>(<span class="st">'buildingData'</span>, (data) =&gt; {
+  <span class="kw">const</span> id = data?.buildingId ?? <span class="ty">LocalStorage</span>.<span class="fn">get</span>(<span class="st">'buildingId'</span>);
+  <span class="ty">MapGenerator</span>.<span class="fn">build</span>(id ?? <span class="ty">Random</span>.<span class="fn">pick</span>(<span class="nu">1</span>, <span class="nu">6</span>)); <span class="cm">// 안전 폴백</span>
+});
+
+<span class="kw">function</span> <span class="fn">onGameEnd</span>(result) {
+  <span class="kw">const</span> payload = {
+    items: <span class="ty">ResultCollector</span>.<span class="fn">serialize</span>(),
+    buildingId: <span class="ty">Game</span>.currentBuildingId,
+  };
+  <span class="ty">Signal</span>.<span class="fn">emit</span>(<span class="st">'survivorResult'</span>, payload);
+  <span class="ty">LocalStorage</span>.<span class="fn">set</span>(<span class="st">'survivorResult'</span>, payload); <span class="cm">// 백업</span>
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHALLENGES — problem / solution
+       ============================================================ -->
+  <section class="dark challenges reveal" id="challenges">
+    <div class="container">
+      <span class="section-eyebrow">// problem_solving</span>
+      <h2 class="section-title">실제로 마주친 문제와 해결</h2>
+      <p class="section-sub">
+        합작 프로젝트, 처음 시도해보는 게임 간 통신, 그리고 인턴 기간이라는 시간 제약 —
+        각각의 문제를 어떻게 풀었는지 정리했습니다.
+      </p>
+
+      <div class="chall-grid">
+        <div class="chall">
+          <div class="label">Repetitive Map</div>
+          <div class="problem">고정된 맵의 반복성 — 한두 번 플레이하면 금방 질림</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            입장 시마다 절차적으로 맵을 생성. 장애물 배치 시 주변에 또 다른 장애물이 생성되지 않도록 예외 처리해 좁은 통로·고립 영역을 방지하고 플레이 친화성 확보.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">6 Concepts × Cost</div>
+          <div class="problem">6개 건물 컨셉을 각자 만들면 자산·작업량이 폭증</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            블록 prefab을 재활용하고, 회전·재배치·머티리얼 스왑으로 컨셉만 갈아끼우는 방식 채택. 자산 1세트로 6개 분위기를 표현해 인턴 기간 내 완성도 확보.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Balance Patch</div>
+          <div class="problem">밸런스 패치를 위해 매번 코드를 수정해야 하는 비효율</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            엑셀 확률 테이블 도입 — 빌드 파이프라인에서 JSON으로 변환해 로딩. 기획자·디자이너가 시트만 수정해도 반영되므로 개발자 병목 제거.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">First-time Cross-Game</div>
+          <div class="problem">다른 웹 게임과의 데이터 연결이 처음 — 안정성 보장이 어려움</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            Redbrick Signal을 1차 채널로, <code>postMessage</code> + <code>LocalStorage</code>를 폴백으로 구성. 시그널이 도달하지 않거나 늦더라도 게임이 멈추지 않고 랜덤 컨셉으로 안전하게 시작.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Internship Time Box</div>
+          <div class="problem">프로젝트 규모가 인턴 기간 내 완성하기에는 과도</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            완성보다 <strong>핵심 시스템 (자동 맵 · 매니저 분리 · 데이터 연동)</strong>의 구조를 먼저 갖추는 데 집중. 추후 누가 이어받아도 확장할 수 있도록 인수인계 문서 + GitHub 공개.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HANDOFF NOTE
+       ============================================================ -->
+  <section class="dark handoff reveal">
+    <div class="container">
+      <div class="handoff-card">
+        <div class="tag">HANDOFF NOTE · 프로젝트 인수인계</div>
+        <h3>완성이 아닌, 다음 사람이 이어받을 수 있는 형태로</h3>
+        <p>
+          이 프로젝트는 <strong>인턴 기간 내 완성이 불가능</strong>한 규모였습니다.
+          3개 게임을 연결하는 합작 프로젝트의 한 축으로서, 본인은 캐주얼 생존 파트의
+          <strong>핵심 시스템 — 자동 맵 생성, 매니저 분리, 엑셀 기반 밸런싱, 게임 간 데이터 연동</strong>의
+          뼈대를 완성한 뒤 인수인계했습니다.
+        </p>
+        <p>
+          이후 작업자가 콘텐츠(아이템·이펙트·UI)를 채워 넣기만 하면 되도록 시스템을 분리해두었고,
+          코드 전체는 <a href="https://github.com/Seonga02024/Casual_Survivor_Game" target="_blank" rel="noopener">GitHub</a>에 공개되어 누구나 참고할 수 있습니다.
+          미완성이라는 결과보다도, <strong>"확장 가능한 구조를 짜고 넘긴다"</strong>는 과정 자체에서
+          많이 배웠습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="foot-inner">
+      <p>© RunToRoom · Redbrick · 2024.11 — 12 · HANDOFF</p>
+      <div class="foot-links">
+        <a href="../index.html">← Portfolio</a>
+        <a href="https://redbrick.land/detail-play?pid=ffa5a330-296a-4188-a426-fa64d3510c01" target="_blank" rel="noopener">▶ Play</a>
+        <a href="https://github.com/Seonga02024/Casual_Survivor_Game" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://tv.kakao.com/v/451983974" target="_blank" rel="noopener">Video</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melody Pang Pang · 멜로디 팡팡 — Rhythm Game Showcase &amp; Developer Portfolio</title>
+  <meta name="description" content="사이버펑크 LED 비주얼의 1인 개발 웹 리듬 게임 '멜로디 팡팡'. Redbrick + JavaScript, three.js / TWEEN.js, Web Audio API 기반 박자 동기화와 노드 판정 최적화 포트폴리오." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Theme tokens — 두 톤(따뜻한 게임 소개 / 다크 기술 소개)
+       리듬 게임 사이버펑크 LED 액센트
+       ============================================================ */
+    :root {
+      /* Warm tone — Game introduction (vivid magenta accent) */
+      --w-bg: #fbf4e4;
+      --w-bg-soft: #f5e8c9;
+      --w-paper: #fffaf1;
+      --w-ink: #2a1230;
+      --w-ink-soft: #574258;
+      --w-ink-muted: #8e7590;
+      --w-accent: #d946ef;
+      --w-accent-deep: #86198f;
+      --w-gold: #f59e0b;
+      --w-gold-soft: #fcd34d;
+      --w-shadow: 0 10px 32px rgba(120, 30, 110, 0.18);
+
+      /* Dark tone — Technical deep-dive (neon cyan/magenta) */
+      --d-bg-0: #0a0e17;
+      --d-bg-1: #111827;
+      --d-bg-2: #1a2236;
+      --d-bg-3: #232c44;
+      --d-line: #2a3550;
+      --d-text: #e6edf7;
+      --d-text-dim: #9aa7be;
+      --d-text-muted: #6b7894;
+      --d-accent: #6ee7ff;
+      --d-accent-2: #a78bfa;
+      --d-accent-3: #f472b6;
+      --d-green: #4ade80;
+      --d-amber: #fbbf24;
+      --d-code-bg: #0d1422;
+      --d-code-border: #1f2a44;
+      --d-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+    code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    /* ============================================================
+       Section base
+       ============================================================ */
+    section { padding: 100px 28px; position: relative; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ============================================================
+       Part 1 — Warm theme (Game introduction)
+       ============================================================ */
+    .warm {
+      background: var(--w-bg);
+      color: var(--w-ink);
+    }
+    .warm .section-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(217, 70, 239, 0.10);
+      color: var(--w-accent-deep);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .warm h2.section-title {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 16px;
+      color: var(--w-ink);
+    }
+    .warm .section-sub {
+      font-size: 18px; color: var(--w-ink-soft);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* ============================================================
+       Part 2 — Dark theme (Technical)
+       ============================================================ */
+    .dark {
+      background: var(--d-bg-0);
+      color: var(--d-text);
+    }
+    .dark .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 500;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .dark .section-eyebrow::before {
+      content: ""; width: 24px; height: 1px;
+      background: var(--d-accent);
+    }
+    .dark h2.section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      margin: 0 0 16px;
+      color: var(--d-text);
+    }
+    .dark .section-sub {
+      font-size: 17px; color: var(--d-text-dim);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* Dark grid background */
+    .dark::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(110, 231, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110, 231, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .dark .container { position: relative; z-index: 1; }
+
+    /* ============================================================
+       Nav (neutral — adapts)
+       ============================================================ */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251, 244, 228, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(217, 70, 239, 0.18);
+      transition: background .3s, border-color .3s;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 16px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--w-accent-deep); text-decoration: none;
+    }
+    .brand .brand-mark {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #d946ef, #6ee7ff);
+      color: white;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 6px 16px rgba(217, 70, 239, 0.35);
+    }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a {
+      color: var(--w-ink-soft); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--w-accent); }
+    .nav-links a.tech { color: var(--w-ink-muted); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+    .nav-links a.back {
+      color: var(--w-accent);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       Hero — warm
+       ============================================================ */
+    .hero {
+      padding: 90px 28px 90px;
+      background:
+        radial-gradient(ellipse at top left, rgba(217, 70, 239, 0.18), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(110, 231, 255, 0.14), transparent 60%),
+        var(--w-bg);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(217, 70, 239, 0.10);
+      color: var(--w-accent-deep);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+    .hero h1 {
+      font-family: "Gowun Batang", serif;
+      font-size: clamp(40px, 6.5vw, 76px);
+      line-height: 1.05;
+      margin: 0 0 22px;
+      color: var(--w-accent-deep);
+    }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, #d946ef, #6ee7ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .lead {
+      font-size: 19px; color: var(--w-ink-soft);
+      max-width: 560px; margin: 0 0 36px;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: transform .15s, box-shadow .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--w-accent); color: white;
+      box-shadow: 0 8px 20px rgba(217, 70, 239, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(217, 70, 239, 0.5); }
+    .btn-ghost {
+      background: transparent; color: var(--w-accent);
+      border: 2px solid var(--w-accent);
+    }
+    .btn-ghost:hover { background: var(--w-accent); color: white; }
+
+    .hero-visual {
+      max-width: 560px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-screenshot {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(80, 20, 110, 0.45);
+      border: 6px solid white;
+      transform: rotate(-1.5deg);
+      transition: transform .3s;
+      aspect-ratio: 4 / 3;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(217, 70, 239, 0.55), transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(110, 231, 255, 0.45), transparent 55%),
+        linear-gradient(160deg, #1a0a2e 0%, #0a0e17 100%);
+    }
+    .hero-screenshot:hover { transform: rotate(0); }
+    /* 사이버펑크 LED 비주얼 (placeholder, 이미지 없이도 자연스러움) */
+    .hero-screenshot .stage {
+      position: absolute; inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 26px 30px 80px;
+    }
+    .hero-screenshot .lane {
+      position: relative;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.4)),
+        rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .hero-screenshot .lane::before {
+      content: "";
+      position: absolute; left: 8px; right: 8px;
+      bottom: 14%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #6ee7ff, transparent);
+      box-shadow: 0 0 18px #6ee7ff;
+    }
+    .hero-screenshot .node {
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 70%; height: 14px;
+      border-radius: 4px;
+      box-shadow: 0 0 24px currentColor;
+    }
+    .hero-screenshot .lane:nth-child(1) .node { top: 22%; background: #d946ef; color: #d946ef; }
+    .hero-screenshot .lane:nth-child(2) .node { top: 48%; background: #6ee7ff; color: #6ee7ff; }
+    .hero-screenshot .lane:nth-child(3) .node { top: 35%; background: #a78bfa; color: #a78bfa; }
+    .hero-screenshot .lane:nth-child(4) .node { top: 62%; background: #f472b6; color: #f472b6; }
+    .hero-screenshot .stage-judge {
+      position: absolute;
+      left: 50%; bottom: 30px;
+      transform: translateX(-50%);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      font-size: 30px;
+      color: #fbbf24;
+      text-shadow: 0 0 18px rgba(251, 191, 36, 0.7);
+      letter-spacing: 0.08em;
+    }
+    .hero-screenshot .badge {
+      position: absolute; bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: white; padding: 12px 20px; border-radius: 12px;
+      box-shadow: var(--w-shadow);
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 14px;
+      color: var(--w-ink);
+      white-space: nowrap;
+    }
+    .hero-screenshot .badge .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #d946ef;
+      animation: pulse 1.4s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(217, 70, 239, 0.25); }
+      50% { box-shadow: 0 0 0 10px rgba(217, 70, 239, 0); }
+    }
+
+    /* ============================================================
+       Features — warm
+       ============================================================ */
+    .features { background: linear-gradient(180deg, var(--w-bg), var(--w-paper)); }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: var(--w-shadow);
+      border-top: 4px solid var(--w-accent);
+      transition: transform .2s;
+    }
+    .feat-card:nth-child(2) { border-top-color: #6ee7ff; }
+    .feat-card:nth-child(3) { border-top-color: #a78bfa; }
+    .feat-card:nth-child(4) { border-top-color: #f472b6; }
+    .feat-card:nth-child(5) { border-top-color: var(--w-gold); }
+    .feat-card:nth-child(6) { border-top-color: var(--w-accent); }
+    .feat-card:hover { transform: translateY(-4px); }
+    .feat-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(217, 70, 239, 0.10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+    .feat-card h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
+    .feat-card p { margin: 0; color: var(--w-ink-soft); font-size: 14.5px; }
+
+    /* ============================================================
+       Gallery — warm (placeholders, 이미지 없음)
+       ============================================================ */
+    .gallery { background: var(--w-bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .shot {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--w-paper);
+      box-shadow: var(--w-shadow);
+      position: relative;
+      transition: transform .2s;
+      aspect-ratio: 16 / 9;
+    }
+    .shot:hover { transform: translateY(-4px); }
+    .placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      color: #f8fafc;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .placeholder::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+      pointer-events: none;
+    }
+    .placeholder .ph-kind {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      position: relative;
+    }
+    .placeholder .ph-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      position: relative;
+      letter-spacing: 0.02em;
+      font-family: "Inter", "Noto Sans KR", sans-serif;
+    }
+    .placeholder.tone-magenta {
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(217, 70, 239, 0.6), transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(167, 139, 250, 0.4), transparent 55%),
+        linear-gradient(160deg, #1a0a2e 0%, #0a0e17 100%);
+    }
+    .placeholder.tone-cyan {
+      background:
+        radial-gradient(ellipse at 25% 25%, rgba(110, 231, 255, 0.55), transparent 55%),
+        radial-gradient(ellipse at 75% 75%, rgba(167, 139, 250, 0.4), transparent 55%),
+        linear-gradient(160deg, #08111f 0%, #0a0e17 100%);
+    }
+    .placeholder.tone-pink {
+      background:
+        radial-gradient(ellipse at 30% 70%, rgba(244, 114, 182, 0.55), transparent 55%),
+        radial-gradient(ellipse at 70% 30%, rgba(217, 70, 239, 0.45), transparent 55%),
+        linear-gradient(160deg, #1a0a26 0%, #0a0e17 100%);
+    }
+    .placeholder.tone-amber {
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(251, 191, 36, 0.45), transparent 55%),
+        radial-gradient(ellipse at 70% 50%, rgba(217, 70, 239, 0.4), transparent 55%),
+        linear-gradient(160deg, #1a0a1a 0%, #0a0e17 100%);
+    }
+    .placeholder.tone-violet {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(167, 139, 250, 0.55), transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(110, 231, 255, 0.35), transparent 55%),
+        linear-gradient(160deg, #110a2e 0%, #0a0e17 100%);
+    }
+    .shot figcaption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), transparent);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    /* ============================================================
+       Section divider — transition between warm and dark
+       ============================================================ */
+    .divider {
+      background: linear-gradient(180deg, var(--w-paper) 0%, var(--d-bg-0) 100%);
+      padding: 80px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .divider .badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 12px 24px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .divider .badge::before {
+      content: "▼";
+      color: var(--d-accent-2);
+    }
+    .divider h2 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      margin: 0 0 12px;
+      color: var(--d-text);
+    }
+    .divider h2 .gradient {
+      background: linear-gradient(135deg, var(--d-accent), var(--d-accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .divider p {
+      color: var(--d-text-dim);
+      font-size: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       Metrics — dark
+       ============================================================ */
+    .metrics-bar {
+      background: var(--d-bg-0);
+      padding: 60px 28px 30px;
+    }
+    .hero-metrics {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .metric {
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .metric .val {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 26px; font-weight: 700;
+      color: var(--d-accent);
+      line-height: 1.05;
+    }
+    .metric .label {
+      font-size: 11.5px;
+      color: var(--d-text-muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       Stack — dark
+       ============================================================ */
+    .stack { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .stack-badge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 18px;
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      transition: border-color .15s, transform .15s;
+    }
+    .stack-badge:hover { border-color: var(--d-accent); transform: translateY(-2px); }
+    .stack-badge .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--d-bg-3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700; color: var(--d-accent);
+      font-size: 13px;
+    }
+    .stack-badge .name { font-weight: 600; font-size: 14px; color: var(--d-text); }
+    .stack-badge .role { font-size: 11px; color: var(--d-text-muted); margin-top: 2px; }
+
+    /* ============================================================
+       My work — dark (highlight)
+       ============================================================ */
+    .mine {
+      background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1));
+      position: relative;
+    }
+    .mine-banner {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(110, 231, 255, 0.15), rgba(244, 114, 182, 0.15));
+      border: 1px solid var(--d-accent);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .mine-banner::before {
+      content: "★";
+      color: var(--d-accent-3);
+    }
+    .mine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .mine-card {
+      background:
+        linear-gradient(135deg, rgba(110, 231, 255, 0.04), rgba(244, 114, 182, 0.04)),
+        var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .mine-card:hover { transform: translateY(-6px); border-color: var(--d-accent); }
+    .mine-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-3));
+    }
+    .mine-card .area-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--d-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .mine-card h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      color: var(--d-text);
+    }
+    .mine-card .desc {
+      margin: 0 0 18px;
+      color: var(--d-text-dim);
+      font-size: 14.5px;
+    }
+    .mine-card ul {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .mine-card ul li {
+      padding: 6px 0;
+      color: var(--d-text-dim);
+      font-size: 13.5px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .mine-card ul li::before {
+      content: "▸";
+      color: var(--d-accent-3);
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 11px;
+    }
+    .mine-card ul li code {
+      color: var(--d-accent);
+      background: rgba(110, 231, 255, 0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* ============================================================
+       Code showcase — dark
+       ============================================================ */
+    .codeshow { background: var(--d-bg-0); }
+    .code-tabs {
+      display: flex; gap: 4px;
+      margin-bottom: -1px;
+      flex-wrap: wrap;
+    }
+    .code-tab {
+      padding: 10px 18px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--d-text-muted);
+      cursor: pointer;
+    }
+    .code-tab.active {
+      background: var(--d-code-bg);
+      color: var(--d-accent);
+      border-color: var(--d-code-border);
+    }
+    .code-block {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 0 14px 14px 14px;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--d-code-border);
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .code-header .file { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-text-muted); }
+    .code-header .lang {
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      color: var(--d-accent); padding: 2px 8px;
+      background: rgba(110, 231, 255, 0.08); border-radius: 4px;
+    }
+    pre.code {
+      margin: 0; padding: 22px 24px;
+      font-size: 13px; line-height: 1.75;
+      overflow-x: auto;
+      color: var(--d-text);
+    }
+    pre.code .kw { color: #c084fc; }
+    pre.code .ty { color: #6ee7ff; }
+    pre.code .st { color: #fbbf24; }
+    pre.code .cm { color: #64748b; font-style: italic; }
+    pre.code .fn { color: #a5f3fc; }
+    pre.code .nu { color: #fb923c; }
+    .code-pane { display: none; }
+    .code-pane.active { display: block; }
+
+    /* ============================================================
+       Challenges — dark
+       ============================================================ */
+    .challenges { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .chall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .chall {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 26px;
+      position: relative;
+    }
+    .chall::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-3));
+    }
+    .chall .label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .chall .problem { font-weight: 700; font-size: 16px; margin: 8px 0 16px; color: var(--d-text); }
+    .chall .solution { font-size: 13.5px; color: var(--d-text-dim); padding-top: 16px; border-top: 1px dashed var(--d-line); }
+    .chall .solution-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    footer {
+      background: var(--d-bg-0);
+      border-top: 1px solid var(--d-line);
+      padding: 50px 28px 40px;
+    }
+    .foot-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .foot-inner p { margin: 0; font-size: 13px; color: var(--d-text-muted); }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links a { color: var(--d-text-dim); text-decoration: none; font-size: 13px; }
+    .foot-links a:hover { color: var(--d-accent); }
+
+    /* ============================================================
+       Reveal
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 380px; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 70px 22px; }
+    }
+    @media (max-width: 560px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">M</span>
+        Melody Pang Pang · 리듬 게임
+      </a>
+      <nav class="nav-links">
+        <a href="#features">게임 소개</a>
+        <a href="#gallery">화면</a>
+        <a href="#technical" class="tech">// technical</a>
+        <a href="#mine" class="tech">// my work</a>
+        <a href="../index.html" class="back">← Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 1 — GAME INTRODUCTION (warm theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="warm hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">사이버펑크 리듬 게임 · 1인 개발</span>
+        <h1>박자에 맞춰,<br /><span class="accent">팡! 팡!</span></h1>
+        <p class="lead">
+          180 BPM 사이버펑크 스테이지 위에서 떨어지는 LED 노드를 정확히 두드려요.
+          <strong>Perfect · Cool · Miss</strong> 판정과 콤보 배수로 한 곡 30초 안에
+          최고 점수를 노리는, 디자이너와 둘이서 2주 만에 만들어 출시한 웹 리듬 게임.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://redbrick.land/detail-play?pid=1ce4db26-b22d-42f9-bb63-072c23e7ab06" target="_blank" rel="noopener">PLAY NOW →</a>
+          <a class="btn btn-ghost" href="#gallery">GAMEPLAY 미리보기</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-screenshot" aria-label="Cyberpunk rhythm stage preview">
+          <div class="stage">
+            <div class="lane"><span class="node"></span></div>
+            <div class="lane"><span class="node"></span></div>
+            <div class="lane"><span class="node"></span></div>
+            <div class="lane"><span class="node"></span></div>
+          </div>
+          <div class="stage-judge">PERFECT</div>
+          <div class="badge"><span class="dot"></span> 출시 운영 중</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — 게임에 들어간 기능
+       ============================================================ -->
+  <section class="warm features reveal" id="features">
+    <div class="container">
+      <span class="section-eyebrow">FEATURES · 게임에 담은 것</span>
+      <h2 class="section-title">이런 기능들이 들어가 있어요</h2>
+      <p class="section-sub">
+        4개 키 입력, 콤보 배수 점수, HP 시스템, 사이버펑크 LED 비주얼.
+        한 곡 20~30초의 짧은 호흡 속에서 긴장과 몰입을 동시에 잡았어요.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🎹</div>
+          <h3>4-Key 리듬 시스템</h3>
+          <p>Left · Up · Down · Right 네 기둥으로 떨어지는 노드를 키/터치로 판정.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🔥</div>
+          <h3>콤보 배수 점수</h3>
+          <p>20콤보부터 <strong>1.5배</strong>, 50콤보부터 <strong>2배</strong> 점수. Miss 한 번이면 0으로.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">❤️</div>
+          <h3>HP 체력 시스템</h3>
+          <p>HP 100으로 시작, Miss마다 -10. 카메라 흔들림으로 위기감을 시각화.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">💜</div>
+          <h3>사이버펑크 비주얼</h3>
+          <p>어두운 스테이지 + 네온 LED 라이트. 노드가 진입하면 기둥이 빛나요.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">✨</div>
+          <h3>판정 시각화</h3>
+          <p>Perfect · Cool · Miss UI가 TWEEN 이징으로 커지며 등장. 터치 이펙트도.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🌐</div>
+          <h3>PC &amp; 모바일 웹</h3>
+          <p>Redbrick 플랫폼에서 설치 없이 바로 플레이. 한 판 약 30초.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY — 게임 진행 화면 (placeholder)
+       ============================================================ -->
+  <section class="warm gallery reveal" id="gallery">
+    <div class="container">
+      <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
+      <h2 class="section-title">이렇게 진행됩니다</h2>
+      <p class="section-sub">
+        How to Play 안내부터 인게임 진행, 두 가지 종료 화면, 사이버펑크 스테이지 배경까지.
+        한 곡 20~30초의 흐름을 한눈에 담았어요.
+      </p>
+
+      <div class="gallery-grid">
+        <figure class="shot">
+          <img src="assets/proj-melody-pangpang-1.png" alt="Melody Pang Pang stage background" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>사이버펑크 스테이지 배경</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/proj-melody-pangpang-2.png" alt="Melody Pang Pang gameplay" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>인게임 · 4-Key 판정</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder tone-pink">
+            <span class="ph-kind">SCREEN · GAME OVER</span>
+            <span class="ph-label">게임 종료 (체력 감소)</span>
+          </div>
+          <figcaption>게임 종료 · HP 0 도달</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder tone-amber">
+            <span class="ph-kind">SCREEN · CLEAR</span>
+            <span class="ph-label">게임 종료 (노래 종료)</span>
+          </div>
+          <figcaption>게임 종료 · 노래 클리어</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder tone-violet">
+            <span class="ph-kind">SCENE · BACKGROUND</span>
+            <span class="ph-label">사이버펑크 스테이지 배경</span>
+          </div>
+          <figcaption>사이버펑크 스테이지</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder tone-magenta">
+            <span class="ph-kind">FX · LED</span>
+            <span class="ph-label">노드 판정 LED 이펙트</span>
+          </div>
+          <figcaption>노드 진입 · 라이트 이펙트</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       DIVIDER — perspective shift
+       ════════════════════════════════════════════════════════════ -->
+  <section class="divider reveal" id="technical">
+    <div class="badge">PERSPECTIVE · TECHNICAL DEEP-DIVE</div>
+    <h2>이제 <span class="gradient">기술 관점</span>에서 살펴봅니다</h2>
+    <p>여기서부터는 개발자 관점의 아키텍처, 기술 스택, 그리고 1인 개발 과정에서 직접 풀어낸 문제들을 소개합니다.</p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 2 — TECHNICAL (dark theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       METRICS
+       ============================================================ -->
+  <section class="dark metrics-bar reveal">
+    <div class="hero-metrics">
+      <div class="metric"><div class="val">2주</div><div class="label">Dev Cycle</div></div>
+      <div class="metric"><div class="val">1인</div><div class="label">Solo Developer</div></div>
+      <div class="metric"><div class="val">180 BPM</div><div class="label">Beat Tempo</div></div>
+      <div class="metric"><div class="val">20→50</div><div class="label">Combo 1.5x → 2x</div></div>
+      <div class="metric"><div class="val">LIVE</div><div class="label">출시 운영 중</div></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STACK
+       ============================================================ -->
+  <section class="dark stack reveal">
+    <div class="container">
+      <span class="section-eyebrow">// tech_stack</span>
+      <h2 class="section-title">Built on a lean web-game stack</h2>
+      <p class="section-sub">
+        Redbrick 위에서 three.js로 3D 스테이지를 그리고, TWEEN.js로 UI 이펙트를,
+        Web Audio API의 정밀 시계로 박자를 동기화합니다. 외부 의존성은 꼭 필요한 것만.
+      </p>
+
+      <div class="stack-grid">
+        <div class="stack-badge"><div class="icon">RB</div><div><div class="name">Redbrick Engine</div><div class="role">Web Game Platform</div></div></div>
+        <div class="stack-badge"><div class="icon">JS</div><div><div class="name">JavaScript</div><div class="role">Game Logic</div></div></div>
+        <div class="stack-badge"><div class="icon">3D</div><div><div class="name">three.js</div><div class="role">Stage / Nodes</div></div></div>
+        <div class="stack-badge"><div class="icon">TW</div><div><div class="name">TWEEN.js</div><div class="role">UI Easing FX</div></div></div>
+        <div class="stack-badge"><div class="icon">WA</div><div><div class="name">Web Audio API</div><div class="role">Beat Sync Clock</div></div></div>
+        <div class="stack-badge"><div class="icon">UX</div><div><div class="name">Touch + Keyboard</div><div class="role">PC &amp; Mobile Input</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MY WORK — 1인 개발 핵심 영역
+       ============================================================ -->
+  <section class="dark mine reveal" id="mine">
+    <div class="container">
+      <div class="mine-banner">MY CONTRIBUTIONS · 1인 개발 핵심 영역</div>
+      <h2 class="section-title">직접 설계 · 구현한 4가지 핵심 시스템</h2>
+      <p class="section-sub">
+        디자이너 1명과 협업하여 2주 만에 출시까지 마친 1인 개발. 음악 동기화,
+        노드 판정 최적화, GUI 이펙트, 점수·콤보·HP 게임 시스템을 처음부터 끝까지 설계했습니다.
+      </p>
+
+      <div class="mine-grid">
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 01 · MUSIC SYNC</div>
+          <h3>음악 동기화 시스템</h3>
+          <p class="desc">
+            사용자마다 다른 PC 사양에서도 박자가 어긋나지 않도록,
+            노래 재생 시간 기점으로 박자를 계산하는 동기화 파이프라인 설계.
+          </p>
+          <ul>
+            <li><code>music.context.currentTime - music._startedAt</code> 기점 박자 계산</li>
+            <li>180 BPM 기준 비트 타임 배열에 <code>leadTime</code> 더해 미리 노드 생성</li>
+            <li>게임 시작 시점이 아닌 노래 재생 시간 기준 → 사양 차이 흡수</li>
+            <li>종료 시 음악 → 타이틀 음악 자연 교체</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 02 · JUDGEMENT OPT</div>
+          <h3>노드 판정 부하 최적화</h3>
+          <p class="desc">
+            매 클릭마다 전체 노드를 검사하면 과부하. 고유 인덱스 기반으로
+            검사 범위를 8개로 한정하여 입력 응답성을 일정하게 유지.
+          </p>
+          <ul>
+            <li>각 노드에 <code>currentNodeNum</code> 고유 인덱스 부여</li>
+            <li><code>lastClickBox</code> ±4 범위만 검사 → 검사 8개로 한정</li>
+            <li>X 좌표 비교로 Left/Up/Down/Right 기둥 빠르게 식별</li>
+            <li>거리별 Perfect (≤0.2) · Cool (≤0.5) · Miss (≤1) 판정</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 03 · GUI / FX</div>
+          <h3>GUI 이펙트 & 시각 피드백</h3>
+          <p class="desc">
+            리듬 게임 레퍼런스에서 검증된 시각적 쾌감을 그대로 살리면서,
+            TWEEN 이징으로 판정 UI의 등장 모션과 콤보 표시를 자연스럽게.
+          </p>
+          <ul>
+            <li><code>TWEEN.Easing.Quartic.InOut</code> 으로 판정 UI 스케일 애니메이션</li>
+            <li>키 누름 시 배경 빛 기둥, 노드 진입 시 라이트 효과</li>
+            <li>최초 Perfect부터 콤보 GUI 시작 · Miss 시 초기화 연출</li>
+            <li>Miss 시 카메라 살짝 흔들림으로 다중 피드백</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 04 · GAME SYSTEMS</div>
+          <h3>점수 · 콤보 · HP 시스템</h3>
+          <p class="desc">
+            짧은 한 곡(20~30초) 안에서 도전 욕구를 끌어내는 점수/HP 룰 설계.
+            랭킹 경쟁이 자연스럽게 발생하는 변동성 곡선.
+          </p>
+          <ul>
+            <li>Perfect 20점 / Cool 10점 / Miss 0점 기본 점수</li>
+            <li>20콤보부터 1.5배 · 50콤보부터 2배 콤보 보너스</li>
+            <li>HP 100 시작 · Miss 시 -10 · 0 도달 시 게임 종료</li>
+            <li>고점수 = 정확도 + 콤보 유지 + 풀 곡 클리어 삼박자</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CODE SHOWCASE
+       ============================================================ -->
+  <section class="dark codeshow reveal" id="code">
+    <div class="container">
+      <span class="section-eyebrow">// code_deep_dive</span>
+      <h2 class="section-title">Real code from the rhythm engine</h2>
+      <p class="section-sub">
+        음악 동기화 → 입력 판정 → UI 이펙트로 이어지는 3가지 핵심 코드.
+        한 줄씩 어디서 BPM 정확도와 입력 응답성을 잡았는지 보여드릴게요.
+      </p>
+
+      <div class="code-tabs">
+        <div class="code-tab active" data-tab="0">노드 생성 (Update)</div>
+        <div class="code-tab" data-tab="1">판정 최적화 (±4 검사)</div>
+        <div class="code-tab" data-tab="2">GUI Tween 이펙트</div>
+      </div>
+
+      <div class="code-pane active">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/game.js · 노드 생성 + Miss 판정</span>
+            <span class="lang">JavaScript</span>
+          </div>
+<pre class="code"><span class="kw">const</span> boxSpeed = <span class="nu">5</span>;             <span class="cm">// 박스 하락 속도</span>
+<span class="kw">const</span> leadTime = <span class="nu">2</span>;             <span class="cm">// 비트 타이밍보다 미리 생성할 시간 (초)</span>
+<span class="kw">const</span> trigger_y = <span class="nu">0</span>;            <span class="cm">// 판정 라인 Y 값</span>
+<span class="kw">const</span> startBeatTimes = <span class="nu">3.37</span>;
+<span class="kw">const</span> trigger_x = [<span class="nu">-2</span>, <span class="nu">-1.2</span>, <span class="nu">-0.4</span>, <span class="nu">0.4</span>];  <span class="cm">// 4개 기둥 X 좌표</span>
+<span class="kw">const</span> timeAdjustment = <span class="nu">0.5</span>;
+
+<span class="kw">function</span> <span class="fn">calBoxPosition</span>(time, speed, targetY, trigger_x, index) {
+    <span class="cm">// 시작 위치를 계산: initialY = targetY + (speed * time)</span>
+    <span class="kw">const</span> initialY = targetY + (speed * time);
+    <span class="kw">const</span> initialX = trigger_x[index % <span class="nu">4</span>];
+    <span class="kw">const</span> initialZ = <span class="nu">66</span>;
+    <span class="kw">return</span> {x: initialX, y: initialY, z: initialZ};
+}
+
+<span class="kw">function</span> <span class="fn">Update</span>(dt) {
+    <span class="kw">if</span> (music.isPlaying) {
+        <span class="cm">// 노래 재생 시간 기점으로 박자 계산 (게임 시작 기점 X)</span>
+        <span class="kw">const</span> playTime = music.context.currentTime - music._startedAt;
+
+        beatTimes.<span class="fn">forEach</span>((beatTime, index) =&gt; {
+            <span class="cm">// 현재 재생 시간이 beatTime - leadTime에 도달했을 때 박스 생성</span>
+            <span class="kw">if</span> (playTime &gt;= (beatTime + timeAdjustment - leadTime) &amp;&amp; !downBoxes[index]) {
+                <span class="kw">let</span> newBoxes = [];
+                beatNodePattern[currentNodePatternNum].<span class="fn">forEach</span>((num, index) =&gt; {
+                    <span class="kw">if</span>(num === <span class="nu">1</span>){
+                        <span class="kw">let</span> newBox = <span class="cm">/* index 별 left/up/down/right 노드 클론 */</span>;
+                        <span class="kw">const</span> initialY = <span class="fn">calBoxPosition</span>(playTime, boxSpeed, trigger_y, trigger_x, index).y;
+                        newBox.position.<span class="fn">set</span>(trigger_x[index % <span class="nu">4</span>], initialY, <span class="nu">66</span>);
+                        newBox.isClick = <span class="kw">false</span>;
+                        newBox.index = currentNodeNum;     <span class="cm">// 고유 인덱스 부여</span>
+                        WORLD.<span class="fn">add</span>(newBox);
+                        newBoxes.<span class="fn">push</span>(newBox);
+                        beatBoxes.<span class="fn">push</span>(newBox);
+                        currentNodeNum++;
+                    }
+                });
+                downBoxes[index] = newBoxes;
+                currentNodePatternNum++;
+            }
+        });
+
+        <span class="cm">// 박스 하락 + Miss 판정</span>
+        downBoxes.<span class="fn">forEach</span>((boxes) =&gt; {
+            <span class="kw">if</span> (boxes) {
+                boxes.<span class="fn">forEach</span>((box) =&gt; {
+                    box.position.y -= boxSpeed * dt;
+                    <span class="kw">if</span> (box.position.y &lt;= trigger_y &amp;&amp; box.isClick === <span class="kw">false</span>) {
+                        gameGUI.<span class="fn">clickNode</span>(<span class="kw">false</span>, <span class="kw">false</span>, <span class="kw">true</span>);  <span class="cm">// Miss 표시</span>
+                        box.isClick = <span class="kw">true</span>;
+                        currentCombo = <span class="nu">0</span>;
+                        <span class="fn">missDamge</span>();
+                    }
+                });
+            }
+        });
+    }
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/game.js · CheckDownBoxes (인덱스 기반 부하 최적화)</span>
+            <span class="lang">JavaScript</span>
+          </div>
+<pre class="code"><span class="kw">function</span> <span class="fn">CheckDownBoxes</span>(keyNum){
+    <span class="kw">let</span> compareBox = <span class="kw">null</span>;
+    <span class="kw">let</span> compareX = <span class="nu">0</span>;
+    <span class="kw">let</span> findNearBox = <span class="kw">null</span>;
+    <span class="kw">let</span> nearDistance = <span class="nu">10000000</span>;
+
+    <span class="kw">switch</span>(keyNum){
+        <span class="kw">case</span> <span class="st">"Left"</span>:  compareBox = leftBox.position;  compareX = trigger_x[<span class="nu">0</span>]; <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="st">"Up"</span>:    compareBox = upBox.position;    compareX = trigger_x[<span class="nu">1</span>]; <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="st">"Down"</span>:  compareBox = downBox.position;  compareX = trigger_x[<span class="nu">2</span>]; <span class="kw">break</span>;
+        <span class="kw">case</span> <span class="st">"Right"</span>: compareBox = rightBox.position; compareX = trigger_x[<span class="nu">3</span>]; <span class="kw">break</span>;
+    }
+
+    <span class="cm">// 마지막 친 노드 기준 ±4개 노드만 검사 (전체 검사 X)</span>
+    <span class="kw">for</span>(<span class="kw">let</span> i=<span class="nu">-4</span>; i&lt;<span class="nu">4</span>; i++){
+        <span class="kw">if</span>(lastClickBox + i &gt;= <span class="nu">0</span> &amp;&amp; beatBoxes[lastClickBox + i]){
+            <span class="kw">let</span> box = beatBoxes[lastClickBox + i];
+            <span class="cm">// X 좌표로 같은 기둥인지 확인</span>
+            <span class="kw">if</span>(box.position.x === compareX &amp;&amp; box.isClick === <span class="kw">false</span>){
+                <span class="kw">let</span> distanceY = <span class="ty">Math</span>.<span class="fn">abs</span>(box.position.y - compareBox.y);
+                <span class="kw">if</span>(distanceY &lt; nearDistance){
+                    findNearBox = box;
+                    nearDistance = distanceY;
+                }
+            }
+        }
+    }
+
+    <span class="kw">if</span>(findNearBox != <span class="kw">null</span>){
+        findNearBox.isClick = <span class="kw">true</span>;
+        lastClickBox = findNearBox.index;
+
+        <span class="kw">if</span>(nearDistance &lt;= <span class="nu">0.2</span>){          <span class="cm">// Perfect</span>
+            currentCombo++;
+            <span class="kw">let</span> comboScore = <span class="nu">20</span>;
+            <span class="kw">if</span>(currentCombo &gt;= <span class="nu">50</span>) comboScore *= <span class="nu">2</span>;
+            <span class="kw">else if</span>(currentCombo &gt;= <span class="nu">20</span>) comboScore *= <span class="nu">1.5</span>;
+            gameGUI.<span class="fn">clickNode</span>(<span class="kw">true</span>, <span class="kw">false</span>, <span class="kw">false</span>);
+            gameGUI.<span class="fn">settingScoreUI</span>(comboScore);
+        } <span class="kw">else if</span>(nearDistance &lt;= <span class="nu">0.5</span>){   <span class="cm">// Cool</span>
+            currentCombo++;
+            <span class="kw">let</span> comboScore = <span class="nu">10</span>;
+            <span class="kw">if</span>(currentCombo &gt;= <span class="nu">50</span>) comboScore *= <span class="nu">2</span>;
+            <span class="kw">else if</span>(currentCombo &gt;= <span class="nu">20</span>) comboScore *= <span class="nu">1.5</span>;
+            gameGUI.<span class="fn">clickNode</span>(<span class="kw">false</span>, <span class="kw">true</span>, <span class="kw">false</span>);
+            gameGUI.<span class="fn">settingScoreUI</span>(comboScore);
+        } <span class="kw">else if</span>(nearDistance &lt;= <span class="nu">1</span>){     <span class="cm">// Miss</span>
+            gameGUI.<span class="fn">clickNode</span>(<span class="kw">false</span>, <span class="kw">false</span>, <span class="kw">true</span>);
+            currentCombo = <span class="nu">0</span>;
+            <span class="fn">missDamge</span>();
+        }
+    }
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/gameGUI.js · clickNode (TWEEN.js 판정 UI 이펙트)</span>
+            <span class="lang">JavaScript</span>
+          </div>
+<pre class="code"><span class="fn">clickNode</span>(isPerfect, isCool, isMiss){
+    <span class="kw">this</span>.perfectUI.<span class="fn">hide</span>();
+    <span class="kw">this</span>.coolUI.<span class="fn">hide</span>();
+    <span class="kw">this</span>.missUI.<span class="fn">hide</span>();
+
+    <span class="kw">let</span> currentJudeUI = <span class="kw">null</span>;
+    <span class="kw">if</span>(isPerfect)   { <span class="kw">this</span>.perfectUI.<span class="fn">show</span>(); currentJudeUI = <span class="kw">this</span>.perfectUI; }
+    <span class="kw">else if</span>(isCool) { <span class="kw">this</span>.coolUI.<span class="fn">show</span>();    currentJudeUI = <span class="kw">this</span>.coolUI; }
+    <span class="kw">else if</span>(isMiss) { <span class="kw">this</span>.missUI.<span class="fn">show</span>();    currentJudeUI = <span class="kw">this</span>.missUI; }
+
+    <span class="cm">// 판정 UI 가 커지면서 등장하는 이펙트</span>
+    <span class="kw">const</span> start = { x: <span class="nu">20</span> };
+    <span class="kw">const</span> end = { x: <span class="nu">25</span> };
+
+    <span class="kw">new</span> <span class="ty">TWEEN</span>.<span class="ty">Tween</span>(start)
+        .<span class="fn">to</span>(end, <span class="nu">200</span>)
+        .<span class="fn">onUpdate</span>((obj) =&gt; { currentJudeUI.size.x.value = start.x; })
+        .<span class="fn">easing</span>(<span class="ty">TWEEN</span>.Easing.Quartic.InOut)
+        .<span class="fn">start</span>();
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHALLENGES — 실제 사례
+       ============================================================ -->
+  <section class="dark challenges reveal" id="challenges">
+    <div class="container">
+      <span class="section-eyebrow">// problem_solving</span>
+      <h2 class="section-title">Real problems, shipped solutions</h2>
+      <p class="section-sub">
+        1인 개발 과정에서 실제로 마주친 4가지 문제와 해결 과정.
+        리듬 게임의 본질인 "박자 정확도"와 "체감 응답성"을 어떻게 잡아냈는지.
+      </p>
+
+      <div class="chall-grid">
+        <div class="chall">
+          <div class="label">Beat Sync</div>
+          <div class="problem">컴퓨터 사양마다 노래 시작 타이밍이 달라 박자가 어긋남</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            게임 시작 시점이 아닌 <code>music.context.currentTime - music._startedAt</code>
+            을 기점으로 박자를 계산. 어떤 환경에서도 박자가 어긋나지 않도록 시계 기준을 음악에 고정.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Input Latency</div>
+          <div class="problem">매 입력마다 모든 노드를 검사하면 입력 응답이 일정하지 않음</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            노드에 고유 인덱스를 부여하고, 마지막으로 친 노드 기준
+            <code>±4</code> 만 순회. 검사 범위를 8개로 한정하여 입력 → 판정 지연을 일정하게 유지.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Visual Feedback</div>
+          <div class="problem">판정 UI를 그냥 띄우기만 하면 리듬 게임 특유의 쾌감이 부족</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            <code>TWEEN.Easing.Quartic.InOut</code> 으로 판정 UI가 커지며 등장하는 이펙트,
+            Miss 시 카메라 살짝 흔들림과 콤보 GUI 사라짐으로 다중 피드백을 겹쳤어요.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Failure UX</div>
+          <div class="problem">Miss 시 점수만 차감되면 실패의 무게감이 없음</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            점수 0점 + HP <code>-10</code> + 콤보 시각적 초기화 + 카메라 흔들림을 동시에.
+            한 번의 Miss에서 시각/청각/수치 피드백이 겹치며 다음 노드에 집중하게 만듭니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="foot-inner">
+      <p>© Melody Pang Pang · Redbrick · JavaScript · 2024 ~ 2026</p>
+      <div class="foot-links">
+        <a href="../index.html">← Portfolio</a>
+        <a href="https://redbrick.land/detail-play?pid=1ce4db26-b22d-42f9-bb63-072c23e7ab06" target="_blank" rel="noopener">▶ Play Now</a>
+        <a href="#features">게임 소개</a>
+        <a href="#technical">// technical</a>
+        <a href="#mine">// my work</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Code tabs
+    const tabs = document.querySelectorAll('.code-tab');
+    const panes = document.querySelectorAll('.code-pane');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const i = +t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', +x.dataset.tab === i));
+      panes.forEach((p, idx) => p.classList.toggle('active', idx === i));
+    }));
+  </script>
+</body>
+</html>

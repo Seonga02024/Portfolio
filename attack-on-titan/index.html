@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zepeto 진격의 거인 · Attack on Titan — Game Showcase &amp; Developer Portfolio</title>
+  <meta name="description" content="Naver Zepeto 메타버스 플랫폼 × 진격의 거인 콜라보 멀티 생존 게임. 누적 방문 2.1M, 인기 차트 10위권 1개월. 1차 클라이언트 50% → 2차 메인 80% 개발 포트폴리오." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Theme tokens — 두 톤 (warm 게임소개 / dark 기술소개)
+       Project accent: 진격의 거인 — 핏빛 크림슨 + 다크는 ember/amber + crimson
+       ============================================================ */
+    :root {
+      /* Warm tone — Game introduction (cream + blood-red) */
+      --w-bg: #f7eee0;
+      --w-bg-soft: #efe1c8;
+      --w-paper: #fdf6e9;
+      --w-ink: #1d1208;
+      --w-ink-soft: #4a342a;
+      --w-ink-muted: #8a7163;
+      --w-accent: #991b1b;
+      --w-accent-deep: #6b0f0f;
+      --w-gold: #b3781f;
+      --w-gold-soft: #e6b96a;
+      --w-shadow: 0 10px 32px rgba(60, 18, 10, 0.18);
+
+      /* Dark tone — Technical (navy + ember/amber + crimson) */
+      --d-bg-0: #07090f;
+      --d-bg-1: #10131f;
+      --d-bg-2: #181d2d;
+      --d-bg-3: #232a3f;
+      --d-line: #2c3450;
+      --d-text: #ecf1fb;
+      --d-text-dim: #9aa6bd;
+      --d-text-muted: #6b7894;
+      --d-accent: #f97316;       /* ember orange */
+      --d-accent-2: #ef4444;     /* crimson */
+      --d-accent-3: #fbbf24;     /* amber */
+      --d-green: #4ade80;
+      --d-amber: #fbbf24;
+      --d-crimson: #dc2626;
+      --d-code-bg: #0b0e18;
+      --d-code-border: #1f2840;
+      --d-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+    code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    section { padding: 100px 28px; position: relative; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ============================================================
+       WARM theme
+       ============================================================ */
+    .warm { background: var(--w-bg); color: var(--w-ink); }
+    .warm .section-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(153, 27, 27, 0.10);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .warm h2.section-title {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 0 0 16px;
+      color: var(--w-ink);
+    }
+    .warm .section-sub {
+      font-size: 18px; color: var(--w-ink-soft);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* ============================================================
+       DARK theme
+       ============================================================ */
+    .dark { background: var(--d-bg-0); color: var(--d-text); }
+    .dark .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 500;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .dark .section-eyebrow::before {
+      content: ""; width: 24px; height: 1px; background: var(--d-accent);
+    }
+    .dark h2.section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      margin: 0 0 16px;
+      color: var(--d-text);
+    }
+    .dark .section-sub {
+      font-size: 17px; color: var(--d-text-dim);
+      max-width: 720px;
+      margin: 0 0 60px;
+    }
+
+    /* Dark grid background */
+    .dark::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(249, 115, 22, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .dark .container { position: relative; z-index: 1; }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(247, 238, 224, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(153, 27, 27, 0.14);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 16px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--w-accent); text-decoration: none;
+    }
+    .brand .logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--w-accent), var(--w-accent-deep));
+      color: #fff7e8;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Gowun Batang", serif; font-weight: 700; font-size: 18px;
+      letter-spacing: -0.04em;
+    }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a {
+      color: var(--w-ink-soft); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--w-accent); }
+    .nav-links a.tech { color: var(--w-ink-muted); font-family: "JetBrains Mono", monospace; font-size: 13px; }
+    .nav-links a.back {
+      color: var(--w-accent);
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid rgba(153, 27, 27, 0.25);
+      border-radius: 999px;
+    }
+    .nav-links a.back:hover {
+      background: var(--w-accent); color: white; border-color: var(--w-accent);
+    }
+
+    /* ============================================================
+       HERO — warm
+       ============================================================ */
+    .hero {
+      padding: 90px 28px 90px;
+      background:
+        radial-gradient(ellipse at top left, rgba(179, 120, 31, 0.18), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(153, 27, 27, 0.14), transparent 60%),
+        var(--w-bg);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: rgba(153, 27, 27, 0.10);
+      color: var(--w-accent);
+      border-radius: 999px;
+      font-size: 13px; font-weight: 700;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+    .hero h1 {
+      font-family: "Gowun Batang", serif;
+      font-size: clamp(36px, 5.8vw, 64px);
+      line-height: 1.08;
+      margin: 0 0 22px;
+      color: var(--w-accent-deep);
+    }
+    .hero h1 .accent { color: var(--w-gold); }
+    .hero h1 .big {
+      display: inline-block;
+      font-size: 1.15em;
+      color: var(--w-accent);
+      text-shadow: 0 2px 0 rgba(107, 15, 15, 0.15);
+    }
+    .hero .lead {
+      font-size: 19px; color: var(--w-ink-soft);
+      max-width: 560px; margin: 0 0 30px;
+    }
+    .hero-metrics-inline {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 0 36px;
+    }
+    .h-metric {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(153, 27, 27, 0.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .h-metric .v {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px; font-weight: 700;
+      color: var(--w-accent);
+      line-height: 1;
+    }
+    .h-metric .l {
+      font-size: 11.5px;
+      color: var(--w-ink-muted);
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: transform .15s, box-shadow .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--w-accent); color: white;
+      box-shadow: 0 8px 20px rgba(153, 27, 27, 0.32);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(153, 27, 27, 0.42); }
+    .btn-ghost {
+      background: transparent; color: var(--w-accent);
+      border: 2px solid var(--w-accent);
+    }
+    .btn-ghost:hover { background: var(--w-accent); color: white; }
+
+    .hero-visual {
+      max-width: 480px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-key {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(60, 18, 10, 0.4);
+      border: 6px solid white;
+      transform: rotate(-1.5deg);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 200, 100, 0.4), transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(220, 38, 38, 0.5), transparent 50%),
+        linear-gradient(160deg, #2a0a0a, #5d0f0f 50%, #1a0606);
+      transition: transform .3s;
+      display: flex; align-items: flex-end;
+      padding: 28px;
+    }
+    .hero-key:hover { transform: rotate(0); }
+    .hero-key .key-overlay {
+      color: #fdf2c8;
+      font-family: "Gowun Batang", serif;
+    }
+    .hero-key .key-overlay .ko {
+      font-size: 30px; font-weight: 700;
+      letter-spacing: -0.04em;
+      margin: 0 0 6px;
+      color: #ffe9b8;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+    .hero-key .key-overlay .en {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      color: rgba(255, 233, 184, 0.78);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero-key .titan-silhouette {
+      position: absolute;
+      top: 14%; left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      aspect-ratio: 1;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255, 110, 50, 0.35), transparent 65%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.6) 30%, transparent 70%);
+      filter: blur(0.5px);
+    }
+    .hero-key .badge {
+      position: absolute; top: 18px; right: 18px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      padding: 8px 14px; border-radius: 999px;
+      display: flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 12px;
+      color: #ffe9b8;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(255, 233, 184, 0.2);
+    }
+    .hero-key .badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #ef4444;
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    }
+
+    /* ============================================================
+       FEATURES — warm
+       ============================================================ */
+    .features { background: linear-gradient(180deg, var(--w-bg), var(--w-paper)); }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: var(--w-shadow);
+      border-top: 4px solid var(--w-accent);
+      transition: transform .2s;
+    }
+    .feat-card:nth-child(2) { border-top-color: #5d0f0f; }
+    .feat-card:nth-child(3) { border-top-color: var(--w-gold); }
+    .feat-card:nth-child(4) { border-top-color: #3a5b3a; }
+    .feat-card:nth-child(5) { border-top-color: var(--w-accent); }
+    .feat-card:nth-child(6) { border-top-color: var(--w-gold); }
+    .feat-card:hover { transform: translateY(-4px); }
+    .feat-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(153, 27, 27, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+    .feat-card h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
+    .feat-card p { margin: 0; color: var(--w-ink-soft); font-size: 14.5px; }
+
+    /* ============================================================
+       GALLERY — warm
+       ============================================================ */
+    .gallery { background: var(--w-bg); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .shot {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--w-paper);
+      box-shadow: var(--w-shadow);
+      position: relative;
+      transition: transform .2s;
+      aspect-ratio: 16 / 9;
+    }
+    .shot:hover { transform: translateY(-4px); }
+    .placeholder {
+      width: 100%; height: 100%;
+      background:
+        repeating-linear-gradient(45deg, rgba(153, 27, 27, 0.06) 0 10px, transparent 10px 20px),
+        linear-gradient(135deg, #2a0a0a 0%, #5d0f0f 60%, #b3781f 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255, 233, 184, 0.55);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .shot:nth-child(2) .placeholder { background:
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0 10px, transparent 10px 20px),
+        linear-gradient(135deg, #5d0f0f 0%, #991b1b 50%, #b3781f 100%); }
+    .shot:nth-child(3) .placeholder { background:
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.08) 0 10px, transparent 10px 20px),
+        linear-gradient(160deg, #0a0606 0%, #2a0a0a 50%, #6b0f0f 100%); }
+    .shot:nth-child(4) .placeholder { background:
+        linear-gradient(135deg, #2a1a0a 0%, #5d2a0f 50%, #b3781f 100%); }
+    .shot:nth-child(5) .placeholder { background:
+        linear-gradient(160deg, #2a0a14 0%, #6b0f1f 40%, #ef4444 100%); }
+    .shot:nth-child(6) .placeholder { background:
+        radial-gradient(circle at 30% 30%, rgba(251, 191, 36, 0.4), transparent 50%),
+        linear-gradient(135deg, #0a0a14 0%, #2a1a40 70%, #5d0f0f 100%); }
+    .shot figcaption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), transparent);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       DIVIDER
+       ============================================================ */
+    .divider {
+      background: linear-gradient(180deg, var(--w-paper) 0%, var(--d-bg-0) 100%);
+      padding: 80px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .divider .badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 12px 24px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .divider .badge::before {
+      content: "▼"; color: var(--d-accent-2);
+    }
+    .divider h2 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      margin: 0 0 12px;
+      color: var(--d-text);
+    }
+    .divider h2 .gradient {
+      background: linear-gradient(135deg, var(--d-accent), var(--d-accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .divider p {
+      color: var(--d-text-dim);
+      font-size: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       METRICS — dark
+       ============================================================ */
+    .metrics-bar {
+      background: var(--d-bg-0);
+      padding: 60px 28px 30px;
+    }
+    .hero-metrics {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .metric {
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+    .metric .val {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px; font-weight: 700;
+      color: var(--d-accent);
+      line-height: 1;
+    }
+    .metric.hero-val .val { color: var(--d-accent-2); font-size: 28px; }
+    .metric .label {
+      font-size: 11px;
+      color: var(--d-text-muted);
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       STACK — dark
+       ============================================================ */
+    .stack { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .stack-badge {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 18px;
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 12px;
+      transition: border-color .15s, transform .15s;
+    }
+    .stack-badge:hover { border-color: var(--d-accent); transform: translateY(-2px); }
+    .stack-badge .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--d-bg-3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700; color: var(--d-accent);
+      font-size: 13px;
+    }
+    .stack-badge .name { font-weight: 600; font-size: 14px; color: var(--d-text); }
+    .stack-badge .role { font-size: 11px; color: var(--d-text-muted); margin-top: 2px; }
+
+    /* ============================================================
+       ARCHITECTURE / MY_WORK — dark (mine-style cards)
+       ============================================================ */
+    .arch { background: var(--d-bg-0); }
+    .mine-banner {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15));
+      border: 1px solid var(--d-accent);
+      border-radius: 999px;
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .mine-banner::before { content: "★"; color: var(--d-accent-2); }
+    .mine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .mine-card {
+      background:
+        linear-gradient(135deg, rgba(249, 115, 22, 0.05), rgba(239, 68, 68, 0.04)),
+        var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .mine-card:hover { transform: translateY(-6px); border-color: var(--d-accent); }
+    .mine-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .mine-card .area-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--d-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .mine-card h3 { margin: 0 0 14px; font-size: 21px; color: var(--d-text); }
+    .mine-card .desc { margin: 0 0 18px; color: var(--d-text-dim); font-size: 14.5px; }
+    .mine-card ul { list-style: none; padding: 0; margin: 0; }
+    .mine-card ul li {
+      padding: 6px 0;
+      color: var(--d-text-dim);
+      font-size: 13.5px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .mine-card ul li::before {
+      content: "▸";
+      color: var(--d-accent-2);
+      flex-shrink: 0; margin-top: 2px;
+      font-size: 11px;
+    }
+    .mine-card ul li code {
+      color: var(--d-accent);
+      background: rgba(249, 115, 22, 0.10);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* ============================================================
+       CODE SHOWCASE — dark
+       ============================================================ */
+    .codeshow { background: var(--d-bg-0); }
+    .code-disclaimer {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px dashed rgba(251, 191, 36, 0.35);
+      border-radius: 8px;
+      color: var(--d-amber);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+    .code-tabs {
+      display: flex; gap: 4px;
+      margin-bottom: -1px;
+      flex-wrap: wrap;
+    }
+    .code-tab {
+      padding: 10px 18px;
+      background: var(--d-bg-1);
+      border: 1px solid var(--d-line);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--d-text-muted);
+      cursor: pointer;
+    }
+    .code-tab.active {
+      background: var(--d-code-bg);
+      color: var(--d-accent);
+      border-color: var(--d-code-border);
+    }
+    .code-block {
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 0 14px 14px 14px;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--d-code-border);
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .code-header .file { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-text-muted); }
+    .code-header .lang {
+      font-family: "JetBrains Mono", monospace; font-size: 11px;
+      color: var(--d-accent); padding: 2px 8px;
+      background: rgba(249, 115, 22, 0.10); border-radius: 4px;
+    }
+    pre.code {
+      margin: 0; padding: 22px 24px;
+      font-size: 13px; line-height: 1.75;
+      overflow-x: auto;
+      color: var(--d-text);
+    }
+    pre.code .kw { color: #c084fc; }
+    pre.code .ty { color: #6ee7ff; }
+    pre.code .st { color: #fbbf24; }
+    pre.code .cm { color: #64748b; font-style: italic; }
+    pre.code .fn { color: #a5f3fc; }
+    pre.code .nu { color: #fb923c; }
+    .code-pane { display: none; }
+    .code-pane.active { display: block; }
+
+    /* ============================================================
+       CHALLENGES — dark
+       ============================================================ */
+    .challenges { background: linear-gradient(180deg, var(--d-bg-0), var(--d-bg-1)); }
+    .chall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .chall {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 26px;
+      position: relative;
+    }
+    .chall::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--d-accent), var(--d-accent-2));
+    }
+    .chall .label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .chall .problem { font-weight: 700; font-size: 16px; margin: 8px 0 16px; color: var(--d-text); }
+    .chall .solution { font-size: 13.5px; color: var(--d-text-dim); padding-top: 16px; border-top: 1px dashed var(--d-line); }
+    .chall .solution-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--d-green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+
+    /* ============================================================
+       V2 UPDATE SECTION — dark
+       ============================================================ */
+    .v2 {
+      background: linear-gradient(180deg, var(--d-bg-1), var(--d-bg-0));
+      position: relative;
+    }
+    .v2-banner {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(239, 68, 68, 0.15));
+      border: 1px solid var(--d-accent-3);
+      border-radius: 999px;
+      color: var(--d-accent-3);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .v2-banner::before { content: "v2 ·"; color: var(--d-accent-2); }
+    .v2-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .v2-card {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 14px;
+      padding: 24px 26px;
+      transition: transform .2s, border-color .2s;
+    }
+    .v2-card:hover { transform: translateY(-4px); border-color: var(--d-accent-3); }
+    .v2-card .v2-tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--d-accent-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .v2-card h3 { margin: 0 0 10px; font-size: 18px; color: var(--d-text); }
+    .v2-card p { margin: 0; font-size: 13.5px; color: var(--d-text-dim); }
+
+    .ga-block {
+      margin-top: 40px;
+      background: var(--d-code-bg);
+      border: 1px solid var(--d-code-border);
+      border-radius: 16px;
+      padding: 30px 32px;
+    }
+    .ga-block h3 {
+      margin: 0 0 6px;
+      font-size: 19px;
+      color: var(--d-text);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ga-block h3::before {
+      content: "GA"; font-family: "JetBrains Mono", monospace;
+      font-size: 12px; padding: 3px 10px;
+      background: rgba(249, 115, 22, 0.15);
+      color: var(--d-accent);
+      border-radius: 6px;
+    }
+    .ga-block .ga-sub {
+      color: var(--d-text-dim); font-size: 14px;
+      margin: 0 0 22px;
+    }
+    .ga-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      list-style: none; padding: 0; margin: 0;
+    }
+    .ga-list li {
+      background: var(--d-bg-2);
+      border: 1px solid var(--d-line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: var(--d-text-dim);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .ga-list li .num {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--d-accent);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      background: var(--d-bg-0);
+      border-top: 1px solid var(--d-line);
+      padding: 50px 28px 40px;
+    }
+    .foot-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .foot-inner p { margin: 0; font-size: 13px; color: var(--d-text-muted); }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links a { color: var(--d-text-dim); text-decoration: none; font-size: 13px; }
+    .foot-links a:hover { color: var(--d-accent); }
+
+    /* ============================================================
+       Reveal
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 1000px) {
+      .hero-metrics { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.back) { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 360px; }
+      .hero-metrics-inline { grid-template-columns: 1fr 1fr; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 70px 22px; }
+    }
+    @media (max-width: 560px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <span class="logo-mark">巨</span>
+        진격의 거인 · Attack on Titan
+      </a>
+      <nav class="nav-links">
+        <a href="#features">게임 소개</a>
+        <a href="#gallery">화면</a>
+        <a href="#technical" class="tech">// technical</a>
+        <a href="#mine" class="tech">// my work</a>
+        <a href="#v2" class="tech">// v2</a>
+        <a href="../index.html" class="back">← Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 1 — GAME INTRODUCTION (warm theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="warm hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">Zepeto 메타버스 · 글로벌 콜라보</span>
+        <h1>재난 필드 위에서,<br /><span class="big">2.1 million</span><br />명이 살아남았다.</h1>
+        <p class="lead">
+          Naver Zepeto × 일본 만화 <strong>진격의 거인</strong> 제작사 콜라보로 출시한
+          멀티플레이 생존 게임. 다수의 플레이어가 모여 재난 필드에서 일정 시간 거인의
+          공격으로부터 살아남아 포인트를 누적합니다. <strong>1차 클라이언트 50%</strong>로 시작해
+          <strong>2차 메인 개발 80%</strong>까지 역할을 확장하며 콘텐츠를 키웠습니다.
+        </p>
+
+        <div class="hero-metrics-inline">
+          <div class="h-metric"><div class="v">2.1 M+</div><div class="l">누적 방문 (2024.5)</div></div>
+          <div class="h-metric"><div class="v">10위권</div><div class="l">Zepeto 인기차트 · 1개월</div></div>
+          <div class="h-metric"><div class="v">50% → 80%</div><div class="l">1차 / 2차 역할 비중</div></div>
+          <div class="h-metric"><div class="v">v2 · 완료</div><div class="l">2차 콘텐츠 업데이트</div></div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://tv.kakao.com/v/443091340" target="_blank" rel="noopener">▶ WATCH AD</a>
+          <a class="btn btn-ghost" href="https://tv.kakao.com/v/446597577" target="_blank" rel="noopener">WATCH GAMEPLAY</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-key">
+          <div class="titan-silhouette"></div>
+          <div class="badge"><span class="dot"></span> LIVE · ZEPETO</div>
+          <div class="key-overlay">
+            <p class="ko">진격의 거인</p>
+            <p class="en">Attack on Titan · Zepeto World</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — 1차 콘텐츠 중심
+       ============================================================ -->
+  <section class="warm features reveal" id="features">
+    <div class="container">
+      <span class="section-eyebrow">FEATURES · 게임에 담은 것</span>
+      <h2 class="section-title">살아남기 위해 필요한 모든 것</h2>
+      <p class="section-sub">
+        원작 만화의 긴장감을 메타버스에 옮기는 것이 목표였습니다.
+        무작위 재난, 거인의 패턴, 그리고 그 안에서 생존을 도와주는 시스템들을 직접 기획·구현했습니다.
+      </p>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🌪️</div>
+          <h3>무작위 재난 시스템</h3>
+          <p>매 라운드 다른 패턴으로 다수의 재난이 동시 발생. 시간 기반 매니저가 등장 타이밍을 제어해 매번 다른 경험을 만듭니다.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">👹</div>
+          <h3>거인 시스템</h3>
+          <p>진격의 거인 IP 의 시그니처를 살린 거인 등장 패턴 · 어그로 동작 · 공격 범위. 원작 팬들이 즉시 알아챌 수 있는 디테일.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🛡️</div>
+          <h3>회피 · HP 아이템</h3>
+          <p>기획자와 협업해 <strong>직접 제안 · 구현</strong>한 생존 직결 아이템. HP / 이속 / 회피 — "오래 살아남고 싶다"는 동기를 자극합니다.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🌐</div>
+          <h3>멀티플레이 동기화</h3>
+          <p>Photon 기반 Host + Client 구조. 끊김 없는 반복 흐름과 <strong>호스트 이탈 예외 처리</strong>까지 — 글로벌 동시 접속에 대비.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🏆</div>
+          <h3>랭킹 시스템</h3>
+          <p>살아남은 시간과 누적 랭크가 곧 실력. 상위권 도달은 다음 라운드 진입 동기로 이어집니다.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">💰</div>
+          <h3>스킨 · 아이템 수익</h3>
+          <p>콘텐츠 내 게임 아이템과 거인 모델링 활용 스킨 판매로 매출 창출. 기존 에셋을 재활용해 효율적으로 추가.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY — 게임 화면
+       ============================================================ -->
+  <section class="warm gallery reveal" id="gallery">
+    <div class="container">
+      <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
+      <h2 class="section-title">이런 흐름으로 진행됩니다</h2>
+      <p class="section-sub">
+        월드 입장부터 거인 등장, 멀티플레이 생존, 그리고 2차 업데이트의 하드 모드와 랭커 특수 스킬까지.
+      </p>
+
+      <div class="gallery-grid">
+        <figure class="shot">
+          <img src="assets/proj-attack-on-titan-1.png" alt="Attack on Titan world" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>월드 입장 화면</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/proj-attack-on-titan-2.png" alt="Attack on Titan gameplay" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <figcaption>재난 + 거인 등장</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">SHOT · 03</div>
+          <figcaption>거인 등장 컷</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">SHOT · 04</div>
+          <figcaption>여러 플레이어 동시 생존</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">SHOT · 05</div>
+          <figcaption>2차 업데이트 — 노을 (하드 모드)</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="placeholder">SHOT · 06</div>
+          <figcaption>랭커 특수 스킬 발동 컷</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       DIVIDER — perspective shift
+       ════════════════════════════════════════════════════════════ -->
+  <section class="divider reveal" id="technical">
+    <div class="badge">PERSPECTIVE · TECHNICAL DEEP-DIVE</div>
+    <h2>이제 <span class="gradient">기술 관점</span>에서 살펴봅니다</h2>
+    <p>여기서부터는 개발자 관점의 기술 스택, 직접 구현한 영역, 그리고 멀티플레이 환경에서 마주친 문제와 해결 과정을 소개합니다.</p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PART 2 — TECHNICAL (dark theme)
+       ════════════════════════════════════════════════════════════ -->
+
+  <!-- ============================================================
+       METRICS BAR
+       ============================================================ -->
+  <section class="dark metrics-bar reveal">
+    <div class="hero-metrics">
+      <div class="metric hero-val"><div class="val">2.1 M+</div><div class="label">누적 방문 (2024.5)</div></div>
+      <div class="metric hero-val"><div class="val">10위권</div><div class="label">Zepeto 차트 · 1개월</div></div>
+      <div class="metric"><div class="val">Unity · TS</div><div class="label">엔진 + 언어</div></div>
+      <div class="metric"><div class="val">Zepeto SDK</div><div class="label">메타버스 플랫폼</div></div>
+      <div class="metric"><div class="val">50% / 80%</div><div class="label">1차 클라이언트 / 2차 메인</div></div>
+      <div class="metric"><div class="val">GA · v2</div><div class="label">Analytics 통합</div></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STACK
+       ============================================================ -->
+  <section class="dark stack reveal">
+    <div class="container">
+      <span class="section-eyebrow">// tech_stack</span>
+      <h2 class="section-title">Built on Zepeto + Unity + TypeScript</h2>
+      <p class="section-sub">
+        Zepeto SDK 위에 Unity 와 TypeScript 로 게임 로직을 작성. Photon 기반 멀티플레이로
+        Host-Client 구조를 구성하고, 2차 업데이트부터는 Google Analytics 로 의사결정 데이터를 수집했습니다.
+      </p>
+
+      <div class="stack-grid">
+        <div class="stack-badge"><div class="icon">UN</div><div><div class="name">Unity</div><div class="role">Game Engine</div></div></div>
+        <div class="stack-badge"><div class="icon">TS</div><div><div class="name">TypeScript</div><div class="role">Zepeto Script</div></div></div>
+        <div class="stack-badge"><div class="icon">ZP</div><div><div class="name">Zepeto SDK</div><div class="role">Metaverse Platform</div></div></div>
+        <div class="stack-badge"><div class="icon">PH</div><div><div class="name">Photon Multiplay</div><div class="role">Host + Client</div></div></div>
+        <div class="stack-badge"><div class="icon">GA</div><div><div class="name">Google Analytics</div><div class="role">v2 Data Pipeline</div></div></div>
+        <div class="stack-badge"><div class="icon">OP</div><div><div class="name">Object Pooling</div><div class="role">Memory Opt</div></div></div>
+        <div class="stack-badge"><div class="icon">SO</div><div><div class="name">SOLID</div><div class="role">Architecture</div></div></div>
+        <div class="stack-badge"><div class="icon">EN</div><div><div class="name">Enum + Interface</div><div class="role">Readability</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHITECTURE / MY_WORK
+       ============================================================ -->
+  <section class="dark arch reveal" id="mine">
+    <div class="container">
+      <div class="mine-banner">MY CONTRIBUTIONS · 내가 작업한 영역</div>
+      <h2 class="section-title">직접 설계 · 구현한 5가지 핵심 영역</h2>
+      <p class="section-sub">
+        1차는 거인 / 재난 / 건물 / HP 시스템 등 게임 핵심 로직을 클라이언트 50%로 담당.
+        2차에서는 메인 개발자 80%로 콘텐츠 확장 · 멀티 안정화 · Analytics 까지 책임 범위를 확장했습니다.
+      </p>
+
+      <div class="mine-grid">
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 01 · DISASTER SYSTEM</div>
+          <h3>재난 시스템</h3>
+          <p class="desc">
+            매 라운드 다른 패턴으로 다수의 재난이 동시 발생하도록, 시간 기반 매니저가 등장 타이밍과 종류를 제어.
+          </p>
+          <ul>
+            <li>무작위 재난 스폰 — <code>DisasterManager</code> 시간축 + 가중치 기반</li>
+            <li>동시 발생 처리, 라운드별 패턴 차별화</li>
+            <li>2차 업데이트에서 짐승 거인 / 여성형 거인 재난 추가 — 기존 로직 재사용</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 02 · TITAN AI &amp; ITEMS</div>
+          <h3>거인 AI + HP · 이속 · 회피 아이템</h3>
+          <p class="desc">
+            거인 등장 / 어그로 / 공격 패턴 + 플레이어 생존 직결 아이템 (직접 기획 + 구현).
+          </p>
+          <ul>
+            <li>거인 패턴 — IP 시그니처를 살린 등장 + 어그로 로직</li>
+            <li>HP / 이속 / 회피 아이템 — 기획자와 협업해 직접 제안</li>
+            <li>"오래 살아남고 싶다"는 동기 = 수익 구조의 시작점</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 03 · MULTIPLAYER</div>
+          <h3>Host-Client 동기화 + Host 이탈 예외 처리</h3>
+          <p class="desc">
+            가장 큰 학습 포인트. Photon 기반 환경에서 끊기지 않는 반복 흐름 보장과 호스트 마이그레이션 패턴을 다듬었습니다.
+          </p>
+          <ul>
+            <li>Host → Client 브로드캐스트 / Client → Host 입력 송신 패턴</li>
+            <li><code>Host 가 중간에 나가는 예외 상황</code>에도 게임이 멈추지 않도록 권한 인수</li>
+            <li>서버에서의 데이터 처리 + 서버-클라이언트 간 데이터 처리 방식 학습</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 04 · OPTIMIZATION (4종)</div>
+          <h3>최적화 4종 — Production-grade</h3>
+          <p class="desc">
+            거인 / 이펙트 등 대량 인스턴스가 있는 환경에서 메모리 · 함수 호출 · 가독성 · 책임 분리를 동시에 잡았습니다.
+          </p>
+          <ul>
+            <li><code>SOLID</code> + 상속 · 오버라이딩 · 인터페이스로 중복 코드 제거</li>
+            <li><code>enum</code> 으로 코드 가독성 향상 (다른 개발자 협업 대비)</li>
+            <li><code>Object Pool</code> — 거인 · 이펙트 등 대량 인스턴스 재사용</li>
+            <li>시스템 비용이 큰 특정 함수 호출 최소화 (Update 외부화)</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 05 · ANALYTICS (v2)</div>
+          <h3>Google Analytics 데이터 파이프라인</h3>
+          <p class="desc">
+            "다음 업데이트에 무엇을 추가할지" 결정하기 위해 2차에서 데이터 기반 의사결정 파이프라인을 구축.
+          </p>
+          <ul>
+            <li>이지/하드 모드 선택 수 · 각 재난별 생존자 수</li>
+            <li>전멸 시 걸리는 시간 · 살아남는 랭크 범위</li>
+            <li>평균 재난 플레이 수 → 추후 밸런스 패치 데이터로 활용</li>
+            <li>릴리즈 직후 → 라이브 데이터로 다음 의사결정의 비용을 낮춤</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CODE DEEP DIVE
+       ============================================================ -->
+  <section class="dark codeshow reveal" id="code">
+    <div class="container">
+      <span class="section-eyebrow">// code_deep_dive</span>
+      <h2 class="section-title">핵심 패턴 — 개념 스케치</h2>
+      <p class="section-sub">
+        DisasterManager · Object Pool · Host Failover 세 가지 패턴의 핵심 아이디어를 TypeScript 로 정리한 개념 코드입니다.
+      </p>
+      <div class="code-disclaimer">// Conceptual sketch — production code is proprietary</div>
+
+      <div class="code-tabs">
+        <div class="code-tab active" data-tab="0">DisasterManager.ts</div>
+        <div class="code-tab" data-tab="1">ObjectPool.ts</div>
+        <div class="code-tab" data-tab="2">HostFailover.ts</div>
+      </div>
+
+      <div class="code-pane active">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/disaster/DisasterManager.ts · conceptual</span>
+            <span class="lang">TypeScript</span>
+          </div>
+<pre class="code"><span class="cm">// 시간 기반 무작위 재난 스폰 매니저 — 라운드별 다른 패턴</span>
+<span class="kw">enum</span> <span class="ty">DisasterType</span> {
+    <span class="fn">NORMAL_TITAN</span>     = <span class="nu">0</span>,
+    <span class="fn">BEAST_TITAN_THROW</span> = <span class="nu">1</span>,   <span class="cm">// v2 · 짐승 거인 투석</span>
+    <span class="fn">FEMALE_TITAN_HIT</span>  = <span class="nu">2</span>,   <span class="cm">// v2 · 여성형 거인 공격</span>
+    <span class="fn">DEBRIS_FALL</span>       = <span class="nu">3</span>,
+}
+
+<span class="kw">interface</span> <span class="ty">IDisaster</span> {
+    <span class="fn">spawn</span>(position: <span class="ty">Vector3</span>): <span class="kw">void</span>;
+    <span class="fn">tick</span>(deltaTime: <span class="kw">number</span>): <span class="kw">void</span>;
+    <span class="fn">despawn</span>(): <span class="kw">void</span>;
+}
+
+<span class="kw">export class</span> <span class="ty">DisasterManager</span> {
+    <span class="kw">private</span> elapsed: <span class="kw">number</span> = <span class="nu">0</span>;
+    <span class="kw">private</span> active: <span class="ty">IDisaster</span>[] = [];
+    <span class="kw">private</span> schedule: <span class="ty">DisasterEvent</span>[];   <span class="cm">// 가중치 + 시간 슬롯 테이블</span>
+
+    <span class="cm">// 매 프레임 호출은 비용이 크므로, 외부에서 1초 주기 tick 만 사용</span>
+    <span class="kw">public</span> <span class="fn">onSecondTick</span>(dt: <span class="kw">number</span>): <span class="kw">void</span> {
+        <span class="kw">this</span>.elapsed += dt;
+
+        <span class="kw">for</span> (<span class="kw">const</span> ev <span class="kw">of</span> <span class="kw">this</span>.schedule) {
+            <span class="kw">if</span> (!ev.fired &amp;&amp; <span class="kw">this</span>.elapsed &gt;= ev.atSeconds) {
+                <span class="kw">this</span>.<span class="fn">fire</span>(ev.type, ev.count);
+                ev.fired = <span class="kw">true</span>;
+            }
+        }
+    }
+
+    <span class="kw">private</span> <span class="fn">fire</span>(type: <span class="ty">DisasterType</span>, count: <span class="kw">number</span>): <span class="kw">void</span> {
+        <span class="kw">for</span> (<span class="kw">let</span> i = <span class="nu">0</span>; i &lt; count; i++) {
+            <span class="cm">// Pool 에서 재사용 — 직접 new 하지 않는다</span>
+            <span class="kw">const</span> d = <span class="ty">DisasterPool</span>.<span class="fn">acquire</span>(type);
+            d.<span class="fn">spawn</span>(<span class="kw">this</span>.<span class="fn">randomFieldPoint</span>());
+            <span class="kw">this</span>.active.<span class="fn">push</span>(d);
+        }
+    }
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/pool/ObjectPool.ts · conceptual</span>
+            <span class="lang">TypeScript</span>
+          </div>
+<pre class="code"><span class="cm">// 거인 / 이펙트 등 대량 인스턴스 — Pool 로 메모리 폭증 방지</span>
+<span class="kw">export class</span> <span class="ty">ObjectPool</span>&lt;<span class="ty">T</span> <span class="kw">extends</span> <span class="ty">IPoolable</span>&gt; {
+
+    <span class="kw">private</span> available: <span class="ty">T</span>[] = [];
+    <span class="kw">private</span> inUse: <span class="ty">Set</span>&lt;<span class="ty">T</span>&gt; = <span class="kw">new</span> <span class="ty">Set</span>();
+
+    <span class="kw">constructor</span>(
+        <span class="kw">private</span> factory: () =&gt; <span class="ty">T</span>,
+        <span class="kw">private</span> initial: <span class="kw">number</span> = <span class="nu">16</span>
+    ) {
+        <span class="kw">for</span> (<span class="kw">let</span> i = <span class="nu">0</span>; i &lt; initial; i++) {
+            <span class="kw">this</span>.available.<span class="fn">push</span>(factory());
+        }
+    }
+
+    <span class="kw">public</span> <span class="fn">acquire</span>(): <span class="ty">T</span> {
+        <span class="kw">const</span> obj = <span class="kw">this</span>.available.<span class="fn">pop</span>() ?? <span class="kw">this</span>.factory();
+        obj.<span class="fn">onAcquire</span>();          <span class="cm">// 상태 초기화 — Awake 가 아니라 reuse</span>
+        <span class="kw">this</span>.inUse.<span class="fn">add</span>(obj);
+        <span class="kw">return</span> obj;
+    }
+
+    <span class="kw">public</span> <span class="fn">release</span>(obj: <span class="ty">T</span>): <span class="kw">void</span> {
+        <span class="kw">if</span> (!<span class="kw">this</span>.inUse.<span class="fn">has</span>(obj)) <span class="kw">return</span>;   <span class="cm">// 중복 release 차단</span>
+        obj.<span class="fn">onRelease</span>();          <span class="cm">// 비활성화 — Destroy 가 아니라 disable</span>
+        <span class="kw">this</span>.inUse.<span class="fn">delete</span>(obj);
+        <span class="kw">this</span>.available.<span class="fn">push</span>(obj);
+    }
+
+    <span class="cm">// 라운드 종료 시 일괄 회수 — 거인 / 이펙트 / 투사체 모두 한 번에</span>
+    <span class="kw">public</span> <span class="fn">releaseAll</span>(): <span class="kw">void</span> {
+        <span class="kw">this</span>.inUse.<span class="fn">forEach</span>(obj =&gt; <span class="kw">this</span>.<span class="fn">release</span>(obj));
+    }
+}</pre>
+        </div>
+      </div>
+
+      <div class="code-pane">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="file">src/multiplay/HostFailover.ts · conceptual</span>
+            <span class="lang">TypeScript</span>
+          </div>
+<pre class="code"><span class="cm">// Host 가 중간에 이탈하면 다른 client 가 권한을 인수해 게임을 이어간다</span>
+<span class="kw">enum</span> <span class="ty">PeerRole</span> { <span class="fn">HOST</span> = <span class="nu">0</span>, <span class="fn">CLIENT</span> = <span class="nu">1</span> }
+
+<span class="kw">export class</span> <span class="ty">HostFailover</span> {
+
+    <span class="kw">private</span> role: <span class="ty">PeerRole</span> = <span class="ty">PeerRole</span>.CLIENT;
+    <span class="kw">private</span> peers: <span class="ty">Map</span>&lt;<span class="kw">string</span>, <span class="ty">PeerInfo</span>&gt; = <span class="kw">new</span> <span class="ty">Map</span>();
+    <span class="kw">private</span> lastHeartbeat: <span class="kw">number</span> = <span class="ty">Date</span>.<span class="fn">now</span>();
+
+    <span class="kw">public</span> <span class="fn">onHeartbeat</span>(peerId: <span class="kw">string</span>, ts: <span class="kw">number</span>): <span class="kw">void</span> {
+        <span class="kw">const</span> p = <span class="kw">this</span>.peers.<span class="fn">get</span>(peerId);
+        <span class="kw">if</span> (p) p.lastSeen = ts;
+        <span class="kw">if</span> (peerId === <span class="kw">this</span>.<span class="fn">getHostId</span>()) <span class="kw">this</span>.lastHeartbeat = ts;
+    }
+
+    <span class="cm">// Host 가 N 초 동안 응답 없으면 이탈로 간주, 차순위 client 가 인수</span>
+    <span class="kw">public</span> <span class="fn">tick</span>(): <span class="kw">void</span> {
+        <span class="kw">const</span> now = <span class="ty">Date</span>.<span class="fn">now</span>();
+        <span class="kw">if</span> (now - <span class="kw">this</span>.lastHeartbeat &gt; <span class="nu">5000</span>) {
+            <span class="kw">this</span>.<span class="fn">electNewHost</span>();
+        }
+    }
+
+    <span class="kw">private</span> <span class="fn">electNewHost</span>(): <span class="kw">void</span> {
+        <span class="cm">// peer.id 사전순 최소 = 차순위 host — 모든 client 가 같은 결과 도출</span>
+        <span class="kw">const</span> sorted = [...<span class="kw">this</span>.peers.<span class="fn">keys</span>()].<span class="fn">sort</span>();
+        <span class="kw">const</span> next = sorted[<span class="nu">0</span>];
+
+        <span class="kw">if</span> (next === <span class="kw">this</span>.<span class="fn">myId</span>()) {
+            <span class="kw">this</span>.role = <span class="ty">PeerRole</span>.HOST;
+            <span class="ty">GameState</span>.<span class="fn">resumeAsHost</span>();   <span class="cm">// 라운드 상태 복원 후 진행</span>
+        } <span class="kw">else</span> {
+            <span class="ty">RPC</span>.<span class="fn">listenTo</span>(next);              <span class="cm">// client 는 새 host 구독</span>
+        }
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHALLENGES
+       ============================================================ -->
+  <section class="dark challenges reveal" id="challenges">
+    <div class="container">
+      <span class="section-eyebrow">// problem_solving</span>
+      <h2 class="section-title">Real problems, shipped solutions</h2>
+      <p class="section-sub">
+        프로덕션 환경에서 실제로 마주친 5가지 문제와 해결 과정. 출시 이후 라이브 이슈 대응을 포함합니다.
+      </p>
+
+      <div class="chall-grid">
+        <div class="chall">
+          <div class="label">Host Failover</div>
+          <div class="problem">Host 가 중간에 나가면 전체 라운드가 중단되어 모든 client 가 튕김</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            Host 이탈 감지 (heart-beat timeout) → 차순위 client 가 결정적 순서로 권한 인수. Client 측에서는 새 host 로의 RPC fallback 을 자동 처리하도록 설계.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Memory Spike</div>
+          <div class="problem">매 라운드 거인 / 이펙트 인스턴스를 새로 생성하니 메모리 폭증 + GC stall</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            거인 · 이펙트 · 투사체에 <code>Object Pool</code> 도입. 인스턴스를 재사용하고 라운드 종료 시 일괄 회수. <code>acquire / release</code> 사이클로 메모리 안정화.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Exploit Reported</div>
+          <div class="problem">사용자가 앱을 백그라운드로 깔면 데미지 무효 — 끝까지 살아남는 버그 악용 신고</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            <code>무적존 패치</code> + Heart-beat 통신으로 백그라운드 상태 감지. 보안적 사고 — 문제 가능성을 미리 판단·대처할 수 있는 역량으로 정착.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Team Collaboration</div>
+          <div class="problem">다른 개발자가 코드를 읽기 어려워 협업 비용이 점점 커짐</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            <code>enum</code> 으로 의미 있는 식별자 부여 + SOLID · 상속 · 인터페이스로 책임 분리. 다음 업데이트의 비용을 미리 낮추는 의식적 설계로 전환.
+          </div>
+        </div>
+
+        <div class="chall">
+          <div class="label">Data-Driven v2</div>
+          <div class="problem">2차 업데이트에 무엇을 추가해야 할지 판단할 데이터가 없음</div>
+          <div class="solution">
+            <div class="solution-label">solution</div>
+            <code>Google Analytics</code> 연결 — 이지/하드 선택률, 평균 생존 시간, 재난별 생존 수, 전멸 시간 등 6개 지표 수집. 다음 밸런스 패치를 데이터 기반으로 결정.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       V2 UPDATE — 2차 콘텐츠 (메인 80%)
+       ============================================================ -->
+  <section class="dark v2 reveal" id="v2">
+    <div class="container">
+      <div class="v2-banner">CONTENT UPDATE · 메인 개발 80%</div>
+      <h2 class="section-title">2차 콘텐츠 업데이트 — 메인 개발자로의 확장</h2>
+      <p class="section-sub">
+        2024.03 ~ 04 — 1차에서 50% 였던 역할 비중을 80% 까지 확장. 하드 모드 / 추가 재난 / 랭커 스킬 / 다국어 UI /
+        스킨 판매 / 부스터 이펙트 / Analytics 까지 폭넓은 콘텐츠를 메인으로 책임지고 출시했습니다.
+      </p>
+
+      <div class="v2-grid">
+        <div class="v2-card">
+          <div class="v2-tag">// hard_mode</div>
+          <h3>하드 모드 — 코어 유저용</h3>
+          <p>난이도별 데미지 / 데미지 범위 / 사용자 HP 차별화. <strong>아침 (Easy)</strong> · <strong>노을 (Hard)</strong> 환경 변경으로 분위기까지 차별화.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// new_disasters</div>
+          <h3>추가 재난</h3>
+          <p>짐승 거인 <strong>투석</strong>, 여성형 거인 <strong>공격</strong>. 기존 재난 로직을 재사용해 빠르게 추가 구현 — 가독성 분할이 비용을 낮춰준 사례.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// ranker_skills</div>
+          <h3>랭커 특수 스킬 4종</h3>
+          <p>상위 랭커 도달 동기 부여. 범위 내 플레이어 <strong>힐</strong> / <strong>방어력 상승</strong> / 범위 내 거인 <strong>어그로</strong> / <strong>아이템 무료 사용</strong>.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// notice_ui</div>
+          <h3>다국어 업데이트 공지 UI</h3>
+          <p>가독성·직관성·사용성 고려. <strong>사용 국가에 따른 언어 자동 변환</strong> — 글로벌 사용자에게 동일한 정보 전달.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// monetization</div>
+          <h3>스킨 판매 — 모델링 재활용</h3>
+          <p>거인 모델링 데이터를 활용한 스킨 판매. 추가 모델링 비용 없이 매출 증대 — 기존 에셋의 가치를 다시 한 번 끌어올린 사례.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// field_items</div>
+          <h3>필드 아이템 추가</h3>
+          <p>필드 곳곳에 생존성 향상 아이템 배치 — 단순 반복에서 탐색 동기를 추가하는 효과.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// booster_fx</div>
+          <h3>부스터 이펙트 — 계급별 차별화</h3>
+          <p>계급에 따라 날아다닐 때의 부스터 이펙트가 다름. 도달 의욕 → 플레이 시간 증가 → 매출 증가의 선순환.</p>
+        </div>
+        <div class="v2-card">
+          <div class="v2-tag">// analytics</div>
+          <h3>Google Analytics 통합</h3>
+          <p>데이터 기반 의사결정 파이프라인. 다음 밸런스 패치의 근거를 라이브 데이터에서 직접 가져옵니다.</p>
+        </div>
+      </div>
+
+      <div class="ga-block">
+        <h3>v2 Analytics — 6 metrics 수집</h3>
+        <p class="ga-sub">의사결정의 비용을 낮추기 위해 다음 6개의 지표를 라이브에서 직접 수집합니다.</p>
+        <ul class="ga-list">
+          <li><span class="num">01</span>이지 / 하드 모드 선택 수</li>
+          <li><span class="num">02</span>각 재난별 살아남는 수</li>
+          <li><span class="num">03</span>전멸 시 걸리는 시간</li>
+          <li><span class="num">04</span>살아남는 랭크에 따른 범위</li>
+          <li><span class="num">05</span>평균 재난 플레이 수</li>
+          <li><span class="num">06</span>이지 / 하드 선택률 추이</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="foot-inner">
+      <p>© Zepeto 진격의 거인 · Attack on Titan · 2023.12 launch · v2 2024.05</p>
+      <div class="foot-links">
+        <a href="../index.html">← Portfolio</a>
+        <a href="https://tv.kakao.com/v/443091340" target="_blank" rel="noopener">광고 영상</a>
+        <a href="https://tv.kakao.com/v/446597577" target="_blank" rel="noopener">인게임 영상</a>
+        <a href="https://tv.kakao.com/v/446597125" target="_blank" rel="noopener">v2 테스트 영상</a>
+        <a href="https://88-it.tistory.com/378" target="_blank" rel="noopener">블로그</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Code tabs
+    const tabs = document.querySelectorAll('.code-tab');
+    const panes = document.querySelectorAll('.code-pane');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      const i = +t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', +x.dataset.tab === i));
+      panes.forEach((p, idx) => p.classList.toggle('active', idx === i));
+    }));
+  </script>
+</body>
+</html>
