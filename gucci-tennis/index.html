@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zepeto Gucci Tennis Game — 3D Multiplayer Tennis · Developer Portfolio</title>
-  <meta name="description" content="Naver Zepeto × Gucci 콜라보 3D 멀티 테니스 게임. 누적 방문 193K, Unity + TypeScript, 포물선 방정식 기반 공 궤적 + 2D↔3D 좌표 변환. 클라이언트 80% 메인 담당." />
+  <meta name="description" content="Naver Zepeto × Gucci 콜라보 3D 멀티 테니스 게임. 누적 방문 193K, Unity + TypeScript, 공 궤적 시뮬레이션 + 2D↔3D 좌표 변환. 클라이언트 80% 메인 담당." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -769,7 +769,7 @@
     <div class="hero-inner">
       <div>
         <span class="hero-eyebrow">Gucci × Zepeto 콜라보 · 3D 멀티 테니스</span>
-        <h1>포물선 방정식 위에서 —<br /><span class="big">193K</span> 명이<br />라켓을 휘둘렀다</h1>
+        <h1>Gucci × Zepeto 3D 테니스 —<br /><span class="big">193K</span> 명이<br />라켓을 휘둘렀다</h1>
         <p class="lead">
           Gucci 콜라보 메타버스 3D 테니스 게임. 자동 매칭부터 3판 2세트 룰까지.
           클라이언트 <strong>80%</strong> 메인 담당, 출시 + 패치까지 풀 사이클.
@@ -834,8 +834,8 @@
         </div>
         <div class="feat-card">
           <div class="feat-icon">📐</div>
-          <h3>포물선 방정식</h3>
-          <p>입력 위치 + 강도 → 포물선 방정식으로 공의 자연스러운 궤적을 계산.</p>
+          <h3>공 궤적 시뮬레이션</h3>
+          <p>입력 위치·강도와 중력·충돌을 결합한 공 궤적으로 실제 테니스 같은 랠리 구현.</p>
         </div>
       </div>
     </div>
@@ -889,7 +889,7 @@
   <section class="divider reveal" id="technical">
     <div class="badge">PERSPECTIVE · TECHNICAL DEEP-DIVE</div>
     <h2>이제 <span class="gradient">기술 관점</span>에서 살펴봅니다</h2>
-    <p>여기서부터는 매칭 시스템·테니스 룰 엔진·포물선 방정식·2D↔3D 좌표 변환을 어떻게 구현했는지 살펴봅니다.</p>
+    <p>여기서부터는 매칭 시스템·테니스 룰 엔진·공 궤적 시뮬레이션·2D↔3D 좌표 변환을 어떻게 구현했는지 살펴봅니다.</p>
   </section>
 
 
@@ -920,7 +920,7 @@
       <h2 class="section-title">Unity + TypeScript on Zepeto SDK</h2>
       <p class="section-sub">
         Zepeto 플랫폼 SDK 위에서 Unity 클라이언트 + TypeScript 서버 스크립트.
-        멀티방 매칭, 서버 데이터 분할, 그리고 핵심인 수학(포물선 방정식 + 2D↔3D 좌표 변환).
+        멀티방 매칭, 서버 데이터 분할, 그리고 공 궤적·좌표 변환에 쓰인 게임 수학.
       </p>
 
       <div class="stack-grid">
@@ -929,7 +929,7 @@
         <div class="stack-badge"><div class="icon">ZP</div><div><div class="name">Zepeto SDK</div><div class="role">Platform</div></div></div>
         <div class="stack-badge"><div class="icon">MR</div><div><div class="name">Multiplay Room</div><div class="role">Matching</div></div></div>
         <div class="stack-badge"><div class="icon">SV</div><div><div class="name">Server Data</div><div class="role">Sharding</div></div></div>
-        <div class="stack-badge"><div class="icon">∫</div><div><div class="name">포물선 방정식</div><div class="role">Ball Physics</div></div></div>
+        <div class="stack-badge"><div class="icon">∫</div><div><div class="name">Ball Physics</div><div class="role">포물선 + 충돌</div></div></div>
         <div class="stack-badge"><div class="icon">2D</div><div><div class="name">2D ↔ 3D Map</div><div class="role">Coord. Math</div></div></div>
         <div class="stack-badge"><div class="icon">FSM</div><div><div class="name">State Machine</div><div class="role">Score Engine</div></div></div>
       </div>
@@ -982,7 +982,7 @@
 
         <div class="mine-card">
           <div class="area-tag">AREA 03 · BALL PHYSICS</div>
-          <h3>포물선 방정식 기반 공 궤적</h3>
+          <h3>공 궤적 시뮬레이션 (포물선 + 중력 + 충돌)</h3>
           <p class="desc">
             입력 위치와 강도에 따라 공의 위치·속도·중력을 계산.
             <code>y = y₀ + v_y·t − ½g·t²</code> — 수학으로 자연스러운 궤적을.
@@ -1022,7 +1022,7 @@
       <span class="section-eyebrow">// code_deep_dive</span>
       <h2 class="section-title">The math behind the rally</h2>
       <p class="section-sub">
-        세 가지 핵심 기능의 개념적 구현 — 포물선 공 궤적, 2D→3D 좌표 매핑,
+        세 가지 핵심 기능의 개념적 구현 — 공 궤적 (포물선 + 충돌), 2D→3D 좌표 매핑,
         그리고 듀스/어드밴티지를 포함한 점수 상태 기계.
       </p>
       <div class="code-disclaimer">⚠ Conceptual sketch — production code is on GitHub (Seonga02024/3D-Tennis-Game)</div>
@@ -1293,6 +1293,18 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== Project Navigation (prev / home / next) ===== -->
+  <nav style="max-width:1200px;margin:60px auto 40px;padding:0 28px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;" aria-label="Project navigation">
+    <a href="../attack-on-titan/" style="display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:12px;text-decoration:none;color:#e6edf7;background:rgba(110,231,255,0.06);border:1px solid rgba(110,231,255,0.18);transition:all .2s;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0.65;letter-spacing:0.06em;text-transform:uppercase;">← PREV PROJECT</span>
+      <span style="font-size:14px;font-weight:600;">진격의 거인 · 2.1M 누적</span>
+    </a>
+    <a href="../index.html" style="display:flex;justify-content:center;align-items:center;padding:18px 24px;border-radius:12px;text-decoration:none;color:#e6edf7;background:transparent;border:1px solid rgba(255,255,255,0.18);transition:all .2s;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;">↑ PORTFOLIO HOME</span>
+    </a>
+    <a href="#" style="visibility:hidden;pointer-events:none;display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:12px;"><span></span><span></span></a>
+  </nav>
 
   <!-- ============================================================
        FOOTER
