@@ -48,6 +48,97 @@
       --shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.8);
       --glow-accent: 0 0 24px var(--accent-glow);
       --glow-cyan: 0 0 24px var(--cyan-glow);
+      --nav-bg: rgba(10, 13, 20, 0.85);
+      --grid-line: rgba(92, 242, 255, 0.025);
+    }
+
+    body[data-theme="white"] {
+      --bg-0: #f3f2ee;
+      --bg-1: #ffffff;
+      --bg-2: #f8f5ef;
+      --bg-3: #efe7db;
+      --bg-4: #e4d7c5;
+      --line: #dacdbd;
+      --line-strong: #c7b69f;
+      --text: #1a1d24;
+      --text-dim: #4f5665;
+      --text-muted: #7e8798;
+      --text-mute: #9ca6b5;
+      --accent: #2f9fd8;
+      --accent-deep: #69bfe7;
+      --accent-glow: rgba(47, 159, 216, 0.2);
+      --cyan: #1f7fb2;
+      --cyan-dim: #56a8d2;
+      --cyan-glow: rgba(31, 127, 178, 0.14);
+      --violet: #6c63a8;
+      --violet-glow: rgba(108, 99, 168, 0.12);
+      --pink: #b35c7d;
+      --green: #2f7d4d;
+      --amber: #9a6b00;
+      --red: #ba3f46;
+      --shadow: 0 12px 30px rgba(71, 55, 33, 0.08);
+      --shadow-strong: 0 18px 50px rgba(71, 55, 33, 0.14);
+      --nav-bg: rgba(255, 255, 255, 0.88);
+      --grid-line: rgba(92, 64, 34, 0.05);
+    }
+
+    body[data-theme="white"] .hero::before {
+      background: radial-gradient(circle, rgba(47, 159, 216, 0.2), transparent 70%);
+    }
+    body[data-theme="white"] .hero::after {
+      background: radial-gradient(circle, rgba(105, 191, 231, 0.18), transparent 70%);
+    }
+    body[data-theme="white"] .career-card,
+    body[data-theme="white"] .feat-card,
+    body[data-theme="white"] .paper-card,
+    body[data-theme="white"] .skill-col,
+    body[data-theme="white"] .me-card,
+    body[data-theme="white"] .contact-card,
+    body[data-theme="white"] .extra-mini-card,
+    body[data-theme="white"] .edu-card {
+      box-shadow: 0 10px 24px rgba(88, 64, 33, 0.06);
+    }
+    body[data-theme="white"] .career-card {
+      background: linear-gradient(180deg, #fffaf2, #ffffff);
+    }
+    body[data-theme="white"] .proj-group-head .proj-group-status.active {
+      background: rgba(47, 159, 216, 0.12);
+      border-color: rgba(47, 159, 216, 0.28);
+      color: var(--accent);
+    }
+    body[data-theme="white"] .proj-group-head .proj-group-status.shipped {
+      background: rgba(47, 125, 77, 0.1);
+      border-color: rgba(47, 125, 77, 0.24);
+      color: var(--green);
+    }
+    body[data-theme="white"] .proj-group-head .proj-group-status.exited {
+      background: rgba(186, 63, 70, 0.08);
+      border-color: rgba(186, 63, 70, 0.2);
+      color: var(--red);
+    }
+    body[data-theme="white"] .edu-card.edu {
+      background: linear-gradient(180deg, rgba(31, 127, 178, 0.12), #ffffff);
+      border-color: rgba(31, 127, 178, 0.22);
+    }
+    body[data-theme="white"] .edu-card.cert {
+      background: linear-gradient(180deg, rgba(105, 191, 231, 0.14), #fafdff);
+      border-color: rgba(105, 191, 231, 0.24);
+    }
+    body[data-theme="white"] .contact-card:nth-child(1) {
+      background: linear-gradient(180deg, rgba(47, 159, 216, 0.11), #ffffff);
+    }
+    body[data-theme="white"] .contact-card:nth-child(2) {
+      background: linear-gradient(180deg, rgba(105, 191, 231, 0.11), #ffffff);
+    }
+    body[data-theme="white"] .contact-card:nth-child(3) {
+      background: linear-gradient(180deg, rgba(31, 127, 178, 0.09), #ffffff);
+    }
+    body[data-theme="white"] .contact-card:nth-child(4) {
+      background: linear-gradient(180deg, rgba(134, 207, 241, 0.12), #ffffff);
+    }
+    body[data-theme="white"] .theme-switch {
+      background: #f7f1e6;
+      border-color: #dbcab4;
     }
 
     * { box-sizing: border-box; }
@@ -70,8 +161,8 @@
     body::before {
       content: ""; position: fixed; inset: 0;
       background-image:
-        linear-gradient(rgba(92, 242, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92, 242, 255, 0.025) 1px, transparent 1px);
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
       background-size: 48px 48px;
       pointer-events: none;
       z-index: 1;
@@ -123,7 +214,7 @@
        ============================================================ */
     header.nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(10, 13, 20, 0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(16px) saturate(140%);
       border-bottom: 1px solid var(--line);
     }
@@ -145,10 +236,11 @@
       font-family: "Space Grotesk", sans-serif;
       box-shadow: 0 0 20px var(--accent-glow);
     }
-    .brand .text { display: flex; flex-direction: column; line-height: 1.2; }
+    .brand .text { display: flex; flex-direction: column; line-height: 1.25; padding-bottom: 1px; }
     .brand .name {
       font-family: "Space Grotesk", sans-serif;
       font-size: 16px; font-weight: 700; color: var(--text);
+      line-height: 1.15;
     }
     .brand .role {
       font-family: "JetBrains Mono", monospace;
@@ -163,6 +255,36 @@
     }
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a .hash { color: var(--text-mute); }
+    .nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .theme-switch {
+      display: inline-flex;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg-2);
+      gap: 4px;
+    }
+    .theme-btn {
+      border: 0;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 7px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .theme-btn.is-active {
+      background: var(--accent);
+      color: #fff;
+    }
 
     /* ============================================================
        Hero
@@ -255,6 +377,75 @@
       color: var(--text-dim);
     }
     .hero .tags span:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* ============================================================
+       Career
+       ============================================================ */
+    .career { background: var(--bg-0); }
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .career-card {
+      background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .career-card .career-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+    .career-card h3 {
+      font-family: "Space Grotesk", "Noto Sans KR", sans-serif;
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+    .career-card h3 .en {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-left: 6px;
+    }
+    .career-card .career-role {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .career-card p {
+      margin: 0 0 16px;
+      color: var(--text-dim);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .career-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .career-card li {
+      padding-left: 16px;
+      position: relative;
+      color: var(--text-dim);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .career-card li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
 
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
@@ -417,6 +608,7 @@
       border-color: var(--cyan);
       box-shadow: var(--shadow-strong), 0 0 30px rgba(92, 242, 255, 0.15);
     }
+    .feat-card.has-detail { cursor: pointer; }
     .feat-card .feat-image {
       aspect-ratio: 16 / 9;
       background: linear-gradient(135deg, var(--bg-3), var(--bg-4));
@@ -520,6 +712,7 @@
       border: 1px solid var(--accent);
       border-radius: 4px;
       align-self: flex-start;
+      margin: 0 10px 10px 0;
       letter-spacing: 0.05em;
       transition: all .15s;
     }
@@ -1071,12 +1264,21 @@
       transition: border-color .15s;
     }
     .edu-card:hover { border-color: var(--cyan); }
+    .edu-card.edu {
+      background: linear-gradient(180deg, rgba(92, 242, 255, 0.07), var(--bg-2));
+      border-color: rgba(92, 242, 255, 0.24);
+    }
+    .edu-card.cert {
+      background: linear-gradient(180deg, rgba(255, 106, 61, 0.08), var(--bg-2));
+      border-color: rgba(255, 106, 61, 0.24);
+    }
     .edu-card .edu-tag {
       font-family: "JetBrains Mono", monospace;
       font-size: 10.5px; color: var(--cyan);
       letter-spacing: 0.08em;
       margin-bottom: 10px;
     }
+    .edu-card.cert .edu-tag { color: var(--accent); }
     .edu-card h4 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 17px; margin: 0 0 8px;
@@ -1156,7 +1358,7 @@
     }
     .contact > .container { position: relative; z-index: 1; }
     .contact-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
     }
     .contact-card {
       background: var(--bg-2);
@@ -1182,6 +1384,52 @@
       letter-spacing: -0.01em;
     }
     .contact-card a:hover { color: var(--accent); }
+
+    .extras-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .extra-mini-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .15s, border-color .15s, box-shadow .15s;
+    }
+    .extra-mini-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow);
+    }
+    .extra-mini-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
+    }
+    .extra-mini-card .extra-body {
+      padding: 16px;
+    }
+    .extra-mini-card h5 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .extra-mini-card p {
+      margin: 0 0 10px;
+      font-size: 12.5px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .extra-mini-card .when {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
     /* ============================================================
        Footer
@@ -1223,6 +1471,8 @@
        ============================================================ */
     @media (max-width: 1100px) {
       .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .career-grid { grid-template-columns: 1fr; }
+      .extras-gallery { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 1024px) {
       .paper-grid { grid-template-columns: 1fr; }
@@ -1246,6 +1496,7 @@
       .proj-group-head { flex-direction: column; align-items: flex-start; }
       .edu-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
+      .extras-gallery { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -1262,15 +1513,22 @@
           <span class="role">// game client dev · robocare</span>
         </span>
       </a>
-      <nav class="nav-links">
-        <a href="#education"><span class="hash">#</span>education</a>
-        <a href="#papers"><span class="hash">#</span>papers</a>
-        <a href="#awards"><span class="hash">#</span>awards</a>
-        <a href="#skills"><span class="hash">#</span>skills</a>
-        <a href="#projects"><span class="hash">#</span>projects</a>
-        <a href="#about"><span class="hash">#</span>about</a>
-        <a href="#contact"><span class="hash">#</span>contact</a>
-      </nav>
+      <div class="nav-tools">
+        <nav class="nav-links">
+          <a href="#career"><span class="hash">#</span>career</a>
+          <a href="#education"><span class="hash">#</span>education</a>
+          <a href="#papers"><span class="hash">#</span>papers</a>
+          <a href="#awards"><span class="hash">#</span>awards</a>
+          <a href="#skills"><span class="hash">#</span>skills</a>
+          <a href="#projects"><span class="hash">#</span>projects</a>
+          <a href="#about"><span class="hash">#</span>about</a>
+          <a href="#contact"><span class="hash">#</span>contact</a>
+        </nav>
+        <div class="theme-switch" aria-label="Theme switcher">
+          <button type="button" class="theme-btn is-active" data-theme-value="black">BLACK</button>
+          <button type="button" class="theme-btn" data-theme-value="white">WHITE</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -1326,32 +1584,90 @@
     </div>
   </section>
 
+  <!-- =================== CAREER =================== -->
+  <section class="career" id="career">
+    <div class="container">
+      <span class="section-tag"><span class="num">01 /</span> CAREER</span>
+      <h2 class="section-title">경력</h2>
+      <p class="section-sub">
+        실무 경력은 먼저 간단하게 정리하고, 아래에서 학력·논문·프로젝트를 이어서 볼 수 있도록 구성했습니다.
+      </p>
+
+      <div class="career-grid">
+        <article class="career-card">
+          <div class="career-meta">
+            <span>2025.03.03 ~ NOW</span>
+            <span>Unity Game Client</span>
+          </div>
+          <h3>로보케어 <span class="en">Robocare</span></h3>
+          <div class="career-role">지능형솔루션팀 · 연구원</div>
+          <p>실벗 로봇 학습 시스템, 케미프렌즈 콘텐츠, UGS 기반 라이브 운영까지 포함해 실제 서비스 개발과 배포를 담당하고 있습니다.</p>
+          <ul>
+            <li>Robo Gostop · CareBrainFit · Silbot 등 콘텐츠 개발</li>
+            <li>Photon · Socket.IO · UGS 기반 멀티/서버 연동</li>
+            <li>출시 운영, 검수, 스토어 등록, 배포 파이프라인 경험</li>
+          </ul>
+        </article>
+
+        <article class="career-card">
+          <div class="career-meta">
+            <span>2024.09.30 ~ 2024.12.20</span>
+            <span>Web Game Client</span>
+          </div>
+          <h3>레드브릭 <span class="en">Redbrick</span></h3>
+          <div class="career-role">콘텐츠 개발팀 · 인턴</div>
+          <p>Redbrick Engine과 JavaScript로 VR·메타버스·캐주얼 웹 게임을 빠르게 제작하고, 실제 출시와 전시 연결까지 경험했습니다.</p>
+          <ul>
+            <li>Melody Pang Pang · RunToRoom · XESCAPE · Christmas Village · Dangerous Laboratory 출시</li>
+            <li>VR/PC 동시 대응, 인터랙션, 퍼즐 흐름 설계</li>
+            <li>코엑스 전시 작품 선정 및 운영 지원 경험</li>
+          </ul>
+        </article>
+
+        <article class="career-card">
+          <div class="career-meta">
+            <span>2023.05.10 ~ 2024.04.30</span>
+            <span>Zepeto</span>
+          </div>
+          <h3>유니크 플래닛 <span class="en">Unique Planet</span></h3>
+          <div class="career-role">개발팀 · 사원</div>
+          <p>Zepeto 기반 메타버스와 멀티 게임을 개발하며 TypeScript 실무, 협업 배포, 라이브 운영과 업데이트 경험을 쌓았습니다.</p>
+          <ul>
+            <li>Gucci Tennis · 진격의 거인 · Gucci Community · 해양 쓰레기 VR</li>
+            <li>멀티 서버, 라이브 스트리밍, 3D 게임플레이 구현</li>
+            <li>누적 방문 기반 운영과 시즌 업데이트 대응 경험</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- =================== EDUCATION =================== -->
   <section class="education" id="education">
     <div class="container">
-      <span class="section-tag"><span class="num">01 /</span> EDUCATION &amp; CERTIFICATES</span>
+      <span class="section-tag"><span class="num">02 /</span> EDUCATION &amp; CERTIFICATES</span>
       <h2 class="section-title">학력 · 자격증</h2>
 
       <div class="edu-grid">
-        <div class="edu-card">
+        <div class="edu-card edu">
           <div class="edu-tag">// UNIVERSITY</div>
           <h4>강남대학교</h4>
           <div class="when">2018.03 ~ 2023.02</div>
           <div class="major">소프트웨어응용학부 — 학사</div>
         </div>
-        <div class="edu-card">
+        <div class="edu-card edu">
           <div class="edu-tag">// HIGH_SCHOOL</div>
           <h4>초당 고등학교</h4>
           <div class="when">2015.02 ~ 2017.12</div>
           <div class="major">졸업</div>
         </div>
-        <div class="edu-card">
+        <div class="edu-card cert">
           <div class="edu-tag">// CERT</div>
           <h4>정보처리기사</h4>
           <div class="when">2024.06 취득</div>
           <div class="major">한국산업인력공단</div>
         </div>
-        <div class="edu-card">
+        <div class="edu-card cert">
           <div class="edu-tag">// LANGUAGE</div>
           <h4>TOEIC 635</h4>
           <div class="when">2024.08.06 취득</div>
@@ -1364,7 +1680,7 @@
   <!-- =================== PAPERS =================== -->
   <section class="papers" id="papers">
     <div class="container">
-      <span class="section-tag"><span class="num">02 /</span> ACADEMIC PAPERS </span>
+      <span class="section-tag"><span class="num">03 /</span> ACADEMIC PAPERS </span>
       <h2 class="section-title">논문 <span class="cyan">8편</span></h2>
 
       <div class="paper-grid">
@@ -1430,7 +1746,7 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11037805" target="_blank" rel="noopener" class="paper-link">장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card" data-cat="GV">
+        <div class="paper-card has-detail" data-cat="GV" data-paper-id="terrain_altitude_sound_2021">
           <div class="paper-thumb is-placeholder">// no thumbnail</div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · VR</span>
@@ -1473,7 +1789,7 @@
   <!-- =================== AWARDS & ACTIVITIES =================== -->
   <section class="awards" id="awards">
     <div class="container">
-      <span class="section-tag"><span class="num">03 /</span> AWARDS &amp; ACTIVITIES</span>
+      <span class="section-tag"><span class="num">04 /</span> AWARDS &amp; ACTIVITIES</span>
       <h2 class="section-title">수상 경력 · 대외 활동</h2>
       <p class="section-sub">
         12회 수상(대상 2 · 최우수상 4 · 우수상 2 · 혁신상 1 · 장려상 2 · 장관상 1)과 6개 대외 활동.
@@ -1624,7 +1940,7 @@
   <!-- =================== SKILLS =================== -->
   <section class="skills" id="skills">
     <div class="container">
-      <span class="section-tag"><span class="num">04 /</span> SKILLS &amp; STACK</span>
+      <span class="section-tag"><span class="num">05 /</span> SKILLS &amp; STACK</span>
       <h2 class="section-title">기술 · 협업 · 도구</h2>
 
       <div class="skills-grid">
@@ -1711,7 +2027,7 @@
   <!-- =================== PROJECTS (merged) =================== -->
   <section class="projects" id="projects">
     <div class="container">
-      <span class="section-tag"><span class="num">05 /</span> PROJECTS · 3 COMPANIES + PERSONAL</span>
+      <span class="section-tag"><span class="num">06 /</span> PROJECTS · 3 COMPANIES + PERSONAL</span>
       <h2 class="section-title">출시한 <span class="cyan">프로젝트</span> 정리</h2>
       <p class="section-sub">
         최신 순으로 정리했습니다.
@@ -1731,22 +2047,22 @@
 
           <div class="feat-card">
             <div class="feat-image">
-              <span class="feat-tag">// EDU_ROBOT</span>
-              <span class="role-badge main">● MAIN</span>
+              <span class="feat-tag">// ONLINE_CARD</span>
+              <span class="role-badge cowork">◐ CO-WORK</span>
               <div class="placeholder">
-                <strong>Silbot System</strong>
-                교사 PC + 학생 태블릿 + 로봇<br/>
-                assets/feat_silbot.jpg
+                <strong>Robo Gostop</strong>
+                온라인 맞고 멀티플레이<br/>
+                assets/feat_gostop.jpg
               </div>
             </div>
             <div class="feat-body">
-              <h3>Silbot · 실벗 로봇 학습 시스템</h3>
-              <div class="feat-sub">// 3-주체 협업 · Photon + Socket.IO</div>
-              <p>교사 PC와 학생 태블릿이 실벗 로봇을 매개로 연결되어 동시 학습. 20여 종 미니게임 카탈로그 위에서 3-11 Match3 · 5-06 Match · 5-07 Star 메인 담당. 행사용 발화 창(시퀀스 빌더) 단독 작업.</p>
+              <h3>로보맞고 (Robo Gostop)</h3>
+              <div class="feat-sub">// Multiplayer · UGS Server</div>
+              <p>케미 이용자와의 온라인 맞고 대국. 단계별 판돈·랭킹·칭호·플레이 기록. 멀티플레이 안정화·세션/재화 흐름 공동 작업.</p>
               <div class="feat-stack">
-                <span>Unity</span><span>C#</span><span>Photon PUN 2</span><span>Socket.IO 3</span><span>DOTween</span><span>Android Intent</span>
+                <span>Unity</span><span>UGS Cloud Save</span><span>UGS Cloud Code</span><span>Authentication</span><span>Server Validation</span>
               </div>
-              <a class="open-link" href="silbot/">VIEW DETAIL</a>
+              <a class="open-link" href="gostop/index.html">VIEW DETAIL</a>
             </div>
           </div>
 
@@ -1767,28 +2083,28 @@
               <div class="feat-stack">
                 <span>Unity</span><span>MediaPipe Body</span><span>MediaPipe Hand</span><span>UGS Cloud Save</span><span>UGS Cloud Code</span><span>Remote Config</span>
               </div>
-              <a class="open-link" href="carebrainfit/">VIEW DETAIL</a>
+              <a class="open-link" href="carebrainfit/index.html">VIEW DETAIL</a>
             </div>
           </div>
 
           <div class="feat-card">
             <div class="feat-image">
-              <span class="feat-tag">// ONLINE_CARD</span>
-              <span class="role-badge cowork">◐ CO-WORK</span>
+              <span class="feat-tag">// EDU_ROBOT</span>
+              <span class="role-badge main">● MAIN</span>
               <div class="placeholder">
-                <strong>Robo Gostop</strong>
-                온라인 맞고 멀티플레이<br/>
-                assets/feat_gostop.jpg
+                <strong>Silbot System</strong>
+                교사 PC + 학생 태블릿 + 로봇<br/>
+                assets/feat_silbot.jpg
               </div>
             </div>
             <div class="feat-body">
-              <h3>로보맞고 (Robo Gostop)</h3>
-              <div class="feat-sub">// Multiplayer · UGS Server</div>
-              <p>케미 이용자와의 온라인 맞고 대국. 단계별 판돈·랭킹·칭호·플레이 기록. 멀티플레이 안정화·세션/재화 흐름 공동 작업.</p>
+              <h3>Silbot · 실벗 로봇 학습 시스템</h3>
+              <div class="feat-sub">// 3-주체 협업 · Photon + Socket.IO</div>
+              <p>교사 PC와 학생 태블릿이 실벗 로봇을 매개로 연결되어 동시 학습. 20여 종 미니게임 카탈로그 위에서 3-11 Match3 · 5-06 Match · 5-07 Star 메인 담당. 행사용 발화 창(시퀀스 빌더) 단독 작업.</p>
               <div class="feat-stack">
-                <span>Unity</span><span>UGS Cloud Save</span><span>UGS Cloud Code</span><span>Authentication</span><span>Server Validation</span>
+                <span>Unity</span><span>C#</span><span>Photon PUN 2</span><span>Socket.IO 3</span><span>DOTween</span><span>Android Intent</span>
               </div>
-              <a class="open-link" href="gostop/">VIEW DETAIL</a>
+              <a class="open-link" href="silbot/index.html">VIEW DETAIL</a>
             </div>
           </div>
 
@@ -1803,13 +2119,13 @@
               </div>
             </div>
             <div class="feat-body">
-              <h3>로보케어 작업 정리</h3>
-              <div class="feat-sub">// 6 contents + UGS · Store</div>
-              <p>케미프렌즈 재미 공간 6종 콘텐츠 + 실벗 시스템 + 전사 UGS·구글 플레이 스토어 등록·운영(메인 담당). 라인업 전체를 한 페이지에 정리.</p>
+              <h3>그 외 프로젝트</h3>
+              <div class="feat-sub">// 4 contents + UGS · Store</div>
+              <p>케미프렌즈 재미 공간의 기타 프로젝트 4종과 전사 UGS·구글 플레이 스토어 등록·운영 작업을 한 페이지에 정리했습니다.</p>
               <div class="feat-stack">
                 <span>UGS Console</span><span>Cloud Code Deploy</span><span>Remote Config</span><span>Google Play Console</span><span>Release Pipeline</span>
               </div>
-              <a class="open-link" href="robocare/">VIEW DETAIL</a>
+              <a class="open-link" href="robocare/index.html">VIEW DETAIL</a>
             </div>
           </div>
 
@@ -1823,7 +2139,7 @@
             <h3>레드브릭 <span class="en">Redbrick · Intern</span></h3>
             <p class="proj-group-meta">콘텐츠 개발팀 · 인턴 · 2024.09.30 ~ 2024.12.20 · Web Game Client</p>
           </div>
-          <span class="proj-group-status shipped">5 SHIPPED + EXTRA</span>
+          <span class="proj-group-status shipped">5 SHIPPED</span>
         </header>
 
         <div class="feat-grid">
@@ -1841,11 +2157,28 @@
               <div class="feat-stack">
                 <span>Redbrick Engine</span><span>JavaScript</span>
               </div>
-              <a class="open-link" href="melody-pangpang/">VIEW DETAIL</a>
+              <a class="open-link" href="melody-pangpang/index.html">VIEW DETAIL</a>
             </div>
           </div>
 
           <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// SURVIVAL</span>
+              <span class="role-badge cowork">◐ CO-WORK</span>
+              <img src="assets/proj-run-to-room-1.png" alt="RunToRoom" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>RunToRoom</h3>
+              <div class="feat-sub">// 캐주얼 생존 · 2024.11 ~ 2024.12 · 합작</div>
+              <p>다른 개발자와의 합작 — 웹 게임끼리 데이터를 주고받으며 상호작용하는 패턴 실험. 전체 기획·로직 공동 진행, 맵 환경·난이도·아이템 자동 세팅 담당.</p>
+              <div class="feat-stack">
+                <span>Redbrick Engine</span><span>JavaScript</span><span>합작</span>
+              </div>
+              <a class="open-link" href="run-to-room/index.html">VIEW DETAIL</a>
+            </div>
+          </div>
+
+          <div class="feat-card has-detail" data-paper-id="project_xescape">
             <div class="feat-image">
               <span class="feat-tag">// VR_PUZZLE</span>
               <span class="role-badge main">● MAIN · 1인</span>
@@ -1886,23 +2219,6 @@
 
           <div class="feat-card">
             <div class="feat-image">
-              <span class="feat-tag">// SURVIVAL</span>
-              <span class="role-badge cowork">◐ CO-WORK</span>
-              <img src="assets/proj-run-to-room-1.png" alt="RunToRoom" loading="lazy" />
-            </div>
-            <div class="feat-body">
-              <h3>RunToRoom</h3>
-              <div class="feat-sub">// 캐주얼 생존 · 2024.11 ~ 2024.12 · 합작</div>
-              <p>다른 개발자와의 합작 — 웹 게임끼리 데이터를 주고받으며 상호작용하는 패턴 실험. 전체 기획·로직 공동 진행, 맵 환경·난이도·아이템 자동 세팅 담당.</p>
-              <div class="feat-stack">
-                <span>Redbrick Engine</span><span>JavaScript</span><span>합작</span>
-              </div>
-              <a class="open-link" href="run-to-room/">VIEW DETAIL</a>
-            </div>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-image">
               <span class="feat-tag">// HORROR_ESCAPE</span>
               <span class="role-badge main">● MAIN · 100%</span>
               <img src="assets/proj-dangerous-lab-1.png" alt="Dangerous Laboratory" loading="lazy" />
@@ -1916,26 +2232,6 @@
               </div>
               <a class="open-link" href="https://redbrick.land/detail-play?pid=b5c80784-b43d-4e11-8f2c-3c8732917f11" target="_blank" rel="noopener">PLAY →</a>
               <a class="open-link" href="https://88-it.tistory.com/436" target="_blank" rel="noopener">BLOG →</a>
-            </div>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-image">
-              <span class="feat-tag">// EXTRA_ACTIVITY</span>
-              <span class="role-badge main">● MAIN</span>
-              <img src="assets/proj-redbrick-extra-1.png" alt="RedBrick 부가 활동" loading="lazy" />
-            </div>
-            <div class="feat-body">
-              <h3>(주)레드브릭 그 외 활동</h3>
-              <div class="feat-sub">// 입사 1주차 개인 프로젝트 · 위키 편집 · Connect 2024 게임잼 운영</div>
-              <p><strong>입사 1주차 1인 프로젝트 2종</strong> (Jump Jump Game: 블럭 생존, Snow Disaster Game: 눈 대피 서바이벌) — 기획·제작·표지·publishing 단독. 이후 <strong>레드브릭 위키 VR 안내서 HTML 편집 + GitHub 버전 관리</strong>, VR 예제 프로젝트 제작, 외부 개발자 Discord Q&amp;A 서포트. <strong>Redbrick Connect 2024 코엑스 게임잼·청소년 콘테스트 운영·평가·서포트</strong>까지 참여.</p>
-              <div class="feat-stack">
-                <span>Redbrick Engine</span><span>HTML</span><span>GitHub</span><span>VR</span><span>게임잼 운영</span>
-              </div>
-              <a class="open-link" href="https://wiki.redbrick.land/en/snippet/vr/introduce" target="_blank" rel="noopener">WIKI →</a>
-              <a class="open-link" href="https://redbrick.land/detail-play?pid=8672297b-11e6-4f7c-b132-dbbfceb58d34" target="_blank" rel="noopener">SNOW GAME →</a>
-              <a class="open-link" href="https://redbrick.land/detail-play?pid=37f0ae87-4c49-46fb-8972-f5243ab3f733" target="_blank" rel="noopener">VR 예제 →</a>
-              <a class="open-link" href="https://www.gamemeca.com/view.php?gid=1755459" target="_blank" rel="noopener">CONNECT 2024 기사 →</a>
             </div>
           </div>
 
@@ -1957,6 +2253,40 @@
 
           <div class="feat-card">
             <div class="feat-image">
+              <span class="feat-tag">// SPORTS_MULTI</span>
+              <span class="role-badge main">● MAIN · 80%</span>
+              <img src="assets/proj-gucci-tennis-1.png" alt="Zepeto Gucci Tennis" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>Zepeto Gucci Tennis Game</h3>
+              <div class="feat-sub">// 3D 테니스 · 2024.04 ~ 2024.07 · 80% · 193K 누적 방문</div>
+              <p>Gucci 콜라보 3D 테니스 게임 — 자동 매칭 후 3판 2세트 룰로 진행, 승리치 누적·랭킹·보상. 클라이언트 핵심 게임플레이 + <strong>공 궤적 시뮬레이션</strong> + 2D↔3D 좌표 변환 + 서버 연결 + 출시 후 패치.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>TypeScript</span><span>3D</span><span>Ball Physics</span><span>멀티방 매칭</span>
+              </div>
+              <a class="open-link" href="gucci-tennis/index.html">VIEW DETAIL</a>
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-image">
+              <span class="feat-tag">// MULTI_SURVIVAL</span>
+              <span class="role-badge cowork">◐ 50% → 80%</span>
+              <img src="assets/proj-attack-on-titan-1.png" alt="Zepeto 진격의 거인" loading="lazy" />
+            </div>
+            <div class="feat-body">
+              <h3>Zepeto 진격의 거인</h3>
+              <div class="feat-sub">// 멀티 생존 · 2023.10 ~ 2024.04 · 1차 50% / 2차 80% · 2.1M 누적 방문</div>
+              <p>일본 만화 진격의 거인 제작사 콜라보 — 재난 필드에서 무작위 등장하는 거인으로부터 살아남는 멀티 생존 게임. 핵심 "재난" 기능 구현·최적화·서버 연결, 2차 콘텐츠 업데이트(기여도 80%) 주도. <strong>누적 방문 2.1M, 인기 차트 10위권 1개월</strong>.</p>
+              <div class="feat-stack">
+                <span>Unity</span><span>TypeScript</span><span>MultiServer</span><span>Object Pooling</span><span>Google Analytics</span>
+              </div>
+              <a class="open-link" href="attack-on-titan/index.html">VIEW DETAIL</a>
+            </div>
+          </div>
+
+          <div class="feat-card has-detail" data-paper-id="project_gucci_community">
+            <div class="feat-image">
               <span class="feat-tag">// METAVERSE</span>
               <span class="role-badge main">● MAIN · 100%</span>
               <img src="assets/proj-gucci-community-1.png" alt="Zepeto Gucci Community" loading="lazy" />
@@ -1974,41 +2304,7 @@
             </div>
           </div>
 
-          <div class="feat-card">
-            <div class="feat-image">
-              <span class="feat-tag">// MULTI_SURVIVAL</span>
-              <span class="role-badge cowork">◐ 50% → 80%</span>
-              <img src="assets/proj-attack-on-titan-1.png" alt="Zepeto 진격의 거인" loading="lazy" />
-            </div>
-            <div class="feat-body">
-              <h3>Zepeto 진격의 거인</h3>
-              <div class="feat-sub">// 멀티 생존 · 2023.10 ~ 2024.04 · 1차 50% / 2차 80% · 2.1M 누적 방문</div>
-              <p>일본 만화 진격의 거인 제작사 콜라보 — 재난 필드에서 무작위 등장하는 거인으로부터 살아남는 멀티 생존 게임. 핵심 "재난" 기능 구현·최적화·서버 연결, 2차 콘텐츠 업데이트(기여도 80%) 주도. <strong>누적 방문 2.1M, 인기 차트 10위권 1개월</strong>.</p>
-              <div class="feat-stack">
-                <span>Unity</span><span>TypeScript</span><span>MultiServer</span><span>Object Pooling</span><span>Google Analytics</span>
-              </div>
-              <a class="open-link" href="attack-on-titan/">VIEW DETAIL</a>
-            </div>
-          </div>
-
-          <div class="feat-card">
-            <div class="feat-image">
-              <span class="feat-tag">// SPORTS_MULTI</span>
-              <span class="role-badge main">● MAIN · 80%</span>
-              <img src="assets/proj-gucci-tennis-1.png" alt="Zepeto Gucci Tennis" loading="lazy" />
-            </div>
-            <div class="feat-body">
-              <h3>Zepeto Gucci Tennis Game</h3>
-              <div class="feat-sub">// 3D 테니스 · 2024.04 ~ 2024.07 · 80% · 193K 누적 방문</div>
-              <p>Gucci 콜라보 3D 테니스 게임 — 자동 매칭 후 3판 2세트 룰로 진행, 승리치 누적·랭킹·보상. 클라이언트 핵심 게임플레이 + <strong>공 궤적 시뮬레이션</strong> + 2D↔3D 좌표 변환 + 서버 연결 + 출시 후 패치.</p>
-              <div class="feat-stack">
-                <span>Unity</span><span>TypeScript</span><span>3D</span><span>Ball Physics</span><span>멀티방 매칭</span>
-              </div>
-              <a class="open-link" href="gucci-tennis/">VIEW DETAIL</a>
-            </div>
-          </div>
-
-          <div class="feat-card">
+          <div class="feat-card has-detail" data-paper-id="project_ocean_trash_vr">
             <div class="feat-image">
               <span class="feat-tag">// VR_OCULUS</span>
               <span class="role-badge cowork">◐ MAIN · 70%</span>
@@ -2141,44 +2437,49 @@
         <!-- ===== Extras: 컴팩트 목록 (사진 X · 클릭 시 모달) ===== -->
         <div class="extras-block">
           <h4 class="extras-title">📦 기타 · 초기 작품 &amp; 학습 프로젝트</h4>
-          <p class="extras-note">학부 시절 ~ 초기 출시작과 스터디 — 항목을 클릭하면 상세 내용이 열립니다.</p>
-          <ul class="activity-list extras-list">
-            <li class="has-detail" data-paper-id="extra_catcatcat_puzzle">
-              <div>
-                <div class="name">CatCatCat · 대각선 퍼즐 게임 <span style="opacity:0.55;font-size:0.85em">(Rota Track 전신)</span></div>
-                <div class="sub">BFS 매칭 로직 직접 설계 · MAIN 90% · 2인(개발 1·디자인 1) · Play Store 출시</div>
+          <p class="extras-note">학부 시절 ~ 초기 출시작과 스터디를 미니 갤러리로 정리했습니다. 카드를 누르면 상세 내용을 볼 수 있습니다.</p>
+          <div class="extras-gallery">
+            <article class="extra-mini-card has-detail" data-paper-id="extra_catcatcat_puzzle">
+              <img src="assets/proj-catcatcat-puzzle-1.png" alt="CatCatCat 퍼즐" loading="lazy" />
+              <div class="extra-body">
+                <h5>CatCatCat 퍼즐</h5>
+                <p>Rota Track 전신 · BFS 대각선 매칭 로직 설계</p>
+                <span class="when">2023.02</span>
               </div>
-              <span class="when">2023.02</span>
-            </li>
-            <li class="has-detail" data-paper-id="extra_python_study">
-              <div>
-                <div class="name">Python Study · 데이터 시각화 + AI 게임 제작</div>
-                <div class="sub">AI 실무 활용 3개월 팀 스터디 · seaborn/kdeplot 히트맵 + 웹캠 AR "현실 퀘스트" 게임</div>
+            </article>
+            <article class="extra-mini-card has-detail" data-paper-id="extra_python_study">
+              <img src="assets/proj-python-study-1.png" alt="Python Study" loading="lazy" />
+              <div class="extra-body">
+                <h5>Python Study</h5>
+                <p>데이터 시각화 + AI/AR 게임 제작 스터디</p>
+                <span class="when">2025.08 ~ 10</span>
               </div>
-              <span class="when">2025.08~10</span>
-            </li>
-            <li class="has-detail" data-paper-id="extra_runa">
-              <div>
-                <div class="name">단편 추리 게임 "RUNA"</div>
-                <div class="sub">2D 스토리 추리 · 1개월 · 2인 50% · Play Store 출시</div>
+            </article>
+            <article class="extra-mini-card has-detail" data-paper-id="extra_runa">
+              <img src="assets/proj-runa-1.png" alt="RUNA" loading="lazy" />
+              <div class="extra-body">
+                <h5>RUNA</h5>
+                <p>단편 추리 2D 스토리 게임</p>
+                <span class="when">2023.02 ~ 03</span>
               </div>
-              <span class="when">2023.02~03</span>
-            </li>
-            <li class="has-detail" data-paper-id="extra_knight_go">
-              <div>
-                <div class="name">기사가 간다 <span style="opacity:0.55;font-size:0.85em">(Knight Goes)</span></div>
-                <div class="sub">1개월 1인 단기 개발 2D · SOLO 80% · Play Store 출시 + 회고 블로그</div>
+            </article>
+            <article class="extra-mini-card has-detail" data-paper-id="extra_knight_go">
+              <img src="assets/proj-knight-go-1.png" alt="Knight Goes" loading="lazy" />
+              <div class="extra-body">
+                <h5>Knight Goes</h5>
+                <p>1개월 단기 2D 출시 프로젝트</p>
+                <span class="when">2022.02</span>
               </div>
-              <span class="when">2022.02</span>
-            </li>
-            <li class="has-detail" data-paper-id="extra_unity_shader">
-              <div>
-                <div class="name">Unity Shader · 비와 물결 구현</div>
-                <div class="sub">3D 그래픽 학습 · Fresnel + Particle + Reflection Probe · SOLO 100%</div>
+            </article>
+            <article class="extra-mini-card has-detail" data-paper-id="extra_unity_shader">
+              <img src="assets/proj-unity-shader-1.png" alt="Unity Shader" loading="lazy" />
+              <div class="extra-body">
+                <h5>Unity Shader</h5>
+                <p>비와 물결 표현 중심 그래픽 학습 프로젝트</p>
+                <span class="when">2019.10 ~ 11</span>
               </div>
-              <span class="when">2019.10~11</span>
-            </li>
-          </ul>
+            </article>
+          </div>
         </div>
       </div>
 
@@ -2188,7 +2489,7 @@
   <!-- =================== ABOUT ME =================== -->
   <section class="me" id="about">
     <div class="container">
-      <span class="section-tag"><span class="num">06 /</span> ABOUT ME</span>
+      <span class="section-tag"><span class="num">07 /</span> ABOUT ME</span>
       <h2 class="section-title">박성아라는 사람</h2>
       <p class="section-sub">
         일하는 방식 · 관심사 · 가치 — 함께 작업할 때 참고하시면 좋습니다.
@@ -2234,7 +2535,7 @@
   <!-- =================== CONTACT =================== -->
   <section class="contact" id="contact">
     <div class="container">
-      <span class="section-tag"><span class="num">07 /</span> CONTACT</span>
+      <span class="section-tag"><span class="num">08 /</span> CONTACT</span>
       <h2 class="section-title">함께 <span class="accent">만들고 싶다면</span></h2>
       <p class="section-sub">
         프로젝트 협업·채용·기술 교류 모두 환영합니다. 편하신 채널로 연락 주세요.
@@ -2263,18 +2564,6 @@
           <div class="icon">💻</div>
           <h4>GITHUB</h4>
           <a href="https://github.com/seonga02024" target="_blank" rel="noopener">@seonga02024</a>
-        </div>
-
-        <div class="contact-card">
-          <div class="icon">📝</div>
-          <h4>BLOG</h4>
-          <p>IT 탐험기 — 활동·학습 정리</p>
-        </div>
-
-        <div class="contact-card">
-          <div class="icon">📄</div>
-          <h4>NOTION</h4>
-          <a href="https://www.notion.so/27025ffeed5180a29468cef3d3a5db17" target="_blank" rel="noopener">원본 포트폴리오</a>
         </div>
       </div>
     </div>
@@ -2619,6 +2908,57 @@
           ],
           links: [
             { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11037805', primary: true }
+          ]
+        },
+        terrain_altitude_sound_2021: {
+          category: 'GAME · VR',
+          categoryClass: 'GV',
+          affiliation: '@ 강남대학교',
+          affiliationClass: 'uni',
+          date: '2021.07',
+          num: '// paper_06',
+          title: '가상 환경에서 지형의 형태와 고도를 고려한 인터렉티브한 사운드 합성',
+          titleEn: 'Interactive Sound Synthesis Considering Terrain Shape and Altitude in a Virtual Environment',
+          authors: '박성아 외 1인 (2인 공동)',
+          venue: '한국컴퓨터그래픽스 학회 (DBpia 등재)',
+          hero: '',
+          gallery: [],
+          keywords: ['지형 기반 사운드', '고도', '인터랙티브 오디오', 'Python', '지형 분류'],
+          sections: [
+            {
+              heading: '📋 요약',
+              type: 'paragraph',
+              body: '가상 공간 안에서 같은 소리라도 <strong>지형의 형태</strong>와 <strong>고도 차이</strong>에 따라 다르게 들려야 한다는 문제의식에서 출발한 연구입니다. 단순 볼륨 조절 수준이 아니라, 사용자의 위치와 지형 특성을 함께 읽어 상황에 맞는 사운드를 합성해 보다 몰입감 있는 VR 청각 경험을 만드는 것을 목표로 했습니다.'
+            },
+            {
+              heading: '🔑 핵심 아이디어',
+              type: 'list',
+              items: [
+                '<strong>지형 형태 분석</strong> — 좌표와 높이 데이터를 읽어 평지 / 경사 / 굴곡 지형을 구분',
+                '<strong>고도 기반 사운드 변화</strong> — 소리의 강도와 질감을 고도 차이에 따라 동적으로 조절',
+                '<strong>상황 반응형 합성</strong> — 사용자의 이동 경로와 위치 변화에 따라 인터랙티브하게 사운드 반응',
+                '<strong>청각적 몰입 강화</strong> — 환경 변화가 소리로도 즉시 체감되도록 설계'
+              ]
+            },
+            {
+              heading: '🛠 기술 구성',
+              type: 'hardware',
+              items: [
+                'Python 기반 프로토타이핑',
+                '좌표 / 고도 데이터 처리',
+                '지형 형태 판별 로직',
+                '사운드 파라미터 동적 조절'
+              ],
+              note: '기획 및 개발 공동 진행(2인). 지형 데이터 해석과 고도 변화에 따른 사운드 반응 로직을 함께 설계하고 구현했습니다.'
+            },
+            {
+              heading: '💡 의의',
+              type: 'paragraph',
+              body: '기존 VR 사운드가 반사·회절처럼 장애물 중심으로 다뤄졌다면, 이 연구는 <strong>지형 자체를 사운드의 입력 변수</strong>로 삼아 인터랙티브 오디오 표현 범위를 넓혔습니다. 향후 오픈월드 게임, 시뮬레이션, 교육형 VR 콘텐츠에서 공간 체감도를 높이는 기반으로 확장할 수 있습니다.'
+            }
+          ],
+          links: [
+            { label: 'DBpia 원문 보기 →', href: 'https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10593330', primary: true }
           ]
         },
         sound_reflection_2021: {
@@ -3127,6 +3467,90 @@
             { heading: '💡 의의', type: 'paragraph', body: '이후 학부 4년간 <strong>VR/IoT 인터페이스 논문 8편</strong>으로 이어진 시작점. 본 해커톤 직후 학부 졸업까지 VR 사운드·인터페이스·아두이노 IoT 인터페이스 연구에 몰입.' }
           ],
           links: []
+        },
+        project_xescape: {
+          category: 'PROJECT · REDBRICK',
+          categoryClass: 'GV',
+          affiliation: '@ 레드브릭',
+          date: '2024.11.14',
+          num: '// shipped',
+          title: 'XESCAPE',
+          authors: '박성아 (1인 개발, 디자이너·3D 모델러 협업)',
+          venue: 'Meta Quest 3 VR 퍼즐 게임 · VR + PC 동시 출시 · Redbrick Connect 2024 전시작',
+          hero: 'assets/proj-xescape-1.png',
+          gallery: ['assets/proj-xescape-2.png'],
+          keywords: ['Redbrick Engine', 'JavaScript', 'VR Puzzle', 'Meta Quest 3', '1인칭'],
+          sections: [
+            { heading: '📋 프로젝트 개요', type: 'paragraph', body: '아포칼립스 분위기의 기계적 공간을 배경으로, 모든 퍼즐을 해결하고 탈출하는 1인칭 VR 퍼즐 게임입니다. 약 10분 분량으로 설계했고 VR/PC 두 버전을 함께 출시했습니다.' },
+            { heading: '🔑 담당 범위', type: 'list', items: [
+              '<strong>퍼즐 흐름 설계</strong> — 스토리 시작 전후, 게임 1, 리프트 상승, 게임 2 등 단계 분기 구조 설계',
+              '<strong>VR 상호작용 구현</strong> — 터치, 사운드, 물체 이동 등 손맛이 느껴지는 반응 정밀 구현',
+              '<strong>예제 씬 제작</strong> — 디자이너가 바로 활용할 수 있는 VR 퍼즐 샘플 씬을 별도 제작해 협업 효율 향상'
+            ]},
+            { heading: '💡 의의', type: 'paragraph', body: '짧은 기간 안에 VR 퍼즐의 밀도와 연출을 모두 챙긴 프로젝트로, 실출시와 전시까지 연결되었습니다. 구조를 유연하게 설계해 이후 수정·추가 작업도 빠르게 대응할 수 있게 만들었습니다.' }
+          ],
+          links: [
+            { label: 'PLAY VR →', href: 'https://redbrick.land/detail-play?pid=7f6764f0-1b38-4cf5-9d8a-038f512595cb', primary: true },
+            { label: 'PLAY PC →', href: 'https://redbrick.land/detail-play?pid=5e287dd3-fd21-4254-99e1-90df702761d9', primary: false },
+            { label: 'VR 실행 영상 →', href: 'https://drive.google.com/file/d/18DDZNceOQ_JiaQMeDWiTcm-sJ3DdDq_Q/view?usp=sharing', primary: false }
+          ]
+        },
+        project_gucci_community: {
+          category: 'PROJECT · ZEPETO',
+          categoryClass: 'GV',
+          affiliation: '@ 유니크 플래닛',
+          date: '2023.08.28 ~ 2024.05',
+          num: '// 882K visits',
+          title: 'Zepeto Gucci Community Project',
+          authors: '박성아 (클라이언트 개발 100%, 운영 업데이트 50%)',
+          venue: 'Gucci 콜라보 메타버스 커뮤니티 월드 · 라이브 스트리밍 2회 운영',
+          hero: 'assets/proj-gucci-community-1.png',
+          gallery: ['assets/proj-gucci-community-2.png'],
+          keywords: ['Unity', 'TypeScript', 'Zepeto SDK', 'Metaverse', 'Live Stream'],
+          sections: [
+            { heading: '📋 프로젝트 개요', type: 'paragraph', body: 'Gucci 콜라보 월드를 100% 단독 개발해 출시한 첫 메타버스 실무 프로젝트입니다. 사용자들이 모여 소통하고 Gucci 아이템을 체험·구매할 수 있는 커뮤니티형 공간으로 설계했습니다.' },
+            { heading: '🔑 담당 범위', type: 'list', items: [
+              '<strong>월드 클라이언트 단독 개발</strong> — 제페토 API 문서를 직접 읽고 기능 적용',
+              '<strong>라이브 운영 경험</strong> — 실제 Gucci 패션쇼 라이브 스트리밍 2회 진행',
+              '<strong>장기 운영 대응</strong> — 크리스마스 이벤트와 시즌성 업데이트 운영'
+            ]},
+            { heading: '📈 성과', type: 'list', items: [
+              '<strong>누적 방문 882K</strong> (2024년 5월 기준)',
+              '<strong>콘텐츠 내 전시 아이템 수익화</strong> 경험',
+              '<strong>첫 메타버스 실무 프로젝트</strong>에서 출시 이후 유지·보수까지 수행'
+            ]}
+          ],
+          links: [
+            { label: 'PLAY VIDEO →', href: 'https://tv.kakao.com/v/441553145', primary: true },
+            { label: '기사 →', href: 'https://biz.chosun.com/it-science/ict/2023/09/25/AL6JNBOUMFBV3PC4FZUGPR7UBU/', primary: false }
+          ]
+        },
+        project_ocean_trash_vr: {
+          category: 'PROJECT · VR',
+          categoryClass: 'IV',
+          affiliation: '@ 유니크 플래닛',
+          date: '2024.03.01 ~ 2024.03.15',
+          num: '// 2 weeks',
+          title: '해양 쓰레기 치우기 VR',
+          authors: '박성아 (기여도 70%)',
+          venue: 'LG 콜라보 Zepeto 세계관 기반 VR 재구성 프로젝트',
+          hero: 'assets/proj-ocean-trash-vr-1.png',
+          gallery: [],
+          keywords: ['Unity', 'C#', 'Oculus Meta 3', 'VR', 'Environmental Content'],
+          sections: [
+            { heading: '📋 프로젝트 개요', type: 'paragraph', body: '정부 산업 지원 프로그램 초기 예시 콘텐츠로, LG 콜라보 Zepeto "블루 포레스트" 세계관을 VR 콘텐츠로 재구성한 프로젝트입니다. 섬 로비와 바닷속 구간을 오가며 해양 보호 메시지를 전달합니다.' },
+            { heading: '🔑 구성', type: 'list', items: [
+              '<strong>로비 구간</strong> — AI NPC와 대화하며 해양 보호 정보 습득',
+              '<strong>바닷속 구간</strong> — 쓰레기 청소 미니게임과 해양생물 관찰',
+              '<strong>VR 인터랙션</strong> — 상하 이동, 컨트롤러 상호작용, 시야 조절 직접 구현'
+            ]},
+            { heading: '💡 의의', type: 'paragraph', body: 'Oculus Meta API를 실무 프로젝트에 직접 적용하며 VR 환경 세팅과 인터랙션 구현 역량을 빠르게 확보한 작업입니다. 짧은 기간 안에 학습과 결과물을 동시에 만든 사례로 의미가 큽니다.' }
+          ],
+          links: [
+            { label: 'PLAY VIDEO 1 →', href: 'https://tv.kakao.com/v/446596955', primary: true },
+            { label: 'PLAY VIDEO 2 →', href: 'https://tv.kakao.com/v/446596974', primary: false },
+            { label: 'PLAY VIDEO 3 →', href: 'https://tv.kakao.com/v/446596994', primary: false }
+          ]
         }
       };
 
@@ -3139,6 +3563,24 @@
       const heroEl = document.getElementById('paperModalHero');
       const contentEl = document.getElementById('paperModalContent');
       const footerEl = document.getElementById('paperModalFooter');
+      const themeButtons = document.querySelectorAll('.theme-btn');
+
+      function applyTheme(theme) {
+        const nextTheme = theme === 'white' ? 'white' : 'black';
+        document.body.setAttribute('data-theme', nextTheme);
+        themeButtons.forEach(btn => {
+          btn.classList.toggle('is-active', btn.getAttribute('data-theme-value') === nextTheme);
+        });
+        try { localStorage.setItem('portfolio-theme', nextTheme); } catch (_) {}
+      }
+
+      const savedTheme = (() => {
+        try { return localStorage.getItem('portfolio-theme'); } catch (_) { return null; }
+      })();
+      applyTheme(savedTheme || 'black');
+      themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => applyTheme(btn.getAttribute('data-theme-value')));
+      });
 
       function buildMeta(p) {
         return [
