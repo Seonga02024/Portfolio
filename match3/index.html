@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match-3 Puzzle Game | Portfolio Showcase</title>
+  <meta name="description" content="Jelly Garden 기반 Match-3 게임을 서비스형 콘텐츠로 확장한 프로젝트 포트폴리오. 일일 퀘스트, 보상, 랭킹, 출석 시스템과 리팩토링 중심의 개발 과정을 정리했습니다." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --w-bg: #fff5ea;
+      --w-bg-soft: #ffeddc;
+      --w-paper: rgba(255,255,255,0.82);
+      --w-paper-strong: rgba(255,255,255,0.94);
+      --w-ink: #29170f;
+      --w-ink-soft: #65493a;
+      --w-muted: #9c7c69;
+      --w-line: rgba(92, 50, 28, 0.11);
+      --w-accent: #ff7b22;
+      --w-accent-2: #ffb95a;
+      --w-accent-3: #ff5f6d;
+      --w-shadow: 0 24px 70px rgba(86, 43, 18, 0.14);
+
+      --d-bg-0: #08101d;
+      --d-bg-1: #0d1728;
+      --d-bg-2: #121f35;
+      --d-panel: rgba(14, 24, 41, 0.84);
+      --d-panel-strong: rgba(12, 21, 37, 0.96);
+      --d-line: rgba(118, 165, 255, 0.14);
+      --d-text: #edf4ff;
+      --d-dim: #aebddb;
+      --d-muted: #7f8faa;
+      --d-accent: #74e6ff;
+      --d-accent-2: #8b9dff;
+      --d-accent-3: #50d88f;
+      --d-amber: #ffc655;
+      --d-shadow: 0 26px 80px rgba(0,0,0,0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      color: var(--w-ink);
+      background: var(--w-bg);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    code { font-family: "JetBrains Mono", monospace; }
+
+    section {
+      position: relative;
+      padding: 104px 28px;
+      overflow: clip;
+    }
+
+    .container {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .warm {
+      background:
+        radial-gradient(circle at top left, rgba(255, 185, 90, 0.28), transparent 28%),
+        linear-gradient(180deg, #fff7ef 0%, var(--w-bg) 100%);
+      color: var(--w-ink);
+    }
+
+    .dark {
+      background:
+        radial-gradient(circle at top right, rgba(116, 230, 255, 0.10), transparent 24%),
+        radial-gradient(circle at 12% 14%, rgba(139, 157, 255, 0.10), transparent 26%),
+        linear-gradient(180deg, var(--d-bg-0) 0%, var(--d-bg-1) 100%);
+      color: var(--d-text);
+    }
+
+    .dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(116, 230, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(116, 230, 255, 0.04) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 0%, transparent 82%);
+      pointer-events: none;
+    }
+
+    header.nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 246, 236, 0.86);
+      border-bottom: 1px solid rgba(92, 50, 28, 0.08);
+      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    header.nav.scrolled {
+      background: rgba(255, 249, 243, 0.95);
+      border-bottom-color: rgba(92, 50, 28, 0.12);
+      box-shadow: 0 14px 30px rgba(70, 30, 10, 0.08);
+    }
+
+    .nav-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 26% 26%, #fff8c8 0%, #ffd66d 30%, transparent 31%),
+        radial-gradient(circle at 74% 68%, #ff95bf 0%, #ff6a8a 26%, transparent 27%),
+        linear-gradient(135deg, #ff941f, #ff6d38 54%, #8c64ff);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.52), 0 10px 24px rgba(255, 122, 34, 0.28);
+    }
+
+    .brand-text strong { display: block; font-size: 15px; }
+    .brand-text span { display: block; font-size: 11px; font-weight: 600; color: var(--w-muted); }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--w-ink-soft);
+      transition: color .18s ease, transform .18s ease;
+    }
+
+    .nav-links a.tech {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      color: var(--w-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--w-accent);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding-top: 86px;
+      padding-bottom: 82px;
+      background:
+        radial-gradient(circle at 8% 18%, rgba(255, 185, 90, 0.34), transparent 26%),
+        radial-gradient(circle at 88% 20%, rgba(255, 95, 109, 0.12), transparent 22%),
+        linear-gradient(180deg, #fff8f1 0%, var(--w-bg) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(255, 123, 34, 0.10);
+      color: #bc5b00;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+      font-size: clamp(44px, 6.2vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .accent { color: #e76417; }
+
+    .hero .lead {
+      max-width: 620px;
+      font-size: 19px;
+      color: var(--w-ink-soft);
+      margin-bottom: 30px;
+    }
+
+    .hero-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .summary-card {
+      position: relative;
+      padding: 20px 18px;
+      border-radius: 22px;
+      background: var(--w-paper);
+      border: 1px solid var(--w-line);
+      box-shadow: var(--w-shadow);
+      backdrop-filter: blur(16px);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .summary-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 70px rgba(86, 43, 18, 0.18);
+      border-color: rgba(255, 123, 34, 0.18);
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .summary-card span {
+      font-size: 13px;
+      color: var(--w-ink-soft);
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, #ff7b22, #ff5f6d);
+      box-shadow: 0 16px 30px rgba(255, 95, 109, 0.20);
+    }
+
+    .btn-secondary {
+      color: var(--w-accent);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255, 123, 34, 0.22);
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 28px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,248,242,0.92));
+      border: 1px solid rgba(255, 123, 34, 0.12);
+      box-shadow: 0 30px 86px rgba(82, 41, 15, 0.16);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 16%, rgba(255, 206, 112, 0.42), transparent 28%),
+        radial-gradient(circle at 84% 82%, rgba(140, 100, 255, 0.12), transparent 24%);
+      pointer-events: none;
+    }
+
+    .board-preview {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+      transform: translateZ(14px);
+    }
+
+    .gem {
+      aspect-ratio: 1;
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.34);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 10px 18px rgba(87, 45, 23, 0.08);
+      animation: floatGem 4s ease-in-out infinite;
+      transition: transform .2s ease;
+    }
+
+    .gem:hover { transform: translateY(-4px) scale(1.03); }
+    .gem:nth-child(3n) { animation-duration: 4.8s; }
+    .gem:nth-child(4n) { animation-delay: -.8s; }
+    .gem::before {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: 14px;
+      background: var(--gem-color, linear-gradient(135deg, #ffd36f, #ff9e43));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
+    }
+
+    .gem::after {
+      content: "";
+      position: absolute;
+      width: 38%;
+      height: 18%;
+      top: 20%;
+      left: 18%;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.42);
+      transform: rotate(-28deg);
+    }
+
+    .gem.orange { --gem-color: linear-gradient(135deg, #ffd168, #ff9838); }
+    .gem.pink { --gem-color: linear-gradient(135deg, #ffc3da, #ff6696); }
+    .gem.blue { --gem-color: linear-gradient(135deg, #95d9ff, #4b85ff); }
+    .gem.green { --gem-color: linear-gradient(135deg, #b8ffbd, #47ce72); }
+    .gem.purple { --gem-color: linear-gradient(135deg, #d5b7ff, #8f6bff); }
+    .gem.yellow { --gem-color: linear-gradient(135deg, #fff3a0, #ffc74a); }
+
+    .hero-notes {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      transform: translateZ(20px);
+    }
+
+    .note-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(92, 50, 28, 0.08);
+    }
+
+    .note-icon {
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      background: linear-gradient(135deg, rgba(255, 123, 34, 0.16), rgba(255, 95, 109, 0.16));
+    }
+
+    .note-card strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .note-card span {
+      display: block;
+      font-size: 13px;
+      color: var(--w-ink-soft);
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 58px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .warm .section-eyebrow {
+      color: #bc5b00;
+    }
+
+    .dark .section-eyebrow {
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .dark .section-eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.8;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 3.9vw, 50px);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .warm .section-title {
+      font-family: "Gowun Batang", "Noto Sans KR", serif;
+    }
+
+    .dark .section-title {
+      color: var(--d-text);
+    }
+
+    .section-sub {
+      font-size: 18px;
+      max-width: 720px;
+    }
+
+    .warm .section-sub { color: var(--w-ink-soft); }
+    .dark .section-sub { color: var(--d-dim); }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .story-panel,
+    .pill-card,
+    .gallery-panel,
+    .stack-badge,
+    .metric-card,
+    .dark-card,
+    .flow-box,
+    .tech-panel,
+    .quote-panel,
+    .timeline-card,
+    .cta-panel {
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+    }
+
+    .story-panel,
+    .before-after,
+    .pill-card,
+    .gallery-panel,
+    .photo-slot,
+    .photo-slot-main {
+      background: var(--w-paper);
+      border: 1px solid var(--w-line);
+      box-shadow: var(--w-shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .story-panel,
+    .before-after {
+      padding: 28px;
+      border-radius: 28px;
+    }
+
+    .story-panel:hover,
+    .before-after:hover,
+    .pill-card:hover,
+    .gallery-panel:hover,
+    .photo-slot:hover,
+    .photo-slot-main:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 74px rgba(86, 43, 18, 0.18);
+      border-color: rgba(255, 123, 34, 0.16);
+    }
+
+    .story-panel h3,
+    .before-after h3,
+    .gallery-panel h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .story-panel p,
+    .before-after p,
+    .gallery-panel p,
+    .pill-card p {
+      color: var(--w-ink-soft);
+      font-size: 15px;
+    }
+
+    .pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pill-card {
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .pill-card .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 123, 34, 0.08);
+      color: var(--w-accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pill-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .compare-card {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(92, 50, 28, 0.08);
+    }
+
+    .compare-card .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .compare-card.before .tag {
+      background: rgba(255, 95, 109, 0.10);
+      color: #d84d5d;
+    }
+
+    .compare-card.after .tag {
+      background: rgba(80, 216, 143, 0.12);
+      color: #1f9361;
+    }
+
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .photo-slot-main,
+    .photo-slot {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      min-height: 220px;
+      padding: 24px;
+      isolation: isolate;
+    }
+
+    .photo-slot-main {
+      min-height: 420px;
+    }
+
+    .photo-slot-main::before,
+    .photo-slot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.10), transparent 48%),
+        radial-gradient(circle at top right, rgba(255, 185, 90, 0.18), transparent 28%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .slot-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      border: 1px dashed rgba(92, 50, 28, 0.16);
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.35)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.08),
+          rgba(255,255,255,0.08) 12px,
+          rgba(255,255,255,0.02) 12px,
+          rgba(255,255,255,0.02) 24px
+        );
+    }
+
+    .slot-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--w-accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .slot-title {
+      font-size: 24px;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .slot-caption {
+      max-width: 420px;
+      font-size: 14px;
+      color: var(--w-ink-soft);
+    }
+
+    .slot-side {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .divider {
+      padding: 74px 28px;
+      background:
+        linear-gradient(180deg, #fff8f1 0%, #fff4e7 100%);
+      border-top: 1px solid rgba(92, 50, 28, 0.06);
+      border-bottom: 1px solid rgba(92, 50, 28, 0.06);
+    }
+
+    .divider-box {
+      padding: 34px 38px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #2c1a13, #5f2b1a 52%, #9b4218);
+      color: #fff;
+      box-shadow: 0 24px 60px rgba(65, 28, 12, 0.28);
+    }
+
+    .divider-box strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .divider-box p {
+      max-width: 700px;
+      color: rgba(255,255,255,0.84);
+      font-size: 16px;
+    }
+
+    .metrics-bar {
+      padding-top: 52px;
+      padding-bottom: 52px;
+      border-top: 1px solid var(--d-line);
+      border-bottom: 1px solid var(--d-line);
+      background: linear-gradient(180deg, rgba(10, 18, 31, 0.94), rgba(11, 20, 34, 0.96));
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .metric-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--d-line);
+      box-shadow: var(--d-shadow);
+    }
+
+    .metric-card:hover,
+    .stack-badge:hover,
+    .dark-card:hover,
+    .flow-box:hover,
+    .tech-panel:hover,
+    .quote-panel:hover,
+    .timeline-card:hover,
+    .cta-panel:hover {
+      transform: translateY(-4px);
+      border-color: rgba(116, 230, 255, 0.24);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.38);
+    }
+
+    .metric-card strong {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: var(--d-text);
+    }
+
+    .metric-card span {
+      font-size: 13px;
+      color: var(--d-dim);
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stack-badge,
+    .dark-card,
+    .flow-box,
+    .tech-panel,
+    .quote-panel,
+    .timeline-card,
+    .cta-panel {
+      background: var(--d-panel);
+      border: 1px solid var(--d-line);
+      box-shadow: var(--d-shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .stack-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 22px;
+    }
+
+    .stack-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--d-text);
+      background: linear-gradient(135deg, rgba(116, 230, 255, 0.18), rgba(139, 157, 255, 0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stack-badge strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+      color: var(--d-text);
+    }
+
+    .stack-badge span {
+      font-size: 12px;
+      color: var(--d-muted);
+    }
+
+    .architecture-grid,
+    .systems-grid,
+    .timeline-grid,
+    .deep-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .dark-card,
+    .flow-box,
+    .tech-panel,
+    .quote-panel,
+    .timeline-card,
+    .cta-panel {
+      padding: 28px;
+      border-radius: 28px;
+    }
+
+    .dark-card h3,
+    .flow-box h3,
+    .tech-panel h3,
+    .timeline-card h3,
+    .cta-panel h3 {
+      margin-bottom: 14px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      color: var(--d-text);
+    }
+
+    .dark-card p,
+    .flow-box p,
+    .tech-panel p,
+    .timeline-card p,
+    .quote-panel p,
+    .cta-panel p {
+      color: var(--d-dim);
+      font-size: 15px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini-item:first-child { border-top: 0; padding-top: 0; }
+
+    .mini-bullet {
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--d-accent), var(--d-accent-2));
+      box-shadow: 0 0 18px rgba(116, 230, 255, 0.42);
+    }
+
+    .flow-steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .flow-step strong {
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(116, 230, 255, 0.18), rgba(139, 157, 255, 0.18));
+      color: var(--d-accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+    }
+
+    .flow-step span {
+      display: block;
+      color: var(--d-dim);
+      font-size: 14px;
+    }
+
+    .quote-panel {
+      margin-top: 22px;
+      background:
+        linear-gradient(135deg, rgba(116, 230, 255, 0.08), rgba(139, 157, 255, 0.08)),
+        var(--d-panel-strong);
+    }
+
+    .quote-panel p {
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--d-text);
+      letter-spacing: -0.02em;
+    }
+
+    .quote-panel strong {
+      color: var(--d-accent);
+    }
+
+    .timeline-grid {
+      margin-top: 22px;
+    }
+
+    .timeline-card .time {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(116, 230, 255, 0.08);
+      color: var(--d-accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .timeline-card strong {
+      color: var(--d-amber);
+    }
+
+    .cta-panel {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(116, 230, 255, 0.09), rgba(80, 216, 143, 0.08)),
+        var(--d-panel-strong);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--d-dim);
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform .18s ease, border-color .18s ease, color .18s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      color: var(--d-text);
+      border-color: rgba(116, 230, 255, 0.22);
+    }
+
+    footer {
+      padding: 40px 28px 60px;
+      background: var(--d-bg-0);
+      color: var(--d-muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+
+    @keyframes floatGem {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .intro-grid,
+      .gallery-layout,
+      .cta-panel,
+      .architecture-grid,
+      .systems-grid,
+      .timeline-grid,
+      .deep-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .slot-side { grid-template-rows: none; grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      section { padding: 84px 20px; }
+      .nav-inner { padding: 14px 20px; }
+      .nav-links { gap: 14px; }
+      .hero-summary,
+      .pill-grid,
+      .before-after,
+      .metrics-grid,
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-panel,
+      .story-panel,
+      .before-after,
+      .dark-card,
+      .flow-box,
+      .tech-panel,
+      .quote-panel,
+      .timeline-card,
+      .cta-panel,
+      .photo-slot,
+      .photo-slot-main { padding: 22px; }
+      .board-preview { gap: 8px; }
+      .hero .lead,
+      .section-sub { font-size: 16px; }
+      .photo-slot-main { min-height: 320px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="topNav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Match-3 Puzzle</strong>
+          <span>Portfolio Showcase</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="섹션 이동">
+        <a href="#overview">소개</a>
+        <a href="#gallery">화면</a>
+        <a href="#technical" class="tech">// technical</a>
+        <a href="#systems" class="tech">// systems</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="warm hero reveal" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Match-3 Puzzle · Live Ops Extension</span>
+        <h1>
+          익숙한 퍼즐의 재미를<br />
+          <span class="accent">매일 다시 열리는 플레이 경험</span>으로 확장한 프로젝트
+        </h1>
+        <p class="lead">
+          귀여운 비주얼과 직관적인 조작을 가진 Match-3 퍼즐 게임을 바탕으로, 반복 플레이를 유도하는 성장 요소와 라이브 서비스 감각을 더했습니다. 한 번 클리어하고 끝나는 구조보다, 매일 다시 들어오고 싶어지는 흐름을 만드는 데 초점을 둔 작업입니다.
+        </p>
+
+        <div class="hero-summary">
+          <div class="summary-card reveal reveal-delay-1">
+            <strong>Match-3</strong>
+            <span>직관적인 스왑과 연쇄 제거 중심 플레이</span>
+          </div>
+          <div class="summary-card reveal reveal-delay-2">
+            <strong>UGS</strong>
+            <span>랭킹 · 출석 · 일일 보상 시스템 확장</span>
+          </div>
+          <div class="summary-card reveal reveal-delay-3">
+            <strong>3 Weeks</strong>
+            <span>핵심 구조를 정리하며 빠르게 제작 완료</span>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary magnetic" href="#gallery">게임 화면 보기</a>
+          <a class="btn btn-secondary magnetic" href="#technical">기술 설명 보기</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="match3 board preview">
+        <div class="board-preview">
+          <div class="gem orange"></div><div class="gem pink"></div><div class="gem blue"></div><div class="gem green"></div><div class="gem purple"></div><div class="gem yellow"></div>
+          <div class="gem green"></div><div class="gem blue"></div><div class="gem yellow"></div><div class="gem orange"></div><div class="gem pink"></div><div class="gem purple"></div>
+          <div class="gem purple"></div><div class="gem orange"></div><div class="gem green"></div><div class="gem yellow"></div><div class="gem blue"></div><div class="gem pink"></div>
+          <div class="gem yellow"></div><div class="gem purple"></div><div class="gem orange"></div><div class="gem pink"></div><div class="gem green"></div><div class="gem blue"></div>
+          <div class="gem pink"></div><div class="gem yellow"></div><div class="gem blue"></div><div class="gem purple"></div><div class="gem orange"></div><div class="gem green"></div>
+          <div class="gem blue"></div><div class="gem green"></div><div class="gem pink"></div><div class="gem orange"></div><div class="gem yellow"></div><div class="gem purple"></div>
+        </div>
+        <div class="hero-notes">
+          <div class="note-card">
+            <div class="note-icon">🎯</div>
+            <div>
+              <strong>레벨 목표가 분명한 퍼즐 구조</strong>
+              <span>블록 제거, 점수 달성, 아이템 수집 같은 목적이 플레이 리듬을 분명하게 만듭니다.</span>
+            </div>
+          </div>
+          <div class="note-card">
+            <div class="note-icon">✨</div>
+            <div>
+              <strong>콤보와 특수 아이템이 만드는 시각적 보상</strong>
+              <span>매치 이후 연쇄 반응이 자연스럽게 다음 수를 기대하게 만드는 핵심 재미가 됩니다.</span>
+            </div>
+          </div>
+          <div class="note-card">
+            <div class="note-icon">📆</div>
+            <div>
+              <strong>서비스형 기능으로 이어지는 재방문 흐름</strong>
+              <span>일일 퀘스트, 보상, 랭킹, 출석 체크를 통해 퍼즐 플레이가 하루 단위 루프로 연결됩니다.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview" class="warm reveal">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Game Overview</span>
+        <h2 class="section-title">한눈에 봐도 방향이 보이는 퍼즐 게임</h2>
+        <p class="section-sub">
+          처음에는 누구나 쉽게 이해할 수 있어야 하고, 계속 플레이할 이유는 점점 더 선명해져야 합니다. 이 프로젝트는 그 두 가지를 동시에 만족시키는 방향으로 구성했습니다.
+        </p>
+      </div>
+
+      <div class="intro-grid">
+        <article class="story-panel reveal reveal-delay-1">
+          <h3>가볍게 시작하지만, 반복 플레이로 이어지는 구조</h3>
+          <p>
+            기본 플레이는 매우 익숙합니다. 같은 색 퍼즐을 맞추고, 연쇄 반응을 일으키며, 레벨 목표를 달성합니다. 하지만 프로젝트의 초점은 단순히 퍼즐을 구현하는 데서 멈추지 않았습니다. 플레이어가 하루 단위로 다시 접속하고, 목표를 확인하고, 보상을 받으며, 랭킹을 통해 자신의 위치를 확인하는 서비스형 구조로 자연스럽게 확장했습니다.
+          </p>
+        </article>
+
+        <div class="pill-grid">
+          <article class="pill-card reveal reveal-delay-1">
+            <span class="label">Feel</span>
+            <h3>직관적인 조작</h3>
+            <p>퍼즐 장르에 익숙하지 않아도 바로 이해할 수 있도록 입력과 피드백을 단순하고 분명하게 구성했습니다.</p>
+          </article>
+          <article class="pill-card reveal reveal-delay-2">
+            <span class="label">Rhythm</span>
+            <h3>짧고 반복 가능한 세션</h3>
+            <p>한 판이 길지 않아도 성취감이 남도록 만들어 출석, 보상, 퀘스트 루프와 잘 맞도록 설계했습니다.</p>
+          </article>
+          <article class="pill-card reveal reveal-delay-2">
+            <span class="label">Reward</span>
+            <h3>눈에 보이는 보상 구조</h3>
+            <p>콤보와 클리어의 만족감 위에 일일 보상과 누적 보상을 겹쳐 플레이 이유를 분명하게 만들었습니다.</p>
+          </article>
+          <article class="pill-card reveal reveal-delay-3">
+            <span class="label">Service</span>
+            <h3>계속 운영 가능한 흐름</h3>
+            <p>콘텐츠를 한 번 만드는 데서 끝나지 않고, 서비스처럼 관리할 수 있는 확장 포인트를 염두에 두었습니다.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="before-after reveal reveal-delay-2">
+        <div class="compare-card before">
+          <span class="tag">Base Game</span>
+          <h3>퍼즐 한 판의 완성도</h3>
+          <p>매치, 제거, 낙하, 목표 달성이라는 Match-3의 기본 구조를 안정적으로 유지하면서 레벨 단위의 완결된 재미를 제공합니다.</p>
+        </div>
+        <div class="compare-card after">
+          <span class="tag">Expanded Experience</span>
+          <h3>매일 돌아오게 만드는 이유</h3>
+          <p>퀘스트와 보상, 출석과 랭킹을 붙여 플레이어의 행동이 하루 단위 루프로 이어지도록 전체 경험을 확장했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="warm reveal">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Gallery</span>
+        <h2 class="section-title">게임 화면과 플레이 흐름을 담아낼 자리</h2>
+        <p class="section-sub">
+          실제 스크린샷이나 플레이 영상을 넣으면 프로젝트의 분위기와 사용성, 보상 구조가 한눈에 전달되도록 구성한 영역입니다.
+        </p>
+      </div>
+
+      <div class="gallery-layout">
+        <div class="photo-slot-main reveal reveal-delay-1">
+          <div class="slot-inner">
+            <span class="slot-kicker">Featured Visual</span>
+            <strong class="slot-title">대표 플레이 영상 또는 메인 스크린샷</strong>
+            <p class="slot-caption">첫 진입 화면, 퍼즐 플레이, 특수 아이템 연출, 보상 수령 장면 중 프로젝트의 성격을 가장 잘 보여주는 이미지를 배치하기 좋은 메인 영역입니다.</p>
+          </div>
+        </div>
+
+        <div class="slot-side">
+          <div class="photo-slot reveal reveal-delay-1">
+            <div class="slot-inner">
+              <span class="slot-kicker">UI Flow</span>
+              <strong class="slot-title">일일 퀘스트 / 출석</strong>
+              <p class="slot-caption">재방문 동기를 설명하는 UI 장면을 담기 좋은 슬롯입니다.</p>
+            </div>
+          </div>
+          <div class="photo-slot reveal reveal-delay-2">
+            <div class="slot-inner">
+              <span class="slot-kicker">Reward</span>
+              <strong class="slot-title">보상 수령 / 진행 상태</strong>
+              <p class="slot-caption">유저가 즉시 성취를 체감하는 구간을 보여주기 좋습니다.</p>
+            </div>
+          </div>
+          <div class="photo-slot reveal reveal-delay-3">
+            <div class="slot-inner">
+              <span class="slot-kicker">Social Loop</span>
+              <strong class="slot-title">리더보드 / 경쟁 요소</strong>
+              <p class="slot-caption">퍼즐 플레이가 서비스형 경험으로 연결되는 장면을 보강할 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="divider reveal" id="technical">
+    <div class="container">
+      <div class="divider-box">
+        <strong>여기부터는 플레이 경험을 실제 서비스 구조로 바꾼 기술 이야기입니다.</strong>
+        <p>
+          핵심은 기존 퍼즐 구조를 빠르게 파악하고 필요한 부분을 정리해, 짧은 기간 안에 운영형 기능을 안정적으로 얹는 것이었습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark metrics-bar reveal">
+    <div class="container metrics-grid">
+      <div class="metric-card reveal reveal-delay-1">
+        <strong>3주</strong>
+        <span>리팩토링과 서비스 기능 확장을 포함한 제작 기간</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-2">
+        <strong>UGS</strong>
+        <span>Cloud Save · Cloud Code · Leaderboards · Remote Config 활용</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-3">
+        <strong>Live Ops</strong>
+        <span>일일 퀘스트, 출석, 보상, 랭킹으로 재방문 루프 설계</span>
+      </div>
+      <div class="metric-card reveal reveal-delay-2">
+        <strong>Refactor</strong>
+        <span>기존 자산을 재정리해 개발 효율과 유지보수성을 함께 확보</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark reveal">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">// tech_stack</span>
+        <h2 class="section-title">Built on a clear, production-minded stack</h2>
+        <p class="section-sub">
+          프로젝트의 기술 포인트는 단순히 기능을 많이 붙인 것이 아니라, 기존 구조를 읽고 정리한 뒤 운영형 기능을 무리 없이 연결했다는 점에 있습니다.
+        </p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-badge reveal reveal-delay-1"><div class="stack-icon">U6</div><div><strong>Unity</strong><span>Core gameplay and UI</span></div></div>
+        <div class="stack-badge reveal reveal-delay-2"><div class="stack-icon">C#</div><div><strong>C#</strong><span>Gameplay / managers / async flows</span></div></div>
+        <div class="stack-badge reveal reveal-delay-3"><div class="stack-icon">SO</div><div><strong>ScriptableObject</strong><span>Level / target data organization</span></div></div>
+        <div class="stack-badge reveal reveal-delay-1"><div class="stack-icon">CC</div><div><strong>Cloud Code</strong><span>Server-side validation</span></div></div>
+        <div class="stack-badge reveal reveal-delay-2"><div class="stack-icon">CS</div><div><strong>Cloud Save</strong><span>Attendance and progress state</span></div></div>
+        <div class="stack-badge reveal reveal-delay-3"><div class="stack-icon">LB</div><div><strong>Leaderboards</strong><span>Ranking and competitive loop</span></div></div>
+        <div class="stack-badge reveal reveal-delay-1"><div class="stack-icon">RC</div><div><strong>Remote Config</strong><span>Reward definitions and tuning</span></div></div>
+        <div class="stack-badge reveal reveal-delay-2"><div class="stack-icon">UI</div><div><strong>UGUI</strong><span>Menu, popup, state feedback</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark reveal">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">// architecture</span>
+        <h2 class="section-title">기술적으로는 기존 퍼즐 구조를 서비스형 흐름으로 재조립했습니다</h2>
+        <p class="section-sub">
+          새로 모든 것을 만드는 대신, 이미 존재하는 게임의 핵심 구조를 유지하면서 확장이 필요한 지점을 골라 정리했습니다. 이 접근 덕분에 불필요한 재구현을 줄이고, 약 3주 안에 제작을 마무리할 수 있었습니다.
+        </p>
+      </div>
+
+      <div class="architecture-grid">
+        <article class="dark-card reveal reveal-delay-1">
+          <h3>리팩토링의 목적은 속도보다도 방향 정리</h3>
+          <p>
+            기존 Jelly Garden 구조를 그대로 덮어쓰기보다, 실제로 운영 기능이 붙어야 하는 지점을 먼저 분리했습니다. 메뉴 진입, 팝업 흐름, 데이터 반영, 상태 갱신 같은 연결부를 정리하면서 이후 기능 추가가 자연스럽게 이어지도록 만들었습니다.
+          </p>
+          <div class="mini-list">
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>불필요한 재작성 최소화</strong><p>핵심 퍼즐 로직은 유지하고, 서비스 기능이 얹히는 레이어를 중심으로 손봤습니다.</p></div></div>
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>UI 상태 흐름 정리</strong><p>팝업, 버튼, 로딩, 보상 반영이 서로 충돌하지 않도록 흐름을 분명하게 정리했습니다.</p></div></div>
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>유지보수성 확보</strong><p>기능별 매니저와 역할 분리를 기준으로 후속 확장이 가능하도록 구성했습니다.</p></div></div>
+          </div>
+        </article>
+
+        <article class="flow-box reveal reveal-delay-2">
+          <h3>플레이에서 서비스 기능으로 이어지는 흐름</h3>
+          <p>
+            사용자는 퍼즐을 플레이하지만, 시스템은 그 플레이를 일일 루프와 누적 보상 구조로 해석합니다. 이 흐름을 끊기지 않게 이어주는 것이 프로젝트의 핵심 설계 포인트였습니다.
+          </p>
+          <div class="flow-steps">
+            <div class="flow-step"><strong>01</strong><span>퍼즐 플레이 결과와 진행 상태를 게임 내 데이터로 정리합니다.</span></div>
+            <div class="flow-step"><strong>02</strong><span>일일 퀘스트, 출석, 보상 조건을 UGS 기반 데이터와 연결합니다.</span></div>
+            <div class="flow-step"><strong>03</strong><span>보상 지급과 상태 저장은 서버 검증 흐름을 통해 일관성을 유지합니다.</span></div>
+            <div class="flow-step"><strong>04</strong><span>플레이어는 매일 접속해 진행 상황과 보상을 확인하는 반복 루프를 경험합니다.</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="systems" class="dark reveal">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">// systems</span>
+        <h2 class="section-title">프로젝트를 서비스형 경험으로 바꾼 UGS 기능들</h2>
+        <p class="section-sub">
+          GitHub에 정리한 주요 작업은 단순 UI 추가가 아니라, 서버 검증과 상태 동기화를 포함한 실제 운영 기능 구현에 가깝습니다.
+        </p>
+      </div>
+
+      <div class="systems-grid">
+        <article class="tech-panel reveal reveal-delay-1">
+          <h3>일일 퀘스트</h3>
+          <p>
+            플레이어가 하루 단위 목표를 인식하고 보상을 받도록 일일 퀘스트 흐름을 구성했습니다. 퀘스트 표시, 달성 상태 반영, 보상 수령 처리까지가 하나의 루프로 이어지도록 설계했습니다.
+          </p>
+          <div class="mini-list">
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>반복 접속 유도</strong><p>매일 다른 목표를 확인하고 처리하는 이유를 제공합니다.</p></div></div>
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>상태 동기화</strong><p>클라이언트 UI와 서버 상태가 어긋나지 않도록 갱신 시점을 관리했습니다.</p></div></div>
+          </div>
+        </article>
+
+        <article class="tech-panel reveal reveal-delay-2">
+          <h3>출석 체크와 누적 보상</h3>
+          <p>
+            매일 접속하는 플레이어에게 가장 빠르게 보상이 체감되는 영역입니다. Cloud Save와 Cloud Code를 통해 날짜 기준 상태를 판단하고, 출석 보상 수령을 안정적으로 처리했습니다.
+          </p>
+          <div class="mini-list">
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>날짜 기준 판정</strong><p>월 단위 / 일 단위 상태를 기준으로 출석 진행을 관리합니다.</p></div></div>
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>즉시 피드백 UX</strong><p>버튼 입력과 보상 반영 사이의 체감 지연을 줄이는 방향으로 UI를 보강했습니다.</p></div></div>
+          </div>
+        </article>
+
+        <article class="tech-panel reveal reveal-delay-1">
+          <h3>게임 보상 관리</h3>
+          <p>
+            보상은 단순한 숫자 증가가 아니라, 플레이를 계속하게 만드는 핵심 설계 요소입니다. 재화 지급, 수령 상태, UI 반영을 하나의 흐름으로 묶어 사용자가 결과를 즉시 이해할 수 있도록 했습니다.
+          </p>
+          <div class="mini-list">
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>보상 체감 강화</strong><p>수령 전후 상태가 명확히 보이도록 UI 흐름을 설계했습니다.</p></div></div>
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>확장성 확보</strong><p>이후 다른 이벤트 보상으로 확장할 수 있는 구조를 염두에 두었습니다.</p></div></div>
+          </div>
+        </article>
+
+        <article class="tech-panel reveal reveal-delay-2">
+          <h3>리더보드</h3>
+          <p>
+            퍼즐 플레이를 단순 소비형 경험으로 끝내지 않기 위해 경쟁 요소를 더했습니다. 점수 기반 랭킹은 플레이 결과를 외부 기준과 비교하게 만들고, 다시 도전할 이유를 강화합니다.
+          </p>
+          <div class="mini-list">
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>비교 가능한 성과</strong><p>자신의 플레이 결과를 순위로 확인하게 만들어 반복 플레이 동기를 만듭니다.</p></div></div>
+            <div class="mini-item"><div class="mini-bullet"></div><div><strong>팝업 흐름 제어</strong><p>맵 입력과 UI 충돌이 나지 않도록 가드 흐름까지 함께 정리했습니다.</p></div></div>
+          </div>
+        </article>
+      </div>
+
+      <article class="quote-panel reveal reveal-delay-2">
+        <p>
+          이 프로젝트의 기술적 가치는 <strong>기존 게임 자산을 빠르게 이해하고, 필요한 구조만 정리해, 약 3주 안에 운영형 기능까지 연결한 실행력</strong>에 있습니다. 단순 구현보다도, 어떤 부분을 건드리고 어떤 부분은 유지할지 판단한 과정 자체가 중요한 작업이었습니다.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="dark reveal">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">// delivery</span>
+        <h2 class="section-title">짧은 기간 안에 완성도를 올리기 위해 선택한 방식</h2>
+        <p class="section-sub">
+          이 작업은 새로운 게임을 처음부터 만드는 프로젝트라기보다, 이미 존재하는 퍼즐 구조를 읽고 서비스 기능을 붙일 수 있는 형태로 다듬는 프로젝트에 가까웠습니다.
+        </p>
+      </div>
+
+      <div class="timeline-grid">
+        <article class="timeline-card reveal reveal-delay-1">
+          <span class="time">Week 1</span>
+          <h3>핵심 구조 파악과 흐름 정리</h3>
+          <p>레벨 진입, 팝업, 데이터 반영, 주요 매니저의 역할을 분석해 어디를 리팩토링해야 할지 먼저 결정했습니다.</p>
+        </article>
+        <article class="timeline-card reveal reveal-delay-2">
+          <span class="time">Week 2</span>
+          <h3>UGS 기능 연결</h3>
+          <p>일일 퀘스트, 출석 체크, 보상 지급, 리더보드 흐름을 실제 플레이 루프와 연결하고 상태 갱신을 안정화했습니다.</p>
+        </article>
+        <article class="timeline-card reveal reveal-delay-2">
+          <span class="time">Week 3</span>
+          <h3>UX 다듬기와 예외 처리</h3>
+          <p>맵 클릭 가드, 팝업 충돌 방지, 보상 수령 직후 UI 반영 같은 체감 품질을 정리하며 마무리했습니다.</p>
+        </article>
+        <article class="timeline-card reveal reveal-delay-3">
+          <span class="time">Outcome</span>
+          <h3>효율성과 확장성의 균형</h3>
+          <p><strong>기존 구조를 재활용하면서도 필요한 서비스 기능을 충분히 보여줄 수 있는 포트폴리오 결과물</strong>로 정리했습니다.</p>
+        </article>
+      </div>
+
+      <article class="cta-panel reveal reveal-delay-2">
+        <div>
+          <h3>포트폴리오에서 이 프로젝트가 보여주는 것</h3>
+          <p>
+            단순히 퍼즐 게임을 구현했다는 사실보다, 이미 존재하는 구조를 빠르게 읽고 정리한 뒤 운영형 기능을 설계하고 연결할 수 있다는 점을 보여줍니다. 제한된 기간 안에서 우선순위를 세우고, 구현과 사용자 경험을 함께 챙긴 사례입니다.
+          </p>
+        </div>
+        <div class="chip-row">
+          <div class="chip">Refactoring</div>
+          <div class="chip">Live Ops</div>
+          <div class="chip">UGS</div>
+          <div class="chip">UI Flow</div>
+          <div class="chip">Service Loop</div>
+          <div class="chip">Production Thinking</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Match-3 Puzzle Game Portfolio</span>
+      <span>Designed to present both player experience and service-oriented implementation.</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('topNav');
+    const onScroll = () => {
+      if (window.scrollY > 12) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.14 });
+    revealItems.forEach((item) => io.observe(item));
+
+    const heroPanel = document.querySelector('.hero-panel');
+    if (heroPanel) {
+      const resetPanel = () => {
+        heroPanel.style.transform = '';
+      };
+
+      heroPanel.addEventListener('mousemove', (event) => {
+        const rect = heroPanel.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const rx = ((y / rect.height) - 0.5) * -8;
+        const ry = ((x / rect.width) - 0.5) * 10;
+        heroPanel.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      });
+
+      heroPanel.addEventListener('mouseleave', resetPanel);
+    }
+
+    document.querySelectorAll('.magnetic').forEach((button) => {
+      const reset = () => button.style.transform = '';
+      button.addEventListener('mousemove', (event) => {
+        const rect = button.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        button.style.transform = `translate(${x * 0.06}px, ${y * 0.10}px)`;
+      });
+      button.addEventListener('mouseleave', reset);
+    });
+  </script>
+</body>
+</html>
