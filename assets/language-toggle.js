@@ -25,7 +25,7 @@
       return localStorage.getItem(STORAGE_LANG) === "en" ? "en" : "ko";
     } catch (_) {
       return "ko";
-    }
+    } 
   }
 
   function saveLang(lang) {
