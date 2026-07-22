@@ -1,0 +1,627 @@
+{
+  "page": "gucci-tennis",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "— 다른 개발자에게 참고 자산으로 공유.",
+      "text": "— Share as reference asset to other developers."
+    },
+    {
+      "key": "t0002",
+      "source": "— 수학으로 자연스러운 궤적을.",
+      "text": "— Natural trajectories with math."
+    },
+    {
+      "key": "t0003",
+      "source": "1주",
+      "text": "1 week"
+    },
+    {
+      "key": "t0004",
+      "source": "2024.07.12 출시 → 1주간 집중 패치 → 안정화 완료. 빠른 대응 사이클.",
+      "text": "Released 2024.07.12 → 1 week intensive patch → Stabilization completed. Quick response cycle."
+    },
+    {
+      "key": "t0005",
+      "source": "2D UI 입력 → 3D 월드 매핑",
+      "text": "2D UI input → 3D world mapping"
+    },
+    {
+      "key": "t0006",
+      "source": "3개월",
+      "text": "3 months"
+    },
+    {
+      "key": "t0007",
+      "source": "3판 중 2세트 승리 시 게임 종료. 점수·듀스·어드밴티지까지 그대로 구현했어요.",
+      "text": "The game ends when you win 2 sets out of 3. Score, deuce, and advantage were all implemented as is."
+    },
+    {
+      "key": "t0008",
+      "source": "3판 중 2세트 승리 시 자동 종료",
+      "text": "Automatic termination when 2 out of 3 sets are won"
+    },
+    {
+      "key": "t0009",
+      "source": "3D 랠리 · 포물선 궤적",
+      "text": "3D rally/parabolic trajectory"
+    },
+    {
+      "key": "t0010",
+      "source": "각 상태에서 입력에 따른 전이만 정의 → 룰 변경도 표 형태로 관리.",
+      "text": "In each state, only transitions according to input are defined → rule changes are also managed in table form."
+    },
+    {
+      "key": "t0011",
+      "source": "강도 게이지 → 공 속도 스칼라 매핑",
+      "text": "Strength gauge → ball speed scalar mapping"
+    },
+    {
+      "key": "t0012",
+      "source": "개발 기간",
+      "text": "development period"
+    },
+    {
+      "key": "t0013",
+      "source": "개발 사이클 동안 실제로 마주친 문제와 해결 과정 — 수학·매칭·기획 변경·룰 복잡도까지.",
+      "text": "Problems actually encountered and solved during the development cycle — math, matching, planning changes, rule complexity."
+    },
+    {
+      "key": "t0014",
+      "source": "개발 중후반 기획 변경 시 코드 전면 수정 위험",
+      "text": "Risk of complete code modification when planning changes in mid-to-late development"
+    },
+    {
+      "key": "t0015",
+      "source": "개월 개발",
+      "text": "months development"
+    },
+    {
+      "key": "t0016",
+      "source": "게임 내 Gucci 의상·물품 전시 — 플레이어가 직접 입어보고 체험하는 브랜드 노출.",
+      "text": "Display of Gucci clothing and items in the game — Exposure to the brand that players can try on and experience."
+    },
+    {
+      "key": "t0017",
+      "source": "게임 내 Gucci 의상·물품 전시. 브랜드 홍보 + 콘텐츠 내 수익 창출을 동시에.",
+      "text": "Gucci clothing and merchandise displayed in the game. Promote your brand + generate revenue within your content at the same time."
+    },
+    {
+      "key": "t0018",
+      "source": "게임 소개",
+      "text": "Game Introduction"
+    },
+    {
+      "key": "t0019",
+      "source": "공 궤적 시뮬레이션",
+      "text": "ball trajectory simulation"
+    },
+    {
+      "key": "t0020",
+      "source": "공 궤적 시뮬레이션 (포물선 + 중력 + 충돌)",
+      "text": "Ball trajectory simulation (parabola + gravity + collision)"
+    },
+    {
+      "key": "t0021",
+      "source": "그대로 코드로 옮긴 점수 시스템.",
+      "text": "A scoring system translated directly into code."
+    },
+    {
+      "key": "t0022",
+      "source": "그리고 듀스/어드밴티지를 포함한 점수 상태 기계.",
+      "text": "and a scoring state machine including deuce/advantage."
+    },
+    {
+      "key": "t0023",
+      "source": "기술 관점",
+      "text": "technology perspective"
+    },
+    {
+      "key": "t0024",
+      "source": "기여도",
+      "text": "Contribution"
+    },
+    {
+      "key": "t0025",
+      "source": "기획 변경(가령 2판제) 대응을 위한 모듈화 설계",
+      "text": "Modular design to respond to planning changes (e.g. 2nd edition)"
+    },
+    {
+      "key": "t0026",
+      "source": "기획 협업 → 개발 → 서버 연결 → 출시 → 패치 → 운영까지 전 과정을 직접 수행.",
+      "text": "Directly performs the entire process from planning collaboration → development → server connection → release → patch → operation."
+    },
+    {
+      "key": "t0027",
+      "source": "기획·개발·서버·출시·유지보수까지 풀 사이클을 거치며 얻은 정량·정성 성과.",
+      "text": "Quantitative and qualitative results obtained through the full cycle from planning, development, server, release, and maintenance."
+    },
+    {
+      "key": "t0028",
+      "source": "기획자와 사전 협업으로 변경 가능성 큰 영역 식별,",
+      "text": "Identify areas with high potential for change through prior collaboration with planners,"
+    },
+    {
+      "key": "t0029",
+      "source": "기획자와 처음부터 끝까지 협업하며, 기획 변경에 강건한 구조로 설계.",
+      "text": "We collaborate with planners from start to finish and design a structure that is robust to planning changes."
+    },
+    {
+      "key": "t0030",
+      "source": "누적 방문",
+      "text": "cumulative visits"
+    },
+    {
+      "key": "t0031",
+      "source": "누적 방문 수 (2024.8 기준)",
+      "text": "Cumulative number of visits (as of August 2024)"
+    },
+    {
+      "key": "t0032",
+      "source": "단순 2D 입력만으로는 3D 공 궤적이 부자연스럽고 어색했음",
+      "text": "The 3D ball trajectory was unnatural and awkward with only simple 2D input."
+    },
+    {
+      "key": "t0033",
+      "source": "동시 매칭 충돌 감소 + 매칭 성공률 상승.",
+      "text": "Reduced simultaneous matching conflicts + increased matching success rate."
+    },
+    {
+      "key": "t0034",
+      "source": "라켓을 휘둘렀다",
+      "text": "I swung the racket"
+    },
+    {
+      "key": "t0035",
+      "source": "랠리",
+      "text": "rally"
+    },
+    {
+      "key": "t0036",
+      "source": "랭킹 · 보상",
+      "text": "Ranking · Reward"
+    },
+    {
+      "key": "t0037",
+      "source": "랭킹 + 보상",
+      "text": "Ranking + Rewards"
+    },
+    {
+      "key": "t0038",
+      "source": "랭킹 등록 · 보상 화면",
+      "text": "Ranking registration / reward screen"
+    },
+    {
+      "key": "t0039",
+      "source": "로 매 프레임 위치 갱신,",
+      "text": "Update the position every frame,"
+    },
+    {
+      "key": "t0040",
+      "source": "매칭 + 멀티방 시스템",
+      "text": "Matching + multi-room system"
+    },
+    {
+      "key": "t0041",
+      "source": "매칭 성공률과 동시 처리 안정성을 끌어올렸어요.",
+      "text": "We have improved the matching success rate and simultaneous processing stability."
+    },
+    {
+      "key": "t0042",
+      "source": "매칭 실패 시 폴백 경로 — 자연스러운 재시도 흐름",
+      "text": "Fallback path when matching fails — natural retry flow"
+    },
+    {
+      "key": "t0043",
+      "source": "매칭 실패·매칭 지연으로 첫 인상 UX가 깨지는 위험",
+      "text": "Risk of losing first impression UX due to matching failure or delayed matching"
+    },
+    {
+      "key": "t0044",
+      "source": "매칭 직전",
+      "text": "Just before matching"
+    },
+    {
+      "key": "t0045",
+      "source": "매칭 풀을 멀티방 단위로 분할 → 충돌·대기 감소",
+      "text": "Divide the matching pool into multi-room units → reduce conflicts and waiting"
+    },
+    {
+      "key": "t0046",
+      "source": "멀티방 구조 + 서버 데이터 분할로 매칭 성공률과 동시 접속 안정성을 끌어올렸어요.",
+      "text": "Multi-room structure + server data division increases matching success rate and simultaneous connection stability."
+    },
+    {
+      "key": "t0047",
+      "source": "멀티방 구조로 매칭 풀을 분할하고, 서버 데이터까지 방 단위로 격리.",
+      "text": "The matching pool is divided into a multi-room structure, and even server data is isolated by room."
+    },
+    {
+      "key": "t0048",
+      "source": "멀티방 매칭",
+      "text": "Multi-room matching"
+    },
+    {
+      "key": "t0049",
+      "source": "멀티방 매칭, 서버 데이터 분할, 그리고 공 궤적·좌표 변환에 쓰인 게임 수학.",
+      "text": "Game mathematics used for multi-room matching, server data division, and ball trajectory/coordinate conversion."
+    },
+    {
+      "key": "t0050",
+      "source": "메인 담당",
+      "text": "Main person in charge"
+    },
+    {
+      "key": "t0051",
+      "source": "메인 담당, 출시 + 패치까지 풀 사이클.",
+      "text": "Main responsibility, full cycle from release + patch."
+    },
+    {
+      "key": "t0052",
+      "source": "명이",
+      "text": "Myeongseong"
+    },
+    {
+      "key": "t0053",
+      "source": "발사 각도까지 거리·강도에 맞게 자동 산출.",
+      "text": "The launch angle is automatically calculated according to the distance and intensity."
+    },
+    {
+      "key": "t0054",
+      "source": "버튼에서 확인할 수 있어요.",
+      "text": "You can check it from the button."
+    },
+    {
+      "key": "t0055",
+      "source": "브랜드 홍보 효과",
+      "text": "Brand promotion effect"
+    },
+    {
+      "key": "t0056",
+      "source": "서버 데이터 분할 — 방별로 상태 격리해 부하 균등 분산",
+      "text": "Server data division – Isolate state by room to distribute load evenly"
+    },
+    {
+      "key": "t0057",
+      "source": "세 가지 핵심 기능의 개념적 구현 — 공 궤적 (포물선 + 충돌), 2D→3D 좌표 매핑,",
+      "text": "Conceptual implementation of three key features — ball trajectory (parabola + collision), 2D→3D coordinate mapping,"
+    },
+    {
+      "key": "t0058",
+      "source": "스핀·바운스 파라미터화 — 향후 확장 여지",
+      "text": "Spin and bounce parameterization — room for future expansion"
+    },
+    {
+      "key": "t0059",
+      "source": "승리가 누적될수록 랭킹에 등록되고, 그에 따른 인게임 보상까지.",
+      "text": "The more wins you accumulate, the more you are registered in the rankings and the corresponding in-game rewards."
+    },
+    {
+      "key": "t0060",
+      "source": "실제 테니스 룰",
+      "text": "real tennis rules"
+    },
+    {
+      "key": "t0061",
+      "source": "실제 테니스 룰 엔진",
+      "text": "Real tennis rules engine"
+    },
+    {
+      "key": "t0062",
+      "source": "실제 테니스 룰을 그대로 살리면서, 메타버스 안에서 한 판 즐길 수 있도록 구성했어요.",
+      "text": "We designed it so that you can enjoy a game within the metaverse while keeping the actual tennis rules intact."
+    },
+    {
+      "key": "t0063",
+      "source": "실제 플레이 영상은 상단",
+      "text": "Actual play video is above"
+    },
+    {
+      "key": "t0064",
+      "source": "에서 살펴봅니다",
+      "text": "Take a look at"
+    },
+    {
+      "key": "t0065",
+      "source": "여기서부터는 매칭 시스템·테니스 룰 엔진·공 궤적 시뮬레이션·2D↔3D 좌표 변환을 어떻게 구현했는지 살펴봅니다.",
+      "text": "From here, we will look at how the matching system, tennis rule engine, ball trajectory simulation, and 2D↔3D coordinate conversion were implemented."
+    },
+    {
+      "key": "t0066",
+      "source": "월드 입장 → 게임 시작 버튼 → 자동 매칭. 멀티방 진입과 서버 데이터 분할로",
+      "text": "Enter the world → Start game button → Automatic matching. Entering multi-room and dividing server data"
+    },
+    {
+      "key": "t0067",
+      "source": "월드 입장 → 게임 시작 버튼 한 번이면 즉시 상대 매칭. 대기 시간 최소화.",
+      "text": "Enter the world → Start game with one click to instantly match your opponent. Minimize waiting time."
+    },
+    {
+      "key": "t0068",
+      "source": "월드 입장 직후 발급 및 멀티방 진입",
+      "text": "Issued immediately after entering the world and entering multi-room"
+    },
+    {
+      "key": "t0069",
+      "source": "이런 기능들이 들어가 있어요",
+      "text": "These features are included"
+    },
+    {
+      "key": "t0070",
+      "source": "이렇게 진행됩니다",
+      "text": "It goes like this"
+    },
+    {
+      "key": "t0071",
+      "source": "이제",
+      "text": "now"
+    },
+    {
+      "key": "t0072",
+      "source": "인게임 · 3D 테니스 랠리",
+      "text": "In-game 3D tennis rally"
+    },
+    {
+      "key": "t0073",
+      "source": "인게임 수익",
+      "text": "In-game revenue"
+    },
+    {
+      "key": "t0074",
+      "source": "입력 → 정규화된 코트 좌표",
+      "text": "Input → Normalized court coordinates"
+    },
+    {
+      "key": "t0075",
+      "source": "입력 강도 → 초기 속도 벡터 변환",
+      "text": "Input intensity → initial velocity vector conversion"
+    },
+    {
+      "key": "t0076",
+      "source": "입력 위치·강도와 중력·충돌을 결합한 공 궤적으로 실제 테니스 같은 랠리 구현.",
+      "text": "Realize a real tennis-like rally with a ball trajectory that combines input position/strength with gravity/collision."
+    },
+    {
+      "key": "t0077",
+      "source": "입력 위치와 강도에 따라 공의 위치·속도·중력을 계산.",
+      "text": "Calculate the ball's position, speed, and gravity based on the input position and intensity."
+    },
+    {
+      "key": "t0078",
+      "source": "자동 매칭",
+      "text": "automatic matching"
+    },
+    {
+      "key": "t0079",
+      "source": "자동 매칭 · 입장 직전",
+      "text": "Automatic matching · Just before entering"
+    },
+    {
+      "key": "t0080",
+      "source": "점수 갱신 시 양 클라이언트로 즉시 브로드캐스트",
+      "text": "Immediately broadcast to both clients when score is updated"
+    },
+    {
+      "key": "t0081",
+      "source": "점수(15·30·40), 듀스, 어드밴티지, 세트, 매치까지 — 실제 테니스 룰을",
+      "text": "Score (15, 30, 40), deuce, advantage, set, match — actual tennis rules"
+    },
+    {
+      "key": "t0082",
+      "source": "중력 상수 적용한 포물선 운동 적분",
+      "text": "Parabolic motion integral with gravitational constant applied"
+    },
+    {
+      "key": "t0083",
+      "source": "직접 설계 · 구현한 4가지 핵심 영역",
+      "text": "Four core areas designed and implemented directly"
+    },
+    {
+      "key": "t0084",
+      "source": "진격의 거인 · 2.1M 누적",
+      "text": "Attack on Titan · 2.1M cumulative"
+    },
+    {
+      "key": "t0085",
+      "source": "진행 컷",
+      "text": "progress cut"
+    },
+    {
+      "key": "t0086",
+      "source": "착용 캐릭터",
+      "text": "wearing character"
+    },
+    {
+      "key": "t0087",
+      "source": "출시 + 유지보수",
+      "text": "Release + Maintenance"
+    },
+    {
+      "key": "t0088",
+      "source": "출시 + 패치",
+      "text": "Release + Patch"
+    },
+    {
+      "key": "t0089",
+      "source": "출시 약 1개월 만에 193,000+ 누적 방문 — 메타버스 콜라보 게임의 성공 지표.",
+      "text": "193,000+ cumulative visits in about a month after launch — an indicator of the success of the Metaverse collaboration game."
+    },
+    {
+      "key": "t0090",
+      "source": "출시 운영 중",
+      "text": "Launch in operation"
+    },
+    {
+      "key": "t0091",
+      "source": "출시 운영 중 · 193K+",
+      "text": "Now in operation · 193K+"
+    },
+    {
+      "key": "t0092",
+      "source": "출시 이후의 성과",
+      "text": "Performance since launch"
+    },
+    {
+      "key": "t0093",
+      "source": "출시 키 비주얼 · Gucci × Zepeto",
+      "text": "Release Key Visual · Gucci × Zepeto"
+    },
+    {
+      "key": "t0094",
+      "source": "카메라 행렬과 코트 평면의 교점 계산",
+      "text": "Calculate the intersection of the camera matrix and the court plane"
+    },
+    {
+      "key": "t0095",
+      "source": "코트 바닥/네트/라인 충돌 처리",
+      "text": "Court floor/net/line collision handling"
+    },
+    {
+      "key": "t0096",
+      "source": "콘텐츠 내 전시 아이템을 통한 직접 수익 창출 — 메타버스 커머스 검증.",
+      "text": "Direct profit generation through exhibition items within content — Metaverse Commerce verification."
+    },
+    {
+      "key": "t0097",
+      "source": "클라이언트",
+      "text": "client"
+    },
+    {
+      "key": "t0098",
+      "source": "테니스 룰 (듀스·어드밴티지·세트·매치) 구현 복잡도 ↑",
+      "text": "Tennis rules (deuce, advantage, set, match) implementation complexity ↑"
+    },
+    {
+      "key": "t0099",
+      "source": "패턴을 활용한 직관적 조작감의 핵심.",
+      "text": "The key to intuitive operation using patterns."
+    },
+    {
+      "key": "t0100",
+      "source": "포물선 + 충돌",
+      "text": "parabola + collision"
+    },
+    {
+      "key": "t0101",
+      "source": "포물선 방정식으로 위치·속도·중력을 시간 함수로 계산.",
+      "text": "Calculate position, velocity, and gravity as a function of time using parabolic equations."
+    },
+    {
+      "key": "t0102",
+      "source": "풀 사이클 경험",
+      "text": "full cycle experience"
+    },
+    {
+      "key": "t0103",
+      "source": "플레이어 위치 기준 상대 좌표 보정",
+      "text": "Relative coordinate correction based on player location"
+    },
+    {
+      "key": "t0104",
+      "source": "함수 분리 + 의존성 최소화 — 출시 이후 패치 작업도 빠르게 흡수했어요.",
+      "text": "Separate functions + minimize dependencies — Patch work was quickly absorbed after release."
+    },
+    {
+      "key": "t0105",
+      "source": "함수 분리 + 의존성 최소화로 모듈화. 중간 추가·수정도 국소 변경으로 흡수.",
+      "text": "Modularization with function separation + minimization of dependencies. Intermediate additions and modifications are also absorbed as local changes."
+    },
+    {
+      "key": "t0106",
+      "source": "화면",
+      "text": "screen"
+    },
+    {
+      "key": "t0107",
+      "source": "FEATURES · 게임에 담은 것",
+      "text": "FEATURES · What’s included in the game"
+    },
+    {
+      "key": "t0108",
+      "source": "GAMEPLAY · 게임 화면",
+      "text": "GAMEPLAY · Game screen"
+    },
+    {
+      "key": "t0109",
+      "source": "GitHub 공개",
+      "text": "GitHub public"
+    },
+    {
+      "key": "t0110",
+      "source": "GitHub 코드 공개",
+      "text": "GitHub code release"
+    },
+    {
+      "key": "t0111",
+      "source": "Gucci × Zepeto 3D 테니스 —",
+      "text": "Gucci × Zepeto 3D Tennis —"
+    },
+    {
+      "key": "t0112",
+      "source": "Gucci × Zepeto 콜라보 · 3D 멀티 테니스",
+      "text": "Gucci × Zepeto collaboration · 3D multi tennis"
+    },
+    {
+      "key": "t0113",
+      "source": "Gucci 브랜드 콜라보",
+      "text": "Gucci brand collaboration"
+    },
+    {
+      "key": "t0114",
+      "source": "Gucci 의상",
+      "text": "Gucci costumes"
+    },
+    {
+      "key": "t0115",
+      "source": "Gucci 의상 착용 · 브랜드 홍보",
+      "text": "Wearing Gucci clothes and promoting the brand"
+    },
+    {
+      "key": "t0116",
+      "source": "Gucci 콜라보 메타버스 3D 테니스 게임. 자동 매칭부터 3판 2세트 룰까지.",
+      "text": "Gucci collaboration metaverse 3D tennis game. From automatic matching to 2 sets of 3 rules."
+    },
+    {
+      "key": "t0117",
+      "source": "Gucci 콜라보 키 비주얼, 매칭, 랠리, 랭킹 보상 UI까지 — 게임의 주요 화면들.",
+      "text": "Gucci collaboration key visual, matching, rally, and ranking reward UI — the main screens of the game."
+    },
+    {
+      "key": "t0118",
+      "source": "MY CONTRIBUTIONS · 클라이언트 80% 메인",
+      "text": "MY CONTRIBUTIONS · Client 80% Main"
+    },
+    {
+      "key": "t0119",
+      "source": "Naver Zepeto × Gucci 콜라보 3D 멀티 테니스 게임. 누적 방문 193K, Unity + TypeScript, 공 궤적 시뮬레이션 + 2D↔3D 좌표 변환. 클라이언트 80% 메인 담당.",
+      "text": "Naver Zepeto × Gucci collaboration 3D multiplayer tennis game. Cumulative visits 193K, Unity + TypeScript, ball trajectory simulation + 2D↔3D coordinate conversion. Main responsibility for 80% of clients."
+    },
+    {
+      "key": "t0120",
+      "source": "State machine — Game / Deuce / Advantage / Set / Match 분리",
+      "text": "State machine — Game/Deuce/Advantage/Set/Match separation"
+    },
+    {
+      "key": "t0121",
+      "source": "State machine 패턴으로 NORMAL · DEUCE · ADVANTAGE · GAME_OVER 단계 분리.",
+      "text": "State machine pattern separates NORMAL · DEUCE · ADVANTAGE · GAME_OVER steps."
+    },
+    {
+      "key": "t0122",
+      "source": "UI 화면 좌표 (2D)를 3D 코트 좌표로 변환.",
+      "text": "Convert UI screen coordinates (2D) to 3D court coordinates."
+    },
+    {
+      "key": "t0123",
+      "source": "Zepeto 월드에 입장하면 매칭부터 한 세트 매치까지 매끄럽게.",
+      "text": "When you enter the Zepeto world, everything from matching to one set match is seamless."
+    },
+    {
+      "key": "t0124",
+      "source": "Zepeto 플랫폼 SDK 위에서 Unity 클라이언트 + TypeScript 서버 스크립트.",
+      "text": "Unity client + TypeScript server script on top of the Zepeto platform SDK."
+    }
+  ]
+}

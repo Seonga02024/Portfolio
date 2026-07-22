@@ -1,0 +1,96 @@
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(127, 140, 160, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+  flex: 0 0 auto;
+}
+
+.language-toggle button {
+  min-width: 42px;
+  height: 30px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: currentColor;
+  cursor: pointer;
+  font: 700 12px/1 "Inter", "Noto Sans KR", system-ui, sans-serif;
+  letter-spacing: 0;
+  opacity: 0.72;
+  transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+}
+
+.language-toggle button:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.language-toggle button.is-active {
+  background: currentColor;
+  color: #fff;
+  opacity: 1;
+}
+
+body[data-lang="en"] .language-toggle button[data-lang-value="en"],
+body[data-lang="ko"] .language-toggle button[data-lang-value="ko"] {
+  background: currentColor;
+  color: #fff;
+  opacity: 1;
+}
+
+.language-toggle.is-floating {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  color: #111827;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.language-toggle-status {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 10px 14px;
+  border: 1px solid rgba(127, 140, 160, 0.28);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #fff;
+  font: 600 12px/1.45 "Inter", "Noto Sans KR", system-ui, sans-serif;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.language-toggle-status.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-tools,
+.nav-inner {
+  gap: max(12px, var(--lang-toggle-gap, 12px));
+}
+
+@media (max-width: 720px) {
+  .language-toggle {
+    order: 20;
+  }
+
+  .language-toggle button {
+    min-width: 38px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+}

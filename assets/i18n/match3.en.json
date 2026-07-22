@@ -1,0 +1,642 @@
+{
+  "page": "match3",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "3주",
+      "text": "3 weeks"
+    },
+    {
+      "key": "t0002",
+      "source": "가볍게 시작하지만, 반복 플레이로 이어지는 구조",
+      "text": "A structure that starts lightly but leads to repeated play"
+    },
+    {
+      "key": "t0003",
+      "source": "게임 보상 관리",
+      "text": "Game Reward Management"
+    },
+    {
+      "key": "t0004",
+      "source": "게임 화면 보기",
+      "text": "View game screen"
+    },
+    {
+      "key": "t0005",
+      "source": "게임 화면과 플레이 흐름을 담아낼 자리",
+      "text": "A place to capture the game screen and play flow"
+    },
+    {
+      "key": "t0006",
+      "source": "계속 운영 가능한 흐름",
+      "text": "flow that can continue to operate"
+    },
+    {
+      "key": "t0007",
+      "source": "귀여운 비주얼과 직관적인 조작을 가진 Match-3 퍼즐 게임을 바탕으로, 반복 플레이를 유도하는 성장 요소와 라이브 서비스 감각을 더했습니다. 한 번 클리어하고 끝나는 구조보다, 매일 다시 들어오고 싶어지는 흐름을 만드는 데 초점을 둔 작업입니다.",
+      "text": "Based on a Match-3 puzzle game with cute visuals and intuitive controls, we added growth elements that encourage repeated play and a sense of live service. Rather than a structure where you clear it once and end, the work focuses on creating a flow that makes you want to come back every day."
+    },
+    {
+      "key": "t0008",
+      "source": "기능별 매니저와 역할 분리를 기준으로 후속 확장이 가능하도록 구성했습니다.",
+      "text": "It was configured to enable subsequent expansion based on separation of managers and roles by function."
+    },
+    {
+      "key": "t0009",
+      "source": "기본 플레이는 매우 익숙합니다. 같은 색 퍼즐을 맞추고, 연쇄 반응을 일으키며, 레벨 목표를 달성합니다. 하지만 프로젝트의 초점은 단순히 퍼즐을 구현하는 데서 멈추지 않았습니다. 플레이어가 하루 단위로 다시 접속하고, 목표를 확인하고, 보상을 받으며, 랭킹을 통해 자신의 위치를 확인하는 서비스형 구조로 자연스럽게 확장했습니다.",
+      "text": "The basic play is very familiar. Match same-color puzzles, create chain reactions, and achieve level goals. But the focus of the project wasn't just about implementing puzzles. It has naturally expanded into a service-type structure where players can reconnect on a daily basis, check goals, receive rewards, and check their position through rankings."
+    },
+    {
+      "key": "t0010",
+      "source": "기술 설명 보기",
+      "text": "View technical description"
+    },
+    {
+      "key": "t0011",
+      "source": "기술적으로는 기존 퍼즐 구조를 서비스형 흐름으로 재조립했습니다",
+      "text": "Technically, we reassembled the existing puzzle structure into a service-like flow."
+    },
+    {
+      "key": "t0012",
+      "source": "기존 게임 자산을 빠르게 이해하고, 필요한 구조만 정리해, 약 3주 안에 운영형 기능까지 연결한 실행력",
+      "text": "The ability to quickly understand existing game assets, organize only the necessary structures, and connect operational functions within about 3 weeks."
+    },
+    {
+      "key": "t0013",
+      "source": "기존 구조를 재활용하면서도 필요한 서비스 기능을 충분히 보여줄 수 있는 포트폴리오 결과물",
+      "text": "Portfolio results that sufficiently demonstrate necessary service functions while reusing existing structures"
+    },
+    {
+      "key": "t0014",
+      "source": "기존 자산을 재정리해 개발 효율과 유지보수성을 함께 확보",
+      "text": "Secure development efficiency and maintainability by reorganizing existing assets"
+    },
+    {
+      "key": "t0015",
+      "source": "기존 퍼즐 흐름 위에 반복 진입 구조를 얹은 맵 구성",
+      "text": "Map composition with a repetitive entry structure on top of the existing puzzle flow"
+    },
+    {
+      "key": "t0016",
+      "source": "기존 Jelly Garden 구조를 그대로 덮어쓰기보다, 실제로 운영 기능이 붙어야 하는 지점을 먼저 분리했습니다. 메뉴 진입, 팝업 흐름, 데이터 반영, 상태 갱신 같은 연결부를 정리하면서 이후 기능 추가가 자연스럽게 이어지도록 만들었습니다.",
+      "text": "Rather than simply overwriting the existing Jelly Garden structure, we first separated out the points where operational functions should actually attach. By organizing connections such as menu entry, pop-up flow, data reflection, and status update, we made it possible to add functions naturally."
+    },
+    {
+      "key": "t0017",
+      "source": "날짜 기준 판정",
+      "text": "Judgment based on date"
+    },
+    {
+      "key": "t0018",
+      "source": "눈에 보이는 보상 구조",
+      "text": "Visible reward structure"
+    },
+    {
+      "key": "t0019",
+      "source": "단순히 퍼즐 게임을 구현했다는 사실보다, 이미 존재하는 구조를 빠르게 읽고 정리한 뒤 운영형 기능을 설계하고 연결할 수 있다는 점을 보여줍니다. 제한된 기간 안에서 우선순위를 세우고, 구현과 사용자 경험을 함께 챙긴 사례입니다.",
+      "text": "Rather than simply implementing a puzzle game, it shows that you can quickly read and organize existing structures and then design and connect operational functions. This is a case of establishing priorities within a limited period of time and taking care of both implementation and user experience."
+    },
+    {
+      "key": "t0020",
+      "source": "대표 플레이 영상 또는 메인 스크린샷",
+      "text": "Representative gameplay video or main screenshot"
+    },
+    {
+      "key": "t0021",
+      "source": "랭킹 · 출석 · 일일 보상 시스템 확장",
+      "text": "Expansion of ranking, attendance, and daily reward systems"
+    },
+    {
+      "key": "t0022",
+      "source": "레벨 목표가 분명한 퍼즐 구조",
+      "text": "Puzzle structure with clear level objectives"
+    },
+    {
+      "key": "t0023",
+      "source": "레벨 진입, 팝업, 데이터 반영, 주요 매니저의 역할을 분석해 어디를 리팩토링해야 할지 먼저 결정했습니다.",
+      "text": "We first decided where to refactor by analyzing level entry, pop-ups, data reflection, and the roles of key managers."
+    },
+    {
+      "key": "t0024",
+      "source": "로 정리했습니다.",
+      "text": "It was organized as follows."
+    },
+    {
+      "key": "t0025",
+      "source": "리더보드",
+      "text": "leaderboard"
+    },
+    {
+      "key": "t0026",
+      "source": "리더보드 / 경쟁 요소",
+      "text": "Leaderboard / Competitive Element"
+    },
+    {
+      "key": "t0027",
+      "source": "리팩토링과 서비스 기능 확장을 포함한 제작 기간",
+      "text": "Production period including refactoring and service feature expansion"
+    },
+    {
+      "key": "t0028",
+      "source": "리팩토링의 목적은 속도보다도 방향 정리",
+      "text": "The purpose of refactoring is direction rather than speed."
+    },
+    {
+      "key": "t0029",
+      "source": "매일 다른 목표를 확인하고 처리하는 이유를 제공합니다.",
+      "text": "It gives you a reason to check and tackle different goals each day."
+    },
+    {
+      "key": "t0030",
+      "source": "매일 다시 열리는 플레이 경험",
+      "text": "A play experience that reopens every day"
+    },
+    {
+      "key": "t0031",
+      "source": "매일 돌아오게 만드는 이유",
+      "text": "What keeps me coming back every day"
+    },
+    {
+      "key": "t0032",
+      "source": "매일 접속하는 플레이어에게 가장 빠르게 보상이 체감되는 영역입니다. Cloud Save와 Cloud Code를 통해 날짜 기준 상태를 판단하고, 출석 보상 수령을 안정적으로 처리했습니다.",
+      "text": "This is the area where rewards are felt the fastest for players who log in every day. Through Cloud Save and Cloud Code, we determined the status based on the date and reliably processed the receipt of attendance rewards."
+    },
+    {
+      "key": "t0033",
+      "source": "매치 이후 연쇄 반응이 자연스럽게 다음 수를 기대하게 만드는 핵심 재미가 됩니다.",
+      "text": "The chain reaction after a match is the core fun that naturally makes you look forward to the next move."
+    },
+    {
+      "key": "t0034",
+      "source": "매치 플레이와 보드 상태 표현",
+      "text": "Match play and board state representation"
+    },
+    {
+      "key": "t0035",
+      "source": "매치, 제거, 낙하, 목표 달성이라는 Match-3의 기본 구조를 안정적으로 유지하면서 레벨 단위의 완결된 재미를 제공합니다.",
+      "text": "It provides complete fun on a level-by-level basis while stably maintaining the basic structure of Match-3: match, elimination, fall, and goal achievement."
+    },
+    {
+      "key": "t0036",
+      "source": "맵 입력과 UI 충돌이 나지 않도록 가드 흐름까지 함께 정리했습니다.",
+      "text": "We even organized the guard flow to prevent map input and UI conflicts."
+    },
+    {
+      "key": "t0037",
+      "source": "맵 클릭 가드, 팝업 충돌 방지, 보상 수령 직후 UI 반영 같은 체감 품질을 정리하며 마무리했습니다.",
+      "text": "We finished by summarizing the perceived quality such as map click guard, pop-up crash prevention, and UI reflection immediately after receiving rewards."
+    },
+    {
+      "key": "t0038",
+      "source": "반복 접속 유도",
+      "text": "Inducing repeated access"
+    },
+    {
+      "key": "t0039",
+      "source": "버튼 입력과 보상 반영 사이의 체감 지연을 줄이는 방향으로 UI를 보강했습니다.",
+      "text": "The UI has been strengthened to reduce the perceived delay between button input and reward reflection."
+    },
+    {
+      "key": "t0040",
+      "source": "보상 수령 / 진행 상태",
+      "text": "Reward receipt/progress status"
+    },
+    {
+      "key": "t0041",
+      "source": "보상 지급과 상태 저장은 서버 검증 흐름을 통해 일관성을 유지합니다.",
+      "text": "Reward payouts and state storage are kept consistent through the server verification flow."
+    },
+    {
+      "key": "t0042",
+      "source": "보상 체감 강화",
+      "text": "Strengthening the sense of reward"
+    },
+    {
+      "key": "t0043",
+      "source": "보상은 단순한 숫자 증가가 아니라, 플레이를 계속하게 만드는 핵심 설계 요소입니다. 재화 지급, 수령 상태, UI 반영을 하나의 흐름으로 묶어 사용자가 결과를 즉시 이해할 수 있도록 했습니다.",
+      "text": "Rewards aren't just numbers, they're a core design element that keeps you playing. We bundled goods payment, receipt status, and UI reflection into one flow so that users could immediately understand the results."
+    },
+    {
+      "key": "t0044",
+      "source": "불필요한 재작성 최소화",
+      "text": "Minimize unnecessary rewrites"
+    },
+    {
+      "key": "t0045",
+      "source": "블록 제거, 점수 달성, 아이템 수집 같은 목적이 플레이 리듬을 분명하게 만듭니다.",
+      "text": "Objectives such as clearing blocks, achieving points, and collecting items create a clear rhythm of play."
+    },
+    {
+      "key": "t0046",
+      "source": "비교 가능한 성과",
+      "text": "Comparable Performance"
+    },
+    {
+      "key": "t0047",
+      "source": "사용자는 퍼즐을 플레이하지만, 시스템은 그 플레이를 일일 루프와 누적 보상 구조로 해석합니다. 이 흐름을 끊기지 않게 이어주는 것이 프로젝트의 핵심 설계 포인트였습니다.",
+      "text": "Users play puzzles, but the system interprets that play into a daily loop and cumulative reward structure. Connecting this flow uninterrupted was the key design point of the project."
+    },
+    {
+      "key": "t0048",
+      "source": "상태 동기화",
+      "text": "State synchronization"
+    },
+    {
+      "key": "t0049",
+      "source": "새로 모든 것을 만드는 대신, 이미 존재하는 게임의 핵심 구조를 유지하면서 확장이 필요한 지점을 골라 정리했습니다. 이 접근 덕분에 불필요한 재구현을 줄이고, 약 3주 안에 제작을 마무리할 수 있었습니다.",
+      "text": "Instead of creating everything from scratch, we kept the core structure of the game that already existed and picked out where we needed to expand. This approach allowed us to reduce unnecessary reimplementation and complete production in approximately three weeks."
+    },
+    {
+      "key": "t0050",
+      "source": "서비스 완성도를 높이는 보조 화면",
+      "text": "Auxiliary screen that improves service completeness"
+    },
+    {
+      "key": "t0051",
+      "source": "서비스형 기능으로 이어지는 재방문 흐름",
+      "text": "Return flow leading to features as a service"
+    },
+    {
+      "key": "t0052",
+      "source": "섹션 이동",
+      "text": "Go to section"
+    },
+    {
+      "key": "t0053",
+      "source": "소개",
+      "text": "Introduction"
+    },
+    {
+      "key": "t0054",
+      "source": "수령 전후 상태가 명확히 보이도록 UI 흐름을 설계했습니다.",
+      "text": "We designed the UI flow so that the status before and after receipt is clearly visible."
+    },
+    {
+      "key": "t0055",
+      "source": "스테이지 이동과 진행 흐름",
+      "text": "Stage movement and progression flow"
+    },
+    {
+      "key": "t0056",
+      "source": "스테이지 진행과 서비스형 동선이 만나는 지점",
+      "text": "The point where stage progress and service-type movement meet"
+    },
+    {
+      "key": "t0057",
+      "source": "실제 스크린샷이나 플레이 영상을 넣으면 프로젝트의 분위기와 사용성, 보상 구조가 한눈에 전달되도록 구성한 영역입니다.",
+      "text": "This is an area designed to convey the atmosphere, usability, and reward structure of the project at a glance by inserting actual screenshots or gameplay videos."
+    },
+    {
+      "key": "t0058",
+      "source": "에 있습니다. 단순 구현보다도, 어떤 부분을 건드리고 어떤 부분은 유지할지 판단한 과정 자체가 중요한 작업이었습니다.",
+      "text": "It is in Rather than simple implementation, the process itself of deciding which parts to touch and which parts to maintain was more important."
+    },
+    {
+      "key": "t0059",
+      "source": "여기부터는 플레이 경험을 실제 서비스 구조로 바꾼 기술 이야기입니다.",
+      "text": "From here, we will talk about the technology that transformed the playing experience into an actual service structure."
+    },
+    {
+      "key": "t0060",
+      "source": "월 단위 / 일 단위 상태를 기준으로 출석 진행을 관리합니다.",
+      "text": "Manage attendance progress based on monthly/daily status."
+    },
+    {
+      "key": "t0061",
+      "source": "유저가 즉시 성취를 체감하는 구간을 보여주기 좋습니다.",
+      "text": "It is good for showing a section where users can immediately feel accomplishment."
+    },
+    {
+      "key": "t0062",
+      "source": "유지보수성 확보",
+      "text": "Ensure maintainability"
+    },
+    {
+      "key": "t0063",
+      "source": "으로 확장한 프로젝트",
+      "text": "Project expanded to"
+    },
+    {
+      "key": "t0064",
+      "source": "이 작업은 새로운 게임을 처음부터 만드는 프로젝트라기보다, 이미 존재하는 퍼즐 구조를 읽고 서비스 기능을 붙일 수 있는 형태로 다듬는 프로젝트에 가까웠습니다.",
+      "text": "Rather than a project to create a new game from scratch, this work was closer to a project that read the existing puzzle structure and refined it into a form that could be used to add service functions."
+    },
+    {
+      "key": "t0065",
+      "source": "이 프로젝트의 기술적 가치는",
+      "text": "The technical value of this project is"
+    },
+    {
+      "key": "t0066",
+      "source": "이후 다른 이벤트 보상으로 확장할 수 있는 구조를 염두에 두었습니다.",
+      "text": "We had in mind a structure that could be expanded to other event rewards in the future."
+    },
+    {
+      "key": "t0067",
+      "source": "익숙한 퍼즐의 재미를",
+      "text": "The fun of familiar puzzles"
+    },
+    {
+      "key": "t0068",
+      "source": "일일 퀘스트",
+      "text": "daily quest"
+    },
+    {
+      "key": "t0069",
+      "source": "일일 퀘스트 / 출석",
+      "text": "Daily Quest/Attendance"
+    },
+    {
+      "key": "t0070",
+      "source": "일일 퀘스트, 보상, 랭킹, 출석 체크를 통해 퍼즐 플레이가 하루 단위 루프로 연결됩니다.",
+      "text": "Puzzle play is connected in a daily loop through daily quests, rewards, rankings, and attendance checks."
+    },
+    {
+      "key": "t0071",
+      "source": "일일 퀘스트, 출석 체크, 보상 지급, 리더보드 흐름을 실제 플레이 루프와 연결하고 상태 갱신을 안정화했습니다.",
+      "text": "We connected daily quests, attendance checks, reward distribution, and leaderboard flows to the actual play loop and stabilized status updates."
+    },
+    {
+      "key": "t0072",
+      "source": "일일 퀘스트, 출석, 보상 조건을 UGS 기반 데이터와 연결합니다.",
+      "text": "Connect daily quests, attendance, and reward conditions with UGS-based data."
+    },
+    {
+      "key": "t0073",
+      "source": "일일 퀘스트, 출석, 보상, 랭킹으로 재방문 루프 설계",
+      "text": "Design a revisit loop with daily quests, attendance, rewards, and rankings"
+    },
+    {
+      "key": "t0074",
+      "source": "자신의 플레이 결과를 순위로 확인하게 만들어 반복 플레이 동기를 만듭니다.",
+      "text": "It creates motivation for repeat play by allowing users to check their play results through rankings."
+    },
+    {
+      "key": "t0075",
+      "source": "재방문 동기를 설명하는 UI 장면을 담기 좋은 슬롯입니다.",
+      "text": "This is a good slot to include a UI scene that explains the motivation for returning."
+    },
+    {
+      "key": "t0076",
+      "source": "재방문을 만드는 체크인 루프",
+      "text": "Check-in loop that creates repeat visits"
+    },
+    {
+      "key": "t0077",
+      "source": "즉시 피드백 UX",
+      "text": "Instant feedback UX"
+    },
+    {
+      "key": "t0078",
+      "source": "직관적인 매치 플레이와 보드 상태 피드백",
+      "text": "Intuitive match play and board status feedback"
+    },
+    {
+      "key": "t0079",
+      "source": "직관적인 스왑과 연쇄 제거 중심 플레이",
+      "text": "Intuitive swap and chain elimination-focused play"
+    },
+    {
+      "key": "t0080",
+      "source": "직관적인 조작",
+      "text": "Intuitive operation"
+    },
+    {
+      "key": "t0081",
+      "source": "짧고 반복 가능한 세션",
+      "text": "Short, repeatable sessions"
+    },
+    {
+      "key": "t0082",
+      "source": "짧은 기간 안에 완성도를 올리기 위해 선택한 방식",
+      "text": "The method chosen to increase the level of completion within a short period of time"
+    },
+    {
+      "key": "t0083",
+      "source": "처음에는 누구나 쉽게 이해할 수 있어야 하고, 계속 플레이할 이유는 점점 더 선명해져야 합니다. 이 프로젝트는 그 두 가지를 동시에 만족시키는 방향으로 구성했습니다.",
+      "text": "It should be easy for anyone to understand at first, and the reasons to keep playing should become increasingly clear. This project was designed to satisfy both at the same time."
+    },
+    {
+      "key": "t0084",
+      "source": "첫 진입 화면, 퍼즐 플레이, 특수 아이템 연출, 보상 수령 장면 중 프로젝트의 성격을 가장 잘 보여주는 이미지를 배치하기 좋은 메인 영역입니다.",
+      "text": "This is the main area where you can place images that best show the nature of the project, including the first entry screen, puzzle play, special item production, and reward collection scenes."
+    },
+    {
+      "key": "t0085",
+      "source": "첫 진입 화면과 핵심 CTA 구성",
+      "text": "Composition of the first entry screen and core CTA"
+    },
+    {
+      "key": "t0086",
+      "source": "첫 진입에서 플레이 방향과 보상 루프를 동시에 보여주는 화면",
+      "text": "A screen that shows the play direction and reward loop at the same time on first entry"
+    },
+    {
+      "key": "t0087",
+      "source": "출석 상태와 보상 수령 흐름이 한 번에 보이도록 정리한 화면",
+      "text": "A screen organized so that attendance status and reward receipt flow can be seen at once"
+    },
+    {
+      "key": "t0088",
+      "source": "출석 체크와 누적 보상",
+      "text": "Attendance check and accumulated rewards"
+    },
+    {
+      "key": "t0089",
+      "source": "콘텐츠를 한 번 만드는 데서 끝나지 않고, 서비스처럼 관리할 수 있는 확장 포인트를 염두에 두었습니다.",
+      "text": "Rather than just creating content once, we kept in mind expansion points that could be managed like a service."
+    },
+    {
+      "key": "t0090",
+      "source": "콤보와 클리어의 만족감 위에 일일 보상과 누적 보상을 겹쳐 플레이 이유를 분명하게 만들었습니다.",
+      "text": "By layering daily rewards and cumulative rewards on top of the satisfaction of combos and clearing, the reason for playing is clear."
+    },
+    {
+      "key": "t0091",
+      "source": "콤보와 특수 아이템이 만드는 시각적 보상",
+      "text": "Visual rewards created by combos and special items"
+    },
+    {
+      "key": "t0092",
+      "source": "퀘스트 상태를 즉시 이해하고 행동으로 이어지게 만드는 일일 목표 화면",
+      "text": "Daily goals screen to instantly understand quest status and take action"
+    },
+    {
+      "key": "t0093",
+      "source": "퀘스트와 보상, 출석과 랭킹을 붙여 플레이어의 행동이 하루 단위 루프로 이어지도록 전체 경험을 확장했습니다.",
+      "text": "By attaching quests, rewards, attendance, and rankings, we expanded the overall experience so that the player's actions lead to a daily loop."
+    },
+    {
+      "key": "t0094",
+      "source": "클라이언트 UI와 서버 상태가 어긋나지 않도록 갱신 시점을 관리했습니다.",
+      "text": "We managed the update timing to ensure that the client UI and server status do not differ."
+    },
+    {
+      "key": "t0095",
+      "source": "클리어 이후 보상 반영이 즉시 체감되도록 만든 보상 수령 화면",
+      "text": "Reward receipt screen that allows you to immediately feel the reward reflected after clearing"
+    },
+    {
+      "key": "t0096",
+      "source": "팝업 흐름 제어",
+      "text": "Pop-up flow control"
+    },
+    {
+      "key": "t0097",
+      "source": "팝업, 버튼, 로딩, 보상 반영이 서로 충돌하지 않도록 흐름을 분명하게 정리했습니다.",
+      "text": "The flow has been clearly organized so that pop-ups, buttons, loading, and reward reflection do not conflict with each other."
+    },
+    {
+      "key": "t0098",
+      "source": "퍼즐 장르에 익숙하지 않아도 바로 이해할 수 있도록 입력과 피드백을 단순하고 분명하게 구성했습니다.",
+      "text": "Input and feedback are structured simply and clearly so that even if you are not familiar with the puzzle genre, you can understand it right away."
+    },
+    {
+      "key": "t0099",
+      "source": "퍼즐 플레이 결과와 진행 상태를 게임 내 데이터로 정리합니다.",
+      "text": "Puzzle play results and progress are organized into in-game data."
+    },
+    {
+      "key": "t0100",
+      "source": "퍼즐 플레이가 서비스형 경험으로 연결되는 장면을 보강할 수 있습니다.",
+      "text": "Puzzle play can reinforce scenes that lead to service-type experiences."
+    },
+    {
+      "key": "t0101",
+      "source": "퍼즐 플레이를 단순 소비형 경험으로 끝내지 않기 위해 경쟁 요소를 더했습니다. 점수 기반 랭킹은 플레이 결과를 외부 기준과 비교하게 만들고, 다시 도전할 이유를 강화합니다.",
+      "text": "In order to prevent puzzle play from being a simple consumer experience, we added a competitive element. Score-based rankings allow you to compare your play results to external standards and reinforce the reason to try again."
+    },
+    {
+      "key": "t0102",
+      "source": "퍼즐 한 판의 완성도",
+      "text": "Completeness of one puzzle"
+    },
+    {
+      "key": "t0103",
+      "source": "포트폴리오에서 이 프로젝트가 보여주는 것",
+      "text": "What this project shows in the portfolio"
+    },
+    {
+      "key": "t0104",
+      "source": "프로젝트를 서비스형 경험으로 바꾼 UGS 기능들",
+      "text": "UGS features that transform projects into as-a-service experiences"
+    },
+    {
+      "key": "t0105",
+      "source": "프로젝트의 기술 포인트는 단순히 기능을 많이 붙인 것이 아니라, 기존 구조를 읽고 정리한 뒤 운영형 기능을 무리 없이 연결했다는 점에 있습니다.",
+      "text": "The technical point of the project is not to simply add a lot of functions, but to read and organize the existing structure and connect operational functions without difficulty."
+    },
+    {
+      "key": "t0106",
+      "source": "플레이 결과가 순위와 재도전 동기로 이어지도록 설계한 경쟁 UI",
+      "text": "Competitive UI designed so that play results lead to rankings and motivation to try again"
+    },
+    {
+      "key": "t0107",
+      "source": "플레이 결과가 이후 시스템과 연결되는 실제 게임 화면",
+      "text": "Actual game screen where play results are later linked to the system"
+    },
+    {
+      "key": "t0108",
+      "source": "플레이 전 목표와 정보 안내",
+      "text": "Goals and information before play"
+    },
+    {
+      "key": "t0109",
+      "source": "플레이 전 목표와 조건을 명확하게 전달하는 구조",
+      "text": "Structure that clearly communicates goals and conditions before play"
+    },
+    {
+      "key": "t0110",
+      "source": "플레이어가 하루 단위 목표를 인식하고 보상을 받도록 일일 퀘스트 흐름을 구성했습니다. 퀘스트 표시, 달성 상태 반영, 보상 수령 처리까지가 하나의 루프로 이어지도록 설계했습니다.",
+      "text": "We structured the daily quest flow so that players are aware of their daily goals and receive rewards. Quest display, reflection of achievement status, and reward receipt processing are designed to be connected in one loop."
+    },
+    {
+      "key": "t0111",
+      "source": "플레이어는 매일 접속해 진행 상황과 보상을 확인하는 반복 루프를 경험합니다.",
+      "text": "Players experience a repeating loop where they log in every day to check their progress and receive rewards."
+    },
+    {
+      "key": "t0112",
+      "source": "플레이에서 서비스 기능으로 이어지는 흐름",
+      "text": "Flow from play to service function"
+    },
+    {
+      "key": "t0113",
+      "source": "한 판이 길지 않아도 성취감이 남도록 만들어 출석, 보상, 퀘스트 루프와 잘 맞도록 설계했습니다.",
+      "text": "We designed it to fit well with attendance, rewards, and quest loops by creating a sense of accomplishment even if one round is not long."
+    },
+    {
+      "key": "t0114",
+      "source": "한눈에 봐도 방향이 보이는 퍼즐 게임",
+      "text": "A puzzle game where you can see the direction at a glance"
+    },
+    {
+      "key": "t0115",
+      "source": "핵심 구조 파악과 흐름 정리",
+      "text": "Identify the core structure and organize the flow"
+    },
+    {
+      "key": "t0116",
+      "source": "핵심 구조를 정리하며 빠르게 제작 완료",
+      "text": "Quickly complete production by organizing core structures"
+    },
+    {
+      "key": "t0117",
+      "source": "핵심 퍼즐 로직은 유지하고, 서비스 기능이 얹히는 레이어를 중심으로 손봤습니다.",
+      "text": "We maintained the core puzzle logic and focused on the layer where the service function is installed."
+    },
+    {
+      "key": "t0118",
+      "source": "핵심은 기존 퍼즐 구조를 빠르게 파악하고 필요한 부분을 정리해, 짧은 기간 안에 운영형 기능을 안정적으로 얹는 것이었습니다.",
+      "text": "The key was to quickly understand the existing puzzle structure, organize the necessary parts, and stably add operational functions within a short period of time."
+    },
+    {
+      "key": "t0119",
+      "source": "화면",
+      "text": "screen"
+    },
+    {
+      "key": "t0120",
+      "source": "확장성 확보",
+      "text": "Secure scalability"
+    },
+    {
+      "key": "t0121",
+      "source": "효율성과 확장성의 균형",
+      "text": "Balance between efficiency and scalability"
+    },
+    {
+      "key": "t0122",
+      "source": "Cloud Save · Cloud Code · Leaderboards · Remote Config 활용",
+      "text": "Cloud Save · Cloud Code · Leaderboards · Remote Config Utilization"
+    },
+    {
+      "key": "t0123",
+      "source": "GitHub에 정리한 주요 작업은 단순 UI 추가가 아니라, 서버 검증과 상태 동기화를 포함한 실제 운영 기능 구현에 가깝습니다.",
+      "text": "The main work organized on GitHub is not simply adding a UI, but is closer to implementing actual operational functions, including server verification and state synchronization."
+    },
+    {
+      "key": "t0124",
+      "source": "Jelly Garden 기반 Match-3 게임을 서비스형 콘텐츠로 확장한 프로젝트 포트폴리오. 일일 퀘스트, 보상, 랭킹, 출석 시스템과 리팩토링 중심의 개발 과정을 정리했습니다.",
+      "text": "A project portfolio that expands the Jelly Garden-based Match-3 game into service-type content. We have summarized the development process focusing on daily quests, rewards, rankings, attendance system, and refactoring."
+    },
+    {
+      "key": "t0125",
+      "source": "UGS 기능 연결",
+      "text": "UGS function connection"
+    },
+    {
+      "key": "t0126",
+      "source": "UI 상태 흐름 정리",
+      "text": "UI state flow cleanup"
+    },
+    {
+      "key": "t0127",
+      "source": "UX 다듬기와 예외 처리",
+      "text": "UX polish and exception handling"
+    }
+  ]
+}

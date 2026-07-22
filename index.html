@@ -1500,6 +1500,7 @@
       .nav-links { display: none; }
     }
   </style>
+  <link rel="stylesheet" href="assets/language-toggle.css" />
 </head>
 <body>
 
@@ -2605,7 +2606,6 @@
           title: '사실적이고 효율적인 얼굴 주름과 근육 수축을 표현하기 위한 스케치 인터페이스',
           titleEn: 'Sketch Interface for Realistic and Efficient Expression of Facial Wrinkles and Muscle Contractions',
           authors: '박소연 · 박성아 · 김종현',
-          venue: '한국컴퓨터정보학회 동계학술대회 논문집 제31권 제1호, pp. 365–368 (2023)',
           hero: 'assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_1.jpg',
           gallery: [
             'assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_2.png'
@@ -2628,19 +2628,6 @@
                 '<strong>잔주름 자동 생성</strong> — 짙은 주름 일부를 무작위 복사해 결을 살린 옅은 주름 0~7개 자동 배치',
                 '<strong>그림자 합성 (Skin Texture)</strong> — 피부 짙은 색을 추출해 주름 형태에 맞춰 그림자 강도 조절'
               ]
-            },
-            {
-              heading: '🛠 인터페이스 구성',
-              type: 'hardware',
-              items: [
-                'Age Slide Bar',
-                'Intensity Slide Bar',
-                'Skin Texture Strength',
-                'Normal Map Sketch Pad',
-                'Tablet 입력 (스타일러스)',
-                'Unity 3D 실시간 적용'
-              ],
-              note: '사용자가 슬라이드 바로 나이·진하기·그림자 강도를 조절한 뒤 스케치하면, 자동 계산을 거쳐 완성된 노말 맵과 skin texture가 Unity 3D 모델에 즉시 적용됩니다.'
             },
             {
               heading: '🧪 결과',
@@ -2739,7 +2726,6 @@
           title: '사용자 몰입도 증가를 위한 Photon Network 기반의 실시간 랭킹 시스템이 반영된 그룹형 로봇 기반 노인 인지 향상 게임 시스템의 설계 및 구현',
           titleEn: 'Design and Implementation of a Group-Oriented, Robot-Based Cognitive Enhancement Game System for the Elderly Incorporating a Photon Network-Based Real-Time Ranking System to Boost User Engagement',
           authors: '박성아¹ · 이원준¹ · 이덕원¹* (¹(주)로보케어 · *교신저자)',
-          venue: '2025 하반기 대한전자공학회 학술대회 · 구두 발표 · 산업통상자원부·KEIT 지원 과제 (RS-2024-00468748)',
           hero: '',
           gallery: [],
           keywords: ['Photon Network', '실시간 랭킹', '실벗3 로봇', 'KADAS', 'Socket 통신', '10원 게임', '치매 예방', 'Unity'],
@@ -2748,31 +2734,6 @@
               heading: '📋 Abstract',
               type: 'paragraph',
               body: '<strong>로봇 · TV · 태블릿 3종 디바이스</strong>를 통합해 그룹 기반 + 경쟁 상호작용 환경을 지원하는 노인 인지 훈련 시스템. 기존 ICT 기반 1인 학습 솔루션의 한계(낮은 동기 부여 / 단순 반복 문제)를 보완하고자 그룹 상호작용 · 실시간 피드백 · 경쟁 콘텐츠를 결합. 임베디드 SW는 Unity + Photon Network로 구현, 디바이스 통신은 socket 기반 네트워킹을 사용. → 사회적 참여 촉진 · 집중력 향상 · 사용자 동기 증진.'
-            },
-            {
-              heading: '🔬 시스템 아키텍처',
-              type: 'hardware',
-              items: [
-                '실벗3 로봇 (인터랙션 · 음성 · 표정 · 동작)',
-                'TV + KADAS (KAIST Android Display Adapter System · 무선 화면 공유)',
-                'Samsung Galaxy Tab A9+ (8.7" WUXGA+ / 4GB RAM / Android)',
-                '교사용 태블릿 (게임 진행 제어)',
-                '참여자용 태블릿 (그룹 멀티 플레이)',
-                'Unity (콘텐츠 엔진)',
-                'Photon Network (멀티 사용자 동기화)',
-                'Socket 기반 통신 (TV · 로봇 제어)'
-              ],
-              note: '교사 PC ↔ 다수 참여자 태블릿 ↔ TV ↔ 로봇이 동시에 연결되어 한 교실 단위로 운영. 본인 역할: 클라이언트 개발 100% (게임 기획 · 시스템 설계 · 실시간 랭킹 · 상호작용 핵심 구현).'
-            },
-            {
-              heading: '🤖 로보케어 실벗3 로봇',
-              type: 'list',
-              items: [
-                '<strong>크기</strong> — 480 × 520 × 1148 mm (W × D × H) / <strong>무게</strong> 25 kg',
-                '<strong>11 자유도</strong> — 얼굴 디스플레이로 표정 + 팔 움직임으로 교감형 인터랙션',
-                '<strong>4 기능</strong> — 표정 / 음성 / 주행 / 동작',
-                '음성·표정을 활용해 게임을 진행하고 사용자에게 지속적 피드백 제공'
-              ]
             },
             {
               heading: '🎮 10원 게임 — 핵심 신규 콘텐츠',
@@ -3685,6 +3646,6 @@
       });
     })();
   </script>
-
+  <script src="assets/language-toggle.js" defer></script>
 </body>
 </html>

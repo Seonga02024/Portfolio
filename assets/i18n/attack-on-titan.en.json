@@ -1,0 +1,792 @@
+{
+  "page": "attack-on-titan",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "— 거인 · 이펙트 등 대량 인스턴스 재사용",
+      "text": "— Mass instance reuse, such as giants and effects"
+    },
+    {
+      "key": "t0002",
+      "source": "— 글로벌 사용자에게 동일한 정보 전달.",
+      "text": "— Delivering the same information to global users."
+    },
+    {
+      "key": "t0003",
+      "source": ", 여성형 거인",
+      "text": ", female giant"
+    },
+    {
+      "key": "t0004",
+      "source": ". 기존 재난 로직을 재사용해 빠르게 추가 구현 — 가독성 분할이 비용을 낮춰준 사례.",
+      "text": ". Reuse existing disaster logic to quickly implement additional data — an example of how readability partitioning lowers costs."
+    },
+    {
+      "key": "t0005",
+      "source": "\"다음 업데이트에 무엇을 추가할지\" 결정하기 위해 2차에서 데이터 기반 의사결정 파이프라인을 구축.",
+      "text": "Building a data-driven decision-making pipeline in round 2 to decide “what to add in the next update.”"
+    },
+    {
+      "key": "t0006",
+      "source": "\"오래 살아남고 싶다\"는 동기 = 수익 구조의 시작점",
+      "text": "The motivation of “wanting to survive for a long time” = the starting point of the profit structure"
+    },
+    {
+      "key": "t0007",
+      "source": "/ 범위 내 거인",
+      "text": "/ Giant in range"
+    },
+    {
+      "key": "t0008",
+      "source": "© Zepeto 진격의 거인 · Attack on Titan · 2023.12 launch · v2 2024.05",
+      "text": "© Zepeto Attack on Titan · Attack on Titan · 2023.12 launch · v2 2024.05"
+    },
+    {
+      "key": "t0009",
+      "source": "+ 상속 · 오버라이딩 · 인터페이스로 중복 코드 제거",
+      "text": "+ Eliminate duplicate code with inheritance, overriding, and interfaces"
+    },
+    {
+      "key": "t0010",
+      "source": "+ Heart-beat 통신으로 백그라운드 상태 감지. 보안적 사고 — 문제 가능성을 미리 판단·대처할 수 있는 역량으로 정착.",
+      "text": "+ Background status detection through heart-beat communication. Security thinking – established as the ability to determine and respond to potential problems in advance."
+    },
+    {
+      "key": "t0011",
+      "source": "10위권",
+      "text": "Top 10"
+    },
+    {
+      "key": "t0012",
+      "source": "1차 / 2차 역할 비중",
+      "text": "Proportion of primary/secondary roles"
+    },
+    {
+      "key": "t0013",
+      "source": "1차 클라이언트 / 2차 메인",
+      "text": "1st client / 2nd main"
+    },
+    {
+      "key": "t0014",
+      "source": "1차 클라이언트 50%",
+      "text": "50% for primary clients"
+    },
+    {
+      "key": "t0015",
+      "source": "1차는 거인 / 재난 / 건물 / HP 시스템 등 게임 핵심 로직을 클라이언트 50%로 담당.",
+      "text": "The first part is responsible for 50% of the client's core game logic such as giants/disasters/buildings/HP systems."
+    },
+    {
+      "key": "t0016",
+      "source": "2024.03 ~ 04 — 1차에서 50% 였던 역할 비중을 80% 까지 확장. 하드 모드 / 추가 재난 / 랭커 스킬 / 다국어 UI /",
+      "text": "2024.03 ~ 04 — The proportion of roles expanded from 50% in the first round to 80%. Hard Mode / Additional Calamities / Ranker Skills / Multilingual UI /"
+    },
+    {
+      "key": "t0017",
+      "source": "2차 메인 개발 80%",
+      "text": "2nd main development 80%"
+    },
+    {
+      "key": "t0018",
+      "source": "2차 업데이트 — 노을 (하드 모드)",
+      "text": "2nd Update — Sunset (Hard Mode)"
+    },
+    {
+      "key": "t0019",
+      "source": "2차 업데이트에 무엇을 추가해야 할지 판단할 데이터가 없음",
+      "text": "No data to determine what should be added in the second update"
+    },
+    {
+      "key": "t0020",
+      "source": "2차 업데이트에서 짐승 거인 / 여성형 거인 재난 추가 — 기존 로직 재사용",
+      "text": "Beast Giant/Female Giant Disaster added in 2nd update — Reuse existing logic"
+    },
+    {
+      "key": "t0021",
+      "source": "2차 콘텐츠 업데이트",
+      "text": "2nd content update"
+    },
+    {
+      "key": "t0022",
+      "source": "2차 콘텐츠 업데이트 — 메인 개발자로의 확장",
+      "text": "2nd content update — expansion to main developer"
+    },
+    {
+      "key": "t0023",
+      "source": "2차에서는 메인 개발자 80%로 콘텐츠 확장 · 멀티 안정화 · Analytics 까지 책임 범위를 확장했습니다.",
+      "text": "In the second round, the scope of responsibility was expanded to include content expansion, multi-stabilization, and analytics with 80% of the main developers."
+    },
+    {
+      "key": "t0024",
+      "source": "가독성·직관성·사용성 고려.",
+      "text": "Consider readability, intuitiveness, and usability."
+    },
+    {
+      "key": "t0025",
+      "source": "가장 큰 학습 포인트. Photon 기반 환경에서 끊기지 않는 반복 흐름 보장과 호스트 마이그레이션 패턴을 다듬었습니다.",
+      "text": "Biggest learning point. We have refined the host migration pattern and guaranteed uninterrupted repeatable flow in a Photon-based environment."
+    },
+    {
+      "key": "t0026",
+      "source": "각 재난별 살아남는 수",
+      "text": "Number of survivors for each disaster"
+    },
+    {
+      "key": "t0027",
+      "source": "거인 · 이펙트 · 투사체에 도입. 인스턴스를 재사용하고 라운드 종료 시 일괄 회수. 사이클로 메모리 안정화.",
+      "text": "Introduced to giants, effects, and projectiles. Reuse instances and collect them in bulk at the end of the round. Cyclo memory stabilization."
+    },
+    {
+      "key": "t0028",
+      "source": "거인 / 이펙트 등 대량 인스턴스가 있는 환경에서 메모리 · 함수 호출 · 가독성 · 책임 분리를 동시에 잡았습니다.",
+      "text": "Memory, function calls, readability, and separation of responsibilities were achieved simultaneously in environments with large instances of giants/effects."
+    },
+    {
+      "key": "t0029",
+      "source": "거인 등장 / 어그로 / 공격 패턴 + 플레이어 생존 직결 아이템 (직접 기획 + 구현).",
+      "text": "Giant appearance / aggro / attack pattern + item directly related to player survival (direct planning + implementation)."
+    },
+    {
+      "key": "t0030",
+      "source": "거인 등장 컷",
+      "text": "Giant appearance cut"
+    },
+    {
+      "key": "t0031",
+      "source": "거인 모델링 데이터를 활용한 스킨 판매. 추가 모델링 비용 없이 매출 증대 — 기존 에셋의 가치를 다시 한 번 끌어올린 사례.",
+      "text": "Selling skins using giant modeling data. Increased sales without additional modeling costs — an example of once again increasing the value of existing assets."
+    },
+    {
+      "key": "t0032",
+      "source": "거인 시스템",
+      "text": "giant system"
+    },
+    {
+      "key": "t0033",
+      "source": "거인 패턴 — IP 시그니처를 살린 등장 + 어그로 로직",
+      "text": "Giant pattern — appearance utilizing IP signature + aggro logic"
+    },
+    {
+      "key": "t0034",
+      "source": "거인 AI + HP · 이속 · 회피 아이템",
+      "text": "Giant AI + HP, movement speed, evasion items"
+    },
+    {
+      "key": "t0035",
+      "source": "게임 소개",
+      "text": "Game Introduction"
+    },
+    {
+      "key": "t0036",
+      "source": "계급에 따라 날아다닐 때의 부스터 이펙트가 다름. 도달 의욕 → 플레이 시간 증가 → 매출 증가의 선순환.",
+      "text": "The booster effect when flying varies depending on the rank. A virtuous cycle of motivation to reach → increase in play time → increase in sales."
+    },
+    {
+      "key": "t0037",
+      "source": "공격",
+      "text": "attack"
+    },
+    {
+      "key": "t0038",
+      "source": "공격으로부터 살아남아 포인트를 누적합니다.",
+      "text": "Survive attacks and accumulate points."
+    },
+    {
+      "key": "t0039",
+      "source": "광고 영상",
+      "text": "advertising video"
+    },
+    {
+      "key": "t0040",
+      "source": "기술 관점",
+      "text": "technology perspective"
+    },
+    {
+      "key": "t0041",
+      "source": "기획자와 협업해",
+      "text": "Collaborate with planners"
+    },
+    {
+      "key": "t0042",
+      "source": "까지 — 글로벌 동시 접속에 대비.",
+      "text": "Until — Prepare for global simultaneous connections."
+    },
+    {
+      "key": "t0043",
+      "source": "까지 역할을 확장하며 콘텐츠를 키웠습니다.",
+      "text": "We expanded our role and expanded our content."
+    },
+    {
+      "key": "t0044",
+      "source": "난이도별 데미지 / 데미지 범위 / 사용자 HP 차별화.",
+      "text": "Damage / damage range / user HP differentiation by difficulty level."
+    },
+    {
+      "key": "t0045",
+      "source": "노을 (Hard)",
+      "text": "Sunset (Hard)"
+    },
+    {
+      "key": "t0046",
+      "source": "누적 방문 (2024.5)",
+      "text": "Cumulative visits (May 2024)"
+    },
+    {
+      "key": "t0047",
+      "source": "다국어 업데이트 공지 UI",
+      "text": "Multilingual update notice UI"
+    },
+    {
+      "key": "t0048",
+      "source": "다른 개발자가 코드를 읽기 어려워 협업 비용이 점점 커짐",
+      "text": "Collaboration costs become increasingly difficult for other developers to read code"
+    },
+    {
+      "key": "t0049",
+      "source": "데이터 기반 의사결정 파이프라인. 다음 밸런스 패치의 근거를 라이브 데이터에서 직접 가져옵니다.",
+      "text": "Data-driven decision pipeline. The basis for the next balance patch comes directly from live data."
+    },
+    {
+      "key": "t0050",
+      "source": "동시 발생 처리, 라운드별 패턴 차별화",
+      "text": "Simultaneous occurrence processing, pattern differentiation by round"
+    },
+    {
+      "key": "t0051",
+      "source": "랭커 특수 스킬 4종",
+      "text": "4 types of ranker special skills"
+    },
+    {
+      "key": "t0052",
+      "source": "랭커 특수 스킬 발동 컷",
+      "text": "Ranker special skill activation cut"
+    },
+    {
+      "key": "t0053",
+      "source": "랭킹 시스템",
+      "text": "ranking system"
+    },
+    {
+      "key": "t0054",
+      "source": "로 시작해",
+      "text": "Start with"
+    },
+    {
+      "key": "t0055",
+      "source": "릴리즈 직후 → 라이브 데이터로 다음 의사결정의 비용을 낮춤",
+      "text": "Immediately after release → Live data lowers the cost of next decisions"
+    },
+    {
+      "key": "t0056",
+      "source": "매 라운드 거인 / 이펙트 인스턴스를 새로 생성하니 메모리 폭증 + GC stall",
+      "text": "Since a new giant/effect instance is created every round, memory explosion + GC stall"
+    },
+    {
+      "key": "t0057",
+      "source": "매 라운드 다른 패턴으로 다수의 재난이 동시 발생. 시간 기반 매니저가 등장 타이밍을 제어해 매번 다른 경험을 만듭니다.",
+      "text": "Multiple disasters occur simultaneously in different patterns each round. A time-based manager controls the timing of appearances to create a different experience every time."
+    },
+    {
+      "key": "t0058",
+      "source": "매 라운드 다른 패턴으로 다수의 재난이 동시 발생하도록, 시간 기반 매니저가 등장 타이밍과 종류를 제어.",
+      "text": "A time-based manager controls the timing and type of appearance so that multiple disasters occur simultaneously in different patterns every round."
+    },
+    {
+      "key": "t0059",
+      "source": "멀티플레이 동기화",
+      "text": "Multiplayer Sync"
+    },
+    {
+      "key": "t0060",
+      "source": "멀티플레이 생존 게임. 다수의 플레이어가 모여 재난 필드에서 일정 시간 거인의",
+      "text": "Multiplayer survival game. A large number of players gather together in the disaster field for a certain period of time to control the giant's"
+    },
+    {
+      "key": "t0061",
+      "source": "메타버스 플랫폼",
+      "text": "Metaverse Platform"
+    },
+    {
+      "key": "t0062",
+      "source": "명이 살아남았다.",
+      "text": "people survived."
+    },
+    {
+      "key": "t0063",
+      "source": "무작위 재난 스폰 — 시간축 + 가중치 기반",
+      "text": "Random disaster spawning — based on time base + weighting"
+    },
+    {
+      "key": "t0064",
+      "source": "무작위 재난 시스템",
+      "text": "random disaster system"
+    },
+    {
+      "key": "t0065",
+      "source": "무작위 재난, 거인의 패턴, 그리고 그 안에서 생존을 도와주는 시스템들을 직접 기획·구현했습니다.",
+      "text": "I personally planned and implemented random disasters, giant patterns, and systems to help people survive within them."
+    },
+    {
+      "key": "t0066",
+      "source": "방어력 상승",
+      "text": "Increased defense"
+    },
+    {
+      "key": "t0067",
+      "source": "부스터 이펙트 — 계급별 차별화",
+      "text": "Booster Effect — Differentiation by class"
+    },
+    {
+      "key": "t0068",
+      "source": "블로그",
+      "text": "blog"
+    },
+    {
+      "key": "t0069",
+      "source": "사용 국가에 따른 언어 자동 변환",
+      "text": "Automatic language conversion depending on country of use"
+    },
+    {
+      "key": "t0070",
+      "source": "사용자가 앱을 백그라운드로 깔면 데미지 무효 — 끝까지 살아남는 버그 악용 신고",
+      "text": "If the user puts the app in the background, the damage is nullified — report abuse of the bug that survives until the end"
+    },
+    {
+      "key": "t0071",
+      "source": "살아남기 위해 필요한 모든 것",
+      "text": "Everything you need to survive"
+    },
+    {
+      "key": "t0072",
+      "source": "살아남는 랭크에 따른 범위",
+      "text": "Range according to survival rank"
+    },
+    {
+      "key": "t0073",
+      "source": "살아남은 시간과 누적 랭크가 곧 실력. 상위권 도달은 다음 라운드 진입 동기로 이어집니다.",
+      "text": "Survival time and accumulated rank are your skills. Reaching the top ranks leads to motivation to enter the next round."
+    },
+    {
+      "key": "t0074",
+      "source": "상위 랭커 도달 동기 부여. 범위 내 플레이어",
+      "text": "Motivation to reach the top ranks. players in range"
+    },
+    {
+      "key": "t0075",
+      "source": "서버에서의 데이터 처리 + 서버-클라이언트 간 데이터 처리 방식 학습",
+      "text": "Data processing on the server + learning how to process data between server and client"
+    },
+    {
+      "key": "t0076",
+      "source": "스킨 · 아이템 수익",
+      "text": "Skin/item profits"
+    },
+    {
+      "key": "t0077",
+      "source": "스킨 판매 — 모델링 재활용",
+      "text": "Selling Skins — Modeling Recycle"
+    },
+    {
+      "key": "t0078",
+      "source": "스킨 판매 / 부스터 이펙트 / Analytics 까지 폭넓은 콘텐츠를 메인으로 책임지고 출시했습니다.",
+      "text": "We are primarily responsible for releasing a wide range of content, including skin sales / booster effects / analytics."
+    },
+    {
+      "key": "t0079",
+      "source": "시스템 비용이 큰 특정 함수 호출 최소화 (Update 외부화)",
+      "text": "Minimize calls to specific functions with high system costs (Externalize Update)"
+    },
+    {
+      "key": "t0080",
+      "source": "아이템 무료 사용",
+      "text": "Free use of items"
+    },
+    {
+      "key": "t0081",
+      "source": "아침 (Easy)",
+      "text": "Morning (Easy)"
+    },
+    {
+      "key": "t0082",
+      "source": "어그로",
+      "text": "Aggro"
+    },
+    {
+      "key": "t0083",
+      "source": "에도 게임이 멈추지 않도록 권한 인수",
+      "text": "Edo take over permissions so the game doesn't freeze"
+    },
+    {
+      "key": "t0084",
+      "source": "에서 살펴봅니다",
+      "text": "Take a look at"
+    },
+    {
+      "key": "t0085",
+      "source": "엔진 + 언어",
+      "text": "engine + language"
+    },
+    {
+      "key": "t0086",
+      "source": "여기서부터는 개발자 관점의 기술 스택, 직접 구현한 영역, 그리고 멀티플레이 환경에서 마주친 문제와 해결 과정을 소개합니다.",
+      "text": "From here, we will introduce the technology stack from a developer's perspective, the areas we directly implemented, and the problems and solutions we encountered in the multiplayer environment."
+    },
+    {
+      "key": "t0087",
+      "source": "여러 플레이어 동시 생존",
+      "text": "Survival of multiple players simultaneously"
+    },
+    {
+      "key": "t0088",
+      "source": "연결 — 이지/하드 선택률, 평균 생존 시간, 재난별 생존 수, 전멸 시간 등 6개 지표 수집. 다음 밸런스 패치를 데이터 기반으로 결정.",
+      "text": "Connection — Collects 6 indicators, including easy/hard selection rate, average survival time, number of survivors per disaster, and annihilation time. Deciding the next balance patch based on data."
+    },
+    {
+      "key": "t0089",
+      "source": "원작 만화의 긴장감을 메타버스에 옮기는 것이 목표였습니다.",
+      "text": "The goal was to transfer the tension of the original comic to the metaverse."
+    },
+    {
+      "key": "t0090",
+      "source": "월드 입장 화면",
+      "text": "World entry screen"
+    },
+    {
+      "key": "t0091",
+      "source": "월드 입장부터 거인 등장, 멀티플레이 생존, 그리고 2차 업데이트의 하드 모드와 랭커 특수 스킬까지.",
+      "text": "From entering the world, appearing giants, surviving multiplayer, and even the hard mode and ranker special skills of the 2nd update."
+    },
+    {
+      "key": "t0092",
+      "source": "으로 의미 있는 식별자 부여 + SOLID · 상속 · 인터페이스로 책임 분리. 다음 업데이트의 비용을 미리 낮추는 의식적 설계로 전환.",
+      "text": "Provide meaningful identifiers + separate responsibilities through SOLID, inheritance, and interface. Shift to conscious design that proactively lowers the cost of the next update."
+    },
+    {
+      "key": "t0093",
+      "source": "으로 코드 가독성 향상 (다른 개발자 협업 대비)",
+      "text": "Improves code readability (compared to other developer collaborations)"
+    },
+    {
+      "key": "t0094",
+      "source": "의사결정의 비용을 낮추기 위해 다음 6개의 지표를 라이브에서 직접 수집합니다.",
+      "text": "To lower the cost of decision-making, we collect the following six metrics live and directly:"
+    },
+    {
+      "key": "t0095",
+      "source": "이런 흐름으로 진행됩니다",
+      "text": "It goes like this"
+    },
+    {
+      "key": "t0096",
+      "source": "이제",
+      "text": "now"
+    },
+    {
+      "key": "t0097",
+      "source": "이지 / 하드 모드 선택 수",
+      "text": "Easy/Hard mode to choose from"
+    },
+    {
+      "key": "t0098",
+      "source": "이지 / 하드 선택률 추이",
+      "text": "Easy/Hard selection rate trend"
+    },
+    {
+      "key": "t0099",
+      "source": "이지/하드 모드 선택 수 · 각 재난별 생존자 수",
+      "text": "Number of easy/hard mode selections Number of survivors for each disaster"
+    },
+    {
+      "key": "t0100",
+      "source": "인게임 영상",
+      "text": "In-game video"
+    },
+    {
+      "key": "t0101",
+      "source": "재난 + 거인 등장",
+      "text": "Disaster + Giant Appearance"
+    },
+    {
+      "key": "t0102",
+      "source": "재난 시스템",
+      "text": "disaster system"
+    },
+    {
+      "key": "t0103",
+      "source": "재난 필드 위에서,",
+      "text": "On the disaster field,"
+    },
+    {
+      "key": "t0104",
+      "source": "전멸 시 걸리는 시간",
+      "text": "Time taken for annihilation"
+    },
+    {
+      "key": "t0105",
+      "source": "전멸 시 걸리는 시간 · 살아남는 랭크 범위",
+      "text": "Time taken for annihilation · Survival rank range"
+    },
+    {
+      "key": "t0106",
+      "source": "제작사 콜라보로 출시한",
+      "text": "Released in collaboration with the production company"
+    },
+    {
+      "key": "t0107",
+      "source": "직접 설계 · 구현한 5가지 핵심 영역",
+      "text": "Five core areas designed and implemented directly"
+    },
+    {
+      "key": "t0108",
+      "source": "직접 제안 · 구현",
+      "text": "Direct proposal/implementation"
+    },
+    {
+      "key": "t0109",
+      "source": "진격의 거인",
+      "text": "attack on titan"
+    },
+    {
+      "key": "t0110",
+      "source": "진격의 거인 · Attack on Titan",
+      "text": "Attack on Titan · Attack on Titan"
+    },
+    {
+      "key": "t0111",
+      "source": "진격의 거인 IP 의 시그니처를 살린 거인 등장 패턴 · 어그로 동작 · 공격 범위. 원작 팬들이 즉시 알아챌 수 있는 디테일.",
+      "text": "Giant appearance pattern, aggro movement, and attack range that utilize the signature of the Attack on Titan IP. A detail that fans of the original will immediately notice."
+    },
+    {
+      "key": "t0112",
+      "source": "짐승 거인",
+      "text": "beast giant"
+    },
+    {
+      "key": "t0113",
+      "source": "최적화 4종 — Production-grade",
+      "text": "4 types of optimization — Production-grade"
+    },
+    {
+      "key": "t0114",
+      "source": "추가 재난",
+      "text": "Additional disaster"
+    },
+    {
+      "key": "t0115",
+      "source": "콘텐츠 내 게임 아이템과 거인 모델링 활용 스킨 판매로 매출 창출. 기존 에셋을 재활용해 효율적으로 추가.",
+      "text": "Generate revenue by selling in-game items and skins using giant modeling. Recycle existing assets and add them efficiently."
+    },
+    {
+      "key": "t0116",
+      "source": "투석",
+      "text": "dialysis"
+    },
+    {
+      "key": "t0117",
+      "source": "평균 재난 플레이 수",
+      "text": "Average number of disaster plays"
+    },
+    {
+      "key": "t0118",
+      "source": "평균 재난 플레이 수 → 추후 밸런스 패치 데이터로 활용",
+      "text": "Average number of disaster plays → Use as balance patch data in the future"
+    },
+    {
+      "key": "t0119",
+      "source": "프로덕션 환경에서 실제로 마주친 5가지 문제와 해결 과정. 출시 이후 라이브 이슈 대응을 포함합니다.",
+      "text": "Five problems actually encountered in a production environment and the process for solving them. Includes live issue response after launch."
+    },
+    {
+      "key": "t0120",
+      "source": "필드 곳곳에 생존성 향상 아이템 배치 — 단순 반복에서 탐색 동기를 추가하는 효과.",
+      "text": "Placing survivability-enhancing items throughout the field — the effect of adding motivation for exploration in simple repetition."
+    },
+    {
+      "key": "t0121",
+      "source": "필드 아이템 추가",
+      "text": "Add field item"
+    },
+    {
+      "key": "t0122",
+      "source": "하드 모드 — 코어 유저용",
+      "text": "Hard Mode — For Core Users"
+    },
+    {
+      "key": "t0123",
+      "source": "한 생존 직결 아이템. HP / 이속 / 회피 — \"오래 살아남고 싶다\"는 동기를 자극합니다.",
+      "text": "An item directly related to survival. HP / Movement Speed ​​/ Evasion — Stimulates the motivation to “survive long”."
+    },
+    {
+      "key": "t0124",
+      "source": "핵심 패턴 — 개념 스케치",
+      "text": "Core Patterns — Conceptual Sketch"
+    },
+    {
+      "key": "t0125",
+      "source": "호스트 이탈 예외 처리",
+      "text": "Host exit exception handling"
+    },
+    {
+      "key": "t0126",
+      "source": "화면",
+      "text": "screen"
+    },
+    {
+      "key": "t0127",
+      "source": "환경 변경으로 분위기까지 차별화.",
+      "text": "Even the atmosphere is differentiated by changing the environment."
+    },
+    {
+      "key": "t0128",
+      "source": "회피 · HP 아이템",
+      "text": "Evasion · HP Item"
+    },
+    {
+      "key": "t0129",
+      "source": "힐",
+      "text": "heel"
+    },
+    {
+      "key": "t0130",
+      "source": "Analytics 통합",
+      "text": "Analytics integration"
+    },
+    {
+      "key": "t0131",
+      "source": "AREA 04 · OPTIMIZATION (4종)",
+      "text": "AREA 04 · OPTIMIZATION (4 types)"
+    },
+    {
+      "key": "t0132",
+      "source": "CONTENT UPDATE · 메인 개발 80%",
+      "text": "CONTENT UPDATE · Main development 80%"
+    },
+    {
+      "key": "t0133",
+      "source": "DisasterManager · Object Pool · Host Failover 세 가지 패턴의 핵심 아이디어를 TypeScript 로 정리한 개념 코드입니다.",
+      "text": "This is a conceptual code that summarizes the core ideas of the three patterns: DisasterManager, Object Pool, and Host Failover in TypeScript."
+    },
+    {
+      "key": "t0134",
+      "source": "FEATURES · 게임에 담은 것",
+      "text": "FEATURES · What’s included in the game"
+    },
+    {
+      "key": "t0135",
+      "source": "GAMEPLAY · 게임 화면",
+      "text": "GAMEPLAY · Game screen"
+    },
+    {
+      "key": "t0136",
+      "source": "Google Analytics 데이터 파이프라인",
+      "text": "Google Analytics Data Pipeline"
+    },
+    {
+      "key": "t0137",
+      "source": "Google Analytics 통합",
+      "text": "Google Analytics integration"
+    },
+    {
+      "key": "t0138",
+      "source": "Gucci Tennis · 193K 누적",
+      "text": "Gucci Tennis · 193K accumulated"
+    },
+    {
+      "key": "t0139",
+      "source": "Host → Client 브로드캐스트 / Client → Host 입력 송신 패턴",
+      "text": "Host → Client broadcast / Client → Host input transmission pattern"
+    },
+    {
+      "key": "t0140",
+      "source": "Host 가 중간에 나가면 전체 라운드가 중단되어 모든 client 가 튕김",
+      "text": "If the host leaves in the middle, the entire round is stopped and all clients crash."
+    },
+    {
+      "key": "t0141",
+      "source": "Host 이탈 감지 (heart-beat timeout) → 차순위 client 가 결정적 순서로 권한 인수. Client 측에서는 새 host 로의 RPC fallback 을 자동 처리하도록 설계.",
+      "text": "Host departure detection (heart-beat timeout) → The next-highest priority client takes over authority in a deterministic order. The client side is designed to automatically handle RPC fallback to the new host."
+    },
+    {
+      "key": "t0142",
+      "source": "Host-Client 구조를 구성하고, 2차 업데이트부터는 Google Analytics 로 의사결정 데이터를 수집했습니다.",
+      "text": "We created a Host-Client structure and collected decision-making data using Google Analytics from the second update."
+    },
+    {
+      "key": "t0143",
+      "source": "Host-Client 동기화 + Host 이탈 예외 처리",
+      "text": "Host-Client synchronization + Host departure exception handling"
+    },
+    {
+      "key": "t0144",
+      "source": "HP / 이속 / 회피 아이템 — 기획자와 협업해 직접 제안",
+      "text": "HP / movement / evasion items - directly proposed in collaboration with the planner"
+    },
+    {
+      "key": "t0145",
+      "source": "MY CONTRIBUTIONS · 내가 작업한 영역",
+      "text": "MY CONTRIBUTIONS · Areas I worked on"
+    },
+    {
+      "key": "t0146",
+      "source": "Naver Zepeto × 일본 만화",
+      "text": "Naver Zepeto × Japanese Manga"
+    },
+    {
+      "key": "t0147",
+      "source": "Naver Zepeto 메타버스 플랫폼 × 진격의 거인 콜라보 멀티 생존 게임. 누적 방문 2.1M, 인기 차트 10위권 1개월. 1차 클라이언트 50% → 2차 메인 80% 개발 포트폴리오.",
+      "text": "Naver Zepeto metaverse platform × Attack on Titan collaboration multiplayer survival game. Cumulative visits: 2.1M, top 10 on popular charts for 1 month. 1st client 50% → 2nd main 80% development portfolio."
+    },
+    {
+      "key": "t0148",
+      "source": "Photon 기반 Host + Client 구조. 끊김 없는 반복 흐름과",
+      "text": "Photon-based Host + Client structure. A seamless repetitive flow"
+    },
+    {
+      "key": "t0149",
+      "source": "RunToRoom · 캐주얼 생존",
+      "text": "RunToRoom · Casual Survival"
+    },
+    {
+      "key": "t0150",
+      "source": "v2 · 완료",
+      "text": "v2 · Completed"
+    },
+    {
+      "key": "t0151",
+      "source": "v2 테스트 영상",
+      "text": "v2 test video"
+    },
+    {
+      "key": "t0152",
+      "source": "v2 Analytics — 6 metrics 수집",
+      "text": "v2 Analytics — Collect 6 metrics"
+    },
+    {
+      "key": "t0153",
+      "source": "Zepeto 메타버스 · 글로벌 콜라보",
+      "text": "Zepeto Metaverse · Global Collaboration"
+    },
+    {
+      "key": "t0154",
+      "source": "Zepeto 인기차트 · 1개월",
+      "text": "Zepeto Popular Chart · 1 month"
+    },
+    {
+      "key": "t0155",
+      "source": "Zepeto 진격의 거인 · Attack on Titan — Game Showcase & Developer Portfolio",
+      "text": "Zepeto Attack on Titan · Attack on Titan — Game Showcase & Developer Portfolio"
+    },
+    {
+      "key": "t0156",
+      "source": "Zepeto 차트 · 1개월",
+      "text": "Zepeto Chart · 1 month"
+    },
+    {
+      "key": "t0157",
+      "source": "Zepeto SDK 위에 Unity 와 TypeScript 로 게임 로직을 작성. Photon 기반 멀티플레이로",
+      "text": "Write game logic in Unity and TypeScript on top of Zepeto SDK. Photon-based multiplayer"
+    }
+  ]
+}

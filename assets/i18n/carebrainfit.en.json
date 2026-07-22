@@ -1,0 +1,917 @@
+{
+  "page": "carebrainfit",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "— 서버 전용 키 (클라 쓰기 불가)",
+      "text": "— Server-only key (cannot write to server)"
+    },
+    {
+      "key": "t0002",
+      "source": "— 손 궤적 시각화 (잔상 효과)",
+      "text": "— Visualization of hand trajectories (afterimage effect)"
+    },
+    {
+      "key": "t0003",
+      "source": "— 신규 사용자 초기 지급액",
+      "text": "— New user initial payment"
+    },
+    {
+      "key": "t0004",
+      "source": "— 종류별 풀을 한 매니저가 통합 관리",
+      "text": "— One manager integrates management of each type of pool"
+    },
+    {
+      "key": "t0005",
+      "source": "— GameRecords (콘텐츠 1회 종료마다 즉시 업로드)",
+      "text": "— GameRecords (uploaded immediately after each content completion)"
+    },
+    {
+      "key": "t0006",
+      "source": "— user + settings (앱 종료/설정 변경 시 업로드)",
+      "text": "— user + settings (upload when app closes/changes settings)"
+    },
+    {
+      "key": "t0007",
+      "source": "· · · · 단독 작성",
+      "text": "· · · · Written solely"
+    },
+    {
+      "key": "t0008",
+      "source": "· · 3개 Cloud Code 작성",
+      "text": "· · Create 3 Cloud Codes"
+    },
+    {
+      "key": "t0009",
+      "source": "· 등 진입 연출까지 단독 작성",
+      "text": "· Exclusive writing including directing"
+    },
+    {
+      "key": "t0010",
+      "source": "· 에 각각 단일 호출 플래그",
+      "text": "· Single call flag for each"
+    },
+    {
+      "key": "t0011",
+      "source": "() 로 이전. 운영팀이 빌드 없이 즉시 조정 가능해짐.",
+      "text": "Previous to (). Operations teams can adjust on the fly without a build."
+    },
+    {
+      "key": "t0012",
+      "source": "(서버 전용)",
+      "text": "(server only)"
+    },
+    {
+      "key": "t0013",
+      "source": "(선택) Cloud Save / Cloud Code / Remote Config 흐름을 그린 별도 다이어그램이 있다면 #architecture 섹션 .arch-flow 위에 삽입.",
+      "text": "(Optional) If you have a separate diagram depicting the Cloud Save / Cloud Code / Remote Config flow, insert it above the #architecture section.arch-flow."
+    },
+    {
+      "key": "t0014",
+      "source": "→ → / / / 훅 규약 합의",
+      "text": "→ → / / / Hook convention agreement"
+    },
+    {
+      "key": "t0015",
+      "source": "🎬 영상 임베드 예시 코드",
+      "text": "🎬 Video embed example code"
+    },
+    {
+      "key": "t0016",
+      "source": "1회 로그인 → 3개 채널 응답 병합 → 1회",
+      "text": "Login once → Merge responses from 3 channels → Once"
+    },
+    {
+      "key": "t0017",
+      "source": "3 체조 · 4 아케이드",
+      "text": "3 Gymnastics 4 Arcade"
+    },
+    {
+      "key": "t0018",
+      "source": "30초~1분 분량의 플레이 영상. 자동재생/음소거/루프로 임베드. .hero 또는 .modes 섹션 끝에 추가 가능.",
+      "text": "30 seconds to 1 minute of gameplay video. Autoplay/mute/embed as loop. Can be added to the end of the .hero or .modes section."
+    },
+    {
+      "key": "t0019",
+      "source": "5종 정적 이벤트 클래스로 도메인 분리",
+      "text": "Domain separation into five static event classes"
+    },
+    {
+      "key": "t0020",
+      "source": "각 게임을 GameEntry ScriptableObject 로 정의하고 GameCatalog 가 일괄 관리. 새 콘텐츠 추가 시 코드 수정 없이 에셋 추가만으로 그리드 UI 자동 갱신.",
+      "text": "Each game is defined as a GameEntry ScriptableObject and managed collectively by GameCatalog. When adding new content, the grid UI is automatically updated just by adding assets without modifying the code."
+    },
+    {
+      "key": "t0021",
+      "source": "각 콘텐츠 스크린샷 7장. 1280×720 권장. .game-item 안에 썸네일을 추가하거나 별도 갤러리 섹션을 만들 수 있습니다.",
+      "text": "7 screenshots of each content. 1280×720 recommended. You can add thumbnails inside the .game-item or create a separate gallery section."
+    },
+    {
+      "key": "t0022",
+      "source": "같은 데이터가 여러 곳에 흩어지지 않도록 각 도메인의 책임을 명확히 분리.",
+      "text": "Clearly separate responsibilities for each domain to prevent the same data from being scattered across multiple locations."
+    },
+    {
+      "key": "t0023",
+      "source": "개발자 작업 보기",
+      "text": "View developer tasks"
+    },
+    {
+      "key": "t0024",
+      "source": "건강한 두뇌",
+      "text": "healthy brain"
+    },
+    {
+      "key": "t0025",
+      "source": "게임 모드",
+      "text": "game mode"
+    },
+    {
+      "key": "t0026",
+      "source": "게임 모드 보기 →",
+      "text": "View game modes →"
+    },
+    {
+      "key": "t0027",
+      "source": "게임별 최고 점수·정확도·콤보·플레이 횟수를 누적 관리.",
+      "text": "Cumulative management of highest score, accuracy, combo, and number of plays for each game."
+    },
+    {
+      "key": "t0028",
+      "source": "과일 게임",
+      "text": "fruit games"
+    },
+    {
+      "key": "t0029",
+      "source": "구독 → 즉시 업로드 대신 디바운스",
+      "text": "Subscription → Debounce instead of instant upload"
+    },
+    {
+      "key": "t0030",
+      "source": "권한을 분리해서 클라이언트가 직접 잔액을 조작할 수 없도록 차단. 클라이언트는 응답값으로 캐시만 갱신.",
+      "text": "Separate permissions to prevent clients from directly manipulating balances. The client only updates the cache with the response value."
+    },
+    {
+      "key": "t0031",
+      "source": "그 중 본인이 메인으로 책임진 의사결정·구현 포인트를 자세히 정리합니다.",
+      "text": "Among them, I will summarize in detail the decision-making and implementation points for which I was primarily responsible."
+    },
+    {
+      "key": "t0032",
+      "source": "기록·랭킹",
+      "text": "Records/Ranking"
+    },
+    {
+      "key": "t0033",
+      "source": "기술 스택",
+      "text": "technology stack"
+    },
+    {
+      "key": "t0034",
+      "source": "기존 단일 키에 모든 데이터를 몰아 넣던 구조에서, 도메인별로 3개 키로 분리.",
+      "text": "In the existing structure where all data was stored in a single key, each domain was separated into three keys."
+    },
+    {
+      "key": "t0035",
+      "source": "난이도별 노드 등장 패턴/속도 튜닝",
+      "text": "Node appearance pattern/speed tuning by difficulty level"
+    },
+    {
+      "key": "t0036",
+      "source": "날아오는 과일을 손으로 잡고 폭탄을 피하는 휘두르기 게임. 손 위치·속도 기반 충돌 판정과 손 궤적 시각화를 직접 설계.",
+      "text": "A swinging game where you catch flying fruits with your hands and avoid bombs. Directly design collision judgment and hand trajectory visualization based on hand position and speed."
+    },
+    {
+      "key": "t0037",
+      "source": "는 팀 공동 작업 중 메인 역할이었던 영역을 나타냅니다.",
+      "text": "indicates the area that was the main role during team collaboration."
+    },
+    {
+      "key": "t0038",
+      "source": "다종 객체를 효율적으로 관리하기 위한 다중 prefab 풀을 구현.",
+      "text": "Implement multiple prefab pools to efficiently manage multiple types of objects."
+    },
+    {
+      "key": "t0039",
+      "source": "단독 설계·구현 영역",
+      "text": "Independent design/implementation area"
+    },
+    {
+      "key": "t0040",
+      "source": "단방향으로 동기화",
+      "text": "One-way synchronization"
+    },
+    {
+      "key": "t0041",
+      "source": "단일 진실원본의 분리",
+      "text": "Separation of a single source of truth"
+    },
+    {
+      "key": "t0042",
+      "source": "데이터 드리븐 콘텐츠 카탈로그",
+      "text": "Data Driven Content Catalog"
+    },
+    {
+      "key": "t0043",
+      "source": "두 가지 결, 일곱 가지 콘텐츠",
+      "text": "Two textures, seven contents"
+    },
+    {
+      "key": "t0044",
+      "source": "로 변경.",
+      "text": "Changed to ."
+    },
+    {
+      "key": "t0045",
+      "source": "로 예외 발생 시에도 락 해제 보장",
+      "text": "Lock release is guaranteed even when an exception occurs."
+    },
+    {
+      "key": "t0046",
+      "source": "로 직전 예약을 깔끔하게 취소.",
+      "text": "Cleanly cancel your last reservation."
+    },
+    {
+      "key": "t0047",
+      "source": "로그인 후 Cloud Save · Cloud Code · Authentication 에서 받은 데이터를 게임 내 DataManager 와",
+      "text": "After logging in, data received from Cloud Save, Cloud Code, and Authentication are sent to the in-game DataManager."
+    },
+    {
+      "key": "t0048",
+      "source": "로컬 → 서버 로 전환. PLAYER_MONEY 키는 Cloud Code 만 쓰기 가능하도록",
+      "text": "Switch to Local → Server. The PLAYER_MONEY key can only be written to Cloud Code."
+    },
+    {
+      "key": "t0049",
+      "source": "리듬 체조 게임",
+      "text": "rhythmic gymnastics game"
+    },
+    {
+      "key": "t0050",
+      "source": "리듬 체조부터 탄막 회피까지 — 시니어가 부담 없이 매일 한 게임씩 즐길 수 있도록 설계되었습니다.",
+      "text": "From rhythmic gymnastics to bullet evasion — it's designed so seniors can enjoy one game every day without the burden."
+    },
+    {
+      "key": "t0051",
+      "source": "리듬 팔 동작 체조",
+      "text": "rhythmic arm movement gymnastics"
+    },
+    {
+      "key": "t0052",
+      "source": "리듬에 맞춰 체조 수행 · 5분",
+      "text": "Perform gymnastics to the rhythm · 5 minutes"
+    },
+    {
+      "key": "t0053",
+      "source": "리플레이 캡처",
+      "text": "Replay Capture"
+    },
+    {
+      "key": "t0054",
+      "source": "매니저 간 직접 참조 대신 정적 이벤트(GameEvents · SystemEvents · ArcadeEvents · PoseEvents · UIEvents) 로 결합도 낮춤. 한 매니저 교체가 다른 매니저에 영향 주지 않음.",
+      "text": "Reduce coupling to static events (GameEvents · SystemEvents · ArcadeEvents · PoseEvents · UIEvents) instead of direct references between managers. Replacing one manager does not affect other managers."
+    },
+    {
+      "key": "t0055",
+      "source": "메인으로 담당한 작업 10선",
+      "text": "10 main tasks"
+    },
+    {
+      "key": "t0056",
+      "source": "몸으로 즐기는",
+      "text": "Enjoy with your body"
+    },
+    {
+      "key": "t0057",
+      "source": "밀기 체조",
+      "text": "pushing gymnastics"
+    },
+    {
+      "key": "t0058",
+      "source": "반응 속도 게임",
+      "text": "reaction speed game"
+    },
+    {
+      "key": "t0059",
+      "source": "반응 속도 측정, 체조 따라하기, 탄막 회피까지 7가지 콘텐츠가 시니어의 두뇌와 신체를 동시에 자극합니다.",
+      "text": "Seven types of content, including measuring reaction speed, following gymnastics, and dodging bullets, stimulate seniors' brains and bodies at the same time."
+    },
+    {
+      "key": "t0060",
+      "source": "반응 속도, 패턴 인식, 공간 지각을 자극하는 미니게임 4종.",
+      "text": "Four types of minigames that stimulate reaction speed, pattern recognition, and spatial perception."
+    },
+    {
+      "key": "t0061",
+      "source": "베이스 클래스 버그를 발견하고 수정. 영향 범위는 SingletonBehaviour 상속 매니저 전체.",
+      "text": "Found and fixed a base class bug. The scope of influence is the entire SingletonBehaviour inheritance manager."
+    },
+    {
+      "key": "t0062",
+      "source": "본인이 직접 작업한 영역으로 들어가기 전, 게임 전반을 떠받치는 기술 결정들을 먼저 정리합니다.",
+      "text": "Before diving into the areas I worked on, I first summarize the technical decisions that underpin the game as a whole."
+    },
+    {
+      "key": "t0063",
+      "source": "사진·영상 추가 가이드라인",
+      "text": "Guidelines for adding photos and videos"
+    },
+    {
+      "key": "t0064",
+      "source": "상체 쭉쭉 체조",
+      "text": "Upper body straight gymnastics"
+    },
+    {
+      "key": "t0065",
+      "source": "상체·리듬·밀기 체조 등 자세 인식 중심 콘텐츠가 실제로 어떻게 보이는지 바로 확인할 수 있습니다.",
+      "text": "You can immediately see what posture-aware content, such as upper body, rhythm, and push exercises, looks like in reality."
+    },
+    {
+      "key": "t0066",
+      "source": "새 아케이드 콘텐츠 추가 시 동일한 패턴(BasicArcadeView 상속 + ArcadeSubscriber 이벤트 구독)으로 일관되게 작성할 수 있는 베이스 계층 설계.",
+      "text": "Base layer design that allows you to consistently write with the same pattern (BasicArcadeView inheritance + ArcadeSubscriber event subscription) when adding new arcade content."
+    },
+    {
+      "key": "t0067",
+      "source": "새 아케이드 콘텐츠를 같은 패턴으로 작성할 수 있도록 BasicArcadeView · ArcadeSubscriber · BasicArcadeEvents 3-계층을",
+      "text": "BasicArcadeView · ArcadeSubscriber · BasicArcadeEvents 3-layer so that new arcade content can be written in the same pattern."
+    },
+    {
+      "key": "t0068",
+      "source": "서버 검증 화폐",
+      "text": "Server Verified Currency"
+    },
+    {
+      "key": "t0069",
+      "source": "서버 검증 화폐 시스템 (PLAYER_MONEY)",
+      "text": "Server Verification Currency System (PLAYER_MONEY)"
+    },
+    {
+      "key": "t0070",
+      "source": "서버 응답이 오기 전 같은 메서드를 또 호출하면 N번 차감/지급되던 위험을 메서드별 진행 중 플래그로 막음.",
+      "text": "If the same method is called again before the server response comes, the risk of being deducted/paid N times is prevented with an in-progress flag for each method."
+    },
+    {
+      "key": "t0071",
+      "source": "서버(검증)와 클라(UI 표시)가 같은 키를 참조하므로 정합성 자동 보장.",
+      "text": "Since the server (verification) and client (UI display) refer to the same key, consistency is automatically guaranteed."
+    },
+    {
+      "key": "t0072",
+      "source": "서버(차감/지급)와 클라(UI 표시)가 같은 키 참조 → 정합성",
+      "text": "Server (deduction/payment) and client (UI display) refer to the same key → Consistency"
+    },
+    {
+      "key": "t0073",
+      "source": "소개",
+      "text": "Introduction"
+    },
+    {
+      "key": "t0074",
+      "source": "손 위치가 크게 바뀌는 동작들로 · 4분",
+      "text": "Movements that significantly change hand position · 4 minutes"
+    },
+    {
+      "key": "t0075",
+      "source": "슬라이더 연속 변경 시 매번 업로드하지 않고, 마지막 변경 후 500ms 가 지난 시점에 한 번만 업로드.",
+      "text": "When continuously changing the slider, it is not uploaded every time, but only uploaded once 500ms after the last change."
+    },
+    {
+      "key": "t0076",
+      "source": "시니어 인지·체조 케어 게임",
+      "text": "Senior cognitive/gymnastics care game"
+    },
+    {
+      "key": "t0077",
+      "source": "신규 — RC 캐시 + 이벤트 발행",
+      "text": "New — RC Cash + Event Issue"
+    },
+    {
+      "key": "t0078",
+      "source": "씬 재진입 시 ContentEconomyManager 캐시 소실 이슈 해결",
+      "text": "Fixed ContentEconomyManager cache loss issue when re-entering scene."
+    },
+    {
+      "key": "t0079",
+      "source": "씬 재진입 시 prefab 에 박힌 중복 인스턴스가 파괴되며 활성 참조까지 화되던",
+      "text": "When re-entering the scene, duplicate instances embedded in the prefab are destroyed and even active references are made."
+    },
+    {
+      "key": "t0080",
+      "source": "씬 전환 시 ResetEvents() 로 누수 방지",
+      "text": "Prevent water leaks with ResetEvents() when switching scenes"
+    },
+    {
+      "key": "t0081",
+      "source": "아케이드 게임 단독 제작 (A1·A2)",
+      "text": "Exclusive production of arcade games (A1·A2)"
+    },
+    {
+      "key": "t0082",
+      "source": "아케이드 모드",
+      "text": "arcade mode"
+    },
+    {
+      "key": "t0083",
+      "source": "아케이드 모드 화면",
+      "text": "Arcade mode screen"
+    },
+    {
+      "key": "t0084",
+      "source": "아케이드 베이스 계층 설계",
+      "text": "Arcade base layer design"
+    },
+    {
+      "key": "t0085",
+      "source": "앱 종료 시 pending 변경분은 가 함께 플러시 — 데이터 손실 방지",
+      "text": "When the app is terminated, pending changes are flushed together — preventing data loss"
+    },
+    {
+      "key": "t0086",
+      "source": "어깨·팔·코어 중심의 상체 체조 · 5분",
+      "text": "Upper body exercises focusing on shoulders, arms, and core · 5 minutes"
+    },
+    {
+      "key": "t0087",
+      "source": "얼굴 인식 탄막 회피 · 5분",
+      "text": "Face recognition barrage evasion · 5 minutes"
+    },
+    {
+      "key": "t0088",
+      "source": "업로드 시점·빈도가 다르므로 분리하면 부하·충돌이 줄어듦.",
+      "text": "Since the upload timing and frequency are different, separating them reduces load and conflicts."
+    },
+    {
+      "key": "t0089",
+      "source": "에 가드 추가",
+      "text": "Add guard to"
+    },
+    {
+      "key": "t0090",
+      "source": "옛 DTO( · · ) 모두 제거",
+      "text": "Remove all old DTOs ( · · )"
+    },
+    {
+      "key": "t0091",
+      "source": "원격 콘텐츠 조정",
+      "text": "Remote content moderation"
+    },
+    {
+      "key": "t0092",
+      "source": "은 단독 설계·구현,",
+      "text": "stands alone for design and implementation,"
+    },
+    {
+      "key": "t0093",
+      "source": "응답 전 추가 호출은 로 즉시 거절 → 잔액 정합성 확보.",
+      "text": "Additional calls before response are immediately rejected → Ensure balance consistency."
+    },
+    {
+      "key": "t0094",
+      "source": "응답 amount 필드로 실제 차감/지급액을 클라에 명시 → UI 정합성",
+      "text": "Specify the actual deduction/payment amount in the client using the response amount field → UI consistency"
+    },
+    {
+      "key": "t0095",
+      "source": "이 페이지는 placeholder 와 함께 작성되어 있어, 아래 위치에 미디어를 넣으면 자연스럽게 표시됩니다.",
+      "text": "This page is written with a placeholder, so if you place media in the position below, it will display naturally."
+    },
+    {
+      "key": "t0096",
+      "source": "이벤트 기반 아키텍처",
+      "text": "Event-driven architecture"
+    },
+    {
+      "key": "t0097",
+      "source": "인지·반응 훈련",
+      "text": "Cognition/reaction training"
+    },
+    {
+      "key": "t0098",
+      "source": "일상적인 손·팔 움직임을 따라하기 · 4분",
+      "text": "Imitating everyday hand and arm movements · 4 minutes"
+    },
+    {
+      "key": "t0099",
+      "source": "일시정지·재개 흐름을 / 으로 통합",
+      "text": "Integrate pause/resume flow into /"
+    },
+    {
+      "key": "t0100",
+      "source": "자세 정확도에 비례한 보상. 일상 동작 회복과 코어·상체 강화 중심.",
+      "text": "Compensation proportional to posture accuracy. Focused on recovering daily movements and strengthening core and upper body."
+    },
+    {
+      "key": "t0101",
+      "source": "자세 추적 체조",
+      "text": "posture tracking gymnastics"
+    },
+    {
+      "key": "t0102",
+      "source": "전신 키포인트 추적으로 따라 하기 형태의 가이드 체조 3종.",
+      "text": "3 types of guided exercises to follow along with full body key point tracking."
+    },
+    {
+      "key": "t0103",
+      "source": "정확한 타이밍 입력 판정 + 시각 피드백(콤보·점수 애니메이션) 일체화",
+      "text": "Accurate timing input judgment + integrated visual feedback (combo and score animation)"
+    },
+    {
+      "key": "t0104",
+      "source": "좌측 상단 nav 의 \"CB\" 그라데이션 아이콘을 실제 로고로 교체. .brand .logo-icon 의 텍스트를",
+      "text": "Replace the \"CB\" gradient icon in the top left nav with the actual logo. Text of .brand .logo-icon"
+    },
+    {
+      "key": "t0105",
+      "source": "중복 인스턴스가 파괴돼도 살아있는 원본 참조는 보존",
+      "text": "Even if duplicate instances are destroyed, the living reference to the original is preserved."
+    },
+    {
+      "key": "t0106",
+      "source": "체조 모드",
+      "text": "gymnastics mode"
+    },
+    {
+      "key": "t0107",
+      "source": "체조 모드 화면",
+      "text": "Gymnastics mode screen"
+    },
+    {
+      "key": "t0108",
+      "source": "체조 모드는 정확도에 따라 보상을, 아케이드 모드는 코인을 소모하여 입장합니다. 모든 콘텐츠가 동일한 카탈로그 시스템에서 관리됩니다.",
+      "text": "Gymnastics mode rewards players based on accuracy, while arcade mode requires coins to enter. All content is managed in the same catalog system."
+    },
+    {
+      "key": "t0109",
+      "source": "체조 보상으로 이어지는 게임형 콘텐츠의 실제 플레이 톤과 UI 구성을 대표 스크린샷으로 보여줍니다.",
+      "text": "Representative screenshots show the actual play tone and UI composition of the game-type content leading to gymnastics rewards."
+    },
+    {
+      "key": "t0110",
+      "source": "추상 클래스 기반 / 다형 분리",
+      "text": "Abstract class-based/polymorphic separation"
+    },
+    {
+      "key": "t0111",
+      "source": "컨트롤러 없는 디지털 헬스케어",
+      "text": "Digital healthcare without controller"
+    },
+    {
+      "key": "t0112",
+      "source": "컨트롤러 없이 게임을 즐길 수 있도록 MediaPipe Unity 패키지를 활용해 전신 자세·얼굴 키포인트를 실시간 추적. 데스크탑·안드로이드 양쪽에서 동작.",
+      "text": "Real-time tracking of full body posture and facial key points using the MediaPipe Unity package so that you can enjoy the game without a controller. Works on both desktop and Android."
+    },
+    {
+      "key": "t0113",
+      "source": "케어 브레인 핏 대표 화면",
+      "text": "Care Brain Fit representative screen"
+    },
+    {
+      "key": "t0114",
+      "source": "케어 브레인 핏 아케이드 모드 화면",
+      "text": "Care Brain Fit Arcade Mode Screen"
+    },
+    {
+      "key": "t0115",
+      "source": "케어 브레인 핏 체조 모드 화면",
+      "text": "Care Brain Fit Gymnastics Mode Screen"
+    },
+    {
+      "key": "t0116",
+      "source": "코인을 소모하여 입장. 반응·지각·회피 등 인지 훈련 중심.",
+      "text": "Enter by consuming coins. Focuses on cognitive training such as reaction, perception, and avoidance."
+    },
+    {
+      "key": "t0117",
+      "source": "콘텐츠별 입장 비용·보상을 ScriptableObject 하드코딩에서 Remote Config 의 단일 JSON 키",
+      "text": "Single JSON key of Remote Config in ScriptableObject hardcoding of admission cost/reward for each content"
+    },
+    {
+      "key": "t0118",
+      "source": "클라이언트가 amount 를 위조해도 무시됩니다.",
+      "text": "Even if the client forges amount, it is ignored."
+    },
+    {
+      "key": "t0119",
+      "source": "클라이언트는 사용자 인터페이스와 게임 로직, 서버는 화폐 검증, Remote Config 는 콘텐츠 메타데이터를 담당합니다.",
+      "text": "The client is responsible for the user interface and game logic, the server is responsible for currency verification, and Remote Config is responsible for content metadata."
+    },
+    {
+      "key": "t0120",
+      "source": "클라이언트는 contentId 만 보내고, 서버가 Remote Config 를 참조하여 실제 차감액·지급액을 결정합니다.",
+      "text": "The client sends only the contentId, and the server determines the actual deduction/payment amount by referring to Remote Config."
+    },
+    {
+      "key": "t0121",
+      "source": "타이밍에 맞춰 원형 터치 · 7분",
+      "text": "Circular touch at the right time · 7 minutes"
+    },
+    {
+      "key": "t0122",
+      "source": "타이틀 화면 또는 앱 메인 키 비주얼. 가로/세로 둘 다 가능. 권장 1080×1920 또는 1920×1080.",
+      "text": "Title screen or app main key visual. Both horizontal and vertical are available. Recommended 1080×1920 or 1920×1080."
+    },
+    {
+      "key": "t0123",
+      "source": "특정 기능(체조 정확도 측정 / 탄막 회피 등)의 단편 영상. .feat-card 안에 작은 video 태그로 임베드 가능.",
+      "text": "Short videos of specific functions (gymnastics accuracy measurement / barrage evasion, etc.). Can be embedded as a small video tag in .feat-card."
+    },
+    {
+      "key": "t0124",
+      "source": "팀 공동 작업 중 메인 역할을 한 영역",
+      "text": "Areas that play a main role during team collaboration"
+    },
+    {
+      "key": "t0125",
+      "source": "팀과 공동 설계. 콘텐츠 라이프사이클 규약을 합의·문서화하여 신규 콘텐츠 추가 비용을 크게 낮춤.",
+      "text": "Co-design with your team. Significantly lower the cost of adding new content by agreeing and documenting content life cycle protocols."
+    },
+    {
+      "key": "t0126",
+      "source": "팀이 공통으로 만든 토대 위에서 각자의 영역이 어떻게 분담되었는지 보여주기 위함입니다.",
+      "text": "This is to show how each area is divided based on the team's common foundation."
+    },
+    {
+      "key": "t0127",
+      "source": "폭탄을 피해 날아오는 과일을 잡기 · 5분",
+      "text": "Avoid the bomb and catch the flying fruit · 5 minutes"
+    },
+    {
+      "key": "t0128",
+      "source": "프로젝트는 팀으로 진행되었으며 전체 구조는 공동 설계했습니다.",
+      "text": "The project was carried out as a team and the overall structure was co-designed."
+    },
+    {
+      "key": "t0129",
+      "source": "플레이 보상·게임 입장 비용을 서버 측에서 검증·관리 (조작 방지).",
+      "text": "Verification and management of play rewards and game entry costs on the server side (tampering prevention)."
+    },
+    {
+      "key": "t0130",
+      "source": "플레이 영상 자동 녹화·미리보기로 자신의 동작을 되돌아보기.",
+      "text": "Look back on your actions with automatic recording and preview of play videos."
+    },
+    {
+      "key": "t0131",
+      "source": "피하기 게임",
+      "text": "dodge game"
+    },
+    {
+      "key": "t0132",
+      "source": "하는 어댑터 매니저를 재설계. 이전엔 게임 템플릿 잔재(Lifes/Items 등)가 섞여 있던 코드를",
+      "text": "Redesigned the adapter manager. Code that previously had mixed game template remnants (Lifes/Items, etc.)"
+    },
+    {
+      "key": "t0133",
+      "source": "한 눈에 보는 화폐 흐름",
+      "text": "Money flow at a glance"
+    },
+    {
+      "key": "t0134",
+      "source": "현재 A1~A4 네 콘텐츠 모두 동일 구조 위에서 동작 — 신규 콘텐츠 추가 시 코드 패턴 그대로 재사용",
+      "text": "Currently, all four contents from A1 to A4 operate on the same structure — when adding new content, the code pattern is reused as is."
+    },
+    {
+      "key": "t0135",
+      "source": "현재 A1~A4 모두 동일 구조 위에서 동작",
+      "text": "Currently, A1~A4 all operate on the same structure"
+    },
+    {
+      "key": "t0136",
+      "source": "화면에 나타난 노드를 타이밍에 맞춰 정확히 터치하는 반응 훈련 게임. MediaPipe 자세 입력 기반의 노드 생성·콤보·점수·특수 맵 효과까지 단독 설계·구현.",
+      "text": "A reaction training game where you precisely touch the nodes that appear on the screen at the right time. MediaPipe Independent design and implementation of node creation, combo, score, and special map effects based on posture input."
+    },
+    {
+      "key": "t0137",
+      "source": "확장 가능한 아케이드 구조",
+      "text": "Expandable arcade structure"
+    },
+    {
+      "key": "t0138",
+      "source": "A-Series · 4종",
+      "text": "A-Series · 4 types"
+    },
+    {
+      "key": "t0139",
+      "source": "A1 — 반응 속도 게임 단독 제작",
+      "text": "A1 — Responsive Game Exclusive Creation"
+    },
+    {
+      "key": "t0140",
+      "source": "A2 — 과일 게임 단독 제작",
+      "text": "A2 — Standalone fruit game creation"
+    },
+    {
+      "key": "t0141",
+      "source": "assets/logo.png (또는 .svg)",
+      "text": "assets/logo.png (or .svg)"
+    },
+    {
+      "key": "t0142",
+      "source": "BasicArcadeView · BasicArcadeEvents · BasicArcadeManager 3-계층",
+      "text": "BasicArcadeView · BasicArcadeEvents · BasicArcadeManager 3-tier"
+    },
+    {
+      "key": "t0143",
+      "source": "CareBrainFit — 시니어 인지·체조 게임 · Showcase & Developer Portfolio",
+      "text": "CareBrainFit — Senior Cognitive/Gymnastics Game · Showcase & Developer Portfolio"
+    },
+    {
+      "key": "t0144",
+      "source": "CareBrainFit 는 손에 아무것도 쥐지 않은 채 몸짓과 표정만으로 즐기는 인지 운동 게임입니다.",
+      "text": "CareBrainFit is a cognitive exercise game that can be played using only gestures and facial expressions without holding anything in your hands."
+    },
+    {
+      "key": "t0145",
+      "source": "CareBrainFit 의 기술적 핵심",
+      "text": "The technical core of CareBrainFit"
+    },
+    {
+      "key": "t0146",
+      "source": "CareFit 데이터 모델에 맞게 슬림화.",
+      "text": "Slimmed to fit the CareFit data model."
+    },
+    {
+      "key": "t0147",
+      "source": "Cloud Code 도 동일 RC 키 참조 → 클라가 위조한 amount 는 무시",
+      "text": "Cloud Code also refers to the same RC key → Ignore the amount forged by Cloud"
+    },
+    {
+      "key": "t0148",
+      "source": "Cloud Code 엔드포인트",
+      "text": "Cloud Code endpoint"
+    },
+    {
+      "key": "t0149",
+      "source": "Cloud Save 키 (분리 책임)",
+      "text": "Cloud Save key (separate responsibility)"
+    },
+    {
+      "key": "t0150",
+      "source": "Cloud Save 키 분리 저장",
+      "text": "Cloud Save Key Separate Storage"
+    },
+    {
+      "key": "t0151",
+      "source": "ContentEconomyManager — RC 캐시",
+      "text": "ContentEconomyManager — RC Cache"
+    },
+    {
+      "key": "t0152",
+      "source": "ContentGridBuilder · ContentItemView 가 자동 렌더링",
+      "text": "ContentGridBuilder · ContentItemView is automatically rendered"
+    },
+    {
+      "key": "t0153",
+      "source": "DataManager — 메모리 상태",
+      "text": "DataManager — Memory state"
+    },
+    {
+      "key": "t0154",
+      "source": "DataManager · UI · 서버 매니저가 같은 이벤트 구독",
+      "text": "DataManager, UI, and Server Manager subscribe to the same event"
+    },
+    {
+      "key": "t0155",
+      "source": "F-Series · 3종",
+      "text": "F-Series · 3 types"
+    },
+    {
+      "key": "t0156",
+      "source": "F1 게임 화면",
+      "text": "F1 game screen"
+    },
+    {
+      "key": "t0157",
+      "source": "Face Detection — A4 회피 게임의 입력 수단",
+      "text": "Face Detection — Input method for A4 avoidance game"
+    },
+    {
+      "key": "t0158",
+      "source": "fire-and-forget 으로 UI 차단 없음",
+      "text": "No UI blocking with fire-and-forget"
+    },
+    {
+      "key": "t0159",
+      "source": "Fitness 보상은 식으로 서버가 산출 → 정확도 위조 시도 무력화",
+      "text": "Fitness rewards are calculated by the server in this way → Neutralizes attempts to falsify accuracy"
+    },
+    {
+      "key": "t0160",
+      "source": "GameEntry (id, 썸네일, 영상, 설명, 난이도)",
+      "text": "GameEntry (id, thumbnail, video, description, difficulty)"
+    },
+    {
+      "key": "t0161",
+      "source": "In-flight 락 — 연타·중복 호출 방지",
+      "text": "In-flight lock — Prevents multiple hits and duplicate calls"
+    },
+    {
+      "key": "t0162",
+      "source": "JSON 파일 — GameRecords 로컬",
+      "text": "JSON file — GameRecords local"
+    },
+    {
+      "key": "t0163",
+      "source": "MediaPipe 기반 전신 자세·얼굴 인식으로 컨트롤러 없이 즐기는 인지 운동 게임.",
+      "text": "A cognitive exercise game that can be enjoyed without a controller using MediaPipe-based full-body posture and face recognition."
+    },
+    {
+      "key": "t0164",
+      "source": "MediaPipe 기반 체조·아케이드 인지 운동 게임 'CareBrainFit'. UGS(Cloud Save/Cloud Code/Remote Config) 통합과 서버 검증 화폐 시스템을 담당한 개발자 포트폴리오.",
+      "text": "MediaPipe-based gymnastics/arcade cognitive exercise game ‘CareBrainFit’. Developer portfolio responsible for UGS (Cloud Save/Cloud Code/Remote Config) integration and server verification currency system."
+    },
+    {
+      "key": "t0165",
+      "source": "MediaPipe AI 신체 추적",
+      "text": "MediaPipe AI Body Tracking"
+    },
+    {
+      "key": "t0166",
+      "source": "OnSubscribed / OnStarted / OnFinished / OnPaused / OnRerun 훅",
+      "text": "OnSubscribed / OnStarted / OnFinished / OnPaused / OnRerun hooks"
+    },
+    {
+      "key": "t0167",
+      "source": "PlayerPrefs — 로컬 캐시",
+      "text": "PlayerPrefs — Local cache"
+    },
+    {
+      "key": "t0168",
+      "source": "Pose Estimation — 전신 33개 키포인트",
+      "text": "Pose Estimation — 33 key points of the whole body"
+    },
+    {
+      "key": "t0169",
+      "source": "PoseManager 가 결과를 정규화·이벤트화하여 게임 로직과 분리",
+      "text": "PoseManager normalizes and eventizes results to separate them from game logic"
+    },
+    {
+      "key": "t0170",
+      "source": "RC 콘텐츠 경제 항목",
+      "text": "RC Content Economy Items"
+    },
+    {
+      "key": "t0171",
+      "source": "Remote Config 단일 진실원본 — 콘텐츠 경제",
+      "text": "Remote Config Single Source of Truth — Content Economy"
+    },
+    {
+      "key": "t0172",
+      "source": "Remote Config 로 콘텐츠별 비용·보상을 빌드 없이 즉시 조정.",
+      "text": "Remote Config allows immediate adjustment of costs and rewards for each content without building."
+    },
+    {
+      "key": "t0173",
+      "source": "Remote Config 와 결합되어 경제 정보까지 외부에서 주입",
+      "text": "Combined with Remote Config, economic information is injected from outside."
+    },
+    {
+      "key": "t0174",
+      "source": "Robo Gostop · 화투 멀티",
+      "text": "Robo Gostop · Hwatu Multi"
+    },
+    {
+      "key": "t0175",
+      "source": "Settings 디바운스 자동 동기화",
+      "text": "Settings Debounce Auto Sync"
+    },
+    {
+      "key": "t0176",
+      "source": "Silbot · 실벗 로봇 학습",
+      "text": "Silbot · Silbot robot learning"
+    },
+    {
+      "key": "t0177",
+      "source": "SingletonBehaviour 베이스 클래스 버그 수정",
+      "text": "SingletonBehaviour base class bug fix"
+    },
+    {
+      "key": "t0178",
+      "source": "UGS 통합 어댑터 — PlayerDataManager 재설계",
+      "text": "UGS Unified Adapter — PlayerDataManager redesign"
+    },
+    {
+      "key": "t0179",
+      "source": "UI 측 버튼 비활성화 없이도 서버 호출 1회만 보장",
+      "text": "Ensures only one server call without disabling UI-side buttons"
+    },
+    {
+      "key": "t0180",
+      "source": "UI 카드/팝업이 RC 캐시 로드 완료 시 자동 재렌더",
+      "text": "Automatically re-render UI cards/popups when RC cache completes loading"
+    },
+    {
+      "key": "t0181",
+      "source": "userID 는 로컬(CAMI 토큰) 우선, money 는 서버 진실원본 정책 명시",
+      "text": "userID is local (CAMI token) first, money specifies server truth source policy"
+    },
+    {
+      "key": "t0182",
+      "source": "WriteLock 재시도(409/412)로 동시성 안전, INSUFFICIENT_FUNDS 거절",
+      "text": "Concurrency safe with WriteLock retry (409/412), INSUFFICIENT_FUNDS rejected"
+    }
+  ]
+}

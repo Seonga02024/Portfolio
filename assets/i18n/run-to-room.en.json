@@ -1,0 +1,677 @@
+{
+  "page": "run-to-room",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "— 아이템 스폰 / 회수 / 인벤토리",
+      "text": "— Item spawn/retrieval/inventory"
+    },
+    {
+      "key": "t0002",
+      "source": "— 외부 게임의 건물 데이터 수신",
+      "text": "— Receiving building data from external games"
+    },
+    {
+      "key": "t0003",
+      "source": "— 웹 게임끼리도 연결될 수 있다는 작은 실험.",
+      "text": "— A small experiment showing that web games can be connected to each other."
+    },
+    {
+      "key": "t0004",
+      "source": "— 적 스폰 · 추격 AI · 난이도 곡선",
+      "text": "— Enemy spawn, chase AI, difficulty curve"
+    },
+    {
+      "key": "t0005",
+      "source": "— 중간 이벤트 트리거 · 보너스 페이즈",
+      "text": "— Mid-Event Trigger · Bonus Phase"
+    },
+    {
+      "key": "t0006",
+      "source": "— 획득 아이템 누적 · 직렬화",
+      "text": "— Accumulation and serialization of acquired items"
+    },
+    {
+      "key": "t0007",
+      "source": "→ 컨셉 매핑 테이블",
+      "text": "→ Concept mapping table"
+    },
+    {
+      "key": "t0008",
+      "source": "▶ 실제 플레이 영상",
+      "text": "▶ Actual play video"
+    },
+    {
+      "key": "t0009",
+      "source": "2개월",
+      "text": "2 months"
+    },
+    {
+      "key": "t0010",
+      "source": "3개 게임을 연결하는 합작 프로젝트의 한 축으로서, 본인은 캐주얼 생존 파트의",
+      "text": "As one axis of a joint project connecting three games, I am responsible for the casual survival part."
+    },
+    {
+      "key": "t0011",
+      "source": "3개 게임을 잇는 데이터 흐름",
+      "text": "Data flow linking three games"
+    },
+    {
+      "key": "t0012",
+      "source": "3개 게임이 데이터를 주고받는 합작 프로젝트",
+      "text": "A joint project where three games exchange data"
+    },
+    {
+      "key": "t0013",
+      "source": "3인",
+      "text": "3 people"
+    },
+    {
+      "key": "t0014",
+      "source": "6개 건물 컨셉",
+      "text": "6 building concepts"
+    },
+    {
+      "key": "t0015",
+      "source": "6개 건물 컨셉을 각자 만들면 자산·작업량이 폭증",
+      "text": "If each of the six building concepts is created, the amount of assets and work increases rapidly."
+    },
+    {
+      "key": "t0016",
+      "source": "각 매니저는 MapGenerator로부터 컨셉 정보만 받음",
+      "text": "Each manager receives only concept information from MapGenerator."
+    },
+    {
+      "key": "t0017",
+      "source": "각 영역은 서로 독립적으로 동작하지만, MapGenerator를 중심으로 하나의 흐름으로 묶여 있습니다.",
+      "text": "Each area operates independently from each other, but is tied into a single flow centered on MapGenerator."
+    },
+    {
+      "key": "t0018",
+      "source": "각각의 문제를 어떻게 풀었는지 정리했습니다.",
+      "text": "We have summarized how each problem was solved."
+    },
+    {
+      "key": "t0019",
+      "source": "같은 게임이지만 입장하는 건물에 따라 완전히 다른 분위기. 폐허·골목·빌딩 사이를 누비며",
+      "text": "It's the same game, but a completely different atmosphere depending on the building you enter. Traveling between ruins, alleys, and buildings"
+    },
+    {
+      "key": "t0020",
+      "source": "건물 #3 · 도심 빌딩",
+      "text": "Building #3 · Downtown Building"
+    },
+    {
+      "key": "t0021",
+      "source": "건물 데이터 부재 시 랜덤 컨셉으로 안전 폴백",
+      "text": "Safety fallback with random concept in case of absence of building data"
+    },
+    {
+      "key": "t0022",
+      "source": "건물 번호",
+      "text": "building number"
+    },
+    {
+      "key": "t0023",
+      "source": "건물 번호를 입력으로 받아 맵 컨셉·블록 배치·장애물 배치를 절차적으로 구성.",
+      "text": "It receives the building number as input and procedurally constructs the map concept, block placement, and obstacle placement."
+    },
+    {
+      "key": "t0024",
+      "source": "건물마다 다른 도시 풍경",
+      "text": "Different cityscapes for each building"
+    },
+    {
+      "key": "t0025",
+      "source": "건물별 등장 풀(pool) 분리로 컨셉 일관성 확보",
+      "text": "Securing concept consistency by separating pools for each building"
+    },
+    {
+      "key": "t0026",
+      "source": "게임 간 데이터 수신·송신",
+      "text": "Data reception and transmission between games"
+    },
+    {
+      "key": "t0027",
+      "source": "게임 간 데이터 연동",
+      "text": "Data linking between games"
+    },
+    {
+      "key": "t0028",
+      "source": "게임 소개",
+      "text": "Game Introduction"
+    },
+    {
+      "key": "t0029",
+      "source": "게임 중에도 룰·아이템 배치 방법을 동적으로 갈아끼울 수 있는 구조. 테스트와 라이브 튜닝 모두 용이.",
+      "text": "A structure that allows you to dynamically change the rules and item placement methods during the game. Easy for both testing and live tuning."
+    },
+    {
+      "key": "t0030",
+      "source": "고정된 맵의 반복성 — 한두 번 플레이하면 금방 질림",
+      "text": "Fixed map repetitiveness — you get bored quickly after playing it once or twice"
+    },
+    {
+      "key": "t0031",
+      "source": "고정된 맵이 아닌, 입장할 때마다 새로 구성되는 절차적 맵. 장애물 주변 예외 처리로 막힌 구조 방지.",
+      "text": "It is not a fixed map, but a procedural map that is newly constructed each time you enter. Prevents blocked structures by handling exceptions around obstacles."
+    },
+    {
+      "key": "t0032",
+      "source": "그리고",
+      "text": "and"
+    },
+    {
+      "key": "t0033",
+      "source": "기획자/디자이너가 직접 시트만 수정해도 반영",
+      "text": "Even if the planner/designer directly modifies the sheet, it is reflected."
+    },
+    {
+      "key": "t0034",
+      "source": "내가 모은 아이템 데이터가",
+      "text": "The item data I collected"
+    },
+    {
+      "key": "t0035",
+      "source": "다른 게임이 보낸",
+      "text": "sent by another game"
+    },
+    {
+      "key": "t0036",
+      "source": "다른 웹 게임과의 데이터 연결이 처음 — 안정성 보장이 어려움",
+      "text": "This is my first data connection with another web game — stability is difficult to guarantee."
+    },
+    {
+      "key": "t0037",
+      "source": "다른 웹 게임이 보낸 건물 번호로 맵 구성 → 획득 아이템 데이터를 저장 후 다음 게임으로 전달.",
+      "text": "Configure the map with building numbers sent by other web games → Save the acquired item data and pass it on to the next game."
+    },
+    {
+      "key": "t0038",
+      "source": "다음 게임으로 넘어간다",
+      "text": "Move on to the next game"
+    },
+    {
+      "key": "t0039",
+      "source": "도시 컨셉 #1",
+      "text": "City Concept #1"
+    },
+    {
+      "key": "t0040",
+      "source": "도시 컨셉 #2 · 동적 맵 생성",
+      "text": "City Concept #2 · Dynamic map creation"
+    },
+    {
+      "key": "t0041",
+      "source": "도시 컨셉 3 — 빌딩",
+      "text": "City Concept 3 — Buildings"
+    },
+    {
+      "key": "t0042",
+      "source": "동일 prefab을 회전·재배치하여 6개 컨셉을 표현.",
+      "text": "Six concepts are expressed by rotating and rearranging the same prefab."
+    },
+    {
+      "key": "t0043",
+      "source": "동적 배치 변경",
+      "text": "Dynamic placement changes"
+    },
+    {
+      "key": "t0044",
+      "source": "레드브릭 웹 게임 합작 프로젝트. 다른 웹 게임이 보낸 건물 번호 데이터를 받아 자동으로 맵 컨셉을 구성하는 캐주얼 서바이벌 게임.",
+      "text": "Redbrick web game joint project. A casual survival game that automatically constructs a map concept by receiving building number data sent from other web games."
+    },
+    {
+      "key": "t0045",
+      "source": "로 —",
+      "text": "By —"
+    },
+    {
+      "key": "t0046",
+      "source": "를",
+      "text": "to"
+    },
+    {
+      "key": "t0047",
+      "source": "매니저 분리 구조",
+      "text": "Manager separation structure"
+    },
+    {
+      "key": "t0048",
+      "source": "매니저 분리 구조 — 의사 코드",
+      "text": "Manager Separation Structure — Pseudocode"
+    },
+    {
+      "key": "t0049",
+      "source": "매번 다른 맵, 매번 다른 건물 컨셉, 그리고 다른 웹 게임과 데이터를 주고받는 연결성.",
+      "text": "A different map every time, a different building concept every time, and connectivity to exchange data with other web games."
+    },
+    {
+      "key": "t0050",
+      "source": "매번 새로운 맵",
+      "text": "New map every time"
+    },
+    {
+      "key": "t0051",
+      "source": "맵 컨셉·난이도·아이템을 자동으로 세팅하고, 플레이어가 획득한 아이템을 다음 게임으로 전달하는",
+      "text": "Automatically sets the map concept, difficulty level, and items, and transfers the items the player acquires to the next game."
+    },
+    {
+      "key": "t0052",
+      "source": "미완성 빌드를 넘기는 대신",
+      "text": "Instead of handing over an unfinished build"
+    },
+    {
+      "key": "t0053",
+      "source": "밸런스 패치를 위해 매번 코드를 수정해야 하는 비효율",
+      "text": "Inefficiency of having to modify code every time for balance patches"
+    },
+    {
+      "key": "t0054",
+      "source": "본인은",
+      "text": "I am"
+    },
+    {
+      "key": "t0055",
+      "source": "분",
+      "text": "minutes"
+    },
+    {
+      "key": "t0056",
+      "source": "브라우저 표준 API와 Redbrick 시그널을 함께 활용해 게임-간 통신 채널을 구성했습니다.",
+      "text": "We used a combination of browser standard APIs and Redbrick signals to establish a game-to-game communication channel."
+    },
+    {
+      "key": "t0057",
+      "source": "블록 prefab 재활용으로 6컨셉을 1세트 자산으로 표현",
+      "text": "Expressing 6 concepts with 1 set of assets through block prefab recycling"
+    },
+    {
+      "key": "t0058",
+      "source": "블록 prefab을 재활용하고, 회전·재배치·머티리얼 스왑으로 컨셉만 갈아끼우는 방식 채택. 자산 1세트로 6개 분위기를 표현해 인턴 기간 내 완성도 확보.",
+      "text": "Adopted a method of recycling block prefabs and changing only the concept through rotation, rearrangement, and material swap. Expressing 6 moods with 1 set of assets ensured completion within the internship period."
+    },
+    {
+      "key": "t0059",
+      "source": "뼈대를 완성한 뒤 인수인계했습니다.",
+      "text": "After completing the framework, it was handed over."
+    },
+    {
+      "key": "t0060",
+      "source": "시그널/postMessage 채널을 따라 데이터가 한 방향으로 흐르도록 설계했습니다.",
+      "text": "We designed data to flow in one direction along the signal/postMessage channel."
+    },
+    {
+      "key": "t0061",
+      "source": "시스템 관점",
+      "text": "systems perspective"
+    },
+    {
+      "key": "t0062",
+      "source": "시스템을 설계했습니다.",
+      "text": "I designed the system."
+    },
+    {
+      "key": "t0063",
+      "source": "실제 코드는 GitHub에 공개되어 있지만, 여기서는 설계 의도를 한눈에 보여주기 위해",
+      "text": "The actual code is publicly available on GitHub, but here it is to show the design intent at a glance."
+    },
+    {
+      "key": "t0064",
+      "source": "실제로 마주친 문제와 해결",
+      "text": "Problems encountered and solved in practice"
+    },
+    {
+      "key": "t0065",
+      "source": "아이템 매니저 · 적 매니저 · 중간 이벤트 매니저를 독립 모듈로 분리. 룰 변경 시 한 곳만 수정.",
+      "text": "Item Manager, Enemy Manager, and Intermediate Event Manager are separated into independent modules. When changing a rule, only one place is modified."
+    },
+    {
+      "key": "t0066",
+      "source": "아이템 확률·등장 횟수를 엑셀 시트로 관리하고, 게임 빌드 시 JSON으로 변환해 로딩.",
+      "text": "Manage item probability and number of appearances in an Excel sheet, convert to JSON and load when building the game."
+    },
+    {
+      "key": "t0067",
+      "source": "아이템 확률·등장 횟수를 엑셀로 관리. 기획자·디자이너가 코드 수정 없이 직접 조정 가능.",
+      "text": "Manage item probability and number of appearances in Excel. Planners and designers can directly adjust without modifying the code."
+    },
+    {
+      "key": "t0068",
+      "source": "아이템·적·중간 이벤트를 각각 독립 매니저로 분리.",
+      "text": "Separate item, enemy, and intermediate events into independent managers."
+    },
+    {
+      "key": "t0069",
+      "source": "아이템별 , ,",
+      "text": "By item, ,"
+    },
+    {
+      "key": "t0070",
+      "source": "에 공개되어 누구나 참고할 수 있습니다.",
+      "text": "It is open to the public and anyone can refer to it."
+    },
+    {
+      "key": "t0071",
+      "source": "에서 살펴봅니다",
+      "text": "Take a look at"
+    },
+    {
+      "key": "t0072",
+      "source": "엑셀 기반 밸런싱",
+      "text": "Excel-based balancing"
+    },
+    {
+      "key": "t0073",
+      "source": "엑셀 기반 아이템 확률표",
+      "text": "Excel-based item probability table"
+    },
+    {
+      "key": "t0074",
+      "source": "엑셀 시트 → JSON 변환 (빌드 파이프라인)",
+      "text": "Excel sheet → JSON conversion (build pipeline)"
+    },
+    {
+      "key": "t0075",
+      "source": "엑셀 아이템 확률 테이블",
+      "text": "Excel item probability table"
+    },
+    {
+      "key": "t0076",
+      "source": "엑셀 확률 테이블 도입 — 빌드 파이프라인에서 JSON으로 변환해 로딩. 기획자·디자이너가 시트만 수정해도 반영되므로 개발자 병목 제거.",
+      "text": "Introducing Excel probability tables — converted to JSON and loaded in the build pipeline. Eliminates developer bottlenecks by allowing planners and designers to reflect changes just to the sheet."
+    },
+    {
+      "key": "t0077",
+      "source": "여기서부터는 절차적 맵 생성, 매니저 분리, 엑셀 기반 밸런싱, 그리고 게임 간 데이터 통신 구조를 깊게 다룹니다.",
+      "text": "From here, we will cover procedural map creation, manager separation, Excel-based balancing, and inter-game data communication structures in depth."
+    },
+    {
+      "key": "t0078",
+      "source": "영상 보러가기 →",
+      "text": "Watch the video →"
+    },
+    {
+      "key": "t0079",
+      "source": "완성보다",
+      "text": "than completion"
+    },
+    {
+      "key": "t0080",
+      "source": "완성이 아닌, 다음 사람이 이어받을 수 있는 형태로",
+      "text": "Not complete, but in a form that the next person can take over."
+    },
+    {
+      "key": "t0081",
+      "source": "외부 게임 → 건물 번호 수신 → 맵 컨셉 분기 → 매니저들이 각자 역할 수행 → 결과 데이터를 다음 게임으로 송신.",
+      "text": "External game → Receive building number → Map concept branching → Managers perform their respective roles → Result data is transmitted to the next game."
+    },
+    {
+      "key": "t0082",
+      "source": "외부 게임이 보낸 건물 번호에 따라 배경·난이도·아이템이 분기. 동일한 블록을 재활용해 컨셉만 갈아끼움.",
+      "text": "The background, difficulty level, and items diverge depending on the building number sent by the external game. Recycle the same blocks and change the concept."
+    },
+    {
+      "key": "t0083",
+      "source": "웹 게임 간 데이터 연동 실험 · 캐주얼 생존",
+      "text": "Data linking experiment between web games · Casual survival"
+    },
+    {
+      "key": "t0084",
+      "source": "웹 게임 엔진 Redbrick 위에서 절차적 맵 생성과 외부 데이터 연동을 구현.",
+      "text": "Implement procedural map creation and external data integration on the web game engine Redbrick."
+    },
+    {
+      "key": "t0085",
+      "source": "의",
+      "text": "of"
+    },
+    {
+      "key": "t0086",
+      "source": "의 구조를 먼저 갖추는 데 집중. 추후 누가 이어받아도 확장할 수 있도록 인수인계 문서 + GitHub 공개.",
+      "text": "Focus on establishing the structure first. Handover document + released on GitHub so that whoever takes over can expand in the future."
+    },
+    {
+      "key": "t0087",
+      "source": "이 게임이 끝나면",
+      "text": "When this game is over"
+    },
+    {
+      "key": "t0088",
+      "source": "이 프로젝트는",
+      "text": "This project"
+    },
+    {
+      "key": "t0089",
+      "source": "이런 시스템이 들어가 있어요",
+      "text": "There is a system like this"
+    },
+    {
+      "key": "t0090",
+      "source": "이제",
+      "text": "now"
+    },
+    {
+      "key": "t0091",
+      "source": "이후 작업자가 콘텐츠(아이템·이펙트·UI)를 채워 넣기만 하면 되도록 시스템을 분리해두었고,",
+      "text": "Afterwards, the system was separated so that workers only had to fill in the content (item, effect, UI)."
+    },
+    {
+      "key": "t0092",
+      "source": "인턴 기간 내 완성이 불가능",
+      "text": "Impossible to complete within the internship period"
+    },
+    {
+      "key": "t0093",
+      "source": "입장 시마다 다른 레이아웃 — 반복성 제거",
+      "text": "Different layout each time you enter — eliminate repetition"
+    },
+    {
+      "key": "t0094",
+      "source": "입장 시마다 절차적으로 맵을 생성. 장애물 배치 시 주변에 또 다른 장애물이 생성되지 않도록 예외 처리해 좁은 통로·고립 영역을 방지하고 플레이 친화성 확보.",
+      "text": "Procedurally creates a map each time you enter. When placing obstacles, exceptions are made to prevent other obstacles from being created nearby, preventing narrow passages and isolated areas and ensuring play friendliness."
+    },
+    {
+      "key": "t0095",
+      "source": "자동 맵 · 매니저 분리 · 엑셀 밸런싱 · 외부 데이터",
+      "text": "Automatic map · Manager separation · Excel balancing · External data"
+    },
+    {
+      "key": "t0096",
+      "source": "자동 맵 생성",
+      "text": "Automatic map generation"
+    },
+    {
+      "key": "t0097",
+      "source": "자동 맵 생성기",
+      "text": "automatic map generator"
+    },
+    {
+      "key": "t0098",
+      "source": "장애물 자동 배치 예시",
+      "text": "Example of automatic obstacle placement"
+    },
+    {
+      "key": "t0099",
+      "source": "장애물 절차적 배치",
+      "text": "Obstacle Procedural Placement"
+    },
+    {
+      "key": "t0100",
+      "source": "장애물 주변 예외 처리 — 막힌 구조·고립 영역 방지",
+      "text": "Exception handling around obstacles – prevention of blocked structures and isolated areas"
+    },
+    {
+      "key": "t0101",
+      "source": "적 추격 · 회피 플레이",
+      "text": "Enemy pursuit and evasion play"
+    },
+    {
+      "key": "t0102",
+      "source": "적의 추격 회피 플레이",
+      "text": "Play to avoid enemy pursuit"
+    },
+    {
+      "key": "t0103",
+      "source": "정착시킨 작업입니다.",
+      "text": "This is a work that has been established."
+    },
+    {
+      "key": "t0104",
+      "source": "지금 한 판 도전!",
+      "text": "Challenge yourself now!"
+    },
+    {
+      "key": "t0105",
+      "source": "진격의 거인 · 2.1M 누적",
+      "text": "Attack on Titan · 2.1M cumulative"
+    },
+    {
+      "key": "t0106",
+      "source": "쫓아오는 적, 매번 달라지는 맵, 손에 잡히는 아이템.",
+      "text": "Enemies chasing you, a map that changes every time, and items you can grab."
+    },
+    {
+      "key": "t0107",
+      "source": "쫓아오는 적을 피해 아이템을 모으세요.",
+      "text": "Collect items to avoid chasing enemies."
+    },
+    {
+      "key": "t0108",
+      "source": "카카오TV에서 게임의 실제 플레이 영상을 확인할 수 있어요. (소리는 미포함)",
+      "text": "You can check the actual play video of the game on Kakao TV. (Sound not included)"
+    },
+    {
+      "key": "t0109",
+      "source": "캐주얼 생존",
+      "text": "casual survival"
+    },
+    {
+      "key": "t0110",
+      "source": "캐주얼하지만 시스템적으로는 꽤 깊은 구조를 시도했습니다.",
+      "text": "We tried a casual, but systematically quite deep structure."
+    },
+    {
+      "key": "t0111",
+      "source": "코드 수정 없이 밸런스 패치가 가능한 파이프라인.",
+      "text": "A pipeline that allows balance patches without code modification."
+    },
+    {
+      "key": "t0112",
+      "source": "코드 전체는",
+      "text": "The entire code is"
+    },
+    {
+      "key": "t0113",
+      "source": "테스트 및 룰 변경 시 한 모듈만 수정하면 되도록 책임을 명확히 가름.",
+      "text": "Responsibilities are clearly defined so that only one module needs to be modified when tests and rules are changed."
+    },
+    {
+      "key": "t0114",
+      "source": "파트를 맡아, 외부 웹 게임이 보낸 건물 데이터에 따라",
+      "text": "Take charge of the part, according to the building data sent by the external web game"
+    },
+    {
+      "key": "t0115",
+      "source": "폴백 — 시그널 미수신 시 백업 채널",
+      "text": "Fallback — Backup channel when signal is not received"
+    },
+    {
+      "key": "t0116",
+      "source": "프로젝트 규모가 인턴 기간 내 완성하기에는 과도",
+      "text": "The scale of the project is too large to be completed within the internship period."
+    },
+    {
+      "key": "t0117",
+      "source": "플레이 결과를 다음 게임으로 전달.",
+      "text": "Passing play results to the next game."
+    },
+    {
+      "key": "t0118",
+      "source": "한 규모였습니다.",
+      "text": "It was one size."
+    },
+    {
+      "key": "t0119",
+      "source": "합작 프로젝트 중 본인이 맡은 캐주얼 생존 게임 파트에서 직접 설계·구현한 핵심 영역입니다.",
+      "text": "This is a key area that I personally designed and implemented in the casual survival game part of the joint project."
+    },
+    {
+      "key": "t0120",
+      "source": "합작 프로젝트, 처음 시도해보는 게임 간 통신, 그리고 인턴 기간이라는 시간 제약 —",
+      "text": "Joint projects, communication between games for the first time, and time constraints due to the internship period —"
+    },
+    {
+      "key": "t0121",
+      "source": "핵심 시스템 — 자동 맵 생성, 매니저 분리, 엑셀 기반 밸런싱, 게임 간 데이터 연동",
+      "text": "Core system — automatic map creation, manager separation, Excel-based balancing, data linking between games"
+    },
+    {
+      "key": "t0122",
+      "source": "핵심 시스템 (자동 맵 · 매니저 분리 · 데이터 연동)",
+      "text": "Core system (automatic map, manager separation, data linkage)"
+    },
+    {
+      "key": "t0123",
+      "source": "핵심 인터페이스만 간추렸습니다.",
+      "text": "We've summarized only the core interfaces."
+    },
+    {
+      "key": "t0124",
+      "source": "화면",
+      "text": "screen"
+    },
+    {
+      "key": "t0125",
+      "source": "확장 가능한 구조를 설계하고 인수인계까지 마무리하는 워크플로우",
+      "text": "Workflow that designs a scalable structure and completes handover."
+    },
+    {
+      "key": "t0126",
+      "source": "FEATURES · 게임에 담은 것",
+      "text": "FEATURES · What’s included in the game"
+    },
+    {
+      "key": "t0127",
+      "source": "GAMEPLAY · 게임 화면",
+      "text": "GAMEPLAY · Game screen"
+    },
+    {
+      "key": "t0128",
+      "source": "HANDOFF NOTE · 프로젝트 인수인계",
+      "text": "HANDOFF NOTE · Project handover"
+    },
+    {
+      "key": "t0129",
+      "source": "Melody Pang Pang · 리듬",
+      "text": "Melody Pang Pang · Rhythm"
+    },
+    {
+      "key": "t0130",
+      "source": "MY WORK · 직접 설계한 4가지 핵심 시스템",
+      "text": "MY WORK · Four core systems designed by myself"
+    },
+    {
+      "key": "t0131",
+      "source": "Redbrick Signal과 postMessage API를 함께 사용해 다른 웹 게임으로부터 건물 번호를 받고,",
+      "text": "Use Redbrick Signal and postMessage API together to receive building numbers from other web games,"
+    },
+    {
+      "key": "t0132",
+      "source": "Redbrick Signal을 1차 채널로, + 를 폴백으로 구성. 시그널이 도달하지 않거나 늦더라도 게임이 멈추지 않고 랜덤 컨셉으로 안전하게 시작.",
+      "text": "Configure Redbrick Signal as the primary channel and + as the fallback. Even if the signal does not arrive or is late, the game does not stop and starts safely with a random concept."
+    },
+    {
+      "key": "t0133",
+      "source": "RunToRoom · 캐주얼 생존",
+      "text": "RunToRoom · Casual Survival"
+    },
+    {
+      "key": "t0134",
+      "source": "RunToRoom · 캐주얼 생존 게임 — Game Showcase & Developer Portfolio",
+      "text": "RunToRoom · Casual Survival Game — Game Showcase & Developer Portfolio"
+    }
+  ]
+}

@@ -1,0 +1,557 @@
+{
+  "page": "melody-pangpang",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": ", 50콤보부터",
+      "text": ", starting from 50 combos"
+    },
+    {
+      "key": "t0002",
+      "source": "±4 범위만 검사 → 검사 8개로 한정",
+      "text": "Test only ±4 range → Limited to 8 tests"
+    },
+    {
+      "key": "t0003",
+      "source": "1.5배",
+      "text": "1.5 times"
+    },
+    {
+      "key": "t0004",
+      "source": "180 BPM 기준 비트 타임 배열에 더해 미리 노드 생성",
+      "text": "Create nodes in advance in addition to 180 BPM standard beat time array"
+    },
+    {
+      "key": "t0005",
+      "source": "180 BPM 사이버펑크 스테이지 위에서 떨어지는 LED 노드를 정확히 두드려요.",
+      "text": "180 BPM Precisely tap on the falling LED nodes on the cyberpunk stage."
+    },
+    {
+      "key": "t0006",
+      "source": "1인",
+      "text": "1 person"
+    },
+    {
+      "key": "t0007",
+      "source": "1인 개발 과정에서 실제로 마주친 4가지 문제와 해결 과정.",
+      "text": "Four problems actually encountered during the one-person development process and the solution process."
+    },
+    {
+      "key": "t0008",
+      "source": "20콤보부터",
+      "text": "From 20 combos"
+    },
+    {
+      "key": "t0009",
+      "source": "20콤보부터 1.5배 · 50콤보부터 2배 콤보 보너스",
+      "text": "1.5x combo bonus from 20 combos, 2x combo bonus from 50 combos"
+    },
+    {
+      "key": "t0010",
+      "source": "2배",
+      "text": "2 times"
+    },
+    {
+      "key": "t0011",
+      "source": "2주",
+      "text": "2 weeks"
+    },
+    {
+      "key": "t0012",
+      "source": "4-Key 리듬 시스템",
+      "text": "4-Key Rhythm System"
+    },
+    {
+      "key": "t0013",
+      "source": "4개 키 입력, 콤보 배수 점수, HP 시스템, 사이버펑크 LED 비주얼.",
+      "text": "4 keystrokes, combo multiplier points, HP system, cyberpunk LED visuals."
+    },
+    {
+      "key": "t0014",
+      "source": "각 노드에 고유 인덱스 부여",
+      "text": "Give each node a unique index"
+    },
+    {
+      "key": "t0015",
+      "source": "거리별 Perfect (≤0.2) · Cool (≤0.5) · Miss (≤1) 판정",
+      "text": "Perfect (≤0.2) · Cool (≤0.5) · Miss (≤1) judgment by distance"
+    },
+    {
+      "key": "t0016",
+      "source": "검사 범위를 8개로 한정하여 입력 응답성을 일정하게 유지.",
+      "text": "Input responsiveness is maintained constant by limiting the inspection range to 8."
+    },
+    {
+      "key": "t0017",
+      "source": "게임 소개",
+      "text": "Game Introduction"
+    },
+    {
+      "key": "t0018",
+      "source": "게임 시작 시점이 아닌",
+      "text": "Not at the start of the game"
+    },
+    {
+      "key": "t0019",
+      "source": "게임 시작 시점이 아닌 노래 재생 시간 기준 → 사양 차이 흡수",
+      "text": "Based on song playback time, not when the game starts → Absorb the difference in specifications"
+    },
+    {
+      "key": "t0020",
+      "source": "게임 종료 · 노래 클리어",
+      "text": "End game, clear song"
+    },
+    {
+      "key": "t0021",
+      "source": "게임 종료 · HP 0 도달",
+      "text": "Game ends · HP reaches 0"
+    },
+    {
+      "key": "t0022",
+      "source": "게임 종료 (노래 종료)",
+      "text": "Game over (song over)"
+    },
+    {
+      "key": "t0023",
+      "source": "게임 종료 (체력 감소)",
+      "text": "Game ends (health decreases)"
+    },
+    {
+      "key": "t0024",
+      "source": "고점수 = 정확도 + 콤보 유지 + 풀 곡 클리어 삼박자",
+      "text": "High Score = Accuracy + Maintain Combo + Clear Full Song Triple Beat"
+    },
+    {
+      "key": "t0025",
+      "source": "기술 관점",
+      "text": "technology perspective"
+    },
+    {
+      "key": "t0026",
+      "source": "기점 박자 계산",
+      "text": "Starting beat calculation"
+    },
+    {
+      "key": "t0027",
+      "source": "노드 생성 (Update)",
+      "text": "Node Creation (Update)"
+    },
+    {
+      "key": "t0028",
+      "source": "노드 진입 · 라이트 이펙트",
+      "text": "Node entry / light effect"
+    },
+    {
+      "key": "t0029",
+      "source": "노드 판정 부하 최적화",
+      "text": "Node judgment load optimization"
+    },
+    {
+      "key": "t0030",
+      "source": "노드 판정 최적화, GUI 이펙트, 점수·콤보·HP 게임 시스템을 처음부터 끝까지 설계했습니다.",
+      "text": "We designed node judgment optimization, GUI effects, and score/combo/HP game system from start to finish."
+    },
+    {
+      "key": "t0031",
+      "source": "노드 판정 LED 이펙트",
+      "text": "Node judgment LED effect"
+    },
+    {
+      "key": "t0032",
+      "source": "노드에 고유 인덱스를 부여하고, 마지막으로 친 노드 기준",
+      "text": "A unique index is assigned to the node, based on the last node struck."
+    },
+    {
+      "key": "t0033",
+      "source": "노래 재생 시간 기점으로 박자를 계산하는 동기화 파이프라인 설계.",
+      "text": "Design of a synchronization pipeline that calculates beats based on song playback time."
+    },
+    {
+      "key": "t0034",
+      "source": "디자이너 1명과 협업하여 2주 만에 출시까지 마친 1인 개발. 음악 동기화,",
+      "text": "Developed by one person, collaborating with one designer, and completed launch in 2 weeks. music sync,"
+    },
+    {
+      "key": "t0035",
+      "source": "랭킹 경쟁이 자연스럽게 발생하는 변동성 곡선.",
+      "text": "A volatility curve where ranking competition naturally occurs."
+    },
+    {
+      "key": "t0036",
+      "source": "리듬 게임 레퍼런스에서 검증된 시각적 쾌감을 그대로 살리면서,",
+      "text": "While retaining the visual pleasure proven in rhythm game references,"
+    },
+    {
+      "key": "t0037",
+      "source": "리듬 게임의 본질인 \"박자 정확도\"와 \"체감 응답성\"을 어떻게 잡아냈는지.",
+      "text": "How did you capture the essence of rhythm games: “beat accuracy” and “perceptual responsiveness”?"
+    },
+    {
+      "key": "t0038",
+      "source": "만 순회. 검사 범위를 8개로 한정하여 입력 → 판정 지연을 일정하게 유지.",
+      "text": "10,000 circuits. Input the inspection range limited to 8 → keep the judgment delay constant."
+    },
+    {
+      "key": "t0039",
+      "source": "매 입력마다 모든 노드를 검사하면 입력 응답이 일정하지 않음",
+      "text": "If all nodes are checked for each input, the input response will not be consistent."
+    },
+    {
+      "key": "t0040",
+      "source": "매 클릭마다 전체 노드를 검사하면 과부하. 고유 인덱스 기반으로",
+      "text": "Checking the entire node on every click would be overloaded. Based on unique index"
+    },
+    {
+      "key": "t0041",
+      "source": "박자에 맞춰,",
+      "text": "To the beat,"
+    },
+    {
+      "key": "t0042",
+      "source": "사용자마다 다른 PC 사양에서도 박자가 어긋나지 않도록,",
+      "text": "To ensure that the beat is not out of sync even with different PC specifications for each user,"
+    },
+    {
+      "key": "t0043",
+      "source": "사이버펑크 리듬 게임 · 1인 개발",
+      "text": "Cyberpunk rhythm game · One-person development"
+    },
+    {
+      "key": "t0044",
+      "source": "사이버펑크 비주얼",
+      "text": "cyberpunk visuals"
+    },
+    {
+      "key": "t0045",
+      "source": "사이버펑크 스테이지",
+      "text": "cyberpunk stage"
+    },
+    {
+      "key": "t0046",
+      "source": "사이버펑크 스테이지 배경",
+      "text": "cyberpunk stage background"
+    },
+    {
+      "key": "t0047",
+      "source": "사이버펑크 LED 비주얼의 1인 개발 웹 리듬 게임 '멜로디 팡팡'. Redbrick + JavaScript, three.js / TWEEN.js, Web Audio API 기반 박자 동기화와 노드 판정 최적화 포트폴리오.",
+      "text": "‘Melody Pangpang’, a web rhythm game developed by one person with cyberpunk LED visuals. Redbrick + JavaScript, three.js / TWEEN.js, Web Audio API-based beat synchronization and node decision optimization portfolio."
+    },
+    {
+      "key": "t0048",
+      "source": "어두운 스테이지 + 네온 LED 라이트. 노드가 진입하면 기둥이 빛나요.",
+      "text": "Dark stage + neon LED lights. When a node enters, the pillar lights up."
+    },
+    {
+      "key": "t0049",
+      "source": "에서 살펴봅니다",
+      "text": "Take a look at"
+    },
+    {
+      "key": "t0050",
+      "source": "여기서부터는 개발자 관점의 아키텍처, 기술 스택, 그리고 1인 개발 과정에서 직접 풀어낸 문제들을 소개합니다.",
+      "text": "From here, we introduce the architecture from a developer's perspective, the technology stack, and problems solved directly during the solo development process."
+    },
+    {
+      "key": "t0051",
+      "source": "으로 판정 UI 스케일 애니메이션",
+      "text": "Judged by UI scale animation"
+    },
+    {
+      "key": "t0052",
+      "source": "으로 판정 UI가 커지며 등장하는 이펙트,",
+      "text": "The effect that appears as the judgment UI grows,"
+    },
+    {
+      "key": "t0053",
+      "source": "을 기점으로 박자를 계산. 어떤 환경에서도 박자가 어긋나지 않도록 시계 기준을 음악에 고정.",
+      "text": "Calculate the beat starting from . The watch standard is fixed to the music so that the beat does not go out of sync under any circumstances."
+    },
+    {
+      "key": "t0054",
+      "source": "음악 동기화 → 입력 판정 → UI 이펙트로 이어지는 3가지 핵심 코드.",
+      "text": "Three core codes leading to music synchronization → input judgment → UI effects."
+    },
+    {
+      "key": "t0055",
+      "source": "음악 동기화 시스템",
+      "text": "music sync system"
+    },
+    {
+      "key": "t0056",
+      "source": "이런 기능들이 들어가 있어요",
+      "text": "These features are included"
+    },
+    {
+      "key": "t0057",
+      "source": "이렇게 진행됩니다",
+      "text": "It goes like this"
+    },
+    {
+      "key": "t0058",
+      "source": "이제",
+      "text": "now"
+    },
+    {
+      "key": "t0059",
+      "source": "인게임 · 4-Key 판정",
+      "text": "In-game · 4-Key Judgment"
+    },
+    {
+      "key": "t0060",
+      "source": "점수 · 콤보 · HP 시스템",
+      "text": "Score, combo, HP system"
+    },
+    {
+      "key": "t0061",
+      "source": "점수 0점 + HP + 콤보 시각적 초기화 + 카메라 흔들림을 동시에.",
+      "text": "Score 0 + HP + combo visual reset + camera shake at the same time."
+    },
+    {
+      "key": "t0062",
+      "source": "점수. Miss 한 번이면 0으로.",
+      "text": "score. One miss is 0."
+    },
+    {
+      "key": "t0063",
+      "source": "종료 시 음악 → 타이틀 음악 자연 교체",
+      "text": "Music at end → title music natural replacement"
+    },
+    {
+      "key": "t0064",
+      "source": "직접 설계 · 구현한 4가지 핵심 시스템",
+      "text": "Four core systems designed and implemented directly"
+    },
+    {
+      "key": "t0065",
+      "source": "짧은 한 곡(20~30초) 안에서 도전 욕구를 끌어내는 점수/HP 룰 설계.",
+      "text": "Score/HP rule design that elicits a desire for challenge within one short song (20-30 seconds)."
+    },
+    {
+      "key": "t0066",
+      "source": "최고 점수를 노리는, 디자이너와 둘이서 2주 만에 만들어 출시한 웹 리듬 게임.",
+      "text": "A web rhythm game created and released in two weeks by a designer and two people aiming for the highest score."
+    },
+    {
+      "key": "t0067",
+      "source": "최초 Perfect부터 콤보 GUI 시작 · Miss 시 초기화 연출",
+      "text": "Combo GUI starts from the first Perfect · Initialization upon miss"
+    },
+    {
+      "key": "t0068",
+      "source": "출시 운영 중",
+      "text": "Launch in operation"
+    },
+    {
+      "key": "t0069",
+      "source": "컴퓨터 사양마다 노래 시작 타이밍이 달라 박자가 어긋남",
+      "text": "The song start timing is different depending on the computer specifications, so the beat is off."
+    },
+    {
+      "key": "t0070",
+      "source": "콤보 배수 점수",
+      "text": "Combo Multiplier Score"
+    },
+    {
+      "key": "t0071",
+      "source": "키 누름 시 배경 빛 기둥, 노드 진입 시 라이트 효과",
+      "text": "Background light pillar when pressing a key, light effect when entering a node"
+    },
+    {
+      "key": "t0072",
+      "source": "판정 시각화",
+      "text": "Judgment visualization"
+    },
+    {
+      "key": "t0073",
+      "source": "판정 최적화 (±4 검사)",
+      "text": "Judgment optimization (±4 tests)"
+    },
+    {
+      "key": "t0074",
+      "source": "판정 UI를 그냥 띄우기만 하면 리듬 게임 특유의 쾌감이 부족",
+      "text": "Just popping up the judgment UI lacks the unique pleasure of a rhythm game."
+    },
+    {
+      "key": "t0075",
+      "source": "판정과 콤보 배수로 한 곡 30초 안에",
+      "text": "One song in 30 seconds with judgment and combo multipliers"
+    },
+    {
+      "key": "t0076",
+      "source": "팡! 팡!",
+      "text": "Bang! phut!"
+    },
+    {
+      "key": "t0077",
+      "source": "한 곡 20~30초의 짧은 호흡 속에서 긴장과 몰입을 동시에 잡았어요.",
+      "text": "I was able to capture tension and immersion at the same time in a short period of 20 to 30 seconds per song."
+    },
+    {
+      "key": "t0078",
+      "source": "한 곡 20~30초의 흐름을 한눈에 담았어요.",
+      "text": "I captured the flow of 20 to 30 seconds of each song at a glance."
+    },
+    {
+      "key": "t0079",
+      "source": "한 번의 Miss에서 시각/청각/수치 피드백이 겹치며 다음 노드에 집중하게 만듭니다.",
+      "text": "In one miss, visual/auditory/numerical feedback overlaps, making you focus on the next node."
+    },
+    {
+      "key": "t0080",
+      "source": "한 줄씩 어디서 BPM 정확도와 입력 응답성을 잡았는지 보여드릴게요.",
+      "text": "I will show you where I achieved BPM accuracy and input responsiveness line by line."
+    },
+    {
+      "key": "t0081",
+      "source": "화면",
+      "text": "screen"
+    },
+    {
+      "key": "t0082",
+      "source": "FEATURES · 게임에 담은 것",
+      "text": "FEATURES · What’s included in the game"
+    },
+    {
+      "key": "t0083",
+      "source": "GAMEPLAY · 게임 화면",
+      "text": "GAMEPLAY · Game screen"
+    },
+    {
+      "key": "t0084",
+      "source": "GAMEPLAY 미리보기",
+      "text": "GAMEPLAY Preview"
+    },
+    {
+      "key": "t0085",
+      "source": "GUI 이펙트 & 시각 피드백",
+      "text": "GUI effects & visual feedback"
+    },
+    {
+      "key": "t0086",
+      "source": "GUI Tween 이펙트",
+      "text": "GUI Tween Effect"
+    },
+    {
+      "key": "t0087",
+      "source": "How to Play 안내부터 인게임 진행, 두 가지 종료 화면, 사이버펑크 스테이지 배경까지.",
+      "text": "From how to play instructions, in-game progression, two exit screens, and cyberpunk stage backgrounds."
+    },
+    {
+      "key": "t0088",
+      "source": "HP 100 시작 · Miss 시 -10 · 0 도달 시 게임 종료",
+      "text": "HP starts at 100, -10 on miss, game ends when 0 is reached"
+    },
+    {
+      "key": "t0089",
+      "source": "HP 100으로 시작, Miss마다 -10. 카메라 흔들림으로 위기감을 시각화.",
+      "text": "Starts with HP 100, -10 for each miss. Visualize the sense of crisis through camera shake."
+    },
+    {
+      "key": "t0090",
+      "source": "HP 체력 시스템",
+      "text": "HP stamina system"
+    },
+    {
+      "key": "t0091",
+      "source": "Left · Up · Down · Right 네 기둥으로 떨어지는 노드를 키/터치로 판정.",
+      "text": "Left · Up · Down · Right Nodes that fall on the four pillars are determined by key/touch."
+    },
+    {
+      "key": "t0092",
+      "source": "Melody Pang Pang · 리듬 게임",
+      "text": "Melody Pang Pang · Rhythm game"
+    },
+    {
+      "key": "t0093",
+      "source": "Melody Pang Pang · 멜로디 팡팡 — Rhythm Game Showcase & Developer Portfolio",
+      "text": "Melody Pang Pang · Melody Pang Pang — Rhythm Game Showcase & Developer Portfolio"
+    },
+    {
+      "key": "t0094",
+      "source": "Miss 시 점수만 차감되면 실패의 무게감이 없음",
+      "text": "There is no weight of failure if only points are deducted for a miss."
+    },
+    {
+      "key": "t0095",
+      "source": "Miss 시 카메라 살짝 흔들림과 콤보 GUI 사라짐으로 다중 피드백을 겹쳤어요.",
+      "text": "When there is a miss, multiple feedback is overlapped with the camera shaking slightly and the combo GUI disappearing."
+    },
+    {
+      "key": "t0096",
+      "source": "Miss 시 카메라 살짝 흔들림으로 다중 피드백",
+      "text": "Multiple feedback with slight camera shake when missing"
+    },
+    {
+      "key": "t0097",
+      "source": "MY CONTRIBUTIONS · 1인 개발 핵심 영역",
+      "text": "MY CONTRIBUTIONS · Core areas of one-person development"
+    },
+    {
+      "key": "t0098",
+      "source": "PC & 모바일 웹",
+      "text": "PC & Mobile Web"
+    },
+    {
+      "key": "t0099",
+      "source": "Perfect · Cool · Miss UI가 TWEEN 이징으로 커지며 등장. 터치 이펙트도.",
+      "text": "Perfect·Cool·Miss UI grows and appears with TWEEN easing. Touch effects too."
+    },
+    {
+      "key": "t0100",
+      "source": "Perfect 20점 / Cool 10점 / Miss 0점 기본 점수",
+      "text": "Perfect 20 points / Cool 10 points / Miss 0 points Basic score"
+    },
+    {
+      "key": "t0101",
+      "source": "Redbrick 위에서 three.js로 3D 스테이지를 그리고, TWEEN.js로 UI 이펙트를,",
+      "text": "On Redbrick, draw a 3D stage with three.js, UI effects with TWEEN.js,"
+    },
+    {
+      "key": "t0102",
+      "source": "Redbrick 플랫폼에서 설치 없이 바로 플레이. 한 판 약 30초.",
+      "text": "Play right away without installation on the Redbrick platform. About 30 seconds per round."
+    },
+    {
+      "key": "t0103",
+      "source": "Robocare Hub · 작업 총정리",
+      "text": "Robocare Hub · Summary of tasks"
+    },
+    {
+      "key": "t0104",
+      "source": "RunToRoom · 캐주얼 생존",
+      "text": "RunToRoom · Casual Survival"
+    },
+    {
+      "key": "t0105",
+      "source": "src/game.js · 노드 생성 + Miss 판정",
+      "text": "src/game.js · Node creation + Miss decision"
+    },
+    {
+      "key": "t0106",
+      "source": "src/game.js · CheckDownBoxes (인덱스 기반 부하 최적화)",
+      "text": "src/game.js · CheckDownBoxes (index-based load optimization)"
+    },
+    {
+      "key": "t0107",
+      "source": "src/gameGUI.js · clickNode (TWEEN.js 판정 UI 이펙트)",
+      "text": "src/gameGUI.js · clickNode (TWEEN.js judgment UI effect)"
+    },
+    {
+      "key": "t0108",
+      "source": "TWEEN 이징으로 판정 UI의 등장 모션과 콤보 표시를 자연스럽게.",
+      "text": "TWEEN easing makes the judgment UI appearance motion and combo display more natural."
+    },
+    {
+      "key": "t0109",
+      "source": "Web Audio API의 정밀 시계로 박자를 동기화합니다. 외부 의존성은 꼭 필요한 것만.",
+      "text": "Synchronize beats with the Web Audio API's precision clock. Only external dependencies are absolutely necessary."
+    },
+    {
+      "key": "t0110",
+      "source": "X 좌표 비교로 Left/Up/Down/Right 기둥 빠르게 식별",
+      "text": "Quickly identify Left/Up/Down/Right columns by comparing X coordinates"
+    }
+  ]
+}

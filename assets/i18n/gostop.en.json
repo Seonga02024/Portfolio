@@ -1,0 +1,717 @@
+{
+  "page": "gostop",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "— 인앱 업데이트 + 게임 수치 라이브 조정 (재배포 불필요)",
+      "text": "— In-app updates + live adjustments to game figures (no redistribution required)"
+    },
+    {
+      "key": "t0002",
+      "source": "— 재화 증감/출석 체크 서버측 검증 (클라이언트 변조 차단)",
+      "text": "— Goods increase/decrease/attendance check server-side verification (blocks client tampering)"
+    },
+    {
+      "key": "t0003",
+      "source": "— 점수·재화·프로필 크로스-디바이스 동기화",
+      "text": "— Score, goods, profile cross-device synchronization"
+    },
+    {
+      "key": "t0004",
+      "source": "— 케미 사용자 전용 실시간 랭킹 보드",
+      "text": "— Real-time ranking board exclusively for Chemi users"
+    },
+    {
+      "key": "t0005",
+      "source": "\"고(go)\"",
+      "text": "“Go”"
+    },
+    {
+      "key": "t0006",
+      "source": "\"스톱(stop)\"",
+      "text": "“stop”"
+    },
+    {
+      "key": "t0007",
+      "source": "2차 리소스 통합 + UI 이슈 정비",
+      "text": "Secondary resource integration + UI issue maintenance"
+    },
+    {
+      "key": "t0008",
+      "source": "2차 제작 리소스 적용 및 설정 변경",
+      "text": "Apply secondary production resources and change settings"
+    },
+    {
+      "key": "t0009",
+      "source": "4명의 AI 친구",
+      "text": "4 AI friends"
+    },
+    {
+      "key": "t0010",
+      "source": "7점이 모이면",
+      "text": "When 7 points are gathered"
+    },
+    {
+      "key": "t0011",
+      "source": "가장 한국적인 두뇌 놀이.",
+      "text": "The most Korean brain game."
+    },
+    {
+      "key": "t0012",
+      "source": "같은 한 판, 두 시점에서",
+      "text": "Same game, two points in time"
+    },
+    {
+      "key": "t0013",
+      "source": "게스트 모드 닉네임 고정 + 랜덤 닉네임 폴백 로직",
+      "text": "Guest mode fixed nickname + random nickname fallback logic"
+    },
+    {
+      "key": "t0014",
+      "source": "게임 소개",
+      "text": "Game Introduction"
+    },
+    {
+      "key": "t0015",
+      "source": "게임 종료 후 재화 미반영 및 프로필 시점 불일치 이슈 해결",
+      "text": "Resolved issues where goods were not reflected after the game ended and profile timing was inconsistent."
+    },
+    {
+      "key": "t0016",
+      "source": "게임 진행 1",
+      "text": "Game progress 1"
+    },
+    {
+      "key": "t0017",
+      "source": "게임 진행 2",
+      "text": "Game progress 2"
+    },
+    {
+      "key": "t0018",
+      "source": "게임 진행 화면",
+      "text": "Game progress screen"
+    },
+    {
+      "key": "t0019",
+      "source": "결과 · 점수 정산",
+      "text": "Results / Score Settlement"
+    },
+    {
+      "key": "t0020",
+      "source": "결과 화면",
+      "text": "Results screen"
+    },
+    {
+      "key": "t0021",
+      "source": "고스톱",
+      "text": "GoStop"
+    },
+    {
+      "key": "t0022",
+      "source": "광·고도리·청단/홍단/초단·고/스톱·박·흔들기·폭탄·쪽 — 전통 룰 그대로.",
+      "text": "Gwang·Godori·Cheongdan/Hongdan/Chodan·Go/Stop·Bak·Wiggle·Bomb·Jide — Traditional rules as is."
+    },
+    {
+      "key": "t0023",
+      "source": "그리고 친구와의 실시간 멀티플레이까지.",
+      "text": "And even real-time multiplayer with friends."
+    },
+    {
+      "key": "t0024",
+      "source": "그에 맞춰 발생한 UI 정합성 이슈를 수정.",
+      "text": "Fixed UI consistency issues that occurred accordingly."
+    },
+    {
+      "key": "t0025",
+      "source": "기능 살펴보기 →",
+      "text": "Explore features →"
+    },
+    {
+      "key": "t0026",
+      "source": "기술 관점",
+      "text": "technology perspective"
+    },
+    {
+      "key": "t0027",
+      "source": "나만의 닉네임과 타이틀, 플레이 기록으로 성장하는 게이머 프로필.",
+      "text": "A gamer profile that grows with your own nickname, title, and play history."
+    },
+    {
+      "key": "t0028",
+      "source": "데이터 동기화",
+      "text": "data synchronization"
+    },
+    {
+      "key": "t0029",
+      "source": "도리·보미·실벗·케미, 각자 성격과 실력이 다른 로봇 친구들과 한 판.",
+      "text": "Dori, Bomi, Silbot, and Chemistry, a game against robot friends with different personalities and skills."
+    },
+    {
+      "key": "t0030",
+      "source": "도입으로 무응답 클라이언트 조기 감지",
+      "text": "Early detection of unresponsive clients with introduction"
+    },
+    {
+      "key": "t0031",
+      "source": "들어올 때 세션 검증 → 실패 시 AI 매칭으로 자연 폴백",
+      "text": "Session verification upon entry → Natural fallback with AI matching in case of failure"
+    },
+    {
+      "key": "t0032",
+      "source": "등 시니어 UX 친화 문구 다듬기",
+      "text": "Refine senior UX-friendly phrases, etc."
+    },
+    {
+      "key": "t0033",
+      "source": "디자인팀에서 전달된 2차 제작 리소스를 게임 전반에 통합하고,",
+      "text": "Integrate secondary production resources delivered by the design team into the overall game,"
+    },
+    {
+      "key": "t0034",
+      "source": "랭킹 보드",
+      "text": "ranking board"
+    },
+    {
+      "key": "t0035",
+      "source": "랭킹 보드 화면",
+      "text": "Ranking board screen"
+    },
+    {
+      "key": "t0036",
+      "source": "랭킹과 프로필",
+      "text": "Rankings and Profiles"
+    },
+    {
+      "key": "t0037",
+      "source": "랭킹보드 권한 분리 — 케미 사용자만 노출",
+      "text": "Separate ranking board permissions — exposed only to Chemi users"
+    },
+    {
+      "key": "t0038",
+      "source": "로 더 욕심내거나",
+      "text": "Or become more greedy with"
+    },
+    {
+      "key": "t0039",
+      "source": "로그인 / 플랫폼 통합",
+      "text": "Login / Platform Integrations"
+    },
+    {
+      "key": "t0040",
+      "source": "로보맞고",
+      "text": "Get hit by a robo"
+    },
+    {
+      "key": "t0041",
+      "source": "로보맞고 · Go-Stop",
+      "text": "Robo Hit · Go-Stop"
+    },
+    {
+      "key": "t0042",
+      "source": "로보맞고 타이틀 화면",
+      "text": "Robo Hitgo title screen"
+    },
+    {
+      "key": "t0043",
+      "source": "로봇 인터랙션",
+      "text": "robot interaction"
+    },
+    {
+      "key": "t0044",
+      "source": "로비 · 메인 메뉴",
+      "text": "Lobby/Main Menu"
+    },
+    {
+      "key": "t0045",
+      "source": "로비 화면",
+      "text": "lobby screen"
+    },
+    {
+      "key": "t0046",
+      "source": "를",
+      "text": "to"
+    },
+    {
+      "key": "t0047",
+      "source": "마이그레이션 시점에 disconnect 상태 전이를 명확히 분리하고 승자 판정 로직을 안정화. 호스트/비호스트 양쪽이 동일하게 disconnect를 송신하도록 위치 일원화.",
+      "text": "At the time of migration, disconnect state transitions are clearly separated and the winner decision logic is stabilized. Unify location so that both host and non-host send disconnect equally."
+    },
+    {
+      "key": "t0048",
+      "source": "맞고",
+      "text": "hit"
+    },
+    {
+      "key": "t0049",
+      "source": "매일 접속할수록 작은 보상도 쌓여요.",
+      "text": "As you log in every day, small rewards accumulate."
+    },
+    {
+      "key": "t0050",
+      "source": "매일 한 번씩 들러서 출석. 꾸준히 모일수록 더 풍성해지는 보상.",
+      "text": "Stop by once a day and attend. The more you collect consistently, the richer the rewards."
+    },
+    {
+      "key": "t0051",
+      "source": "매칭 대기",
+      "text": "waiting for matching"
+    },
+    {
+      "key": "t0052",
+      "source": "매칭 대기 화면",
+      "text": "Matching standby screen"
+    },
+    {
+      "key": "t0053",
+      "source": "매칭 및 호스트 마이그레이션 시 승자 판정이 어긋나 결과 화면이 깨짐",
+      "text": "When matching and migrating hosts, the winner decision is incorrect and the result screen is broken."
+    },
+    {
+      "key": "t0054",
+      "source": "매칭 시간 조정 등 UX 파라미터 튜닝",
+      "text": "UX parameter tuning, including matching time adjustment"
+    },
+    {
+      "key": "t0055",
+      "source": "멀티플레이의 양쪽 플레이어 화면을 비교해 보세요.",
+      "text": "Compare the screens of both players in multiplayer."
+    },
+    {
+      "key": "t0056",
+      "source": "방 입장 직후 검증 실패로 비정상 진입 시 재화·매칭이 어긋남",
+      "text": "Due to verification failure immediately after entering the room, goods and matching are misaligned upon abnormal entry."
+    },
+    {
+      "key": "t0057",
+      "source": "방 입장부터 게임 시작까지의 검증 시퀀스를 재설계하여,",
+      "text": "By redesigning the verification sequence from entering the room to starting the game,"
+    },
+    {
+      "key": "t0058",
+      "source": "본 작업 영역에서 다듬은 실제 코드 — 싱글톤 안전 초기화, 프로토콜 정의, 멀티플레이 RPC 추상화.",
+      "text": "The actual code refined in this workspace — singleton safe initialization, protocol definitions, and multiplayer RPC abstractions."
+    },
+    {
+      "key": "t0059",
+      "source": "본인 기록 화면",
+      "text": "Personal record screen"
+    },
+    {
+      "key": "t0060",
+      "source": "본인 작업 영역에서 실제로 마주친 문제와 해결 과정. git 히스토리에서 발췌한 사례입니다.",
+      "text": "Problems actually encountered in my work area and the process of solving them. This is an example taken from git history."
+    },
+    {
+      "key": "t0061",
+      "source": "비주얼 렌더링, 입력 처리, DOTween 애니메이션.",
+      "text": "Visual rendering, input processing, DOTween animation."
+    },
+    {
+      "key": "t0062",
+      "source": "사용자 프로필",
+      "text": "user profile"
+    },
+    {
+      "key": "t0063",
+      "source": "사용자 프로필 화면",
+      "text": "User profile screen"
+    },
+    {
+      "key": "t0064",
+      "source": "서버측 오케스트레이션, 턴 소유권 검증, 프로토콜 디스패치.",
+      "text": "Server-side orchestration, turn ownership verification, and protocol dispatch."
+    },
+    {
+      "key": "t0065",
+      "source": "선 결정",
+      "text": "line decision"
+    },
+    {
+      "key": "t0066",
+      "source": "선 결정 화면",
+      "text": "line decision screen"
+    },
+    {
+      "key": "t0067",
+      "source": "세션-재화-게임 흐름 통합",
+      "text": "Session-Goods-Game Flow Integration"
+    },
+    {
+      "key": "t0068",
+      "source": "순수 게임 규칙. 카드 분배, 점수 계산(stateless). Unity 의존성 0.",
+      "text": "Pure game rules. Card distribution, score calculation (stateless). Unity dependency 0."
+    },
+    {
+      "key": "t0069",
+      "source": "시니어부터 자녀까지 누구나 편안하게 즐길 수 있도록 구성했어요.",
+      "text": "It is designed so that everyone, from seniors to children, can enjoy it comfortably."
+    },
+    {
+      "key": "t0070",
+      "source": "실시간 멀티플레이",
+      "text": "Real-time multiplayer"
+    },
+    {
+      "key": "t0071",
+      "source": "싱글플레이와 멀티플레이가 동일한 코드 경로를 공유합니다.",
+      "text": "Singleplayer and multiplayer share the same code path."
+    },
+    {
+      "key": "t0072",
+      "source": "안드로이드 태블릿 위에서. 친근한 로봇 친구들, 다양한 AI 상대,",
+      "text": "On an Android tablet. Friendly robot friends, various AI opponents,"
+    },
+    {
+      "key": "t0073",
+      "source": "에서 살펴봅니다",
+      "text": "Take a look at"
+    },
+    {
+      "key": "t0074",
+      "source": "여기서부터는 개발자 관점의 아키텍처, 기술 스택, 그리고 제가 직접 작업한 영역을 소개합니다.",
+      "text": "From here, I will introduce the architecture from a developer's perspective, the technology stack, and the areas I have personally worked on."
+    },
+    {
+      "key": "t0075",
+      "source": "연결 끊김, 세션 검증 등 엣지 케이스를 안정화.",
+      "text": "Stabilize edge cases such as connection loss and session verification."
+    },
+    {
+      "key": "t0076",
+      "source": "영상 재생을 지원하지 않는 브라우저입니다.",
+      "text": "This browser does not support video playback."
+    },
+    {
+      "key": "t0077",
+      "source": "오랜 세월 사랑받아 온 한국의 전통 카드 놀이",
+      "text": "A traditional Korean card game that has been loved for a long time"
+    },
+    {
+      "key": "t0078",
+      "source": "완전한 맞고 룰",
+      "text": "Complete correct rule"
+    },
+    {
+      "key": "t0079",
+      "source": "외부 의존성은 명확한 책임을 가진 것만 선택했습니다.",
+      "text": "External dependencies were chosen only for those with clear responsibilities."
+    },
+    {
+      "key": "t0080",
+      "source": "으로 한 판을 닫는 — 운과 전략이 절묘하게 섞인,",
+      "text": "Closing the game with — an exquisite mix of luck and strategy,"
+    },
+    {
+      "key": "t0081",
+      "source": "이런 기능들이 들어가 있어요",
+      "text": "These features are included"
+    },
+    {
+      "key": "t0082",
+      "source": "이렇게 진행됩니다",
+      "text": "It goes like this"
+    },
+    {
+      "key": "t0083",
+      "source": "이제",
+      "text": "now"
+    },
+    {
+      "key": "t0084",
+      "source": "입장 시 세션 검증 단계를 도입. 실패하면 재화를 갱신한 뒤 AI 매칭으로 자연 폴백. 시작/종료 위치를 재정렬해 안정화.",
+      "text": "Introducing a session verification step upon entry. If it fails, natural fallback occurs with AI matching after updating the goods. Stabilize by rearranging start/end positions."
+    },
+    {
+      "key": "t0085",
+      "source": "재화 동기화 누락과 비정상 시작을 차단.",
+      "text": "Blocks missing product synchronization and abnormal startup."
+    },
+    {
+      "key": "t0086",
+      "source": "점수, 재화, 프로필 정보가 케미 계정에 안전하게 저장돼요. 기기를 바꿔도 그대로!",
+      "text": "Scores, goods, and profile information are safely stored in your Chemi account. Even if you change devices, it stays the same!"
+    },
+    {
+      "key": "t0087",
+      "source": "지금 한 판 시작!",
+      "text": "Start a round now!"
+    },
+    {
+      "key": "t0088",
+      "source": "직접 설계 · 구현한 4가지 핵심 영역",
+      "text": "Four core areas designed and implemented directly"
+    },
+    {
+      "key": "t0089",
+      "source": "짧은 플레이 영상과 주요 화면들로 한눈에. 영상은 잠깐(약 30초)이면 한 판이 어떻게 흐르는지 감이 와요.",
+      "text": "Short gameplay videos and main screens at a glance. In just a short video (about 30 seconds), you can get a feel for how a game flows."
+    },
+    {
+      "key": "t0090",
+      "source": "첫 뻑 보너스 재화 동기화 개선",
+      "text": "Improved first hit bonus currency synchronization"
+    },
+    {
+      "key": "t0091",
+      "source": "출석체크",
+      "text": "Attendance check"
+    },
+    {
+      "key": "t0092",
+      "source": "출석체크 화면",
+      "text": "Attendance check screen"
+    },
+    {
+      "key": "t0093",
+      "source": "충전 이후 방 상태 갱신 동기화",
+      "text": "Synchronize room status updates after charging"
+    },
+    {
+      "key": "t0094",
+      "source": "친구·가족과 떨어져 있어도 인터넷 한 판. 매칭이 늦으면 AI가 자연스럽게 합류.",
+      "text": "Even when you are away from your friends and family, you can still enjoy the Internet. If matching is late, AI naturally joins."
+    },
+    {
+      "key": "t0095",
+      "source": "케미 계정과 연동되는 리더보드, 점수와 함께 성장하는 닉네임·프로필 타이틀.",
+      "text": "Leaderboard linked to Chemi account, nickname and profile title that grow with your score."
+    },
+    {
+      "key": "t0096",
+      "source": "케미 로그인 시 닉네임 표기 일원화 (사용자 입력 우선)",
+      "text": "Uniform display of nicknames when logging in to Chemi (user input takes priority)"
+    },
+    {
+      "key": "t0097",
+      "source": "케미 연동",
+      "text": "Chemistry integration"
+    },
+    {
+      "key": "t0098",
+      "source": "케미 친구들과 함께 경쟁하는 실시간 리더보드. 오늘 내 자리는?",
+      "text": "Real-time leaderboard to compete with Chemistry friends. What is my position today?"
+    },
+    {
+      "key": "t0099",
+      "source": "케미 프렌즈 계정으로 로그인하면 기기를 옮겨도 기록이 따라오고,",
+      "text": "If you log in with your Chemi Friends account, your records will follow even if you move your device."
+    },
+    {
+      "key": "t0100",
+      "source": "케미 프렌즈 앱 유저라면 더 많이",
+      "text": "More if you are a Chemi Friends app user"
+    },
+    {
+      "key": "t0101",
+      "source": "케미·하이보미·게스트 등 다중 플랫폼 로그인 흐름을 통합하고,",
+      "text": "Integrates multi-platform login flows such as Chemi, Hibomi, and Guest,"
+    },
+    {
+      "key": "t0102",
+      "source": "크로스-디바이스 데이터 동기화, 서버측 검증, 라이브 운영 채널을 구축.",
+      "text": "Establish cross-device data synchronization, server-side verification, and live operation channels."
+    },
+    {
+      "key": "t0103",
+      "source": "큰 카드, 큼직한 버튼, 시니어도 편하게 — 손가락 터치 친화 디자인.",
+      "text": "Large card, large buttons, comfortable even for seniors — finger touch-friendly design."
+    },
+    {
+      "key": "t0104",
+      "source": "태블릿 최적화 UI",
+      "text": "Tablet-optimized UI"
+    },
+    {
+      "key": "t0105",
+      "source": "패키지 오류 및 errorCode 매핑 정비",
+      "text": "Package error and errorCode mapping overhaul"
+    },
+    {
+      "key": "t0106",
+      "source": "프로덕션 환경에서 마주친 실제 문제들을 해결하며 게임의 안정성을 끌어올린 작업들입니다.",
+      "text": "This work was done to improve the stability of the game by solving real problems encountered in the production environment."
+    },
+    {
+      "key": "t0107",
+      "source": "프로필 타이틀 · 프로필 0로보 설정 등 메타 데이터 정비",
+      "text": "Metadata maintenance such as profile title, profile 0 robo settings, etc."
+    },
+    {
+      "key": "t0108",
+      "source": "플랫폼별 닉네임·랭킹·재화 정책의 일관성을 확보.",
+      "text": "Ensuring consistency of nickname, ranking, and product policies for each platform."
+    },
+    {
+      "key": "t0109",
+      "source": "플레이어 1 시점",
+      "text": "player 1 point of view"
+    },
+    {
+      "key": "t0110",
+      "source": "플레이어 2 시점",
+      "text": "player 2 point of view"
+    },
+    {
+      "key": "t0111",
+      "source": "필드 선언 시점 초기화 + lazy init 패턴. 외부 호출 진입점에서 호출로 호출 순서와 무관하게 안전.",
+      "text": "Initialization at field declaration time + lazy init pattern. Safe regardless of call order as calls are made from an external call entry point."
+    },
+    {
+      "key": "t0112",
+      "source": "한 판 어떠세요,",
+      "text": "How about a round?"
+    },
+    {
+      "key": "t0113",
+      "source": "한 판!",
+      "text": "One round!"
+    },
+    {
+      "key": "t0114",
+      "source": "한국 전통 카드게임 · 화투 맞고",
+      "text": "Korean traditional card game · Hwatu"
+    },
+    {
+      "key": "t0115",
+      "source": "한국 전통 화투 게임 '맞고'의 Unity 6 구현. 멀티플레이 안정화, 로그인 플랫폼 통합, 세션-재화 흐름 안정화 작업 포트폴리오.",
+      "text": "Unity 6 implementation of the Korean traditional Hwatu game ‘Majgo’. Portfolio of work on multiplayer stabilization, login platform integration, and session-goods flow stabilization."
+    },
+    {
+      "key": "t0116",
+      "source": "호스트 마이그레이션 시 disconnect 상태 전이 및 승자 판정 안정화",
+      "text": "Stability of disconnect state transition and winner decision during host migration"
+    },
+    {
+      "key": "t0117",
+      "source": "혼자서, 친구와, 그리고 로봇과 함께 즐기는 다양한 방식.",
+      "text": "A variety of ways to enjoy it alone, with friends, and with robots."
+    },
+    {
+      "key": "t0118",
+      "source": "화면",
+      "text": "screen"
+    },
+    {
+      "key": "t0119",
+      "source": "화면 너머 실제 로봇이 게임 상황에 맞춰 표정과 반응으로 함께해요.",
+      "text": "An actual robot on the other side of the screen shows facial expressions and reactions according to the game situation."
+    },
+    {
+      "key": "t0120",
+      "source": "화면 미리보기",
+      "text": "screen preview"
+    },
+    {
+      "key": "t0121",
+      "source": "화투 48장. 내 손의 카드와 바닥의 카드를 짝짓고,",
+      "text": "48 pieces of Hwatu. Match the cards in your hand with the cards on the floor,"
+    },
+    {
+      "key": "t0122",
+      "source": "CareBrainFit · 체조 + 아케이드",
+      "text": "CareBrainFit · Gymnastics + Arcade"
+    },
+    {
+      "key": "t0123",
+      "source": "CUIManager 싱글톤 Awake 순서 의존으로 NullReferenceException",
+      "text": "NullReferenceException due to CUIManager singleton Awake order dependency"
+    },
+    {
+      "key": "t0124",
+      "source": "disconnect 송신 위치 일원화 (호스트/비호스트 양쪽 모두)",
+      "text": "disconnect Unify transmission location (both host/non-host)"
+    },
+    {
+      "key": "t0125",
+      "source": "Distributed Authority 세션 기반 1:1 매칭에서 발생하는 호스트 마이그레이션,",
+      "text": "Host migration resulting from Distributed Authority session-based 1:1 matching;"
+    },
+    {
+      "key": "t0126",
+      "source": "Evaluation + MCTS. ScriptableObject 기반 가중치 튜닝.",
+      "text": "Evaluation + MCTS. ScriptableObject based weight tuning."
+    },
+    {
+      "key": "t0127",
+      "source": "FEATURES · 게임에 담은 것",
+      "text": "FEATURES · What’s included in the game"
+    },
+    {
+      "key": "t0128",
+      "source": "GAMEPLAY · 게임 화면",
+      "text": "GAMEPLAY · Game screen"
+    },
+    {
+      "key": "t0129",
+      "source": "Go-Stop · 로보맞고 — Game Showcase & Developer Portfolio",
+      "text": "Go-Stop · Robo Hitgo — Game Showcase & Developer Portfolio"
+    },
+    {
+      "key": "t0130",
+      "source": "KEMI FRIENDS · 앱 연동",
+      "text": "KEMI FRIENDS · App integration"
+    },
+    {
+      "key": "t0131",
+      "source": "MY CONTRIBUTIONS · 내가 작업한 영역",
+      "text": "MY CONTRIBUTIONS · Areas I worked on"
+    },
+    {
+      "key": "t0132",
+      "source": "Protocol 라우팅, CPacket 바이너리 직렬화, RPC 브리징.",
+      "text": "Protocol routing, CPacket binary serialization, RPC bridging."
+    },
+    {
+      "key": "t0133",
+      "source": "Robocare Hub · 작업 총정리",
+      "text": "Robocare Hub · Summary of tasks"
+    },
+    {
+      "key": "t0134",
+      "source": "Spawn 대기 → 프로필 교환 → 서버 재화 갱신 → 게임 시작 검증의 4단계 파이프라인을 명확히 분리. 각 단계의 실패는 재시도 또는 폴백으로 분기.",
+      "text": "Clear separation of the four-stage pipeline of spawn waiting → profile exchange → server goods update → game start verification. Failure of each step branches to a retry or fallback."
+    },
+    {
+      "key": "t0135",
+      "source": "Spawn 대기 → 프로필 교환 → 서버 재화 검증 → 게임 시작 파이프라인",
+      "text": "Wait for spawn → Exchange profile → Verify server goods → Game start pipeline"
+    },
+    {
+      "key": "t0136",
+      "source": "Spawn 직후 게임이 시작되어 재화/프로필 정보가 동기화되지 않음",
+      "text": "The game starts immediately after spawning and the goods/profile information are out of sync."
+    },
+    {
+      "key": "t0137",
+      "source": "UGS 멀티플레이 안정화",
+      "text": "UGS multiplayer stabilization"
+    },
+    {
+      "key": "t0138",
+      "source": "UGS 멀티플레이 안정화부터 로그인 플랫폼 통합, 세션-재화 동기화까지.",
+      "text": "From UGS multiplayer stabilization to login platform integration and session-goods synchronization."
+    },
+    {
+      "key": "t0139",
+      "source": "UGS Cloud 서비스 통합",
+      "text": "UGS Cloud Service Integration"
+    },
+    {
+      "key": "t0140",
+      "source": "UI는 입력과 렌더링만, Engine은 순수 게임 규칙만. 그 사이를 Protocol 패킷이 일관되게 가로지릅니다.",
+      "text": "UI only inputs and rendering, Engine only pure game rules. Protocol packets pass consistently between them."
+    },
+    {
+      "key": "t0141",
+      "source": "Unity 6 위에 서버-권위 게임 로직, 분산 권한 멀티플레이, 비동기 RPC, HTTP/MQTT 브리지.",
+      "text": "Server-authority game logic, distributed authority multiplayer, asynchronous RPC, and HTTP/MQTT bridge on top of Unity 6."
+    },
+    {
+      "key": "t0142",
+      "source": "Unity Gaming Services 의 4개 모듈을 게임 전반에 통합하여",
+      "text": "By integrating the four modules of Unity Gaming Services into the overall game,"
+    }
+  ]
+}

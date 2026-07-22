@@ -1,0 +1,2072 @@
+{
+  "page": "silbot",
+  "language": "en",
+  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "entries": [
+    {
+      "key": "t0001",
+      "source": "— 게임별 채널 자동 바인딩",
+      "text": "— Automatic binding of channels for each game"
+    },
+    {
+      "key": "t0002",
+      "source": "— 교사 명령 수신",
+      "text": "— Receiving teacher commands"
+    },
+    {
+      "key": "t0003",
+      "source": "— 레벨/시간 설정 UI",
+      "text": "— Level/Time Setting UI"
+    },
+    {
+      "key": "t0004",
+      "source": "— 마지막 점만 되돌리는 부분 취소 지원",
+      "text": "— Support for partial cancellation, reverting only the last point"
+    },
+    {
+      "key": "t0005",
+      "source": "— 미니게임별 진행 컨트롤",
+      "text": "— Progress control for each minigame"
+    },
+    {
+      "key": "t0006",
+      "source": "— 블록 리스트·시퀀스 저장/불러오기·순차 재생 관리",
+      "text": "— Block list/sequence saving/loading/sequential playback management"
+    },
+    {
+      "key": "t0007",
+      "source": "— 블록 한 개의 입력 필드·드롭다운·재생·삭제·이동 UI",
+      "text": "— One block input field, dropdown, play, delete, move UI"
+    },
+    {
+      "key": "t0008",
+      "source": "— 소켓 통신 어댑터",
+      "text": "— Socket communication adapter"
+    },
+    {
+      "key": "t0009",
+      "source": "— 스왑한 상대 색과 같은 색 전부 제거 (보드 전역 연쇄)",
+      "text": "— Remove all colors identical to the swapped opponent’s color (board-wide chain)"
+    },
+    {
+      "key": "t0010",
+      "source": "— 중심 기준 3×3 제거",
+      "text": "— Remove 3×3 by center"
+    },
+    {
+      "key": "t0011",
+      "source": "— 학생-학생 동기화",
+      "text": "— Student-Student Synchronization"
+    },
+    {
+      "key": "t0012",
+      "source": ", 교사-학생 출제·제어는",
+      "text": ", teacher-student assignment and control"
+    },
+    {
+      "key": "t0013",
+      "source": ", 등 타이밍 코루틴 일체.",
+      "text": ", etc. All timing coroutines."
+    },
+    {
+      "key": "t0014",
+      "source": ", 로 추가하면",
+      "text": "If you add ,"
+    },
+    {
+      "key": "t0015",
+      "source": "· 같은 공통 RPC 인터페이스 정의",
+      "text": "· Defining the same common RPC interface"
+    },
+    {
+      "key": "t0016",
+      "source": "\"이런 상황이에요\"",
+      "text": "“This is the situation.”"
+    },
+    {
+      "key": "t0017",
+      "source": "\"잘했어요!\", \"다시 한 번 해볼까요?\"",
+      "text": "“Good job!”, “Shall we try again?”"
+    },
+    {
+      "key": "t0018",
+      "source": "(보너스) 등 명령 송신. 팀원 작업과 통신 프로토콜만 맞춤.",
+      "text": "(Bonus) Sending commands, etc. Customize only team member tasks and communication protocols."
+    },
+    {
+      "key": "t0019",
+      "source": "(블록 리스트 + 드롭다운 + 저장/불러오기 UI 가 보이는 캡처)",
+      "text": "(Capture showing block list + dropdown + save/load UI)"
+    },
+    {
+      "key": "t0020",
+      "source": "(실벗 + 학생 태블릿 + 교사 PC 가 함께 보이는 교실 장면)",
+      "text": "(Classroom scene showing Silbot + student tablet + teacher PC together)"
+    },
+    {
+      "key": "t0021",
+      "source": ") 이 본인이 메인으로 작업한 게임입니다.",
+      "text": ") This is the main game I worked on."
+    },
+    {
+      "key": "t0022",
+      "source": "/ — 같은 행/열 전체 제거",
+      "text": "/ — Remove all same rows/columns"
+    },
+    {
+      "key": "t0023",
+      "source": "/ — 학생 간 진행 동기화 표준화",
+      "text": "/ — Standardize progress synchronization between students"
+    },
+    {
+      "key": "t0024",
+      "source": "/ RPC 로 실시간 갱신",
+      "text": "/ Real-time update with RPC"
+    },
+    {
+      "key": "t0025",
+      "source": "/ ScriptableObject 기반 동작/표정 카탈로그",
+      "text": "/ ScriptableObject based action/expression catalog"
+    },
+    {
+      "key": "t0026",
+      "source": "// BaseManager.cs — Socket.IO + Photon 이중 채널 진입점",
+      "text": "// BaseManager.cs — Socket.IO + Photon dual-channel entry point"
+    },
+    {
+      "key": "t0027",
+      "source": "// Client · 학생 태블릿",
+      "text": "// Client · Student Tablet"
+    },
+    {
+      "key": "t0028",
+      "source": "// HorizontalLineBombTile.cs — 가로 한 줄 제거",
+      "text": "// HorizontalLineBombTile.cs — Remove one horizontal line"
+    },
+    {
+      "key": "t0029",
+      "source": "// Master · 교사 PC",
+      "text": "// Master · Teacher PC"
+    },
+    {
+      "key": "t0030",
+      "source": "// Match3Game.cs — 폭탄 종류를 모르고도 동일하게 처리",
+      "text": "// Match3Game.cs — Same process without knowing the bomb type"
+    },
+    {
+      "key": "t0031",
+      "source": "// Silbot · 로봇",
+      "text": "// Silbot · Robot"
+    },
+    {
+      "key": "t0032",
+      "source": "// Tile.cs — 베이스 클래스",
+      "text": "// Tile.cs — Base class"
+    },
+    {
+      "key": "t0033",
+      "source": "🎬 게임별 인게임 캡처 영상 자리",
+      "text": "🎬 In-game capture video location for each game"
+    },
+    {
+      "key": "t0034",
+      "source": "🎬 임베드 예시 코드",
+      "text": "🎬 Embed example code"
+    },
+    {
+      "key": "t0035",
+      "source": "🎬 플레이 영상 추가 자리 (선택)",
+      "text": "🎬 Additional space for play video (optional)"
+    },
+    {
+      "key": "t0036",
+      "source": "🎬 현장 시연 — \"합이 10! 사과 잡기\"",
+      "text": "🎬 On-site demonstration — “Sum is 10! Catching the Apple”"
+    },
+    {
+      "key": "t0037",
+      "source": "1~9 숫자 사과를 그냥 랜덤이 아니라 가중치로 분포.",
+      "text": "Numbers 1 to 9 are distributed with weights rather than just randomly."
+    },
+    {
+      "key": "t0038",
+      "source": "12궁 효과",
+      "text": "Zodiac effect"
+    },
+    {
+      "key": "t0039",
+      "source": "3 시리즈",
+      "text": "3 series"
+    },
+    {
+      "key": "t0040",
+      "source": "3-11 Match3 · 패턴/공간",
+      "text": "3-11 Match3 · Pattern/Space"
+    },
+    {
+      "key": "t0041",
+      "source": "3-11 Match3 게임 로직 메인 구현",
+      "text": "3-11 Match3 game logic main implementation"
+    },
+    {
+      "key": "t0042",
+      "source": "3-11 Match3 게임 화면",
+      "text": "3-11 Match3 game screen"
+    },
+    {
+      "key": "t0043",
+      "source": "3-디바이스가 동시에 동작하는 흐름을 실제 영상으로 확인할 수 있습니다.",
+      "text": "You can check the flow of 3 devices operating simultaneously through actual video."
+    },
+    {
+      "key": "t0044",
+      "source": "3개 게임 모두 같은 정규화 함수 사용 → 교사 측 비교 가능",
+      "text": "All three games use the same normalization function → teachers can compare"
+    },
+    {
+      "key": "t0045",
+      "source": "3개 미니게임 모두 동일 브릿지 패턴 적용",
+      "text": "Same bridge pattern applied to all 3 minigames"
+    },
+    {
+      "key": "t0046",
+      "source": "3개 미니게임 모두 동일 패턴으로 재사용 — 신규 게임 추가 시 베이스 그대로 상속",
+      "text": "All three mini-games are reused in the same pattern — when adding a new game, the base is inherited as is."
+    },
+    {
+      "key": "t0047",
+      "source": "3매치 퍼즐",
+      "text": "3 match puzzle"
+    },
+    {
+      "key": "t0048",
+      "source": "4 시리즈",
+      "text": "4 series"
+    },
+    {
+      "key": "t0049",
+      "source": "4단계 난이도",
+      "text": "4 levels of difficulty"
+    },
+    {
+      "key": "t0050",
+      "source": "5 시리즈",
+      "text": "5 series"
+    },
+    {
+      "key": "t0051",
+      "source": "5-06 Match · 드래그 선택 & 합 판정",
+      "text": "5-06 Match · Drag selection & sum decision"
+    },
+    {
+      "key": "t0052",
+      "source": "5-06 Match · 산수/주의력",
+      "text": "5-06 Match · Arithmetic/Attention"
+    },
+    {
+      "key": "t0053",
+      "source": "5-07 Star · 별자리 잇기 입력 & 정답 검증",
+      "text": "5-07 Star · Enter constellation and verify correct answer"
+    },
+    {
+      "key": "t0054",
+      "source": "5-07 Star · 순서/공간 추론",
+      "text": "5-07 Star · Order/spatial reasoning"
+    },
+    {
+      "key": "t0055",
+      "source": "5초 무입력 → 힌트 패널 자동 출현, 누적 3회 → 정답 시연 + \"다시 해볼까요?\".",
+      "text": "No input for 5 seconds → Hint panel automatically appears, cumulative 3 times → Demonstration of correct answer + “Shall we try again?”"
+    },
+    {
+      "key": "t0056",
+      "source": "5초 무입력 시 가능 스왑을 깜빡임으로 안내하는 힌트 코루틴 직접 설계",
+      "text": "Possible after 5 seconds of no input. Hint that guides swap by flashing. Design of coroutine yourself."
+    },
+    {
+      "key": "t0057",
+      "source": "5초 입력 없을 때 가능한 스왑을 깜빡임으로 안내. 보너스 타임에는 DOTween 으로 타일 회전 효과.",
+      "text": "When there is no input for 5 seconds, possible swaps are indicated by blinking. During bonus time, tile rotation effect with DOTween."
+    },
+    {
+      "key": "t0058",
+      "source": "5초간 입력이 없으면 힌트가, 3회 실수면 정답 라인이 시연됩니다.",
+      "text": "If there is no input for 5 seconds, a hint will be displayed, and if there are 3 mistakes, the correct line will be displayed."
+    },
+    {
+      "key": "t0059",
+      "source": "8×7 기본 그리드부터 11×9 최고 난이도까지 동일 코드가 작동하도록 일반화했고,",
+      "text": "We have generalized the same code to work from the 8×7 basic grid to the 11×9 highest difficulty."
+    },
+    {
+      "key": "t0060",
+      "source": "가상 메서드를 BombTile(3×3) · HorizontalLine · VerticalLine · RainBomb 이",
+      "text": "The virtual methods are BombTile(3×3), HorizontalLine, VerticalLine, and RainBomb."
+    },
+    {
+      "key": "t0061",
+      "source": "가중치 기반 사과 스폰 + 풀이 가능 보장",
+      "text": "Weighted apple spawning + guaranteed solvability"
+    },
+    {
+      "key": "t0062",
+      "source": "가중치 배열로 작은 수 비중을 키우고, 마지막 사과를 전체 합이 10의 배수가 되도록 보정해",
+      "text": "Increase the proportion of small numbers by arranging weights, and adjust the last apple so that the total sum is a multiple of 10."
+    },
+    {
+      "key": "t0063",
+      "source": "가중치 사과 스폰",
+      "text": "weighted apple spawn"
+    },
+    {
+      "key": "t0064",
+      "source": "가중치 설계",
+      "text": "weight design"
+    },
+    {
+      "key": "t0065",
+      "source": "각 게임 30초 안팎 플레이 영상. 로 임베드.",
+      "text": "Play video of about 30 seconds of each game. Embed as."
+    },
+    {
+      "key": "t0066",
+      "source": "각 게임의 30초 안팎 플레이 클립을 ,",
+      "text": "Play clips of about 30 seconds of each game,"
+    },
+    {
+      "key": "t0067",
+      "source": "각 미니게임의 인게임 화면 캡처. 1280×720 권장.",
+      "text": "In-game screen capture of each minigame. 1280×720 recommended."
+    },
+    {
+      "key": "t0068",
+      "source": "각 game-tech-block 위쪽 또는 첫 .gt-item 안에 12~20초 GIF 또는 mp4 클립을 넣으면 가독성이 크게 올라갑니다.",
+      "text": "Placing a 12-20 second GIF or mp4 clip at the top of each game-tech-block or inside the first .gt-item will greatly improve readability."
+    },
+    {
+      "key": "t0069",
+      "source": "각각 오버라이드해 폭탄별 제거 범위를 자체적으로 계산. 새 폭탄 추가가 한 클래스로 끝나도록 설계.",
+      "text": "Each override is used to automatically calculate the removal range for each bomb. Designed so that adding new bombs is done in one class."
+    },
+    {
+      "key": "t0070",
+      "source": "각각 자극하는 인지 영역과 인터랙션 방식이 다르며, 모두 동일한 BaseManager 토대 위에서 구현되었습니다.",
+      "text": "Each stimulates different cognitive areas and interaction methods, and are all implemented on the same BaseManager foundation."
+    },
+    {
+      "key": "t0071",
+      "source": "각각의 핵심 클래스·로직을 정리하고, 그 중에서도 단독으로 책임진 부분을",
+      "text": "Organize each core class and logic, and determine which part is solely responsible."
+    },
+    {
+      "key": "t0072",
+      "source": "같은 명령이 두 번 처리되지 않도록 한 학생(예: master client) 만 RPC 송신",
+      "text": "Only one student (e.g. master client) sends the RPC to prevent the same command from being processed twice"
+    },
+    {
+      "key": "t0073",
+      "source": "개발자 작업 보기",
+      "text": "View developer tasks"
+    },
+    {
+      "key": "t0074",
+      "source": "개발자용 설정 패널 — Socket URL, DB, TTS 모드 직접 변경",
+      "text": "Settings panel for developers — directly change Socket URL, DB, and TTS mode"
+    },
+    {
+      "key": "t0075",
+      "source": "게스트/계정/실벗 단독 모드 등 진입 경로별 로그인 조건이 흩어져 있던 부분을 정리.",
+      "text": "Organized the scattered login conditions for each entry route, such as guest/account/Silbot exclusive mode."
+    },
+    {
+      "key": "t0076",
+      "source": "게임 로직과 로봇 제어를 완전히 분리. 게임 매니저는",
+      "text": "Complete separation of game logic and robot control. The game manager"
+    },
+    {
+      "key": "t0077",
+      "source": "게임 살펴보기 →",
+      "text": "Explore the game →"
+    },
+    {
+      "key": "t0078",
+      "source": "게임 상태 머신 — TUTORIAL → SELECT_LEVEL → DOING_GAME → FINSH_GAME",
+      "text": "Game State Machine — TUTORIAL → SELECT_LEVEL → DOING_GAME → FINSH_GAME"
+    },
+    {
+      "key": "t0079",
+      "source": "게임 상태 머신, Photon RPC, Socket.IO 연결을 한 곳에 모아 각 미니게임 매니저가 상속만으로 통신·상태를 가져가도록 정리.",
+      "text": "Gather the game state machine, Photon RPC, and Socket.IO connections in one place so that each minigame manager can obtain communication and state through inheritance."
+    },
+    {
+      "key": "t0080",
+      "source": "게임 상황(정답·오답·격려·집중)에 맞춰 실벗 로봇 표정이 자동으로 바뀌도록",
+      "text": "The Silbot robot's facial expression automatically changes according to the game situation (correct answer, incorrect answer, encouragement, concentration)."
+    },
+    {
+      "key": "t0081",
+      "source": "게임 스크린샷",
+      "text": "game screenshot"
+    },
+    {
+      "key": "t0082",
+      "source": "게임 플레이",
+      "text": "game play"
+    },
+    {
+      "key": "t0083",
+      "source": "게임마다 만점 기준이 다르고 학생 수도 매 수업 다른 점을 흡수하기 위해",
+      "text": "The perfect score standard is different for each game, and the number of students is different in each class to absorb the differences."
+    },
+    {
+      "key": "t0084",
+      "source": "경쟁 · 협력 모드",
+      "text": "Competitive/Cooperative Mode"
+    },
+    {
+      "key": "t0085",
+      "source": "공간",
+      "text": "space"
+    },
+    {
+      "key": "t0086",
+      "source": "교사 · 로봇 · 학생, 세 주체의 협업",
+      "text": "Collaboration between three entities: teacher, robot, and student"
+    },
+    {
+      "key": "t0087",
+      "source": "교사 ↔ 학생 명령",
+      "text": "Teacher ↔ Student Command"
+    },
+    {
+      "key": "t0088",
+      "source": "교사 명령 수신 시 학생 전원 동시 힌트 노출 (Socket → RPC 변환)",
+      "text": "Simultaneous hint exposure to all students upon receipt of teacher command (Socket → RPC conversion)"
+    },
+    {
+      "key": "t0089",
+      "source": "교사 진행 통제",
+      "text": "teacher progress control"
+    },
+    {
+      "key": "t0090",
+      "source": "교사 측에서 강제로 힌트 표시도 가능하게 Socket 명령() 수신 구현.",
+      "text": "Implementation of Socket command() reception so that the teacher can force hint display."
+    },
+    {
+      "key": "t0091",
+      "source": "교사 PC · 대화면(TV·KADAS) · 학생 태블릿",
+      "text": "Teacher PC, large screen (TV, KADAS), student tablet"
+    },
+    {
+      "key": "t0092",
+      "source": "교사 PC · 진행 제어 + 모니터링",
+      "text": "Teacher PC · Progress control + monitoring"
+    },
+    {
+      "key": "t0093",
+      "source": "교사 PC 의 상속 클래스. ··",
+      "text": "Inherited class from teacher PC. ··"
+    },
+    {
+      "key": "t0094",
+      "source": "교사 PC 측에서 별자리를 천천히 그려 보여주는 시범 애니메이션. TTS 와 동기화. 통신 프로토콜",
+      "text": "Demonstration animation showing constellations slowly drawn on the teacher's PC side. Synchronized with TTS. communication protocol"
+    },
+    {
+      "key": "t0095",
+      "source": "교사 PC와 학생 태블릿이 실벗 로봇을 매개로 연결되어,",
+      "text": "The teacher PC and student tablet are connected through the Silbot robot,"
+    },
+    {
+      "key": "t0096",
+      "source": "교사-학생 간 출제·제어는 텍스트 프로토콜(Socket.IO) 로, 학생-학생 간 실시간 동기화는 RPC(Photon) 로 분리.",
+      "text": "Question assignment and control between teacher and student are separated by text protocol (Socket.IO), and real-time synchronization between student and student is separated by RPC (Photon)."
+    },
+    {
+      "key": "t0097",
+      "source": "교사가 PC(Master)에서 수업을 진행하면, 학생 태블릿(Client)이 동기화된 미니게임을 받아 풀고,",
+      "text": "When the teacher conducts a class on a PC (Master), the student tablet (Client) receives and solves the synchronized mini-game."
+    },
+    {
+      "key": "t0098",
+      "source": "교사의 Socket 명령(, , 등)을 받았을 때",
+      "text": "When receiving a teacher's Socket command (, , etc.)"
+    },
+    {
+      "key": "t0099",
+      "source": "교실에서 함께 푸는",
+      "text": "solving together in the classroom"
+    },
+    {
+      "key": "t0100",
+      "source": "구조를 일반화. 발화·표정 명령이 어느 로봇에도 동일 코드로 전달.",
+      "text": "Generalize the structure. Speech and facial expression commands are transmitted with the same code to all robots."
+    },
+    {
+      "key": "t0101",
+      "source": "구현. 화면 좌표 → RectTransform 로컬 좌표 변환, 별 근접도 검사, 정답 리스트와 비교.",
+      "text": "avatar. Screen coordinates → RectTransform Local coordinate transformation, star proximity check, comparison with list of correct answers."
+    },
+    {
+      "key": "t0102",
+      "source": "그 외 게임은 팀원이 메인 담당이며 본인은 일부 시스템·구조 측면에서 협업했습니다.",
+      "text": "For other games, a team member was the main person, and I collaborated on some systems and structures."
+    },
+    {
+      "key": "t0103",
+      "source": "그 외 다른 부분은 팀원과 공동 작업했으며 전체 구조는 함께 설계했습니다.",
+      "text": "Other parts were collaborated with team members and the overall structure was designed together."
+    },
+    {
+      "key": "t0104",
+      "source": "그 중 본인이 메인으로 작업한",
+      "text": "Among them, I mainly worked on"
+    },
+    {
+      "key": "t0105",
+      "source": "그 중 본인이 메인으로 책임지고 구현·튜닝·디버깅한 부분, 그리고 공동 작업 중에서 메인 리드를 맡았던 부분을 정리합니다.",
+      "text": "Among them, I will summarize the parts for which I was primarily responsible for implementation, tuning, and debugging, and the parts for which I was the main lead among the collaborative tasks."
+    },
+    {
+      "key": "t0106",
+      "source": "그냥 1~9 균등 랜덤으로 사과를 뿌리면 합이 10이 되는 조합이 잘 안 나오는 문제 해결.",
+      "text": "Solved the problem that if you just randomly distribute apples from 1 to 9, it is difficult to come up with a combination that adds up to 10."
+    },
+    {
+      "key": "t0107",
+      "source": "그리드 2D 배열 위에서 스왑 직후 가로·세로 3+ 매치를 스캔, 제거 후 위쪽 타일을 떨어뜨려 빈 칸을 채우고",
+      "text": "Immediately after swapping on a grid 2D array, scan 3+ matches horizontally and vertically, remove them, and then drop the upper tiles to fill in the empty spaces."
+    },
+    {
+      "key": "t0108",
+      "source": "그리드 매치 검출 · 중력 낙하 · 연쇄 반응",
+      "text": "Grid match detection · Gravity drop · Chain reaction"
+    },
+    {
+      "key": "t0109",
+      "source": "기존 실벗 본체 외에 HiBomi2 보조 로봇과의 연결을 추가. 두 로봇이 같은 RobotManager 인터페이스를 통해 명령을 받도록",
+      "text": "In addition to the existing Silbot main body, connection with the HiBomi2 auxiliary robot has been added. Have both robots receive commands through the same RobotManager interface."
+    },
+    {
+      "key": "t0110",
+      "source": "나만 처리하는 게 아니라 같은 방의 학생 전원이 동기적으로 처리",
+      "text": "Not only I process it, but all students in the same room process it synchronously."
+    },
+    {
+      "key": "t0111",
+      "source": "난이도가 올라갈수록 별과 선의 개수가 늘어나고, 12궁 별자리가 배경에서 반짝이며 분위기를 더합니다.",
+      "text": "As the difficulty level increases, the number of stars and lines increases, and the 12 zodiac signs twinkle in the background, adding to the atmosphere."
+    },
+    {
+      "key": "t0112",
+      "source": "난이도별 폭탄 확률 튜닝 (Lv0 = 7% → Lv3 = 3%)",
+      "text": "Bomb probability tuning by difficulty (Lv0 = 7% → Lv3 = 3%)"
+    },
+    {
+      "key": "t0113",
+      "source": "내 담당 게임",
+      "text": "my game"
+    },
+    {
+      "key": "t0114",
+      "source": "내 매치 스캔 · 스왑 검증 · 중력 시뮬레이션 단독 작성",
+      "text": "Scan my matches · Verify swaps · Create standalone gravity simulations"
+    },
+    {
+      "key": "t0115",
+      "source": "내 selection/path 로직 메인 작성",
+      "text": "Write my selection/path logic main"
+    },
+    {
+      "key": "t0116",
+      "source": "네트워크 끊김 → 재접속 시 진행 상태 복구",
+      "text": "Network disconnection → progress recovery upon reconnection"
+    },
+    {
+      "key": "t0117",
+      "source": "네트워크 채널 (Photon · Socket.IO)",
+      "text": "Network Channel (Photon · Socket.IO)"
+    },
+    {
+      "key": "t0118",
+      "source": "는 팀 공동 작업 중 메인 리드 역할을 한 영역.",
+      "text": "is the area that served as the main lead during team collaboration."
+    },
+    {
+      "key": "t0119",
+      "source": "다른 학생과 점수·공격·콤보 RPC 동기화",
+      "text": "Sync score/attack/combo RPC with other students"
+    },
+    {
+      "key": "t0120",
+      "source": "다른 학생에게 동기화. 팀과 공동 설계, 메인 작업.",
+      "text": "Sync to other students. Co-design with the team, main task."
+    },
+    {
+      "key": "t0121",
+      "source": "대화면(TV·KADAS) · 실시간 랭킹 + 게임 진행 공유",
+      "text": "Large screen (TV, KADAS) · Real-time ranking + game progress sharing"
+    },
+    {
+      "key": "t0122",
+      "source": "덧셈 10",
+      "text": "addition 10"
+    },
+    {
+      "key": "t0123",
+      "source": "두 개의 채널, 세 개의 노드",
+      "text": "Two channels, three nodes"
+    },
+    {
+      "key": "t0124",
+      "source": "두 타일을 드래그해 위치를 바꾸고, 같은 색 타일을 3개 이상 연결해 제거합니다.",
+      "text": "Drag two tiles to change their positions, and connect three or more tiles of the same color to remove them."
+    },
+    {
+      "key": "t0125",
+      "source": "두뇌 미니게임",
+      "text": "brain minigame"
+    },
+    {
+      "key": "t0126",
+      "source": "드래그 선택",
+      "text": "drag selection"
+    },
+    {
+      "key": "t0127",
+      "source": "드래그 스왑",
+      "text": "drag swap"
+    },
+    {
+      "key": "t0128",
+      "source": "드래그 스왑 → 3+ 매치 검출 → 제거·중력·연쇄. 4단계 그리드(7×6 ~ 11×9) · 폭탄 4종 · 힌트 시스템.",
+      "text": "Drag swap → 3+ match detection → removal, gravity, chain. 4-level grid (7×6 ~ 11×9) · 4 types of bombs · Hint system."
+    },
+    {
+      "key": "t0129",
+      "source": "드래그 종료 시점에 합 = 10 판정과 콤보 갱신 트리거.",
+      "text": "Sum = 10 at the end of the drag and trigger a combo update."
+    },
+    {
+      "key": "t0130",
+      "source": "드래그·터치 입력 처리, 점수 계산",
+      "text": "Drag/touch input processing, score calculation"
+    },
+    {
+      "key": "t0131",
+      "source": "드래그로 사과를 선택 → 합이 10이면 성공. 콤보 누적 시 상대 보드 공격. 가중치 기반 사과 숫자 분포.",
+      "text": "Select the apple by dragging → Success if the sum is 10. Attacks the opponent's board when combos are accumulated. Weighted apple number distribution."
+    },
+    {
+      "key": "t0132",
+      "source": "또는 안에 작게 임베드 가능.",
+      "text": "Or you can embed it small inside."
+    },
+    {
+      "key": "t0133",
+      "source": "라고 신호만 보내면,",
+      "text": "If you just send a signal,"
+    },
+    {
+      "key": "t0134",
+      "source": "랭크 모드(공격·콤보)와 협력 모드(공동 점수)로 두 가지 결의 수업 가능.",
+      "text": "Two resolution classes are available: ranked mode (attack/combo) and cooperative mode (joint score)."
+    },
+    {
+      "key": "t0135",
+      "source": "랭크/협력 모드 결과 집계",
+      "text": "Ranked/cooperative mode results tally"
+    },
+    {
+      "key": "t0136",
+      "source": "레벨 선택·시간 설정·힌트·보너스 등 교실 흐름을 교사가 즉시 제어.",
+      "text": "Teachers immediately control the classroom flow, including level selection, time setting, hints, and bonuses."
+    },
+    {
+      "key": "t0137",
+      "source": "레벨·시간·모드 선택 UI",
+      "text": "Level/Time/Mode Selection UI"
+    },
+    {
+      "key": "t0138",
+      "source": "레벨별 (5~10) 도달 시 RPC 호출.",
+      "text": "RPC call upon reaching each level (5~10)."
+    },
+    {
+      "key": "t0139",
+      "source": "레벨별 보드 크기 4단계(12×7 ~ 12×8) 에 동일 적용",
+      "text": "Same applies to 4 board sizes (12×7 ~ 12×8) per level"
+    },
+    {
+      "key": "t0140",
+      "source": "로",
+      "text": "by"
+    },
+    {
+      "key": "t0141",
+      "source": "로 교체할 수 있습니다.",
+      "text": "It can be replaced with ."
+    },
+    {
+      "key": "t0142",
+      "source": "로 삽입.",
+      "text": "Insert as."
+    },
+    {
+      "key": "t0143",
+      "source": "로 소켓 콜백을 메인 스레드에 안전하게 전달",
+      "text": "Safely forward socket callbacks to the main thread"
+    },
+    {
+      "key": "t0144",
+      "source": "로그인 조건 분기 정리",
+      "text": "Login condition branch cleanup"
+    },
+    {
+      "key": "t0145",
+      "source": "로그인 조건 분기 처리 (게스트/계정/실벗 단독)",
+      "text": "Login condition branching processing (guest/account/Silbot only)"
+    },
+    {
+      "key": "t0146",
+      "source": "로봇 발화·표정 명령 전송",
+      "text": "Transmission of robot speech and facial expression commands"
+    },
+    {
+      "key": "t0147",
+      "source": "로봇 종류별 소켓 채널 분리",
+      "text": "Separation of socket channels by robot type"
+    },
+    {
+      "key": "t0148",
+      "source": "로봇 측 표정 명령으로 변환하는 구조. 게임 로직과 로봇 SDK 의 의존성을 깔끔히 분리.",
+      "text": "Structure that converts into facial expression commands on the robot side. Cleanly separates dependencies between game logic and robot SDK."
+    },
+    {
+      "key": "t0149",
+      "source": "로봇이 실제 동작하는 시연 영상이 있다면 로 대체 가능.",
+      "text": "If there is a demonstration video of the robot actually operating, it can be replaced with ."
+    },
+    {
+      "key": "t0150",
+      "source": "를 직접 구현해",
+      "text": "Implement it yourself"
+    },
+    {
+      "key": "t0151",
+      "source": "마우스/터치 다운→드래그→업 흐름에서 사과 위치·거리 검사. 인접 거리(200) 초과 시 점프 방지,",
+      "text": "Check the apple position and distance in the mouse/touch down→drag→up flow. Prevent jumping when adjacent distance (200) is exceeded;"
+    },
+    {
+      "key": "t0152",
+      "source": "마지막 사과는 전체 합이 10의 배수가 되도록 보정. 풀이 가능한 보드 자동 보장.",
+      "text": "The last apple is adjusted so that the total sum is a multiple of 10. Automatically guarantees solvable boards."
+    },
+    {
+      "key": "t0153",
+      "source": "매 프레임 GC 부담을 줄이려 제거 대상 타일을 미리 잡아둔 캐시 리스트로 재사용.",
+      "text": "To reduce the GC burden each frame, tiles to be removed are reused as a pre-set cache list."
+    },
+    {
+      "key": "t0154",
+      "source": "매니저는 폭탄 종류를 알 필요 없이 만 호출하면 됩니다.",
+      "text": "The manager doesn't need to know the bomb type, he just needs to call it."
+    },
+    {
+      "key": "t0155",
+      "source": "매치 게임의 폭탄 타일은 모두 같은 베이스를 상속받습니다.",
+      "text": "Bomb tiles in a match game all inherit the same base."
+    },
+    {
+      "key": "t0156",
+      "source": "메인으로 담당한 작업",
+      "text": "Main task"
+    },
+    {
+      "key": "t0157",
+      "source": "모든 게임이 동일한 BaseManager · Photon · Socket.IO 구조 위에서 동작하며,",
+      "text": "All games operate on the same BaseManager · Photon · Socket.IO structure,"
+    },
+    {
+      "key": "t0158",
+      "source": "모든 미니게임 매니저가 상속하는 . 게임 상태(튜토리얼·레벨선택·플레이·종료),",
+      "text": "All minigame managers inherit . Game status (tutorial, level selection, play, end),"
+    },
+    {
+      "key": "t0159",
+      "source": "모든 미니게임은 동일한 3-주체 구조 위에서 동작합니다. 교사 PC가 수업의 흐름을 결정하고,",
+      "text": "All minigames operate on the same three-subject structure. The teacher PC determines the flow of class,"
+    },
+    {
+      "key": "t0160",
+      "source": "모든 미니게임이 동일한 패턴으로 작성되도록 를 팀과 공동 설계.",
+      "text": "Co-designed with the team to ensure that all minigames are written with the same pattern."
+    },
+    {
+      "key": "t0161",
+      "source": "모든 보드가 풀이 가능",
+      "text": "All boards are solvable"
+    },
+    {
+      "key": "t0162",
+      "source": "모든 실벗 미니게임에 공통으로 적용되는 일반 구조입니다 — Photon PUN으로 학생 간 동기화, Socket.IO로 교사 명령 전달.",
+      "text": "This is the general structure common to all Silbot minigames — synchronization between students with Photon PUN, and passing teacher commands with Socket.IO."
+    },
+    {
+      "key": "t0163",
+      "source": "무입력 타이머 + 힌트 패널 표시 코루틴",
+      "text": "No input timer + hint panel display coroutine"
+    },
+    {
+      "key": "t0164",
+      "source": "반복 재생",
+      "text": "repeat play"
+    },
+    {
+      "key": "t0165",
+      "source": "반응",
+      "text": "reaction"
+    },
+    {
+      "key": "t0166",
+      "source": "발화 · 표정 · 동작",
+      "text": "Speech, facial expression, movement"
+    },
+    {
+      "key": "t0167",
+      "source": "배경 단정한 1:1 또는 4:5 권장.",
+      "text": "Neat background 1:1 or 4:5 recommended."
+    },
+    {
+      "key": "t0168",
+      "source": "배지로 표시합니다.",
+      "text": "Marked with a badge."
+    },
+    {
+      "key": "t0169",
+      "source": "버튼 한 번으로 순차적으로 로봇이 말하고 움직이게 만듭니다. 시퀀스에 이름을 붙여 저장·재불러오기 가능.",
+      "text": "Make the robot speak and move sequentially with a single button. Sequences can be named and saved/reloaded."
+    },
+    {
+      "key": "t0170",
+      "source": "번호 순서대로 별을 연결해 별자리 완성. 5초 무입력 시 힌트, 3회 실수 시 정답 시연. 12궁 배경 효과.",
+      "text": "Complete the constellation by connecting the stars in numerical order. Hint after 5 seconds of no input, correct answer shown after 3 mistakes. Zodiac background effects."
+    },
+    {
+      "key": "t0171",
+      "source": "별자리 잇기",
+      "text": "Join the constellations"
+    },
+    {
+      "key": "t0172",
+      "source": "본 영상의 콘텐츠는 합이 10이 되도록 사과(동전)를 연결하는 인지 훈련 게임이지만, 화면 구조와 데이터 흐름은",
+      "text": "The content of this video is a cognitive training game that connects apples (coins) so that the sum becomes 10, but the screen structure and data flow are"
+    },
+    {
+      "key": "t0173",
+      "source": "본인 담당 세 게임의 핵심 구조",
+      "text": "The core structure of the three games I am responsible for"
+    },
+    {
+      "key": "t0174",
+      "source": "본인 메인 담당 미니게임",
+      "text": "My main minigame"
+    },
+    {
+      "key": "t0175",
+      "source": "본인이 메인 리드로 표준 패턴을 잡고, 세 미니게임 모두 이 위에서 구현.",
+      "text": "I set the standard pattern as the main lead, and implemented all three minigames on top of this."
+    },
+    {
+      "key": "t0176",
+      "source": "본인이 메인으로 담당한 부분을 다루기 전에, 세 게임 전반을 떠받치는 기술 결정과 공통 구조를 먼저 정리합니다.",
+      "text": "Before going into my main role, I will first summarize the technical decisions and common structures that underpin all three games."
+    },
+    {
+      "key": "t0177",
+      "source": "본인이 메인으로 담당한 세 게임",
+      "text": "Three games that you mainly played"
+    },
+    {
+      "key": "t0178",
+      "source": "본인이 메인으로 작업한 영역 (다른 부분은 팀원과 공동 작업, 구조는 함께 설계)",
+      "text": "The area you mainly worked on (collaborating with team members on other parts and designing the structure together)"
+    },
+    {
+      "key": "t0179",
+      "source": "볼륨·배터리·연결 상태 모니터링",
+      "text": "Monitor volume, battery, and connection status"
+    },
+    {
+      "key": "t0180",
+      "source": "브라우저가 video 태그를 지원하지 않습니다.",
+      "text": "Your browser does not support the video tag."
+    },
+    {
+      "key": "t0181",
+      "source": "블록마다 텍스트·재생 시간·동작·표정을 드롭다운으로 고르고, 블록 순서를 위·아래 버튼으로 재배열한 뒤",
+      "text": "Select the text, playback time, motion, and expression for each block using the dropdown, and rearrange the block order using the up and down buttons."
+    },
+    {
+      "key": "t0182",
+      "source": "빌드 한 번으로 여러 학교/기관 환경에 동일한 APK 를 배포 가능.",
+      "text": "The same APK can be distributed to multiple school/institution environments with a single build."
+    },
+    {
+      "key": "t0183",
+      "source": "빠른 암산과 시각적 탐색을 동시에 훈련합니다.",
+      "text": "Trains fast mental calculation and visual exploration simultaneously."
+    },
+    {
+      "key": "t0184",
+      "source": "사고",
+      "text": "accident"
+    },
+    {
+      "key": "t0185",
+      "source": "사진·영상 추가 가이드라인",
+      "text": "Guidelines for adding photos and videos"
+    },
+    {
+      "key": "t0186",
+      "source": "산수",
+      "text": "arithmetic"
+    },
+    {
+      "key": "t0187",
+      "source": "산수 · 추론 · 지혜 · 공간",
+      "text": "Arithmetic, reasoning, wisdom, space"
+    },
+    {
+      "key": "t0188",
+      "source": "상대 학생 보드에 파티클 이펙트를 발생시키고 콤보 카운터를 리셋. 랭크 모드에서만 활성.",
+      "text": "Creates a particle effect on the opponent's student board and resets the combo counter. Only active in ranked mode."
+    },
+    {
+      "key": "t0189",
+      "source": "상속 — 각 게임 매니저",
+      "text": "Inheritance — Each game manager"
+    },
+    {
+      "key": "t0190",
+      "source": "상태 enum — TUTORIAL · SELECT_LEVEL · SET_LIMIT_TIME · DOING_GAME · FINSH_GAME",
+      "text": "State enum — TUTORIAL · SELECT_LEVEL · SET_LIMIT_TIME · DOING_GAME · FINSH_GAME"
+    },
+    {
+      "key": "t0191",
+      "source": "새 매치가 없을 때까지 반복(체인 리액션). 로 GC 부담 최소화.",
+      "text": "Repeat until there are no new matches (chain reaction). Minimizes GC burden."
+    },
+    {
+      "key": "t0192",
+      "source": "새 폭탄을 추가할 때 매니저 코드를 건드리지 않고 새 파일 한 개만 만들면 되는 구조로 정리.",
+      "text": "Organized into a structure where you only need to create a new file without touching the manager code when adding a new bomb."
+    },
+    {
+      "key": "t0193",
+      "source": "선생님과 실벗이 함께하는 교실 학습",
+      "text": "Classroom learning with teachers and colleagues"
+    },
+    {
+      "key": "t0194",
+      "source": "선택 가능한 인접성 규칙으로 보드 끝과 끝을 자의적으로 잇는 우회 차단",
+      "text": "Block arbitrarily connecting end-to-end boards with selectable adjacency rules"
+    },
+    {
+      "key": "t0195",
+      "source": "선택 사과를 LineRenderer 로 연결. 업 시점에 합 계산해 ANSWER(10) 여부 판정.",
+      "text": "Connect the selection apple to LineRenderer. Calculate the sum at the time of up to determine whether ANSWER (10) is present."
+    },
+    {
+      "key": "t0196",
+      "source": "세 게임 모두 팀과 공동 설계한 클래스 구조 위에서 구현되었습니다.",
+      "text": "All three games were built on a class structure co-designed with the team."
+    },
+    {
+      "key": "t0197",
+      "source": "세 게임을 본 페이지에서 자세히 다룹니다.",
+      "text": "All three games are covered in detail on this page."
+    },
+    {
+      "key": "t0198",
+      "source": "세 게임을 자세히 다룹니다.",
+      "text": "We cover three games in detail."
+    },
+    {
+      "key": "t0199",
+      "source": "소개",
+      "text": "Introduction"
+    },
+    {
+      "key": "t0200",
+      "source": "소리는 음소거 권장 (자동재생 정책 호환).",
+      "text": "Sound is recommended to be muted (auto-play policy compatible)."
+    },
+    {
+      "key": "t0201",
+      "source": "수업 진행 / 출제",
+      "text": "Class progress/questions"
+    },
+    {
+      "key": "t0202",
+      "source": "순서 연결",
+      "text": "order connection"
+    },
+    {
+      "key": "t0203",
+      "source": "시스템 구조",
+      "text": "system structure"
+    },
+    {
+      "key": "t0204",
+      "source": "시스템 전체에는 20여 종의 미니게임이 있으며, 본 페이지에서는 본인이 메인으로 담당한",
+      "text": "There are about 20 types of minigames throughout the system, and on this page, you can play the main game you are in charge of."
+    },
+    {
+      "key": "t0205",
+      "source": "시지각",
+      "text": "visual perception"
+    },
+    {
+      "key": "t0206",
+      "source": "시지각 · 패턴 인식 · 반응 속도",
+      "text": "Visual perception, pattern recognition, reaction speed"
+    },
+    {
+      "key": "t0207",
+      "source": "시퀀스 이름 충돌·더미 옵션·드롭다운 예외 케이스 방어 로직 포함",
+      "text": "Includes sequence name conflict, dummy option, and dropdown exception case defense logic"
+    },
+    {
+      "key": "t0208",
+      "source": "시퀀스를 3단 직렬화 후 PlayerPrefs JSON 저장",
+      "text": "Serialize the sequence in three steps and save it as PlayerPrefs JSON."
+    },
+    {
+      "key": "t0209",
+      "source": "실",
+      "text": "thread"
+    },
+    {
+      "key": "t0210",
+      "source": "실벗 로봇 + 학생 태블릿 + 교사 PC 가 한 화면에 보이는 교실 장면. 1920×1200 가로 권장.",
+      "text": "A classroom scene showing the Silbot robot + student tablet + teacher PC on one screen. 1920×1200 landscape recommended."
+    },
+    {
+      "key": "t0211",
+      "source": "실벗 로봇 기반 아동 인지·교육 게임",
+      "text": "Silbot robot-based children’s cognitive and educational game"
+    },
+    {
+      "key": "t0212",
+      "source": "실벗 로봇 연동",
+      "text": "Silbot robot integration"
+    },
+    {
+      "key": "t0213",
+      "source": "실벗 로봇은 별도 소켓 채널로 발화·표정 명령을 받습니다.",
+      "text": "The Silbot robot receives speech and facial expression commands through a separate socket channel."
+    },
+    {
+      "key": "t0214",
+      "source": "실벗 로봇의 발화·표정·동작을 블록 단위로 직접 구성",
+      "text": "Directly configure the Silbot robot’s speech, facial expressions, and movements in blocks."
+    },
+    {
+      "key": "t0215",
+      "source": "실벗 로봇이 발화·표정으로 분위기를 만들며, 학생 태블릿이 실제 게임을 플레이합니다.",
+      "text": "The Silbot robot creates the atmosphere with speech and facial expressions, and the student tablet plays the actual game."
+    },
+    {
+      "key": "t0216",
+      "source": "실벗 로봇이 안내·표정·발화로 수업을 살아 있게 만듭니다.",
+      "text": "The Silbot robot makes classes come alive with guidance, facial expressions, and speech."
+    },
+    {
+      "key": "t0217",
+      "source": "실벗 미니게임 카탈로그",
+      "text": "Silbot Minigame Catalog"
+    },
+    {
+      "key": "t0218",
+      "source": "실벗 본체 · HiBomi2 보조 로봇 사진. 또는 의 로봇 관련 카드에 넣으면 좋음.",
+      "text": "Photo of Silbot main body and HiBomi2 auxiliary robot. It would be good to put it on a robot-related card."
+    },
+    {
+      "key": "t0219",
+      "source": "실벗 시스템은 3·4·5 시리즈로 구성된 20여 종의 미니게임을 갖춘 통합 플랫폼입니다.",
+      "text": "The Silbot system is an integrated platform with over 20 minigames comprised of series 3, 4, and 5."
+    },
+    {
+      "key": "t0220",
+      "source": "실벗 얼굴 테마 프로토콜 — 표정 통합",
+      "text": "Silbot Face Theme Protocol — Expression Integration"
+    },
+    {
+      "key": "t0221",
+      "source": "실벗 카탈로그 20여 종 중 본인이 메인으로 담당한 세 게임 — 3-11 Match3 · 5-06 Match · 5-07 Star —",
+      "text": "Of the 20 or so games in the Silbot catalog, the three games I played as the main ones — 3-11 Match3 · 5-06 Match · 5-07 Star —"
+    },
+    {
+      "key": "t0222",
+      "source": "실벗 카탈로그 20여 종 중, 본인이 메인 개발자로 책임진 세 미니게임입니다.",
+      "text": "Among the 20 types of Silbot catalog, these are three minigames for which I was responsible as the main developer."
+    },
+    {
+      "key": "t0223",
+      "source": "실벗 표정(기쁨·놀람·집중·격려) 캡처. 카드 안에 작은 갤러리로 넣으면 좋음.",
+      "text": "Capturing real facial expressions (joy, surprise, concentration, encouragement). It would be nice to put it as a small gallery inside the card."
+    },
+    {
+      "key": "t0224",
+      "source": "실벗(Silbot) 로봇 기반 학생·교사 협업 학습 시스템 (20여 종 미니게임). 그 중 3-11 Match3 / 5-06 Match / 5-07 Star 세 게임을 메인으로 담당한 개발자 포트폴리오.",
+      "text": "Silbot robot-based student-teacher collaborative learning system (about 20 mini-games). Among them, the portfolio of developers mainly responsible for three games: 3-11 Match3 / 5-06 Match / 5-07 Star."
+    },
+    {
+      "key": "t0225",
+      "source": "실수 카운트",
+      "text": "mistake count"
+    },
+    {
+      "key": "t0226",
+      "source": "실시간 다인 동기화",
+      "text": "Real-time multi-person synchronization"
+    },
+    {
+      "key": "t0227",
+      "source": "실시간 학생-간 동기화는",
+      "text": "Real-time student-to-student synchronization"
+    },
+    {
+      "key": "t0228",
+      "source": "실제 미니게임 화면·인터랙션",
+      "text": "Actual mini game screen/interaction"
+    },
+    {
+      "key": "t0229",
+      "source": "실제 연결선은 LineRenderer 로 실시간 그리고, 정답 라인은 별도 prefab 으로 시연.",
+      "text": "The actual connection line is demonstrated in real time with LineRenderer, and the correct answer line is demonstrated in a separate prefab."
+    },
+    {
+      "key": "t0230",
+      "source": "안드로이드 Intent 로 게임 API·TTS·로봇 ID 등 환경값을 외부에서 주입.",
+      "text": "Inject environmental values such as game API, TTS, and robot ID from outside using Android Intent."
+    },
+    {
+      "key": "t0231",
+      "source": "안드로이드 Intent 로 앱 실행 시점에 게임 API URL·TTS·로봇 ID·프로젝트 설정을 받아오는 구조.",
+      "text": "A structure that receives game API URL, TTS, robot ID, and project settings at the time of app execution through Android Intent."
+    },
+    {
+      "key": "t0232",
+      "source": "앞으로 새 진입 경로 추가가 한 곳 수정으로 끝나게 함.",
+      "text": "In the future, adding a new entry route will be completed with a single modification."
+    },
+    {
+      "key": "t0233",
+      "source": "언어",
+      "text": "language"
+    },
+    {
+      "key": "t0234",
+      "source": "언어 · 주의력 · 표현 · 따라하기",
+      "text": "Language, attention, expression, imitation"
+    },
+    {
+      "key": "t0235",
+      "source": "얼굴 테마 프로토콜",
+      "text": "face theme protocol"
+    },
+    {
+      "key": "t0236",
+      "source": "얼굴 테마 프로토콜 — 표정 키워드를 명령으로 전송",
+      "text": "Face Theme Protocol — Send facial expression keywords as commands"
+    },
+    {
+      "key": "t0237",
+      "source": "얼굴 테마 프로토콜로 표정 전환 (기쁨·놀람·집중·격려)",
+      "text": "Change facial expressions with face theme protocol (joy, surprise, concentration, encouragement)"
+    },
+    {
+      "key": "t0238",
+      "source": "여러 개의 숫자 사과 위를 드래그해 선택한 사과들의 합이 정확히 10이 되도록 만듭니다.",
+      "text": "Drag multiple number apples so that the sum of the selected apples is exactly 10."
+    },
+    {
+      "key": "t0239",
+      "source": "여러 사과를 드래그로 이어 선택하는 입력 시스템",
+      "text": "Input system that selects multiple apples by dragging them"
+    },
+    {
+      "key": "t0240",
+      "source": "역할을 분리. 한 채널이 끊겨도 다른 채널은 살아남아 수업이 멈추지 않음.",
+      "text": "Separate roles. Even if one channel is cut off, the other channels survive and the class does not stop."
+    },
+    {
+      "key": "t0241",
+      "source": "연결 상태 표시 UI 보강",
+      "text": "Enhanced connection status display UI"
+    },
+    {
+      "key": "t0242",
+      "source": "연속 성공 시 콤보가 쌓이고, 일정 콤보를 달성하면 랭크 모드에서 상대 학생의 보드를 공격합니다.",
+      "text": "Combos are accumulated upon successive successes, and when a certain number of combos are achieved, the student attacks the opposing student's board in ranked mode."
+    },
+    {
+      "key": "t0243",
+      "source": "연쇄 매치",
+      "text": "chain match"
+    },
+    {
+      "key": "t0244",
+      "source": "오답 누적 3회 시 정답 라인 시연 + \"다시 해볼까요?\" TTS 트리거",
+      "text": "When 3 incorrect answers are accumulated, the correct answer line is demonstrated + “Shall we try again?” TTS trigger"
+    },
+    {
+      "key": "t0245",
+      "source": "위 .game-image 영역의 placeholder 를",
+      "text": "Placeholder in the .game-image area above"
+    },
+    {
+      "key": "t0246",
+      "source": "위에서 설명한",
+      "text": "described above"
+    },
+    {
+      "key": "t0247",
+      "source": "으로 통일.",
+      "text": "unification."
+    },
+    {
+      "key": "t0248",
+      "source": "은 본인이 메인으로 작업한 영역,",
+      "text": "is the area where you mainly worked,"
+    },
+    {
+      "key": "t0249",
+      "source": "을 신설. 게임 코드는 키워드만 던지면 RobotManager 가 알아서",
+      "text": "newly established. Just throw in a keyword and RobotManager will take care of the game code."
+    },
+    {
+      "key": "t0250",
+      "source": "의 포인터 핸들러 / LineRenderer 갱신 단독 작성",
+      "text": "Pointer handler/LineRenderer update exclusive"
+    },
+    {
+      "key": "t0251",
+      "source": "의 핵심 사이클을 메인으로 작성.",
+      "text": "Write the core cycle as main."
+    },
+    {
+      "key": "t0252",
+      "source": "의 핵심 책임을 담당.",
+      "text": "Responsible for key responsibilities."
+    },
+    {
+      "key": "t0253",
+      "source": "의 환경값에 따라 어느 화면으로 진입할지 단일 분기점에서 결정하도록 정돈.",
+      "text": "It is arranged so that a single branch point determines which screen to enter based on the environmental values."
+    },
+    {
+      "key": "t0254",
+      "source": "의 placeholder 텍스트를 로 교체.",
+      "text": "Replace the placeholder text with ."
+    },
+    {
+      "key": "t0255",
+      "source": "이 페이지는 placeholder 와 함께 작성되어 있어, 아래 위치에 미디어를 넣으면 자연스럽게 표시됩니다.",
+      "text": "This page is written with a placeholder, so if you place media in the position below, it will display naturally."
+    },
+    {
+      "key": "t0256",
+      "source": "인지·학습 미니게임",
+      "text": "Cognition/Learning Minigame"
+    },
+    {
+      "key": "t0257",
+      "source": "일시정지 중에도 분위기 유지. 팀원 작업, 본인은 통합·튜닝 담당.",
+      "text": "Maintain the mood even during pauses. Team work, I am in charge of integration and tuning."
+    },
+    {
+      "key": "t0258",
+      "source": "입력 처리 + 점수 정규화",
+      "text": "Input processing + score normalization"
+    },
+    {
+      "key": "t0259",
+      "source": "전체 미니게임 (카탈로그)",
+      "text": "All Minigames (Catalog)"
+    },
+    {
+      "key": "t0260",
+      "source": "전체 재생",
+      "text": "play full"
+    },
+    {
+      "key": "t0261",
+      "source": "전체 재생 코루틴 +",
+      "text": "Full play coroutine +"
+    },
+    {
+      "key": "t0262",
+      "source": "전체 카탈로그",
+      "text": "full catalog"
+    },
+    {
+      "key": "t0263",
+      "source": "전체 클래스 구조는 팀과 공동 설계, 매치/연쇄/힌트의 게임 본체 로직은 메인 담당",
+      "text": "The entire class structure is co-designed with the team, and the main game logic of match/chain/hint is in charge."
+    },
+    {
+      "key": "t0264",
+      "source": "전체 클래스 구조는 팀과 공동 설계, 본인이 분기 통합 리드",
+      "text": "The overall class structure is co-designed with the team, and I lead branch integration."
+    },
+    {
+      "key": "t0265",
+      "source": "점수 정규화 & 학생 인원 변동 대응",
+      "text": "Score normalization & response to changes in student population"
+    },
+    {
+      "key": "t0266",
+      "source": "정답 매칭과 LineRenderer",
+      "text": "Correct Answer Matching and LineRenderer"
+    },
+    {
+      "key": "t0267",
+      "source": "정답 좌표 쌍 리스트() 와 입력 라인 순서까지 비교",
+      "text": "Compare the correct answer coordinate pair list () and the input line order"
+    },
+    {
+      "key": "t0268",
+      "source": "정답 좌표 쌍 리스트와 사용자의 입력 라인을 순서까지 일치 검사.",
+      "text": "Check the correct coordinate pair list and the user's input line in order."
+    },
+    {
+      "key": "t0269",
+      "source": "제거 범위 계산을 베이스 클래스의 가상 메서드 로 위임하고,",
+      "text": "Delegate removal range calculation to a virtual method in the base class,"
+    },
+    {
+      "key": "t0270",
+      "source": "제거된 자리는 위쪽 타일이 떨어져 채워지며, 연쇄 매치로 점수를 누적합니다.",
+      "text": "The removed spot is filled with the upper tile, and points are accumulated through chain matches."
+    },
+    {
+      "key": "t0271",
+      "source": "좌측 상단 nav 의 \"실\" 그라데이션 아이콘을 실제 로고로 교체. 의",
+      "text": "Replaced the “thread” gradient icon in the top left nav with the actual logo. of"
+    },
+    {
+      "key": "t0272",
+      "source": "주의",
+      "text": "caution"
+    },
+    {
+      "key": "t0273",
+      "source": "주황색 박스로 강조된 세 게임 (",
+      "text": "Three games highlighted in orange boxes ("
+    },
+    {
+      "key": "t0274",
+      "source": "중간에 학생이 들어오거나 나가도 교사 화면이 깨지지 않도록 사용자 수 동기화도 RPC 로 처리.",
+      "text": "Synchronization of the number of users is also handled through RPC so that the teacher's screen does not break even if a student enters or leaves midway."
+    },
+    {
+      "key": "t0275",
+      "source": "중복 선택 방지, 인접 거리(200) 초과 시 점프 방지까지 직접 설계.",
+      "text": "Directly designed to prevent duplicate selection and prevent jumps when the adjacent distance (200) is exceeded."
+    },
+    {
+      "key": "t0276",
+      "source": "집중",
+      "text": "concentration"
+    },
+    {
+      "key": "t0277",
+      "source": "최근 작업으로 표정 키워드 사전 보강 + 적용 (커밋 이력 기반)",
+      "text": "Enhance facial expression keyword dictionary with recent work + apply (based on commit history)"
+    },
+    {
+      "key": "t0278",
+      "source": "카드의 오른쪽 이미지 영역에 들어갑니다. 1280×800 권장.",
+      "text": "Enter the image area on the right side of the card. 1280×800 recommended."
+    },
+    {
+      "key": "t0279",
+      "source": "코루틴 4종(, , , )으로 애니메이션 타이밍 분리",
+      "text": "Separate animation timing into 4 types of coroutines (, , , )"
+    },
+    {
+      "key": "t0280",
+      "source": "콤보 → 공격 전환",
+      "text": "Combo → Attack Switch"
+    },
+    {
+      "key": "t0281",
+      "source": "콤보 공격",
+      "text": "combo attack"
+    },
+    {
+      "key": "t0282",
+      "source": "텍스트를 로 변경.",
+      "text": "Change the text to ."
+    },
+    {
+      "key": "t0283",
+      "source": "토글 + 변경 미저장 안내 패널 — 행사 중 멈춤·실수 방지",
+      "text": "Toggle + Unsaved Changes Information Panel — Prevents pauses and mistakes during the event"
+    },
+    {
+      "key": "t0284",
+      "source": "특수 폭탄 타일(가로/세로/3×3/색 일치 비) 까지 더해져 짜릿한 연쇄가 가능합니다.",
+      "text": "Exciting chains are possible with the addition of special bomb tiles (horizontal/vertical/3×3/color matching ratio)."
+    },
+    {
+      "key": "t0285",
+      "source": "팀 공동 작업 중 본인이 메인 리드 역할을 한 영역",
+      "text": "Areas in which you took the main lead role during team collaboration"
+    },
+    {
+      "key": "t0286",
+      "source": "팀과 공동 작업, 본인이 프로토콜 구조 메인 리드",
+      "text": "Collaborate with the team, lead the main protocol structure"
+    },
+    {
+      "key": "t0287",
+      "source": "팀원과 공동 작업.",
+      "text": "Collaborate with your team."
+    },
+    {
+      "key": "t0288",
+      "source": "팀이 함께 만든 토대 위에서 각자의 영역이 어떻게 나뉘었는지 보여주기 위함입니다.",
+      "text": "This is to show how each area is divided based on the foundation the team created together."
+    },
+    {
+      "key": "t0289",
+      "source": "파일은 모두 폴더에 넣어 주세요.",
+      "text": "Please put all files in the folder."
+    },
+    {
+      "key": "t0290",
+      "source": "패턴",
+      "text": "pattern"
+    },
+    {
+      "key": "t0291",
+      "source": "패턴 인식, 산수, 공간 추론 등 다양한 인지 영역을 자극하는 미니게임 콘텐츠.",
+      "text": "Mini-game content that stimulates various cognitive areas such as pattern recognition, arithmetic, and spatial reasoning."
+    },
+    {
+      "key": "t0292",
+      "source": "폭탄 타일",
+      "text": "bomb tile"
+    },
+    {
+      "key": "t0293",
+      "source": "폭탄 타일 4종 — 다형 기반 확장 구조",
+      "text": "4 types of bomb tiles — polymorphic-based expansion structure"
+    },
+    {
+      "key": "t0294",
+      "source": "표정 키워드 표준화 — 기쁨/놀람/집중/격려/슬픔 등 시맨틱 키 정의",
+      "text": "Standardize facial expression keywords — define semantic keys such as joy/surprise/concentration/encouragement/sadness"
+    },
+    {
+      "key": "t0295",
+      "source": "표현",
+      "text": "expression"
+    },
+    {
+      "key": "t0296",
+      "source": "프로젝트는 팀으로 진행되었고 전체 클래스 구조·통신 프로토콜은 공동 설계했습니다.",
+      "text": "The project was carried out as a team, and the entire class structure and communication protocol were jointly designed."
+    },
+    {
+      "key": "t0297",
+      "source": "플래그로 중복 안내 방지.",
+      "text": "Prevent duplicate guidance with flags."
+    },
+    {
+      "key": "t0298",
+      "source": "하도록 보장.",
+      "text": "guaranteed to do so."
+    },
+    {
+      "key": "t0299",
+      "source": "학교 행사·시연·자유 수업에서 교사가",
+      "text": "At school events, demonstrations, and free classes, teachers"
+    },
+    {
+      "key": "t0300",
+      "source": "학생 ↔ 학생 동기화",
+      "text": "Student ↔ Student Sync"
+    },
+    {
+      "key": "t0301",
+      "source": "학생 진행 상황 실시간 모니터링",
+      "text": "Real-time monitoring of student progress"
+    },
+    {
+      "key": "t0302",
+      "source": "학생 태블릿 · 실제 게임 플레이",
+      "text": "Student Tablet · Real Game Play"
+    },
+    {
+      "key": "t0303",
+      "source": "학생이 막힌 상태로 너무 오래 두지 않도록, 5초 무입력 시 힌트 패널을 자동 노출.",
+      "text": "To prevent students from remaining stuck for too long, the hint panel is automatically exposed after 5 seconds of no input."
+    },
+    {
+      "key": "t0304",
+      "source": "한 교실의 모든 학생이 동시에 같은 미니게임을 풀고 결과를 공유합니다.",
+      "text": "All students in a classroom solve the same minigame at the same time and share the results."
+    },
+    {
+      "key": "t0305",
+      "source": "한 눈에 보는 폭탄 타일 다형 구조",
+      "text": "Bomb tile polymorphic structure at a glance"
+    },
+    {
+      "key": "t0306",
+      "source": "한 번 본 힌트는 같은 라운드에서 다시 뜨지 않도록 플래그로 제어,",
+      "text": "Hints that have been viewed once are controlled with a flag to prevent them from appearing again in the same round."
+    },
+    {
+      "key": "t0307",
+      "source": "한 줄로 게임별 채널 자동 바인딩",
+      "text": "Automatically bind channels for each game in one line"
+    },
+    {
+      "key": "t0308",
+      "source": "한 컷 600×600 권장.",
+      "text": "One cut of 600×600 is recommended."
+    },
+    {
+      "key": "t0309",
+      "source": "합 ≠ 10 시 호출 + 부드러운 복귀 애니메이션",
+      "text": "Sum ≠ 10 o'clock call + smooth return animation"
+    },
+    {
+      "key": "t0310",
+      "source": "합 보정 로직 — 마지막 사과 =",
+      "text": "Sum correction logic — last apple ="
+    },
+    {
+      "key": "t0311",
+      "source": "합이 10! 사과 잡기",
+      "text": "The sum is 10! catching apples"
+    },
+    {
+      "key": "t0312",
+      "source": "해 재생할 수 있는 도구.",
+      "text": "A tool that lets you play."
+    },
+    {
+      "key": "t0313",
+      "source": "해야 하는 케이스 처리.",
+      "text": "Case processing that needs to be done."
+    },
+    {
+      "key": "t0314",
+      "source": "핵심 기술 컷 — Match3 연쇄·콤보 공격·힌트 시연 같은 짧은(8~15초) 클립.",
+      "text": "Key skill cuts — Short (8 to 15 seconds) clips such as Match3 chain, combo attack, and hint demonstrations."
+    },
+    {
+      "key": "t0315",
+      "source": "행사용 발화 창 — 실벗 발화·동작 시퀀스 빌더",
+      "text": "Event speech window — Silbot speech/action sequence builder"
+    },
+    {
+      "key": "t0316",
+      "source": "행사용 발화 창 UI 캡처 — 블록 리스트 + 텍스트 입력 + 동작/표정 드롭다운 + 저장/불러오기 버튼이 보이도록.",
+      "text": "Event speech window UI capture — block list + text input + action/expression dropdown + save/load button visible."
+    },
+    {
+      "key": "t0317",
+      "source": "협력 모드에서 학생 전원의 점수를 합산해 단계별로 표시. 이번 라운드 점수 · 누적 점수 동시 추적.",
+      "text": "In cooperative mode, the scores of all students are added together and displayed step by step. Simultaneous tracking of this round score and cumulative score."
+    },
+    {
+      "key": "t0318",
+      "source": "협력/경쟁",
+      "text": "Cooperation/Competition"
+    },
+    {
+      "key": "t0319",
+      "source": "협의·동기화 책임.",
+      "text": "Responsibility for consultation and synchronization."
+    },
+    {
+      "key": "t0320",
+      "source": "화면 위 별들을 번호 순서대로 이어 별자리를 완성합니다.",
+      "text": "Complete the constellation by connecting the stars on the screen in numerical order."
+    },
+    {
+      "key": "t0321",
+      "source": "화면 위 별을 번호 순서대로 잇는 입력 처리를 메인 담당.",
+      "text": "Mainly responsible for input processing that connects the stars on the screen in numerical order."
+    },
+    {
+      "key": "t0322",
+      "source": "화면 좌표 → RectTransform 로컬 좌표 변환, 사과 근접도 검사,",
+      "text": "Screen coordinates → RectTransform local coordinate transformation, apple proximity check,"
+    },
+    {
+      "key": "t0323",
+      "source": "힌트 · 보너스 코루틴",
+      "text": "Hint/Bonus Coroutine"
+    },
+    {
+      "key": "t0324",
+      "source": "힌트 / 실수 카운트",
+      "text": "Hint/Mistake Count"
+    },
+    {
+      "key": "t0325",
+      "source": "힌트 라인은 별도 prefab 으로 정답 LineRenderer 위에 오버레이",
+      "text": "The hint line is a separate prefab and is overlaid on top of the correct answer LineRenderer."
+    },
+    {
+      "key": "t0326",
+      "source": "힌트 시스템",
+      "text": "hint system"
+    },
+    {
+      "key": "t0327",
+      "source": "힌트 시스템 — 무입력 5초 자동 안내",
+      "text": "Hint system – 5 second automatic guidance without input"
+    },
+    {
+      "key": "t0328",
+      "source": "힌트·보너스·정답 공개 등 교사 권한 액션",
+      "text": "Teacher-authorized actions such as hints, bonuses, and answer disclosure"
+    },
+    {
+      "key": "t0329",
+      "source": "Android Intent 기반 환경 설정",
+      "text": "Android Intent-based environment settings"
+    },
+    {
+      "key": "t0330",
+      "source": "Arithmetic · 산수",
+      "text": "Arithmetic · Arithmetic"
+    },
+    {
+      "key": "t0331",
+      "source": "assets/architecture.png (선택)",
+      "text": "assets/architecture.png (optional)"
+    },
+    {
+      "key": "t0332",
+      "source": "assets/clip_*.mp4 (선택)",
+      "text": "assets/clip_*.mp4 (optional)"
+    },
+    {
+      "key": "t0333",
+      "source": "assets/face_*.png (선택)",
+      "text": "assets/face_*.png (optional)"
+    },
+    {
+      "key": "t0334",
+      "source": "assets/logo.png (또는 .svg)",
+      "text": "assets/logo.png (or .svg)"
+    },
+    {
+      "key": "t0335",
+      "source": "BaseManager · 공통 게임 라이프사이클",
+      "text": "BaseManager · Common game lifecycle"
+    },
+    {
+      "key": "t0336",
+      "source": "BaseManager · GameManager · IntentSetting 사이 책임 재분배",
+      "text": "Redistribution of responsibilities between BaseManager, GameManager, and IntentSetting"
+    },
+    {
+      "key": "t0337",
+      "source": "BaseManager 공통 라이프사이클 (공동 설계)",
+      "text": "BaseManager Common Lifecycle (Co-Design)"
+    },
+    {
+      "key": "t0338",
+      "source": "BaseManager 상속. 레벨·시간 설정 명령()을 받아 게임 시작, 점수를 RPC 로",
+      "text": "BaseManager inheritance. Start the game by receiving the level/time setting command () and convert the score to RPC"
+    },
+    {
+      "key": "t0339",
+      "source": "BombTile · HorizontalLine · VerticalLine · RainBomb 네 종류가 각자 오버라이드.",
+      "text": "BombTile, HorizontalLine, VerticalLine, and RainBomb have four types of overrides."
+    },
+    {
+      "key": "t0340",
+      "source": "CareBrainFit · 체조 + 아케이드",
+      "text": "CareBrainFit · Gymnastics + Arcade"
+    },
+    {
+      "key": "t0341",
+      "source": "ColorWord · 색-단어 (스트룹)",
+      "text": "ColorWord · Color-word (Stroop)"
+    },
+    {
+      "key": "t0342",
+      "source": "CopyMe · 따라하기",
+      "text": "CopyMe · Follow"
+    },
+    {
+      "key": "t0343",
+      "source": "DOTween 으로 별의 알파값을 랜덤 주기·랜덤 범위로 반복 페이딩. 옵션으로",
+      "text": "DOTween repeatedly fades the alpha value of a star at a random period and random range. as an option"
+    },
+    {
+      "key": "t0344",
+      "source": "DrawColor · 색칠하기",
+      "text": "DrawColor · Coloring"
+    },
+    {
+      "key": "t0345",
+      "source": "Drive · 운전",
+      "text": "Drive · Driving"
+    },
+    {
+      "key": "t0346",
+      "source": "Hangul · 한글",
+      "text": "Hangul · Hangul"
+    },
+    {
+      "key": "t0347",
+      "source": "HangulBegin · 한글 초급",
+      "text": "HangulBegin · Hangul Beginner"
+    },
+    {
+      "key": "t0348",
+      "source": "HiBomi2 보조 로봇 연결",
+      "text": "Connect HiBomi2 auxiliary robot"
+    },
+    {
+      "key": "t0349",
+      "source": "HiBomi2 보조 로봇 연결 지원",
+      "text": "Supports HiBomi2 auxiliary robot connection"
+    },
+    {
+      "key": "t0350",
+      "source": "HiBomi2 보조 로봇 연결 통합",
+      "text": "HiBomi2 assisted robot connection integration"
+    },
+    {
+      "key": "t0351",
+      "source": "HiBomi2 보조 로봇과의 연결도 지원",
+      "text": "Also supports connection with HiBomi2 assistive robot"
+    },
+    {
+      "key": "t0352",
+      "source": "Howmuch · 얼마",
+      "text": "Howmuch · How much"
+    },
+    {
+      "key": "t0353",
+      "source": "Intent → → 전역 설정 캐시",
+      "text": "Intent → → Global settings cache"
+    },
+    {
+      "key": "t0354",
+      "source": "Intent 기반 설정",
+      "text": "Intent-based settings"
+    },
+    {
+      "key": "t0355",
+      "source": "Intent 환경값 + 사용자 선택을 결합한 조건 테이블",
+      "text": "Condition table combining Intent environment value + user selection"
+    },
+    {
+      "key": "t0356",
+      "source": "IntentSetting · 외부 환경 주입",
+      "text": "IntentSetting · External environment injection"
+    },
+    {
+      "key": "t0357",
+      "source": "LineRenderer 로 드래그 경로 시각화, 선택 사과는 DOTween 1.2배 스케일",
+      "text": "Visualize drag path with LineRenderer, select apples with DOTween 1.2x scale"
+    },
+    {
+      "key": "t0358",
+      "source": "Luckybag · 복주머니",
+      "text": "Luckybag · Lucky bag"
+    },
+    {
+      "key": "t0359",
+      "source": "Master · Client · Robot 흐름을 직접 그린 다이어그램이 있다면 섹션의 위에",
+      "text": "If you have a diagram directly drawing the Master · Client · Robot flow, place it at the top of the section."
+    },
+    {
+      "key": "t0360",
+      "source": "Master 측 Match3Play",
+      "text": "Master side Match3Play"
+    },
+    {
+      "key": "t0361",
+      "source": "Match · 합이 10! 사과 잡기",
+      "text": "Match · Total is 10! catching apples"
+    },
+    {
+      "key": "t0362",
+      "source": "Match3 · 3매치 퍼즐",
+      "text": "Match3 · 3 match puzzle"
+    },
+    {
+      "key": "t0363",
+      "source": "Match3 폭탄 변형",
+      "text": "Match3 bomb variant"
+    },
+    {
+      "key": "t0364",
+      "source": "Match3Game · 매치 검출/연쇄",
+      "text": "Match3Game · Match detection/chaining"
+    },
+    {
+      "key": "t0365",
+      "source": "Match3Manager · 네트워크 어댑터",
+      "text": "Match3Manager · Network Adapter"
+    },
+    {
+      "key": "t0366",
+      "source": "MatchManager · BaseManager 통합",
+      "text": "MatchManager · BaseManager integration"
+    },
+    {
+      "key": "t0367",
+      "source": "MouseDragController · 드래그 선택",
+      "text": "MouseDragController · Drag selection"
+    },
+    {
+      "key": "t0368",
+      "source": "PathFollow · 길 따라가기",
+      "text": "PathFollow · Follow the path"
+    },
+    {
+      "key": "t0369",
+      "source": "Photon — 학생-학생, 점수·공격·콤보 등 빠른 동기화",
+      "text": "Photon — Fast synchronization of student-student, score, attack, combo, etc."
+    },
+    {
+      "key": "t0370",
+      "source": "Photon + Socket.IO 이중 네트워크",
+      "text": "Photon + Socket.IO dual network"
+    },
+    {
+      "key": "t0371",
+      "source": "Photon PUN 으로 학생 전원의 진행 상황을 교사 화면에 실시간 표시.",
+      "text": "Photon PUN displays the progress of all students in real time on the teacher's screen."
+    },
+    {
+      "key": "t0372",
+      "source": "Photon PUN 의 RPC",
+      "text": "RPC in Photon PUN"
+    },
+    {
+      "key": "t0373",
+      "source": "Photon RPC 송수신, Socket.IO 연결, 게임 데이터 수집을 하나의 추상 계층으로 통일.",
+      "text": "Unifies Photon RPC sending and receiving, Socket.IO connection, and game data collection into one abstract layer."
+    },
+    {
+      "key": "t0374",
+      "source": "Photon RPC 와 Socket.IO 채널 연결, 학생 수 동기화, 점수 정규화. 다른 미니게임과 동일 패턴으로 작성.",
+      "text": "Connecting Photon RPC and Socket.IO channels, synchronizing number of students, normalizing scores. Written in the same pattern as other minigames."
+    },
+    {
+      "key": "t0375",
+      "source": "placeholder div 를 로 교체.",
+      "text": "Replace placeholder div with ."
+    },
+    {
+      "key": "t0376",
+      "source": "Pong · 퐁",
+      "text": "Pong · Pong"
+    },
+    {
+      "key": "t0377",
+      "source": "Puzzle · 퍼즐",
+      "text": "Puzzle · Puzzle"
+    },
+    {
+      "key": "t0378",
+      "source": "RobotManager · 실벗 발화/표정 통합",
+      "text": "RobotManager · Silbot speech/facial expression integration"
+    },
+    {
+      "key": "t0379",
+      "source": "RobotManager 가 소켓 명령을 받아 발화·움직임 실행",
+      "text": "RobotManager receives socket commands and executes speech and movement"
+    },
+    {
+      "key": "t0380",
+      "source": "RobotManager 가 TTS·표정·움직임을 알아서 트리거. 게임 코드에 로봇 SDK 의존성이 새지 않음.",
+      "text": "RobotManager automatically triggers TTS, facial expressions, and movements. Robots SDK dependencies do not leak into your game code."
+    },
+    {
+      "key": "t0381",
+      "source": "RobotManager 내 키워드 → 로봇 표정 명령 매핑 테이블",
+      "text": "Keywords in RobotManager → Robot facial expression command mapping table"
+    },
+    {
+      "key": "t0382",
+      "source": "RobotManager 의 명령 디스패치 분기 정리",
+      "text": "Cleanup of RobotManager's command dispatch branch"
+    },
+    {
+      "key": "t0383",
+      "source": "RPS · 가위바위보",
+      "text": "RPS · Rock, Paper, Scissors"
+    },
+    {
+      "key": "t0384",
+      "source": "SameImage · 같은 그림 찾기",
+      "text": "SameImage · Find the same image"
+    },
+    {
+      "key": "t0385",
+      "source": "Shadow · 그림자 맞추기",
+      "text": "Shadow · Match shadow"
+    },
+    {
+      "key": "t0386",
+      "source": "Silbot · 실벗",
+      "text": "Silbot · Silbot"
+    },
+    {
+      "key": "t0387",
+      "source": "Silbot · 실벗 미니게임 · Developer Portfolio · 2026",
+      "text": "Silbot · Silbot Minigame · Developer Portfolio · 2026"
+    },
+    {
+      "key": "t0388",
+      "source": "Silbot 미니게임을 떠받치는 기술",
+      "text": "Technology that supports Silbot minigames"
+    },
+    {
+      "key": "t0389",
+      "source": "Silbot 실벗",
+      "text": "Silbot"
+    },
+    {
+      "key": "t0390",
+      "source": "Silbot 실벗 — 아동 인지·교육 게임 · Showcase & Developer Portfolio",
+      "text": "Silbot — Children’s Cognitive/Educational Game Showcase & Developer Portfolio"
+    },
+    {
+      "key": "t0391",
+      "source": "Silbot 은 인지·교육용 로봇 실벗을 중심으로 한 교사–로봇–학생 협업 학습 시스템입니다.",
+      "text": "Silbot is a teacher-robot-student collaborative learning system centered on the cognitive and educational robot Silbot."
+    },
+    {
+      "key": "t0392",
+      "source": "Socket 콜백 → 즉시 Photon RPC 변환 패턴으로 일관화.",
+      "text": "Socket callback → immediately consistent with Photon RPC conversion pattern."
+    },
+    {
+      "key": "t0393",
+      "source": "Socket 콜백을 메인 스레드로 안전하게 옮기는 디스패처 사용",
+      "text": "Use a dispatcher to safely move Socket callbacks to the main thread"
+    },
+    {
+      "key": "t0394",
+      "source": "Socket.IO — 교사 → 학생 명령 (, , 등)",
+      "text": "Socket.IO — Teacher → Student commands (, , etc.)"
+    },
+    {
+      "key": "t0395",
+      "source": "Socket.IO ↔ Photon RPC 브릿지",
+      "text": "Socket.IO ↔ Photon RPC bridge"
+    },
+    {
+      "key": "t0396",
+      "source": "Socket.IO 의 텍스트 프로토콜",
+      "text": "Socket.IO text protocol"
+    },
+    {
+      "key": "t0397",
+      "source": "Song · 노래",
+      "text": "Song · Song"
+    },
+    {
+      "key": "t0398",
+      "source": "SpotDifference · 다른 그림 찾기",
+      "text": "SpotDifference · Find another picture"
+    },
+    {
+      "key": "t0399",
+      "source": "Star · 별자리 잇기",
+      "text": "Star · Join the constellations"
+    },
+    {
+      "key": "t0400",
+      "source": "Star_GameBoard · 포인터 입력 처리",
+      "text": "Star_GameBoard · Pointer input processing"
+    },
+    {
+      "key": "t0401",
+      "source": "Star12 · 12궁 배경 반짝임",
+      "text": "Star12 · Zodiac background sparkle"
+    },
+    {
+      "key": "t0402",
+      "source": "StarPlay (Master) · 스토리 시연",
+      "text": "StarPlay (Master) · Story demonstration"
+    },
+    {
+      "key": "t0403",
+      "source": "StoryBox · 이야기 상자",
+      "text": "StoryBox · Story box"
+    },
+    {
+      "key": "t0404",
+      "source": "Tile · BombTile 다형 구조",
+      "text": "Tile · BombTile polymorphic structure"
+    },
+    {
+      "key": "t0405",
+      "source": "TTS 발화 종료 콜백() 으로 게임 진행 트리거",
+      "text": "Game progress trigger with TTS utterance end callback()"
+    },
+    {
+      "key": "t0406",
+      "source": "TTS 발화 종료 콜백()으로 게임 진행 동기화",
+      "text": "Synchronize game progress with TTS utterance end callback()"
+    },
+    {
+      "key": "t0407",
+      "source": "TTS 발화·표정·움직임으로 학습을 진행하는 휴머노이드형 교육 로봇.",
+      "text": "TTS A humanoid-type educational robot that learns through speech, facial expressions, and movements."
+    },
+    {
+      "key": "t0408",
+      "source": "TTS 발화로 안내·격려·정답 피드백 —",
+      "text": "Guidance, encouragement, and correct answer feedback through TTS speech —"
+    },
+    {
+      "key": "t0409",
+      "source": "UnityEngine.EventSystems 의 · ·",
+      "text": "UnityEngine.EventSystems · ·"
+    },
+    {
+      "key": "t0410",
+      "source": "UnityEngine.UI 의 RectTransform 좌표계에서 별 근접도와 순서 일치까지 검증.",
+      "text": "Verification of star proximity and order matching in UnityEngine.UI's RectTransform coordinate system."
+    },
+    {
+      "key": "t0411",
+      "source": "WhatsThis · 이게 뭐지",
+      "text": "WhatsThis · What is this?"
+    },
+    {
+      "key": "t0412",
+      "source": "Wisdom · 지혜",
+      "text": "Wisdom · Wisdom"
+    },
+    {
+      "key": "t0413",
+      "source": "WordPair · 단어 짝",
+      "text": "WordPair · word pair"
+    }
+  ]
+}
