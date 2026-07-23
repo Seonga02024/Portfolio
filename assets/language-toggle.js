@@ -118,13 +118,26 @@
   }
 
   function pageId() {
-    var parts = window.location.pathname.replace(/\\/g, "/").split("/").filter(Boolean);
-    var last = parts[parts.length - 1] || "";
-    if (!parts.length || last.toLowerCase() === "index.html") {
-      if (parts.length <= 1) return "home";
-      return parts[parts.length - 2];
+    var path = window.location.pathname.replace(/\\/g, "/");
+    try {
+      var assetsPath = new URL(assetBase(), window.location.href).pathname.replace(/\\/g, "/");
+      var siteRoot = assetsPath.replace(/assets\/?$/i, "");
+      if (path.indexOf(siteRoot) === 0) path = path.slice(siteRoot.length);
+    } catch (_) {}
+
+    var parts = path.split("/").filter(Boolean);
+    if (!parts.length) return "home";
+
+    var last = parts[parts.length - 1].toLowerCase();
+    if (last === "index.html") {
+      return parts.length === 1 ? "home" : parts[parts.length - 2];
     }
-    return last.replace(/\.html?$/i, "") || "home";
+
+    if (parts.length === 1 && !/\.html?$/i.test(parts[0])) {
+      return parts[0] === "Portfolio" ? "home" : parts[0];
+    }
+
+    return parts[0].replace(/\.html?$/i, "") || "home";
   }
 
   function assetBase() {
