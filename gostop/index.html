@@ -333,7 +333,12 @@
       margin-bottom: 18px;
     }
     .feat-card h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
-    .feat-card p { margin: 0; color: var(--w-ink-soft); font-size: 14.5px; }
+    .feat-card p {
+      margin: 0;
+      color: var(--w-ink-soft);
+      font-size: 14.5px;
+      overflow-wrap: anywhere;
+    }
 
     /* ============================================================
        Gallery & Video — warm
@@ -689,6 +694,11 @@
       padding: 1px 6px;
       border-radius: 4px;
       font-size: 12px;
+    }
+    .mine-card ul li.break-after-code code {
+      display: block;
+      width: fit-content;
+      margin-bottom: 4px;
     }
 
     /* ============================================================
@@ -1198,7 +1208,7 @@ Human Input
           </p>
           <ul>
             <li>호스트 마이그레이션 시 disconnect 상태 전이 및 승자 판정 안정화</li>
-            <li><code>UpdatePeerHeartbeat</code> 도입으로 무응답 클라이언트 조기 감지</li>
+            <li class="break-after-code"><code>UpdatePeerHeartbeat</code> 도입으로 무응답 클라이언트 조기 감지</li>
             <li>들어올 때 세션 검증 → 실패 시 AI 매칭으로 자연 폴백</li>
             <li>disconnect 송신 위치 일원화 (호스트/비호스트 양쪽 모두)</li>
           </ul>
@@ -1212,7 +1222,7 @@ Human Input
             플랫폼별 닉네임·랭킹·재화 정책의 일관성을 확보.
           </p>
           <ul>
-            <li><code>LoginTokenReader</code> 패키지 오류 및 errorCode 매핑 정비</li>
+            <li class="break-after-code"><code>LoginTokenReader</code> 패키지 오류 및 errorCode 매핑 정비</li>
             <li>케미 로그인 시 닉네임 표기 일원화 (사용자 입력 우선)</li>
             <li>게스트 모드 닉네임 고정 + 랜덤 닉네임 폴백 로직</li>
             <li>랭킹보드 권한 분리 — 케미 사용자만 노출</li>
@@ -1244,7 +1254,7 @@ Human Input
           <ul>
             <li>2차 제작 리소스 적용 및 설정 변경</li>
             <li>프로필 타이틀 · 프로필 0로보 설정 등 메타 데이터 정비</li>
-            <li><code>FailErrorCodeText</code> 등 시니어 UX 친화 문구 다듬기</li>
+            <li class="break-after-code"><code>FailErrorCodeText</code> 등 시니어 UX 친화 문구 다듬기</li>
             <li>매칭 시간 조정 등 UX 파라미터 튜닝</li>
           </ul>
         </div>

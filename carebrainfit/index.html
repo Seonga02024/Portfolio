@@ -1341,7 +1341,7 @@
       <h3 style="color: var(--d-accent-2); margin-top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
         // Client (C#) — DataManager.cs
       </h3>
-<pre class="code"><span class="c">// 게임 진입 시 차감 — 차감액은 서버가 RC 에서 결정</span>
+<pre class="code"><span class="c">// Spend on game entry — the server resolves the cost from Remote Config</span>
 <span class="k">public async</span> <span class="t">Task</span>&lt;<span class="k">bool</span>&gt; <span class="f">SpendMoneyAsync</span>(<span class="k">string</span> contentId)
 {
     <span class="k">if</span> (<span class="k">string</span>.IsNullOrEmpty(contentId)) <span class="k">return</span> <span class="k">false</span>;
@@ -1351,7 +1351,7 @@
 
     <span class="k">if</span> (res != <span class="k">null</span> &amp;&amp; res.success)
     {
-        <span class="f">ApplyServerMoney</span>(res.money);  <span class="c">// 캐시만 갱신</span>
+        <span class="f">ApplyServerMoney</span>(res.money);  <span class="c">// Update cache only</span>
         <span class="k">return</span> <span class="k">true</span>;
     }
     <span class="t">UIEvents</span>.OnSpendMoneyFailed?.<span class="f">Invoke</span>();
@@ -1361,14 +1361,14 @@
       <h3 style="color: var(--d-accent-2); margin-top: 32px; font-family: 'JetBrains Mono', monospace; font-size: 14px;">
         // Server (Cloud Code JS) — SpendPlayerMoney.js
       </h3>
-<pre class="code"><span class="k">const</span> economy = <span class="k">await</span> <span class="f">loadEconomy</span>(...);  <span class="c">// Remote Config 조회</span>
+<pre class="code"><span class="k">const</span> economy = <span class="k">await</span> <span class="f">loadEconomy</span>(...);  <span class="c">// Read from Remote Config</span>
 <span class="k">const</span> entry = economy[contentId];
 <span class="k">if</span> (!entry) <span class="k">return</span> <span class="f">build</span>(<span class="k">false</span>, ..., <span class="s">"UNKNOWN_CONTENT"</span>);
 
 <span class="k">const</span> cost = <span class="t">Number</span>(entry.cost);
 <span class="k">if</span> (cost &lt;= <span class="n">0</span>) <span class="k">return</span> <span class="f">build</span>(<span class="k">false</span>, ..., <span class="s">"NOT_SPENDABLE"</span>);
 
-<span class="c">// WriteLock 재시도로 동시성 처리</span>
+<span class="c">// Handle concurrency with WriteLock retries</span>
 <span class="k">const</span> current = <span class="k">await</span> <span class="f">readMoney</span>(...);
 <span class="k">if</span> (current.money &lt; cost) <span class="k">return</span> <span class="f">build</span>(<span class="k">false</span>, ..., <span class="s">"INSUFFICIENT_FUNDS"</span>);
 
