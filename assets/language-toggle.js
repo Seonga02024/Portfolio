@@ -189,19 +189,32 @@
     return value;
   }
 
+  function translateText(source, lang) {
+    var exact = translateValue(source, lang);
+    if (exact !== source) return preserveSpacing(source, exact);
+
+    if (String(source).indexOf("\n") === -1) return source;
+
+    return String(source).split(/(\r?\n)/).map(function (part) {
+      if (/^\r?\n$/.test(part)) return part;
+      var translated = translateValue(part, lang);
+      return translated === part ? part : preserveSpacing(part, translated);
+    }).join("");
+  }
+
   function applyLanguage(root) {
     root = root || document.documentElement;
     if (root.nodeType === 3) {
       if (!root.nodeValue || shouldSkip(root)) return;
       var original = originalText(root);
       if (HANGUL_RE.test(original)) {
-        root.nodeValue = preserveSpacing(original, translateValue(original, currentLang));
+        root.nodeValue = translateText(original, currentLang);
       }
       return;
     }
     collectTextNodes(root).forEach(function (node) {
       var source = originalText(node);
-      node.nodeValue = preserveSpacing(source, translateValue(source, currentLang));
+      node.nodeValue = translateText(source, currentLang);
     });
     collectAttrNodes(root).forEach(function (item) {
       var source = originalAttr(item);
