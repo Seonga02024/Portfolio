@@ -270,7 +270,7 @@
     }
     .hero-key {
       position: relative;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 2316 / 904;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 24px 60px rgba(60, 18, 10, 0.4);
@@ -285,7 +285,23 @@
       padding: 28px;
     }
     .hero-key:hover { transform: rotate(0); }
+    .hero-key .hero-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-key::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 48%, rgba(20, 4, 4, 0.82) 100%);
+      pointer-events: none;
+    }
     .hero-key .key-overlay {
+      position: relative;
+      z-index: 2;
       color: #fdf2c8;
       font-family: "Gowun Batang", serif;
     }
@@ -316,6 +332,7 @@
     }
     .hero-key .badge {
       position: absolute; top: 18px; right: 18px;
+      z-index: 2;
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(6px);
       padding: 8px 14px; border-radius: 999px;
@@ -969,7 +986,7 @@
       </div>
       <div class="hero-visual">
         <div class="hero-key">
-          <div class="titan-silhouette"></div>
+          <img class="hero-thumb" src="assets/attack-update1-1.jpg" alt="진격의 거인 멀티플레이 생존 진행 화면" />
           <div class="badge"><span class="dot"></span> LIVE · ZEPETO</div>
           <div class="key-overlay">
             <p class="ko">진격의 거인</p>
