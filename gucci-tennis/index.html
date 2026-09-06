@@ -337,7 +337,7 @@
     .gallery { background: var(--w-bg); }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
     .shot {
@@ -348,9 +348,15 @@
       box-shadow: var(--w-shadow);
       position: relative;
       transition: transform .2s;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 2316 / 904;
     }
     .shot:hover { transform: translateY(-4px); }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .placeholder {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -850,34 +856,34 @@
       <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
       <h2 class="section-title">이렇게 진행됩니다</h2>
       <p class="section-sub">
-        Gucci 콜라보 키 비주얼, 매칭, 랠리, 랭킹 보상 UI까지 — 게임의 주요 화면들.
+        매칭부터 타격 판정과 궤적 안내, 티어 보상과 Gucci 아이템 상점까지 — 게임의 주요 화면들.
         실제 플레이 영상은 상단 <em>WATCH GAMEPLAY</em> 버튼에서 확인할 수 있어요.
       </p>
 
       <div class="gallery-grid">
         <figure class="shot">
-          <img src="assets/proj-gucci-tennis-1.png" alt="Gucci Tennis launch" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-          <figcaption>출시 키 비주얼 · Gucci × Zepeto</figcaption>
+          <img src="assets/tennis-0.jpg" alt="Gucci Tennis 경기 시작 및 상대 매칭 화면" loading="lazy" />
+          <figcaption>경기 시작 · 상대 정보와 보너스 능력치 비교</figcaption>
         </figure>
         <figure class="shot">
-          <img src="assets/proj-gucci-tennis-2.jpg" alt="Gucci Tennis gameplay" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-          <figcaption>인게임 · 3D 테니스 랠리</figcaption>
+          <img src="assets/tennis-1.jpg" alt="Gucci Tennis 타격 속도 판정 화면" loading="lazy" />
+          <figcaption>실시간 랠리 · 스윙 타이밍 피드백</figcaption>
         </figure>
         <figure class="shot">
-          <div class="placeholder">매칭 직전<br/>화면</div>
-          <figcaption>자동 매칭 · 입장 직전</figcaption>
+          <img src="assets/tennis-2.jpg" alt="Gucci Tennis 공 궤적과 착지 지점 안내 화면" loading="lazy" />
+          <figcaption>공 궤적 · 착지 지점과 스윙 영역 안내</figcaption>
         </figure>
         <figure class="shot">
-          <div class="placeholder">랠리<br/>진행 컷</div>
-          <figcaption>3D 랠리 · 포물선 궤적</figcaption>
+          <img src="assets/tennis-3.jpg" alt="Gucci Tennis 리턴 타이밍과 타깃 영역 화면" loading="lazy" />
+          <figcaption>리턴 타이밍 · 타깃 코트 영역 표시</figcaption>
         </figure>
         <figure class="shot">
-          <div class="placeholder">랭킹 · 보상<br/>UI</div>
-          <figcaption>랭킹 등록 · 보상 화면</figcaption>
+          <img src="assets/tennis-4.jpg" alt="Gucci Tennis 티어 진행도와 보상 화면" loading="lazy" />
+          <figcaption>티어 진행도 · 단계별 플레이 보상</figcaption>
         </figure>
         <figure class="shot">
-          <div class="placeholder">Gucci 의상<br/>착용 캐릭터</div>
-          <figcaption>Gucci 의상 착용 · 브랜드 홍보</figcaption>
+          <img src="assets/tennis-5.jpg" alt="Gucci Tennis 브랜드 아이템 상점 화면" loading="lazy" />
+          <figcaption>Gucci 아이템 상점 · 장비별 능력치 강화</figcaption>
         </figure>
       </div>
     </div>
@@ -1296,7 +1302,7 @@
   </section>
 
   <!-- ===== Project Navigation (prev / home / next) ===== -->
-  <nav style="max-width:1200px;margin:60px auto 40px;padding:0 28px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;" aria-label="Project navigation">
+<nav style="width:100%;margin:0;padding:60px max(28px,calc((100% - 1200px)/2)) 40px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;background:var(--d-bg-0);" aria-label="Project navigation">
     <a href="../attack-on-titan/" style="display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:12px;text-decoration:none;color:#e6edf7;background:rgba(110,231,255,0.06);border:1px solid rgba(110,231,255,0.18);transition:all .2s;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0.65;letter-spacing:0.06em;text-transform:uppercase;">← PREV PROJECT</span>
       <span style="font-size:14px;font-weight:600;">진격의 거인 · 2.1M 누적</span>

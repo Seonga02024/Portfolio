@@ -258,6 +258,12 @@
       background: linear-gradient(135deg, #2a1a10, #5b4434);
     }
     .hero-screenshot:hover { transform: rotate(0); }
+    .hero-screenshot > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .hero-screenshot .placeholder-hero {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -342,7 +348,7 @@
     .gallery { background: var(--w-bg); }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
     .shot {
@@ -867,11 +873,7 @@
       </div>
       <div class="hero-visual">
         <div class="hero-screenshot">
-          <div class="placeholder-hero">
-            <div class="small">// CASUAL SURVIVOR</div>
-            <div class="big">RUN TO ROOM</div>
-            <div class="small">REDBRICK · 2024.11 — 12</div>
-          </div>
+          <img src="assets/proj-run-to-room-2.png" alt="RunToRoom 도시 컨셉과 동적 맵 생성 화면" />
           <div class="badge"><span class="dot"></span> 지금 한 판 도전!</div>
         </div>
       </div>
@@ -946,7 +948,7 @@
           <img src="assets/proj-run-to-room-2.png" alt="RunToRoom city 2" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
           <figcaption>도시 컨셉 #2 · 동적 맵 생성</figcaption>
         </figure>
-        <figure class="shot">
+        <figure class="shot" hidden style="display:none;">
           <div class="placeholder">
             <div class="pl-icon">🏢</div>
             <div class="pl-text">CONCEPT 03</div>
@@ -954,7 +956,7 @@
           </div>
           <figcaption>건물 #3 · 도심 빌딩</figcaption>
         </figure>
-        <figure class="shot">
+        <figure class="shot" hidden style="display:none;">
           <div class="placeholder">
             <div class="pl-icon">📊</div>
             <div class="pl-text">DATA TABLE</div>
@@ -962,7 +964,7 @@
           </div>
           <figcaption>엑셀 아이템 확률 테이블</figcaption>
         </figure>
-        <figure class="shot">
+        <figure class="shot" hidden style="display:none;">
           <div class="placeholder">
             <div class="pl-icon">🏃</div>
             <div class="pl-text">GAMEPLAY</div>
@@ -970,7 +972,7 @@
           </div>
           <figcaption>적 추격 · 회피 플레이</figcaption>
         </figure>
-        <figure class="shot">
+        <figure class="shot" hidden style="display:none;">
           <div class="placeholder">
             <div class="pl-icon">🧱</div>
             <div class="pl-text">PROCEDURAL</div>
@@ -981,7 +983,7 @@
       </div>
 
       <!-- External video link -->
-      <div class="video-link">
+      <div class="video-link" hidden style="display:none;">
         <div class="vl-text">
           <h4>▶ 실제 플레이 영상</h4>
           <p>카카오TV에서 게임의 실제 플레이 영상을 확인할 수 있어요. (소리는 미포함)</p>
@@ -1317,7 +1319,7 @@
   </section>
 
   <!-- ===== Project Navigation (prev / home / next) ===== -->
-  <nav style="max-width:1200px;margin:60px auto 40px;padding:0 28px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;" aria-label="Project navigation">
+<nav style="width:100%;margin:0;padding:60px max(28px,calc((100% - 1200px)/2)) 40px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;background:var(--d-bg-0);" aria-label="Project navigation">
     <a href="../melody-pangpang/" style="display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:12px;text-decoration:none;color:#e6edf7;background:rgba(110,231,255,0.06);border:1px solid rgba(110,231,255,0.18);transition:all .2s;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0.65;letter-spacing:0.06em;text-transform:uppercase;">← PREV PROJECT</span>
       <span style="font-size:14px;font-weight:600;">Melody Pang Pang · 리듬</span>

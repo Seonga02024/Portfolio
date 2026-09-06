@@ -377,6 +377,23 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
+    .gallery-phase + .gallery-phase { margin-top: 38px; }
+    .gallery-phase-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 14px;
+      color: var(--w-ink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .gallery-phase-head::before {
+      content: "";
+      width: 4px;
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #991b1b, #b3781f);
+    }
     .shot {
       margin: 0;
       border-radius: 14px;
@@ -388,6 +405,43 @@
       aspect-ratio: 16 / 9;
     }
     .shot:hover { transform: translateY(-4px); }
+    .shot img,
+    .shot video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .usage-result {
+      display: grid;
+      grid-template-columns: minmax(260px, 440px) 1fr;
+      align-items: center;
+      gap: 32px;
+      margin-top: 42px;
+      padding: 24px;
+      border: 1px solid rgba(153, 27, 27, 0.16);
+      border-radius: 18px;
+      background: var(--w-paper);
+      box-shadow: var(--w-shadow);
+    }
+    .usage-result img {
+      display: block;
+      width: 100%;
+      max-height: 620px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f4f4f5;
+    }
+    .usage-result .result-label {
+      margin-bottom: 10px;
+      color: #991b1b;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+    .usage-result h3 { margin: 0 0 12px; color: var(--w-ink); font-size: 28px; }
+    .usage-result p { margin: 0; color: var(--w-ink-soft); font-size: 15px; }
     .placeholder {
       width: 100%; height: 100%;
       background:
@@ -421,6 +475,13 @@
       color: white;
       font-size: 13px;
       font-weight: 600;
+    }
+    .shot.video-shot figcaption {
+      top: 0;
+      bottom: auto;
+      padding: 12px 14px 28px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent);
+      pointer-events: none;
     }
 
     /* ============================================================
@@ -600,6 +661,13 @@
       padding: 1px 6px;
       border-radius: 4px;
       font-size: 12px;
+    }
+    .mine-card .stacked-copy {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
     }
 
     /* ============================================================
@@ -825,6 +893,7 @@
       .hero-metrics-inline { grid-template-columns: 1fr 1fr; }
       .hero-metrics { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .usage-result { grid-template-columns: 1fr; }
       section { padding: 70px 22px; }
     }
     @media (max-width: 560px) {
@@ -956,35 +1025,53 @@
       <span class="section-eyebrow">GAMEPLAY · 게임 화면</span>
       <h2 class="section-title">이런 흐름으로 진행됩니다</h2>
       <p class="section-sub">
-        월드 입장부터 거인 등장, 멀티플레이 생존, 그리고 2차 업데이트의 하드 모드와 랭커 특수 스킬까지.
+        1차 출시의 핵심 생존 플레이부터 2차 업데이트에서 확장된 콘텐츠, 실제 이용 성과까지 순서대로 정리했습니다.
       </p>
 
-      <div class="gallery-grid">
-        <figure class="shot">
-          <img src="assets/proj-attack-on-titan-1.png" alt="Attack on Titan world" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-          <figcaption>월드 입장 화면</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="assets/proj-attack-on-titan-2.png" alt="Attack on Titan gameplay" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-          <figcaption>재난 + 거인 등장</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="placeholder">SHOT · 03</div>
-          <figcaption>거인 등장 컷</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="placeholder">SHOT · 04</div>
-          <figcaption>여러 플레이어 동시 생존</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="placeholder">SHOT · 05</div>
-          <figcaption>2차 업데이트 — 노을 (하드 모드)</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="placeholder">SHOT · 06</div>
-          <figcaption>랭커 특수 스킬 발동 컷</figcaption>
-        </figure>
+      <div class="gallery-phase">
+        <h3 class="gallery-phase-head">1차 업데이트 · 핵심 생존 플레이</h3>
+        <div class="gallery-grid">
+          <figure class="shot">
+            <img src="assets/attack-update1-1.jpg" alt="1차 업데이트 멀티플레이 생존 화면" loading="lazy" />
+            <figcaption>멀티플레이 생존 진행</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/attack-update1-2.jpg" alt="1차 업데이트 거인 조우 화면" loading="lazy" />
+            <figcaption>거인 등장 · 재난 회피</figcaption>
+          </figure>
+          <figure class="shot video-shot">
+            <video src="assets/attack-update1-3.mp4" controls muted playsinline preload="metadata" aria-label="1차 업데이트 플레이 영상"></video>
+            <figcaption>1차 업데이트 플레이 영상</figcaption>
+          </figure>
+        </div>
       </div>
+
+      <div class="gallery-phase">
+        <h3 class="gallery-phase-head">2차 업데이트 · 콘텐츠 확장</h3>
+        <div class="gallery-grid">
+          <figure class="shot">
+            <img src="assets/attack-update2-1.png" alt="2차 업데이트 확장 콘텐츠 플레이 화면" loading="lazy" />
+            <figcaption>신규 거인 · 랭커 콘텐츠</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/attack-update2-2.png" alt="2차 업데이트 하드 모드 화면" loading="lazy" />
+            <figcaption>노을 배경의 하드 모드</figcaption>
+          </figure>
+          <figure class="shot video-shot">
+            <video src="assets/attack-update2-3.mp4" controls muted playsinline preload="metadata" aria-label="2차 업데이트 플레이 영상"></video>
+            <figcaption>2차 업데이트 플레이 영상</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <article class="usage-result">
+        <img src="assets/attack-usage.png" alt="ZEPETO 진격의 거인 서바이벌 이용 현황 페이지" loading="lazy" />
+        <div>
+          <div class="result-label">LIVE SERVICE RESULT</div>
+          <h3>누적 방문 2.1M</h3>
+          <p>좋아요 95% · 11.5K, 최근 방문 5.9K를 기록한 실제 서비스 이용 현황입니다.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -1063,7 +1150,7 @@
             매 라운드 다른 패턴으로 다수의 재난이 동시 발생하도록, 시간 기반 매니저가 등장 타이밍과 종류를 제어.
           </p>
           <ul>
-            <li>무작위 재난 스폰 — <code>DisasterManager</code> 시간축 + 가중치 기반</li>
+            <li><span class="stacked-copy"><code>DisasterManager</code><span>시간축과 가중치 기반의 무작위 재난 스폰</span></span></li>
             <li>동시 발생 처리, 라운드별 패턴 차별화</li>
             <li>2차 업데이트에서 짐승 거인 / 여성형 거인 재난 추가 — 기존 로직 재사용</li>
           </ul>
@@ -1090,7 +1177,7 @@
           </p>
           <ul>
             <li>Host → Client 브로드캐스트 / Client → Host 입력 송신 패턴</li>
-            <li><code>Host 가 중간에 나가는 예외 상황</code>에도 게임이 멈추지 않도록 권한 인수</li>
+            <li><span class="stacked-copy"><code>Host 이탈 예외 처리</code><span>Host가 중간에 나가도 게임이 멈추지 않도록 권한 인수</span></span></li>
             <li>서버에서의 데이터 처리 + 서버-클라이언트 간 데이터 처리 방식 학습</li>
           </ul>
         </div>
@@ -1102,9 +1189,9 @@
             거인 / 이펙트 등 대량 인스턴스가 있는 환경에서 메모리 · 함수 호출 · 가독성 · 책임 분리를 동시에 잡았습니다.
           </p>
           <ul>
-            <li><code>SOLID</code> + 상속 · 오버라이딩 · 인터페이스로 중복 코드 제거</li>
-            <li><code>enum</code> 으로 코드 가독성 향상 (다른 개발자 협업 대비)</li>
-            <li><code>Object Pool</code> — 거인 · 이펙트 등 대량 인스턴스 재사용</li>
+            <li><span class="stacked-copy"><code>SOLID</code><span>상속 · 오버라이딩 · 인터페이스로 중복 코드 제거</span></span></li>
+            <li><span class="stacked-copy"><code>enum</code><span>협업을 고려해 코드 가독성 향상</span></span></li>
+            <li><span class="stacked-copy"><code>Object Pool</code><span>거인 · 이펙트 등 대량 인스턴스 재사용</span></span></li>
             <li>시스템 비용이 큰 특정 함수 호출 최소화 (Update 외부화)</li>
           </ul>
         </div>
@@ -1415,7 +1502,7 @@
   </section>
 
   <!-- ===== Project Navigation (prev / home / next) ===== -->
-  <nav style="max-width:1200px;margin:60px auto 40px;padding:0 28px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;" aria-label="Project navigation">
+<nav style="width:100%;margin:0;padding:60px max(28px,calc((100% - 1200px)/2)) 40px;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;font-family:'Inter','Noto Sans KR',sans-serif;background:var(--d-bg-0);" aria-label="Project navigation">
     <a href="../run-to-room/" style="display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:12px;text-decoration:none;color:#e6edf7;background:rgba(110,231,255,0.06);border:1px solid rgba(110,231,255,0.18);transition:all .2s;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:0.65;letter-spacing:0.06em;text-transform:uppercase;">← PREV PROJECT</span>
       <span style="font-size:14px;font-weight:600;">RunToRoom · 캐주얼 생존</span>

@@ -54,6 +54,7 @@
       font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      background: var(--d-bg-0);
     }
     h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
     code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
@@ -695,10 +696,12 @@
       border-radius: 4px;
       font-size: 12px;
     }
-    .mine-card ul li.break-after-code code {
-      display: block;
-      width: fit-content;
-      margin-bottom: 4px;
+    .mine-card ul li .stacked-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      min-width: 0;
     }
 
     /* ============================================================
@@ -1208,7 +1211,7 @@ Human Input
           </p>
           <ul>
             <li>호스트 마이그레이션 시 disconnect 상태 전이 및 승자 판정 안정화</li>
-            <li class="break-after-code"><code>UpdatePeerHeartbeat</code> 도입으로 무응답 클라이언트 조기 감지</li>
+            <li><span class="stacked-copy"><code>UpdatePeerHeartbeat</code><span>도입으로 무응답 클라이언트 조기 감지</span></span></li>
             <li>들어올 때 세션 검증 → 실패 시 AI 매칭으로 자연 폴백</li>
             <li>disconnect 송신 위치 일원화 (호스트/비호스트 양쪽 모두)</li>
           </ul>
@@ -1222,7 +1225,7 @@ Human Input
             플랫폼별 닉네임·랭킹·재화 정책의 일관성을 확보.
           </p>
           <ul>
-            <li class="break-after-code"><code>LoginTokenReader</code> 패키지 오류 및 errorCode 매핑 정비</li>
+            <li><span class="stacked-copy"><code>LoginTokenReader</code><span>패키지 오류 및 errorCode 매핑 정비</span></span></li>
             <li>케미 로그인 시 닉네임 표기 일원화 (사용자 입력 우선)</li>
             <li>게스트 모드 닉네임 고정 + 랜덤 닉네임 폴백 로직</li>
             <li>랭킹보드 권한 분리 — 케미 사용자만 노출</li>
@@ -1254,7 +1257,7 @@ Human Input
           <ul>
             <li>2차 제작 리소스 적용 및 설정 변경</li>
             <li>프로필 타이틀 · 프로필 0로보 설정 등 메타 데이터 정비</li>
-            <li class="break-after-code"><code>FailErrorCodeText</code> 등 시니어 UX 친화 문구 다듬기</li>
+            <li><span class="stacked-copy"><code>FailErrorCodeText</code><span>시니어 UX 친화 문구 다듬기</span></span></li>
             <li>매칭 시간 조정 등 UX 파라미터 튜닝</li>
           </ul>
         </div>
@@ -1267,10 +1270,10 @@ Human Input
             크로스-디바이스 데이터 동기화, 서버측 검증, 라이브 운영 채널을 구축.
           </p>
           <ul>
-            <li><code>UGS Cloud Save</code> — 점수·재화·프로필 크로스-디바이스 동기화</li>
-            <li><code>Cloud Code</code> — 재화 증감/출석 체크 서버측 검증 (클라이언트 변조 차단)</li>
-            <li><code>UGS LeaderBoard</code> — 케미 사용자 전용 실시간 랭킹 보드</li>
-            <li><code>Remote Config</code> — 인앱 업데이트 + 게임 수치 라이브 조정 (재배포 불필요)</li>
+            <li><span class="stacked-copy"><code>UGS Cloud Save</code><span>점수·재화·프로필 크로스 디바이스 동기화</span></span></li>
+            <li><span class="stacked-copy"><code>Cloud Code</code><span>재화 증감·출석 체크 서버 검증 및 클라이언트 변조 차단</span></span></li>
+            <li><span class="stacked-copy"><code>UGS Leaderboard</code><span>케미 사용자 전용 실시간 랭킹 보드</span></span></li>
+            <li><span class="stacked-copy"><code>Remote Config</code><span>재배포 없는 인앱 업데이트 및 게임 수치 조정</span></span></li>
           </ul>
         </div>
 
