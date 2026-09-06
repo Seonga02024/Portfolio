@@ -246,7 +246,12 @@
       font-family: "JetBrains Mono", monospace;
       font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em;
     }
-    .nav-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .nav-links {
+      display: flex;
+      gap: clamp(14px, 1.6vw, 24px);
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
     .nav-links a {
       color: var(--text-dim); text-decoration: none;
       font-size: 13.5px; font-weight: 500;
@@ -1473,6 +1478,7 @@
       .feat-grid { grid-template-columns: repeat(2, 1fr); }
       .career-grid { grid-template-columns: 1fr; }
       .extras-gallery { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
     }
     @media (max-width: 1024px) {
       .paper-grid { grid-template-columns: 1fr; }
@@ -1497,7 +1503,6 @@
       .edu-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .extras-gallery { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
     }
   </style>
   <link rel="stylesheet" href="assets/language-toggle.css" />
@@ -1522,7 +1527,6 @@
           <a href="#awards"><span class="hash">#</span>awards</a>
           <a href="#skills"><span class="hash">#</span>skills</a>
           <a href="#projects"><span class="hash">#</span>projects</a>
-          <a href="#about"><span class="hash">#</span>about</a>
           <a href="#contact"><span class="hash">#</span>contact</a>
         </nav>
         <div class="theme-switch" aria-label="Theme switcher">
@@ -2336,9 +2340,9 @@
             <div class="feat-body">
               <h3>Rota Track</h3>
               <div class="feat-sub">// Hybrid Casual · Android · 출시 준비 중</div>
-              <p>달리는 픽셀 고양이 앞의 타일을 미리 회전시켜 길을 잇는 캐주얼 퍼즐 러너. ScriptableObject 기반 데이터 주도 설계 + 일일 퀘스트 / 업적 / 다이아 화폐 / 캐릭터 선택 시스템 직접 설계·구현. AdMob 배너 + 리워드 광고 연동.</p>
+              <p>바이브 코딩(Vibe Coding)의 실전 활용 가능성을 테스트하기 위해 시작한 캐주얼 퍼즐 러너 프로젝트입니다. 코드를 직접 작성하지 않고 AI 에이전트에 요구사항과 구조를 지시하고 결과를 검증·개선하는 방식으로 게임 전체를 제작했습니다. 게임 로직과 UI는 물론 이미지·사운드 제작, 일일 퀘스트·업적·재화·캐릭터 시스템 및 AdMob 광고 연동까지 전 과정을 완성했습니다.</p>
               <div class="feat-stack">
-                <span>Unity</span><span>C#</span><span>ScriptableObject</span><span>AdMob</span><span>PlayerPrefs</span><span>Prefab YAML</span>
+                <span>AI Agent</span><span>Unity</span><span>C#</span><span>ScriptableObject</span><span>AdMob</span><span>Image · Sound AI</span>
               </div>
               <a class="open-link" href="https://play.google.com/store/apps/details?id=com.FOXES.RotaTrack" target="_blank" rel="noopener">GOOGLE PLAY →</a>
             </div>
