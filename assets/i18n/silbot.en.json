@@ -1,7 +1,7 @@
 {
   "page": "silbot",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -86,7 +86,7 @@
     {
       "key": "t0017",
       "source": "\"잘했어요!\", \"다시 한 번 해볼까요?\"",
-      "text": "“Good job!”, “Shall we try again?”"
+      "text": "\"Nice work!\" \"Want to try again?\""
     },
     {
       "key": "t0018",
@@ -276,7 +276,7 @@
     {
       "key": "t0055",
       "source": "5초 무입력 → 힌트 패널 자동 출현, 누적 3회 → 정답 시연 + \"다시 해볼까요?\".",
-      "text": "No input for 5 seconds → Hint panel automatically appears, cumulative 3 times → Demonstration of correct answer + “Shall we try again?”"
+      "text": "After 5 seconds without input, the hint panel appears automatically. After three occurrences, the correct sequence is demonstrated with a \"Want to try again?\" prompt."
     },
     {
       "key": "t0056",
@@ -871,7 +871,7 @@
     {
       "key": "t0174",
       "source": "본인 메인 담당 미니게임",
-      "text": "My main minigame"
+      "text": "Primary Mini-games"
     },
     {
       "key": "t0175",
@@ -921,7 +921,7 @@
     {
       "key": "t0184",
       "source": "사고",
-      "text": "accident"
+      "text": "reasoning"
     },
     {
       "key": "t0185",
@@ -1046,7 +1046,7 @@
     {
       "key": "t0209",
       "source": "실",
-      "text": "thread"
+      "text": "Sil"
     },
     {
       "key": "t0210",
@@ -1221,7 +1221,7 @@
     {
       "key": "t0244",
       "source": "오답 누적 3회 시 정답 라인 시연 + \"다시 해볼까요?\" TTS 트리거",
-      "text": "When 3 incorrect answers are accumulated, the correct answer line is demonstrated + “Shall we try again?” TTS trigger"
+      "text": "After three incorrect attempts, demonstrate the correct path and trigger a \"Want to try again?\" TTS prompt."
     },
     {
       "key": "t0245",
@@ -1356,12 +1356,12 @@
     {
       "key": "t0271",
       "source": "좌측 상단 nav 의 \"실\" 그라데이션 아이콘을 실제 로고로 교체. 의",
-      "text": "Replaced the “thread” gradient icon in the top left nav with the actual logo. of"
+      "text": "Replace the gradient 'Sil' icon in the top-left navigation with the official logo."
     },
     {
       "key": "t0272",
       "source": "주의",
-      "text": "caution"
+      "text": "attention"
     },
     {
       "key": "t0273",
@@ -1701,7 +1701,7 @@
     {
       "key": "t0340",
       "source": "CareBrainFit · 체조 + 아케이드",
-      "text": "CareBrainFit · Gymnastics + Arcade"
+      "text": "CareBrainFit · exercise + Arcade"
     },
     {
       "key": "t0341",
@@ -2067,6 +2067,201 @@
       "key": "t0413",
       "source": "WordPair · 단어 짝",
       "text": "WordPair · word pair"
+    },
+    {
+      "key": "t0414",
+      "source": "Luckybag · 동전 잡기",
+      "text": "Luckybag · Catch the Coins"
+    },
+    {
+      "key": "t0415",
+      "source": "Hangul · 한글 게임",
+      "text": "Hangul · Korean Alphabet Game"
+    },
+    {
+      "key": "t0416",
+      "source": "HangulBegin · 한글 배우기",
+      "text": "HangulBegin · Learn Hangul"
+    },
+    {
+      "key": "t0417",
+      "source": "Pong · 핑퐁 게임",
+      "text": "Pong · Table Tennis"
+    },
+    {
+      "key": "t0418",
+      "source": "Match3 · 두뇌 과일팡",
+      "text": "Match3 · Brainy Fruit Pop"
+    },
+    {
+      "key": "t0419",
+      "source": "CopyMe · 로봇 따라하기",
+      "text": "CopyMe · Follow the Robot"
+    },
+    {
+      "key": "t0420",
+      "source": "Drive · 로봇 조정하기",
+      "text": "Drive · Control the Robot"
+    },
+    {
+      "key": "t0421",
+      "source": "PathFollow · 로봇 따라가기",
+      "text": "PathFollow · Follow the Robot's Path"
+    },
+    {
+      "key": "t0422",
+      "source": "StoryBox · 이야기 기억하기",
+      "text": "StoryBox · Remember the Story"
+    },
+    {
+      "key": "t0423",
+      "source": "WordPair · 단어 짝 맞추기",
+      "text": "WordPair · Match Word Pairs"
+    },
+    {
+      "key": "t0424",
+      "source": "WhatsThis · 물건 맞추기",
+      "text": "WhatsThis · Identify the Object"
+    },
+    {
+      "key": "t0425",
+      "source": "ColorWord · 색-단어 맞추기",
+      "text": "ColorWord · Match Colors and Words"
+    },
+    {
+      "key": "t0426",
+      "source": "Howmuch · 계산하기",
+      "text": "Howmuch · Arithmetic"
+    },
+    {
+      "key": "t0427",
+      "source": "Wisdom · 지혜의 판",
+      "text": "Wisdom · Wisdom Board"
+    },
+    {
+      "key": "t0428",
+      "source": "Match · 10원 게임",
+      "text": "Match · Make 10"
+    },
+    {
+      "key": "t0429",
+      "source": "Star · 반짝반짝 별자리",
+      "text": "Star · Twinkling Constellations"
+    },
+    {
+      "key": "t0430",
+      "source": "두뇌 과일팡",
+      "text": "Brainy Fruit Pop"
+    },
+    {
+      "key": "t0431",
+      "source": "10원 게임",
+      "text": "Make 10"
+    },
+    {
+      "key": "t0432",
+      "source": "여러 개의 숫자 동전 위를 드래그해 선택한 동전들의 합이 정확히 10이 되도록 만듭니다.",
+      "text": "Drag across numbered coins and select a combination whose total is exactly 10."
+    },
+    {
+      "key": "t0433",
+      "source": "반짝반짝 별자리",
+      "text": "Twinkling Constellations"
+    },
+    {
+      "key": "t0434",
+      "source": "위 .game-image 영역의 placeholder 를 <video autoplay muted loop playsinline> 로 교체할 수 있습니다.",
+      "text": "The placeholder in each .game-image area can be replaced with <video autoplay muted loop playsinline>."
+    },
+    {
+      "key": "t0435",
+      "source": "🎬 현장 시연 — \"10원 게임\"",
+      "text": "🎬 Live Demonstration — 'Make 10'"
+    },
+    {
+      "key": "t0436",
+      "source": "본 영상의 콘텐츠는 합이 10이 되도록 동전을 연결하는 인지 훈련 게임이지만, 화면 구조와 데이터 흐름은",
+      "text": "This video demonstrates a cognitive training game where players connect coins to make 10, while its screen structure and data flow"
+    },
+    {
+      "key": "t0437",
+      "source": "대화면 · 실시간 랭킹 + 게임 진행 공유",
+      "text": "Large Display · Live Rankings and Shared Progress"
+    },
+    {
+      "key": "t0438",
+      "source": "드래그로 동전을 선택 → 합이 10이면 성공. 콤보 누적 시 상대 보드 공격. 가중치 기반 동전 숫자 분포.",
+      "text": "Drag to select coins → succeed when the total is 10. Build combos to attack an opponent's board. Coin values use a weighted distribution."
+    },
+    {
+      "key": "t0439",
+      "source": "마우스/터치 다운→드래그→업 흐름에서 동전 위치·거리 검사. 인접 거리(200) 초과 시 점프 방지,",
+      "text": "Track coin positions and distances through pointer down → drag → release. Prevent jumps beyond the adjacency threshold (200),"
+    },
+    {
+      "key": "t0440",
+      "source": "선택 동전을 LineRenderer 로 연결. 업 시점에 합 계산해 ANSWER(10) 여부 판정.",
+      "text": "Connect selected coins with a LineRenderer, then calculate the total on release and validate it against ANSWER (10)."
+    },
+    {
+      "key": "t0441",
+      "source": "가중치 동전 생성",
+      "text": "Weighted Coin Generation"
+    },
+    {
+      "key": "t0442",
+      "source": "1~9 숫자 동전을 그냥 랜덤이 아니라 가중치로 분포.",
+      "text": "Distribute coin values from 1 to 9 using weights instead of uniform randomness."
+    },
+    {
+      "key": "t0443",
+      "source": "마지막 동전은 전체 합이 10의 배수가 되도록 보정. 풀이 가능한 보드 자동 보장.",
+      "text": "Adjust the final coin so the total is a multiple of 10, automatically guaranteeing a solvable board."
+    },
+    {
+      "key": "t0444",
+      "source": "5-07 Star · 반짝반짝 별자리 입력 & 정답 검증",
+      "text": "5-07 Star · Twinkling Constellations Input & Answer Validation"
+    },
+    {
+      "key": "t0445",
+      "source": "<img src=\"assets/game_match3.jpg\" alt=\"3-11 Match3 게임 화면\">",
+      "text": "<img src=\"assets/game_match3.jpg\" alt=\"3-11 Match3 game screen\">"
+    },
+    {
+      "key": "t0446",
+      "source": "케어 브레인 핏 · CareBrainFit",
+      "text": "CareBrainFit"
+    },
+    {
+      "key": "t0447",
+      "source": "그 외 프로젝트 · Robocare",
+      "text": "More Projects · Robocare"
+    },
+    {
+      "key": "t0448",
+      "source": "실벗 로봇과 함께 진행하는 디지털 두뇌 건강 교실",
+      "text": "Digital cognitive wellness class with the Silbot robot"
+    },
+    {
+      "key": "t0449",
+      "source": "두뇌 과일팡 Match3 플레이 화면",
+      "text": "Brainy Fruit Pop Match3 gameplay screen"
+    },
+    {
+      "key": "t0450",
+      "source": "10원 게임 플레이 화면",
+      "text": "Make 10 gameplay screen"
+    },
+    {
+      "key": "t0451",
+      "source": "반짝반짝 별자리 플레이 화면",
+      "text": "Twinkling Constellations gameplay screen"
+    },
+    {
+      "key": "t0452",
+      "source": "실벗 발화·동작 시퀀스 빌더 화면",
+      "text": "Silbot speech and motion sequence builder"
     }
   ]
 }

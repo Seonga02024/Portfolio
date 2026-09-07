@@ -1214,7 +1214,7 @@
             <li><span class="gid">5-04</span><span class="gname">Arithmetic · 산수</span><span class="gtag">산수</span></li>
             <li><span class="gid">5-05</span><span class="gname">Wisdom · 지혜의 판</span><span class="gtag">사고</span></li>
             <li class="mine"><span class="gid">5-06</span><span class="gname">Match · 10원 게임</span><span class="gtag">MAIN</span></li>
-            <li class="mine"><span class="gid">5-07</span><span class="gname">Star · 별자리 게임</span><span class="gtag">MAIN</span></li>
+            <li class="mine"><span class="gid">5-07</span><span class="gname">Star · 반짝반짝 별자리</span><span class="gtag">MAIN</span></li>
           </ul>
         </div>
       </div>
@@ -1280,11 +1280,11 @@
         <!-- Star (5-07) -->
         <div class="game-card">
           <div class="game-image">
-            <img src="assets/별자리.jpg" alt="별자리 게임 플레이 화면" loading="lazy" decoding="async" />
+            <img src="assets/별자리.jpg" alt="반짝반짝 별자리 플레이 화면" loading="lazy" decoding="async" />
             <span class="tag">5-07 · STAR</span>
           </div>
           <div class="game-body">
-            <h3>별자리 게임</h3>
+            <h3>반짝반짝 별자리</h3>
             <div class="game-subtitle">5-07 Star · 순서/공간 추론</div>
             <p class="game-desc">
               화면 위 별들을 번호 순서대로 이어 별자리를 완성합니다.
@@ -1298,7 +1298,7 @@
         </div>
       </div>
 
-      <div class="media-placeholder" style="margin-top: 40px;">
+      <div class="media-placeholder" hidden style="display: none; margin-top: 40px;">
         <strong>🎬 플레이 영상 추가 자리 (선택)</strong>
         각 게임의 30초 안팎 플레이 클립을 <code>assets/play_match3.mp4</code>,
         <code>assets/play_match5_06.mp4</code>, <code>assets/play_star.mp4</code> 로 추가하면<br/>
@@ -1570,7 +1570,7 @@
       <div class="game-tech-block">
         <div class="gt-header">
           <span class="gt-id">5-07 · STAR</span>
-          <h3 class="gt-title">별자리 잇기</h3>
+          <h3 class="gt-title">반짝반짝 별자리</h3>
         </div>
         <p class="gt-tagline">
           번호 순서대로 별을 연결해 별자리 완성. 5초 무입력 시 힌트, 3회 실수 시 정답 시연. 12궁 배경 효과.
@@ -1605,7 +1605,7 @@
         </div>
       </div>
 
-      <div class="media-placeholder" style="margin-top: 30px;">
+      <div class="media-placeholder" hidden style="display: none; margin-top: 30px;">
         <strong>🎬 게임별 인게임 캡처 영상 자리</strong>
         각 game-tech-block 위쪽 또는 첫 .gt-item 안에 12~20초 GIF 또는 mp4 클립을 넣으면 가독성이 크게 올라갑니다.<br/>
         <code>assets/clip_match3_chain.mp4</code> · <code>assets/clip_match_combo.mp4</code> · <code>assets/clip_star_hint.mp4</code>
@@ -1778,7 +1778,7 @@
         <!-- 05 -->
         <div class="hl-card mine">
           <div class="hl-num">// 05 · Gameplay · Star (5-07)</div>
-          <h4>5-07 Star · 별자리 잇기 입력 & 정답 검증</h4>
+          <h4>5-07 Star · 반짝반짝 별자리 입력 & 정답 검증</h4>
           <p>
             화면 위 별을 번호 순서대로 잇는 입력 처리를 메인 담당.
             <code>IPointerDownHandler · IDragHandler · IPointerUpHandler</code> 를 직접 구현해

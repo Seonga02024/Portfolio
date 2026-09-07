@@ -622,6 +622,96 @@
       "key": "t0124",
       "source": "Zepeto 플랫폼 SDK 위에서 Unity 클라이언트 + TypeScript 서버 스크립트.",
       "text": "Zepeto 플랫폼 SDK 위에서 Unity 클라이언트 + TypeScript 서버 스크립트."
+    },
+    {
+      "key": "t0125",
+      "source": "매칭부터 타격 판정과 궤적 안내, 티어 보상과 Gucci 아이템 상점까지 — 게임의 주요 화면들.",
+      "text": "매칭부터 타격 판정과 궤적 안내, 티어 보상과 Gucci 아이템 상점까지 — 게임의 주요 화면들."
+    },
+    {
+      "key": "t0126",
+      "source": "실제 플레이 영상은 아래 갤러리와 상단",
+      "text": "실제 플레이 영상은 아래 갤러리와 상단"
+    },
+    {
+      "key": "t0127",
+      "source": "경기 시작 · 상대 정보와 보너스 능력치 비교",
+      "text": "경기 시작 · 상대 정보와 보너스 능력치 비교"
+    },
+    {
+      "key": "t0128",
+      "source": "실시간 랠리 · 스윙 타이밍 피드백",
+      "text": "실시간 랠리 · 스윙 타이밍 피드백"
+    },
+    {
+      "key": "t0129",
+      "source": "공 궤적 · 착지 지점과 스윙 영역 안내",
+      "text": "공 궤적 · 착지 지점과 스윙 영역 안내"
+    },
+    {
+      "key": "t0130",
+      "source": "리턴 타이밍 · 타깃 코트 영역 표시",
+      "text": "리턴 타이밍 · 타깃 코트 영역 표시"
+    },
+    {
+      "key": "t0131",
+      "source": "티어 진행도 · 단계별 플레이 보상",
+      "text": "티어 진행도 · 단계별 플레이 보상"
+    },
+    {
+      "key": "t0132",
+      "source": "Gucci 아이템 상점 · 장비별 능력치 강화",
+      "text": "Gucci 아이템 상점 · 장비별 능력치 강화"
+    },
+    {
+      "key": "t0133",
+      "source": "Gucci Tennis · 실제 플레이 영상",
+      "text": "Gucci Tennis · 실제 플레이 영상"
+    },
+    {
+      "key": "t0134",
+      "source": "RunToRoom · 캐주얼 생존",
+      "text": "RunToRoom · 캐주얼 생존"
+    },
+    {
+      "key": "t0135",
+      "source": "Zepeto 진격의 거인",
+      "text": "Zepeto 진격의 거인"
+    },
+    {
+      "key": "t0136",
+      "source": "Gucci Tennis 경기 시작 및 상대 매칭 화면",
+      "text": "Gucci Tennis 경기 시작 및 상대 매칭 화면"
+    },
+    {
+      "key": "t0137",
+      "source": "Gucci Tennis 타격 속도 판정 화면",
+      "text": "Gucci Tennis 타격 속도 판정 화면"
+    },
+    {
+      "key": "t0138",
+      "source": "Gucci Tennis 공 궤적과 착지 지점 안내 화면",
+      "text": "Gucci Tennis 공 궤적과 착지 지점 안내 화면"
+    },
+    {
+      "key": "t0139",
+      "source": "Gucci Tennis 리턴 타이밍과 타깃 영역 화면",
+      "text": "Gucci Tennis 리턴 타이밍과 타깃 영역 화면"
+    },
+    {
+      "key": "t0140",
+      "source": "Gucci Tennis 티어 진행도와 보상 화면",
+      "text": "Gucci Tennis 티어 진행도와 보상 화면"
+    },
+    {
+      "key": "t0141",
+      "source": "Gucci Tennis 브랜드 아이템 상점 화면",
+      "text": "Gucci Tennis 브랜드 아이템 상점 화면"
+    },
+    {
+      "key": "t0142",
+      "source": "Gucci Tennis 실제 플레이 영상",
+      "text": "Gucci Tennis 실제 플레이 영상"
     }
   ]
 }

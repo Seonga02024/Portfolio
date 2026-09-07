@@ -1,7 +1,7 @@
 {
   "page": "carebrainfit",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -86,7 +86,7 @@
     {
       "key": "t0017",
       "source": "3 체조 · 4 아케이드",
-      "text": "3 Gymnastics 4 Arcade"
+      "text": "3 exercise 4 Arcade"
     },
     {
       "key": "t0018",
@@ -246,22 +246,22 @@
     {
       "key": "t0049",
       "source": "리듬 체조 게임",
-      "text": "rhythmic gymnastics game"
+      "text": "rhythmic exercise game"
     },
     {
       "key": "t0050",
       "source": "리듬 체조부터 탄막 회피까지 — 시니어가 부담 없이 매일 한 게임씩 즐길 수 있도록 설계되었습니다.",
-      "text": "From rhythmic gymnastics to bullet evasion — it's designed so seniors can enjoy one game every day without the burden."
+      "text": "From guided rhythm exercises to bullet-hell dodging, each activity is designed so older adults can comfortably enjoy one session a day."
     },
     {
       "key": "t0051",
       "source": "리듬 팔 동작 체조",
-      "text": "rhythmic arm movement gymnastics"
+      "text": "rhythmic arm movement exercise"
     },
     {
       "key": "t0052",
       "source": "리듬에 맞춰 체조 수행 · 5분",
-      "text": "Perform gymnastics to the rhythm · 5 minutes"
+      "text": "Perform exercise to the rhythm · 5 minutes"
     },
     {
       "key": "t0053",
@@ -286,7 +286,7 @@
     {
       "key": "t0057",
       "source": "밀기 체조",
-      "text": "pushing gymnastics"
+      "text": "Push Exercise"
     },
     {
       "key": "t0058",
@@ -296,7 +296,7 @@
     {
       "key": "t0059",
       "source": "반응 속도 측정, 체조 따라하기, 탄막 회피까지 7가지 콘텐츠가 시니어의 두뇌와 신체를 동시에 자극합니다.",
-      "text": "Seven types of content, including measuring reaction speed, following gymnastics, and dodging bullets, stimulate seniors' brains and bodies at the same time."
+      "text": "Seven types of content, including measuring reaction speed, following exercise, and dodging bullets, stimulate seniors' brains and bodies at the same time."
     },
     {
       "key": "t0060",
@@ -321,7 +321,7 @@
     {
       "key": "t0064",
       "source": "상체 쭉쭉 체조",
-      "text": "Upper body straight gymnastics"
+      "text": "Upper-Body Stretch"
     },
     {
       "key": "t0065",
@@ -346,7 +346,7 @@
     {
       "key": "t0069",
       "source": "서버 검증 화폐 시스템 (PLAYER_MONEY)",
-      "text": "Server Verification Currency System (PLAYER_MONEY)"
+      "text": "Server-Validated Currency System (PLAYER_MONEY)"
     },
     {
       "key": "t0070",
@@ -381,7 +381,7 @@
     {
       "key": "t0076",
       "source": "시니어 인지·체조 케어 게임",
-      "text": "Senior cognitive/gymnastics care game"
+      "text": "Senior cognitive/exercise care game"
     },
     {
       "key": "t0077",
@@ -436,7 +436,7 @@
     {
       "key": "t0087",
       "source": "얼굴 인식 탄막 회피 · 5분",
-      "text": "Face recognition barrage evasion · 5 minutes"
+      "text": "Face-tracked bullet-hell dodging · 5 min"
     },
     {
       "key": "t0088",
@@ -506,7 +506,7 @@
     {
       "key": "t0101",
       "source": "자세 추적 체조",
-      "text": "posture tracking gymnastics"
+      "text": "posture tracking exercise"
     },
     {
       "key": "t0102",
@@ -531,22 +531,22 @@
     {
       "key": "t0106",
       "source": "체조 모드",
-      "text": "gymnastics mode"
+      "text": "exercise mode"
     },
     {
       "key": "t0107",
       "source": "체조 모드 화면",
-      "text": "Gymnastics mode screen"
+      "text": "exercise mode screen"
     },
     {
       "key": "t0108",
       "source": "체조 모드는 정확도에 따라 보상을, 아케이드 모드는 코인을 소모하여 입장합니다. 모든 콘텐츠가 동일한 카탈로그 시스템에서 관리됩니다.",
-      "text": "Gymnastics mode rewards players based on accuracy, while arcade mode requires coins to enter. All content is managed in the same catalog system."
+      "text": "exercise mode rewards players based on accuracy, while arcade mode requires coins to enter. All content is managed in the same catalog system."
     },
     {
       "key": "t0109",
       "source": "체조 보상으로 이어지는 게임형 콘텐츠의 실제 플레이 톤과 UI 구성을 대표 스크린샷으로 보여줍니다.",
-      "text": "Representative screenshots show the actual play tone and UI composition of the game-type content leading to gymnastics rewards."
+      "text": "Representative screenshots show the visual style and UI of the game modes unlocked through exercise rewards."
     },
     {
       "key": "t0110",
@@ -576,7 +576,7 @@
     {
       "key": "t0115",
       "source": "케어 브레인 핏 체조 모드 화면",
-      "text": "Care Brain Fit Gymnastics Mode Screen"
+      "text": "Care Brain Fit exercise Mode Screen"
     },
     {
       "key": "t0116",
@@ -616,7 +616,7 @@
     {
       "key": "t0123",
       "source": "특정 기능(체조 정확도 측정 / 탄막 회피 등)의 단편 영상. .feat-card 안에 작은 video 태그로 임베드 가능.",
-      "text": "Short videos of specific functions (gymnastics accuracy measurement / barrage evasion, etc.). Can be embedded as a small video tag in .feat-card."
+      "text": "Short clips of specific features, such as exercise accuracy tracking or bullet-hell dodging, can be embedded in a .feat-card using a compact video element."
     },
     {
       "key": "t0124",
@@ -716,7 +716,7 @@
     {
       "key": "t0143",
       "source": "CareBrainFit — 시니어 인지·체조 게임 · Showcase & Developer Portfolio",
-      "text": "CareBrainFit — Senior Cognitive/Gymnastics Game · Showcase & Developer Portfolio"
+      "text": "CareBrainFit — Senior Cognitive/exercise Game · Showcase & Developer Portfolio"
     },
     {
       "key": "t0144",
@@ -821,7 +821,7 @@
     {
       "key": "t0164",
       "source": "MediaPipe 기반 체조·아케이드 인지 운동 게임 'CareBrainFit'. UGS(Cloud Save/Cloud Code/Remote Config) 통합과 서버 검증 화폐 시스템을 담당한 개발자 포트폴리오.",
-      "text": "MediaPipe-based gymnastics/arcade cognitive exercise game ‘CareBrainFit’. Developer portfolio responsible for UGS (Cloud Save/Cloud Code/Remote Config) integration and server verification currency system."
+      "text": "CareBrainFit is a MediaPipe-powered cognitive training game combining guided exercise and arcade activities. This portfolio highlights my work on UGS integration (Cloud Save, Cloud Code, and Remote Config) and a server-validated currency system."
     },
     {
       "key": "t0165",
@@ -871,7 +871,7 @@
     {
       "key": "t0174",
       "source": "Robo Gostop · 화투 멀티",
-      "text": "Robo Gostop · Hwatu Multi"
+      "text": "Robo Go-Stop · Multiplayer Hwatu"
     },
     {
       "key": "t0175",
@@ -912,6 +912,31 @@
       "key": "t0182",
       "source": "WriteLock 재시도(409/412)로 동시성 안전, INSUFFICIENT_FUNDS 거절",
       "text": "Concurrency safe with WriteLock retry (409/412), INSUFFICIENT_FUNDS rejected"
+    },
+    {
+      "key": "t0183",
+      "source": "좌측 상단 nav 의 \"CB\" 그라데이션 아이콘을 실제 로고로 교체. .brand .logo-icon 의 텍스트를 <img> 로 변경.",
+      "text": "Replace the gradient 'CB' icon in the top-left navigation with the official logo by changing the text in .brand .logo-icon to an <img> element."
+    },
+    {
+      "key": "t0184",
+      "source": "<img src=\"assets/game_F1.jpg\" alt=\"F1 게임 화면\">",
+      "text": "<img src=\"assets/game_F1.jpg\" alt=\"F1 game screen\">"
+    },
+    {
+      "key": "t0185",
+      "source": "로보맞고 · Robo Gostop",
+      "text": "Robo Go-Stop"
+    },
+    {
+      "key": "t0186",
+      "source": "Silbot · 실벗 로봇 학습 시스템",
+      "text": "Silbot · Robot-assisted Learning System"
+    },
+    {
+      "key": "t0187",
+      "source": "MediaPipe 기반 체조·아케이드 인지 운동 게임",
+      "text": "MediaPipe-powered exercise and arcade cognitive training game"
     }
   ]
 }

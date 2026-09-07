@@ -650,8 +650,8 @@
     },
     {
       "key": "t0130",
-      "source": "KEMI FRIENDS · 앱 연동",
-      "text": "KEMI FRIENDS · 앱 연동"
+      "source": "Cami Friends · 앱 연동",
+      "text": "Cami Friends · 앱 연동"
     },
     {
       "key": "t0131",
@@ -712,6 +712,46 @@
       "key": "t0142",
       "source": "Unity Gaming Services 의 4개 모듈을 게임 전반에 통합하여",
       "text": "Unity Gaming Services 의 4개 모듈을 게임 전반에 통합하여"
+    },
+    {
+      "key": "t0143",
+      "source": "시니어 UX 친화 문구 다듬기",
+      "text": "시니어 UX 친화 문구 다듬기"
+    },
+    {
+      "key": "t0144",
+      "source": "점수·재화·프로필 크로스 디바이스 동기화",
+      "text": "점수·재화·프로필 크로스 디바이스 동기화"
+    },
+    {
+      "key": "t0145",
+      "source": "재화 증감·출석 체크 서버 검증 및 클라이언트 변조 차단",
+      "text": "재화 증감·출석 체크 서버 검증 및 클라이언트 변조 차단"
+    },
+    {
+      "key": "t0146",
+      "source": "케미 사용자 전용 실시간 랭킹 보드",
+      "text": "케미 사용자 전용 실시간 랭킹 보드"
+    },
+    {
+      "key": "t0147",
+      "source": "재배포 없는 인앱 업데이트 및 게임 수치 조정",
+      "text": "재배포 없는 인앱 업데이트 및 게임 수치 조정"
+    },
+    {
+      "key": "t0148",
+      "source": "케어 브레인 핏 · CareBrainFit",
+      "text": "케어 브레인 핏 · CareBrainFit"
+    },
+    {
+      "key": "t0149",
+      "source": "한국 전통 화투 게임",
+      "text": "한국 전통 화투 게임"
+    },
+    {
+      "key": "t0150",
+      "source": "승리의 전당 랭킹 보드 화면",
+      "text": "승리의 전당 랭킹 보드 화면"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "page": "melody-pangpang",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -186,7 +186,7 @@
     {
       "key": "t0037",
       "source": "리듬 게임의 본질인 \"박자 정확도\"와 \"체감 응답성\"을 어떻게 잡아냈는지.",
-      "text": "How did you capture the essence of rhythm games: “beat accuracy” and “perceptual responsiveness”?"
+      "text": "How I achieved the two essentials of a rhythm game: timing accuracy and a responsive feel."
     },
     {
       "key": "t0038",
@@ -552,6 +552,51 @@
       "key": "t0110",
       "source": "X 좌표 비교로 Left/Up/Down/Right 기둥 빠르게 식별",
       "text": "Quickly identify Left/Up/Down/Right columns by comparing X coordinates"
+    },
+    {
+      "key": "t0111",
+      "source": "노래 재생 시간을 기점으로 박자 계산",
+      "text": "Calculate rhythm timing from the audio playback clock"
+    },
+    {
+      "key": "t0112",
+      "source": "180 BPM 기준 비트 타임 배열에 더해 노드를 미리 생성",
+      "text": "Pre-create notes from a beat-time array at 180 BPM"
+    },
+    {
+      "key": "t0113",
+      "source": "±4 범위만 검사해 검사 대상을 8개로 한정",
+      "text": "Limit judgment checks to eight notes within a ±4 index range"
+    },
+    {
+      "key": "t0114",
+      "source": "판정 UI 스케일 애니메이션 적용",
+      "text": "Apply scale animation to judgment feedback"
+    },
+    {
+      "key": "t0115",
+      "source": "사이버펑크 LED 비주얼의 1인 개발 웹 리듬 게임",
+      "text": "A solo-developed web rhythm game with cyberpunk LED visuals"
+    },
+    {
+      "key": "t0116",
+      "source": "Melody Pang Pang 플레이 방법과 시작 화면",
+      "text": "Melody Pang Pang tutorial and start screen"
+    },
+    {
+      "key": "t0117",
+      "source": "Melody Pang Pang 인게임 플레이 화면",
+      "text": "Melody Pang Pang gameplay screen"
+    },
+    {
+      "key": "t0118",
+      "source": "HP가 0에 도달한 게임 종료 화면",
+      "text": "Game-over screen when HP reaches zero"
+    },
+    {
+      "key": "t0119",
+      "source": "노래를 클리어한 게임 결과 화면",
+      "text": "Results screen after clearing a song"
     }
   ]
 }

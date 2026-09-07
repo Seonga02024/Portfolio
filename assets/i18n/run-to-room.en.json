@@ -1,7 +1,7 @@
 {
   "page": "run-to-room",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -231,7 +231,7 @@
     {
       "key": "t0046",
       "source": "를",
-      "text": "to"
+      "text": "​"
     },
     {
       "key": "t0047",
@@ -672,6 +672,11 @@
       "key": "t0134",
       "source": "RunToRoom · 캐주얼 생존 게임 — Game Showcase & Developer Portfolio",
       "text": "RunToRoom · Casual Survival Game — Game Showcase & Developer Portfolio"
+    },
+    {
+      "key": "t0135",
+      "source": "RunToRoom 도시 컨셉과 동적 맵 생성 화면",
+      "text": "RunToRoom city theme and procedural map generation"
     }
   ]
 }

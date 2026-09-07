@@ -1,7 +1,7 @@
 {
   "page": "gostop",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -11,17 +11,17 @@
     {
       "key": "t0002",
       "source": "— 재화 증감/출석 체크 서버측 검증 (클라이언트 변조 차단)",
-      "text": "— Goods increase/decrease/attendance check server-side verification (blocks client tampering)"
+      "text": "— currency increase/decrease/attendance check server-side verification (blocks client tampering)"
     },
     {
       "key": "t0003",
       "source": "— 점수·재화·프로필 크로스-디바이스 동기화",
-      "text": "— Score, goods, profile cross-device synchronization"
+      "text": "— Score, currency, profile cross-device synchronization"
     },
     {
       "key": "t0004",
       "source": "— 케미 사용자 전용 실시간 랭킹 보드",
-      "text": "— Real-time ranking board exclusively for Chemi users"
+      "text": "— Real-time ranking board exclusively for Cami users"
     },
     {
       "key": "t0005",
@@ -76,7 +76,7 @@
     {
       "key": "t0015",
       "source": "게임 종료 후 재화 미반영 및 프로필 시점 불일치 이슈 해결",
-      "text": "Resolved issues where goods were not reflected after the game ended and profile timing was inconsistent."
+      "text": "Resolved issues where currency were not reflected after the game ended and profile timing was inconsistent."
     },
     {
       "key": "t0016",
@@ -106,7 +106,7 @@
     {
       "key": "t0021",
       "source": "고스톱",
-      "text": "GoStop"
+      "text": "Go-Stop"
     },
     {
       "key": "t0022",
@@ -146,7 +146,7 @@
     {
       "key": "t0029",
       "source": "도리·보미·실벗·케미, 각자 성격과 실력이 다른 로봇 친구들과 한 판.",
-      "text": "Dori, Bomi, Silbot, and Chemistry, a game against robot friends with different personalities and skills."
+      "text": "Dori, Bomi, Silbot, and Cami, a game against robot friends with different personalities and skills."
     },
     {
       "key": "t0030",
@@ -186,7 +186,7 @@
     {
       "key": "t0037",
       "source": "랭킹보드 권한 분리 — 케미 사용자만 노출",
-      "text": "Separate ranking board permissions — exposed only to Chemi users"
+      "text": "Separate ranking board permissions — exposed only to Cami users"
     },
     {
       "key": "t0038",
@@ -201,17 +201,17 @@
     {
       "key": "t0040",
       "source": "로보맞고",
-      "text": "Get hit by a robo"
+      "text": "Robo Go-Stop"
     },
     {
       "key": "t0041",
       "source": "로보맞고 · Go-Stop",
-      "text": "Robo Hit · Go-Stop"
+      "text": "Robo Go-Stop"
     },
     {
       "key": "t0042",
       "source": "로보맞고 타이틀 화면",
-      "text": "Robo Hitgo title screen"
+      "text": "Robo Go-Stop title screen"
     },
     {
       "key": "t0043",
@@ -231,7 +231,7 @@
     {
       "key": "t0046",
       "source": "를",
-      "text": "to"
+      "text": "​"
     },
     {
       "key": "t0047",
@@ -241,7 +241,7 @@
     {
       "key": "t0048",
       "source": "맞고",
-      "text": "hit"
+      "text": "Go-Stop"
     },
     {
       "key": "t0049",
@@ -281,7 +281,7 @@
     {
       "key": "t0056",
       "source": "방 입장 직후 검증 실패로 비정상 진입 시 재화·매칭이 어긋남",
-      "text": "Due to verification failure immediately after entering the room, goods and matching are misaligned upon abnormal entry."
+      "text": "Due to verification failure immediately after entering the room, currency and matching are misaligned upon abnormal entry."
     },
     {
       "key": "t0057",
@@ -336,7 +336,7 @@
     {
       "key": "t0067",
       "source": "세션-재화-게임 흐름 통합",
-      "text": "Session-Goods-Game Flow Integration"
+      "text": "Session-currency-Game Flow Integration"
     },
     {
       "key": "t0068",
@@ -391,7 +391,7 @@
     {
       "key": "t0078",
       "source": "완전한 맞고 룰",
-      "text": "Complete correct rule"
+      "text": "Complete Go-Stop rules"
     },
     {
       "key": "t0079",
@@ -421,7 +421,7 @@
     {
       "key": "t0084",
       "source": "입장 시 세션 검증 단계를 도입. 실패하면 재화를 갱신한 뒤 AI 매칭으로 자연 폴백. 시작/종료 위치를 재정렬해 안정화.",
-      "text": "Introducing a session verification step upon entry. If it fails, natural fallback occurs with AI matching after updating the goods. Stabilize by rearranging start/end positions."
+      "text": "Introducing a session verification step upon entry. If it fails, natural fallback occurs with AI matching after updating the currency. Stabilize by rearranging start/end positions."
     },
     {
       "key": "t0085",
@@ -431,7 +431,7 @@
     {
       "key": "t0086",
       "source": "점수, 재화, 프로필 정보가 케미 계정에 안전하게 저장돼요. 기기를 바꿔도 그대로!",
-      "text": "Scores, goods, and profile information are safely stored in your Chemi account. Even if you change devices, it stays the same!"
+      "text": "Scores, currency, and profile information are safely stored in your Cami account. Even if you change devices, it stays the same!"
     },
     {
       "key": "t0087",
@@ -476,37 +476,37 @@
     {
       "key": "t0095",
       "source": "케미 계정과 연동되는 리더보드, 점수와 함께 성장하는 닉네임·프로필 타이틀.",
-      "text": "Leaderboard linked to Chemi account, nickname and profile title that grow with your score."
+      "text": "Leaderboard linked to Cami account, nickname and profile title that grow with your score."
     },
     {
       "key": "t0096",
       "source": "케미 로그인 시 닉네임 표기 일원화 (사용자 입력 우선)",
-      "text": "Uniform display of nicknames when logging in to Chemi (user input takes priority)"
+      "text": "Uniform display of nicknames when logging in to Cami (user input takes priority)"
     },
     {
       "key": "t0097",
       "source": "케미 연동",
-      "text": "Chemistry integration"
+      "text": "Cami integration"
     },
     {
       "key": "t0098",
       "source": "케미 친구들과 함께 경쟁하는 실시간 리더보드. 오늘 내 자리는?",
-      "text": "Real-time leaderboard to compete with Chemistry friends. What is my position today?"
+      "text": "A live leaderboard where you compete with Cami Friends. Where do you rank today?"
     },
     {
       "key": "t0099",
       "source": "케미 프렌즈 계정으로 로그인하면 기기를 옮겨도 기록이 따라오고,",
-      "text": "If you log in with your Chemi Friends account, your records will follow even if you move your device."
+      "text": "If you log in with your Cami Friends account, your records will follow even if you move your device."
     },
     {
       "key": "t0100",
       "source": "케미 프렌즈 앱 유저라면 더 많이",
-      "text": "More if you are a Chemi Friends app user"
+      "text": "More if you are a Cami Friends app user"
     },
     {
       "key": "t0101",
       "source": "케미·하이보미·게스트 등 다중 플랫폼 로그인 흐름을 통합하고,",
-      "text": "Integrates multi-platform login flows such as Chemi, Hibomi, and Guest,"
+      "text": "Integrates multi-platform login flows such as Cami, Hibomi, and Guest,"
     },
     {
       "key": "t0102",
@@ -561,7 +561,7 @@
     {
       "key": "t0112",
       "source": "한 판 어떠세요,",
-      "text": "How about a round?"
+      "text": "Care for a round?"
     },
     {
       "key": "t0113",
@@ -576,7 +576,7 @@
     {
       "key": "t0115",
       "source": "한국 전통 화투 게임 '맞고'의 Unity 6 구현. 멀티플레이 안정화, 로그인 플랫폼 통합, 세션-재화 흐름 안정화 작업 포트폴리오.",
-      "text": "Unity 6 implementation of the Korean traditional Hwatu game ‘Majgo’. Portfolio of work on multiplayer stabilization, login platform integration, and session-goods flow stabilization."
+      "text": "A Unity 6 implementation of the traditional Korean Hwatu game Go-Stop, highlighting multiplayer stabilization, unified login flows, and reliable session-to-currency synchronization."
     },
     {
       "key": "t0116",
@@ -611,7 +611,7 @@
     {
       "key": "t0122",
       "source": "CareBrainFit · 체조 + 아케이드",
-      "text": "CareBrainFit · Gymnastics + Arcade"
+      "text": "CareBrainFit · exercise + Arcade"
     },
     {
       "key": "t0123",
@@ -646,12 +646,12 @@
     {
       "key": "t0129",
       "source": "Go-Stop · 로보맞고 — Game Showcase & Developer Portfolio",
-      "text": "Go-Stop · Robo Hitgo — Game Showcase & Developer Portfolio"
+      "text": "Go-Stop · Robo Go-Stop — Game Showcase & Developer Portfolio"
     },
     {
       "key": "t0130",
-      "source": "KEMI FRIENDS · 앱 연동",
-      "text": "KEMI FRIENDS · App integration"
+      "source": "Cami Friends · 앱 연동",
+      "text": "Cami Friends · App integration"
     },
     {
       "key": "t0131",
@@ -671,17 +671,17 @@
     {
       "key": "t0134",
       "source": "Spawn 대기 → 프로필 교환 → 서버 재화 갱신 → 게임 시작 검증의 4단계 파이프라인을 명확히 분리. 각 단계의 실패는 재시도 또는 폴백으로 분기.",
-      "text": "Clear separation of the four-stage pipeline of spawn waiting → profile exchange → server goods update → game start verification. Failure of each step branches to a retry or fallback."
+      "text": "Clear separation of the four-stage pipeline of spawn waiting → profile exchange → server currency update → game start verification. Failure of each step branches to a retry or fallback."
     },
     {
       "key": "t0135",
       "source": "Spawn 대기 → 프로필 교환 → 서버 재화 검증 → 게임 시작 파이프라인",
-      "text": "Wait for spawn → Exchange profile → Verify server goods → Game start pipeline"
+      "text": "Wait for spawn → Exchange profile → Verify server currency → Game start pipeline"
     },
     {
       "key": "t0136",
       "source": "Spawn 직후 게임이 시작되어 재화/프로필 정보가 동기화되지 않음",
-      "text": "The game starts immediately after spawning and the goods/profile information are out of sync."
+      "text": "The game starts immediately after spawning and the currency/profile information are out of sync."
     },
     {
       "key": "t0137",
@@ -691,7 +691,7 @@
     {
       "key": "t0138",
       "source": "UGS 멀티플레이 안정화부터 로그인 플랫폼 통합, 세션-재화 동기화까지.",
-      "text": "From UGS multiplayer stabilization to login platform integration and session-goods synchronization."
+      "text": "From UGS multiplayer stabilization to login platform integration and session-currency synchronization."
     },
     {
       "key": "t0139",
@@ -712,6 +712,46 @@
       "key": "t0142",
       "source": "Unity Gaming Services 의 4개 모듈을 게임 전반에 통합하여",
       "text": "By integrating the four modules of Unity Gaming Services into the overall game,"
+    },
+    {
+      "key": "t0143",
+      "source": "시니어 UX 친화 문구 다듬기",
+      "text": "Refine copy for a senior-friendly UX"
+    },
+    {
+      "key": "t0144",
+      "source": "점수·재화·프로필 크로스 디바이스 동기화",
+      "text": "Cross-device synchronization for scores, currency, and profiles"
+    },
+    {
+      "key": "t0145",
+      "source": "재화 증감·출석 체크 서버 검증 및 클라이언트 변조 차단",
+      "text": "Server-validated currency changes and attendance rewards with client tampering prevention"
+    },
+    {
+      "key": "t0146",
+      "source": "케미 사용자 전용 실시간 랭킹 보드",
+      "text": "Real-time leaderboard for Cami users"
+    },
+    {
+      "key": "t0147",
+      "source": "재배포 없는 인앱 업데이트 및 게임 수치 조정",
+      "text": "In-app updates and live game tuning without redeployment"
+    },
+    {
+      "key": "t0148",
+      "source": "케어 브레인 핏 · CareBrainFit",
+      "text": "CareBrainFit"
+    },
+    {
+      "key": "t0149",
+      "source": "한국 전통 화투 게임",
+      "text": "Traditional Korean Hwatu game"
+    },
+    {
+      "key": "t0150",
+      "source": "승리의 전당 랭킹 보드 화면",
+      "text": "Hall of Champions leaderboard screen"
     }
   ]
 }

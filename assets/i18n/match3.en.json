@@ -1,7 +1,7 @@
 {
   "page": "match3",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -206,7 +206,7 @@
     {
       "key": "t0041",
       "source": "보상 지급과 상태 저장은 서버 검증 흐름을 통해 일관성을 유지합니다.",
-      "text": "Reward payouts and state storage are kept consistent through the server verification flow."
+      "text": "A server-validated flow keeps reward payouts and saved state consistent."
     },
     {
       "key": "t0042",
@@ -216,7 +216,7 @@
     {
       "key": "t0043",
       "source": "보상은 단순한 숫자 증가가 아니라, 플레이를 계속하게 만드는 핵심 설계 요소입니다. 재화 지급, 수령 상태, UI 반영을 하나의 흐름으로 묶어 사용자가 결과를 즉시 이해할 수 있도록 했습니다.",
-      "text": "Rewards aren't just numbers, they're a core design element that keeps you playing. We bundled goods payment, receipt status, and UI reflection into one flow so that users could immediately understand the results."
+      "text": "Rewards aren't just numbers, they're a core design element that keeps you playing. We bundled currency payment, receipt status, and UI reflection into one flow so that users could immediately understand the results."
     },
     {
       "key": "t0044",
@@ -296,7 +296,7 @@
     {
       "key": "t0059",
       "source": "여기부터는 플레이 경험을 실제 서비스 구조로 바꾼 기술 이야기입니다.",
-      "text": "From here, we will talk about the technology that transformed the playing experience into an actual service structure."
+      "text": "From here, the focus shifts to the engineering that turned the core gameplay into a production-ready service."
     },
     {
       "key": "t0060",
@@ -616,7 +616,7 @@
     {
       "key": "t0123",
       "source": "GitHub에 정리한 주요 작업은 단순 UI 추가가 아니라, 서버 검증과 상태 동기화를 포함한 실제 운영 기능 구현에 가깝습니다.",
-      "text": "The main work organized on GitHub is not simply adding a UI, but is closer to implementing actual operational functions, including server verification and state synchronization."
+      "text": "The work documented on GitHub goes beyond UI additions: it implements production features including server-side validation and state synchronization."
     },
     {
       "key": "t0124",

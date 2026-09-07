@@ -544,14 +544,9 @@
       "text": "Cloud Code 스크립트 배포, Remote Config 키 관리, Cloud Save 키 정책"
     },
     {
-      "key": "t0109",
-      "source": "Kemi Friends · 재미 공간",
-      "text": "Kemi Friends · 재미 공간"
-    },
-    {
       "key": "t0110",
-      "source": "KEMI FRIENDS · 재미 공간",
-      "text": "KEMI FRIENDS · 재미 공간"
+      "source": "Cami Friends · 재미 공간",
+      "text": "Cami Friends · 재미 공간"
     },
     {
       "key": "t0111",
@@ -652,6 +647,21 @@
       "key": "t0130",
       "source": "UX 개선",
       "text": "UX 개선"
+    },
+    {
+      "key": "t0131",
+      "source": "Rhythm Game · 손가락 댄스",
+      "text": "Rhythm Game · 손가락 댄스"
+    },
+    {
+      "key": "t0132",
+      "source": "Silbot · 실벗 로봇 학습 시스템",
+      "text": "Silbot · 실벗 로봇 학습 시스템"
+    },
+    {
+      "key": "t0133",
+      "source": "보미와 손가락 댄스 리듬게임 플레이 화면",
+      "text": "보미와 손가락 댄스 리듬게임 플레이 화면"
     }
   ]
 }

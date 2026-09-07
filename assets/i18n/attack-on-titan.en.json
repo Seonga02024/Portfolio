@@ -1,7 +1,7 @@
 {
   "page": "attack-on-titan",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -531,7 +531,7 @@
     {
       "key": "t0106",
       "source": "제작사 콜라보로 출시한",
-      "text": "Released in collaboration with the production company"
+      "text": "released in collaboration with the Attack on Titan rights holder as a"
     },
     {
       "key": "t0107",
@@ -546,7 +546,7 @@
     {
       "key": "t0109",
       "source": "진격의 거인",
-      "text": "attack on titan"
+      "text": "Attack on Titan"
     },
     {
       "key": "t0110",
@@ -581,7 +581,7 @@
     {
       "key": "t0116",
       "source": "투석",
-      "text": "dialysis"
+      "text": "boulder throw"
     },
     {
       "key": "t0117",
@@ -646,7 +646,7 @@
     {
       "key": "t0129",
       "source": "힐",
-      "text": "heel"
+      "text": "healing"
     },
     {
       "key": "t0130",
@@ -736,7 +736,7 @@
     {
       "key": "t0147",
       "source": "Naver Zepeto 메타버스 플랫폼 × 진격의 거인 콜라보 멀티 생존 게임. 누적 방문 2.1M, 인기 차트 10위권 1개월. 1차 클라이언트 50% → 2차 메인 80% 개발 포트폴리오.",
-      "text": "Naver Zepeto metaverse platform × Attack on Titan collaboration multiplayer survival game. Cumulative visits: 2.1M, top 10 on popular charts for 1 month. 1st client 50% → 2nd main 80% development portfolio."
+      "text": "A ZEPETO multiplayer survival game created in collaboration with Attack on Titan. It reached 2.1M visits and stayed in ZEPETO's top 10 popularity chart for one month. My client-side contribution grew from 50% in the initial release to 80% as the lead developer for the second update."
     },
     {
       "key": "t0148",
@@ -787,6 +787,121 @@
       "key": "t0157",
       "source": "Zepeto SDK 위에 Unity 와 TypeScript 로 게임 로직을 작성. Photon 기반 멀티플레이로",
       "text": "Write game logic in Unity and TypeScript on top of Zepeto SDK. Photon-based multiplayer"
+    },
+    {
+      "key": "t0158",
+      "source": "1차 출시의 핵심 생존 플레이부터 2차 업데이트에서 확장된 콘텐츠, 실제 이용 성과까지 순서대로 정리했습니다.",
+      "text": "This section follows the project from the initial release's core survival gameplay through the expanded second update and its live-service results."
+    },
+    {
+      "key": "t0159",
+      "source": "1차 업데이트 · 핵심 생존 플레이",
+      "text": "Initial Release · Core Survival Gameplay"
+    },
+    {
+      "key": "t0160",
+      "source": "멀티플레이 생존 진행",
+      "text": "Multiplayer survival in progress"
+    },
+    {
+      "key": "t0161",
+      "source": "거인 등장 · 재난 회피",
+      "text": "Titan encounter · Disaster evasion"
+    },
+    {
+      "key": "t0162",
+      "source": "1차 업데이트 플레이 영상",
+      "text": "Initial Release Gameplay Video"
+    },
+    {
+      "key": "t0163",
+      "source": "2차 업데이트 · 콘텐츠 확장",
+      "text": "Second Update · Content Expansion"
+    },
+    {
+      "key": "t0164",
+      "source": "신규 거인 · 랭커 콘텐츠",
+      "text": "New Titans · Ranker Content"
+    },
+    {
+      "key": "t0165",
+      "source": "노을 배경의 하드 모드",
+      "text": "Hard Mode at Sunset"
+    },
+    {
+      "key": "t0166",
+      "source": "2차 업데이트 플레이 영상",
+      "text": "Second Update Gameplay Video"
+    },
+    {
+      "key": "t0167",
+      "source": "누적 방문 2.1M",
+      "text": "2.1M Total Visits"
+    },
+    {
+      "key": "t0168",
+      "source": "좋아요 95% · 11.5K, 최근 방문 5.9K를 기록한 실제 서비스 이용 현황입니다.",
+      "text": "Live-service results: a 95% approval rating, 11.5K likes, and 5.9K recent visits."
+    },
+    {
+      "key": "t0169",
+      "source": "시간축과 가중치 기반의 무작위 재난 스폰",
+      "text": "Weighted random disaster spawning along a timeline"
+    },
+    {
+      "key": "t0170",
+      "source": "Host가 중간에 나가도 게임이 멈추지 않도록 권한 인수",
+      "text": "Host handoff keeps the game running when the host leaves mid-session"
+    },
+    {
+      "key": "t0171",
+      "source": "상속 · 오버라이딩 · 인터페이스로 중복 코드 제거",
+      "text": "Eliminate duplicate code through inheritance, overrides, and interfaces"
+    },
+    {
+      "key": "t0172",
+      "source": "협업을 고려해 코드 가독성 향상",
+      "text": "Improve code readability for collaboration"
+    },
+    {
+      "key": "t0173",
+      "source": "거인 · 이펙트 등 대량 인스턴스 재사용",
+      "text": "Reuse high-volume instances such as Titans and effects"
+    },
+    {
+      "key": "t0174",
+      "source": "진격의 거인 멀티플레이 생존 진행 화면",
+      "text": "Attack on Titan multiplayer survival gameplay"
+    },
+    {
+      "key": "t0175",
+      "source": "1차 업데이트 멀티플레이 생존 화면",
+      "text": "Initial release multiplayer survival screen"
+    },
+    {
+      "key": "t0176",
+      "source": "1차 업데이트 거인 조우 화면",
+      "text": "Initial release Titan encounter screen"
+    },
+    {
+      "key": "t0177",
+      "source": "2차 업데이트 확장 콘텐츠 플레이 화면",
+      "text": "Second update expanded-content gameplay"
+    },
+    {
+      "key": "t0178",
+      "source": "2차 업데이트 하드 모드 화면",
+      "text": "Second update Hard Mode screen"
+    },
+    {
+      "key": "t0179",
+      "source": "ZEPETO 진격의 거인 서바이벌 이용 현황 페이지",
+      "text": "ZEPETO Attack on Titan survival world statistics"
+    },
+    {
+      "key": "t0180",
+      "source": "진격의 거인 프로모션 영상",
+      "text": "Attack on Titan promotional video"
     }
   ]
 }

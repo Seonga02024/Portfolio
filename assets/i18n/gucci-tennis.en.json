@@ -1,7 +1,7 @@
 {
   "page": "gucci-tennis",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -256,12 +256,12 @@
     {
       "key": "t0051",
       "source": "메인 담당, 출시 + 패치까지 풀 사이클.",
-      "text": "Main responsibility, full cycle from release + patch."
+      "text": "Lead client developer across the full cycle, from launch through live patches."
     },
     {
       "key": "t0052",
       "source": "명이",
-      "text": "Myeongseong"
+      "text": "visitors"
     },
     {
       "key": "t0053",
@@ -591,12 +591,12 @@
     {
       "key": "t0118",
       "source": "MY CONTRIBUTIONS · 클라이언트 80% 메인",
-      "text": "MY CONTRIBUTIONS · Client 80% Main"
+      "text": "MY CONTRIBUTIONS · 80% CLIENT-SIDE LEAD"
     },
     {
       "key": "t0119",
       "source": "Naver Zepeto × Gucci 콜라보 3D 멀티 테니스 게임. 누적 방문 193K, Unity + TypeScript, 공 궤적 시뮬레이션 + 2D↔3D 좌표 변환. 클라이언트 80% 메인 담당.",
-      "text": "Naver Zepeto × Gucci collaboration 3D multiplayer tennis game. Cumulative visits 193K, Unity + TypeScript, ball trajectory simulation + 2D↔3D coordinate conversion. Main responsibility for 80% of clients."
+      "text": "A ZEPETO × Gucci 3D multiplayer tennis game with 193K visits. Built with Unity and TypeScript, featuring ball-trajectory simulation and 2D-to-3D coordinate conversion; I led 80% of the client-side development."
     },
     {
       "key": "t0120",
@@ -622,6 +622,96 @@
       "key": "t0124",
       "source": "Zepeto 플랫폼 SDK 위에서 Unity 클라이언트 + TypeScript 서버 스크립트.",
       "text": "Unity client + TypeScript server script on top of the Zepeto platform SDK."
+    },
+    {
+      "key": "t0125",
+      "source": "매칭부터 타격 판정과 궤적 안내, 티어 보상과 Gucci 아이템 상점까지 — 게임의 주요 화면들.",
+      "text": "Key screens covering matchmaking, shot evaluation and trajectory guidance, tier rewards, and the Gucci item shop."
+    },
+    {
+      "key": "t0126",
+      "source": "실제 플레이 영상은 아래 갤러리와 상단",
+      "text": "The gameplay video is available in the gallery below and from the"
+    },
+    {
+      "key": "t0127",
+      "source": "경기 시작 · 상대 정보와 보너스 능력치 비교",
+      "text": "Match start · Opponent details and bonus stat comparison"
+    },
+    {
+      "key": "t0128",
+      "source": "실시간 랠리 · 스윙 타이밍 피드백",
+      "text": "Live rally · Swing-timing feedback"
+    },
+    {
+      "key": "t0129",
+      "source": "공 궤적 · 착지 지점과 스윙 영역 안내",
+      "text": "Ball trajectory · Landing point and swing-zone guidance"
+    },
+    {
+      "key": "t0130",
+      "source": "리턴 타이밍 · 타깃 코트 영역 표시",
+      "text": "Return timing · Target court visualization"
+    },
+    {
+      "key": "t0131",
+      "source": "티어 진행도 · 단계별 플레이 보상",
+      "text": "Tier progress · Milestone rewards"
+    },
+    {
+      "key": "t0132",
+      "source": "Gucci 아이템 상점 · 장비별 능력치 강화",
+      "text": "Gucci item shop · Equipment stat upgrades"
+    },
+    {
+      "key": "t0133",
+      "source": "Gucci Tennis · 실제 플레이 영상",
+      "text": "Gucci Tennis · Gameplay Video"
+    },
+    {
+      "key": "t0134",
+      "source": "RunToRoom · 캐주얼 생존",
+      "text": "RunToRoom · Casual Survival"
+    },
+    {
+      "key": "t0135",
+      "source": "Zepeto 진격의 거인",
+      "text": "ZEPETO Attack on Titan"
+    },
+    {
+      "key": "t0136",
+      "source": "Gucci Tennis 경기 시작 및 상대 매칭 화면",
+      "text": "Gucci Tennis match start and opponent screen"
+    },
+    {
+      "key": "t0137",
+      "source": "Gucci Tennis 타격 속도 판정 화면",
+      "text": "Gucci Tennis shot-speed evaluation screen"
+    },
+    {
+      "key": "t0138",
+      "source": "Gucci Tennis 공 궤적과 착지 지점 안내 화면",
+      "text": "Gucci Tennis trajectory and landing-point guide"
+    },
+    {
+      "key": "t0139",
+      "source": "Gucci Tennis 리턴 타이밍과 타깃 영역 화면",
+      "text": "Gucci Tennis return-timing and target-area screen"
+    },
+    {
+      "key": "t0140",
+      "source": "Gucci Tennis 티어 진행도와 보상 화면",
+      "text": "Gucci Tennis tier progress and rewards screen"
+    },
+    {
+      "key": "t0141",
+      "source": "Gucci Tennis 브랜드 아이템 상점 화면",
+      "text": "Gucci Tennis branded item shop"
+    },
+    {
+      "key": "t0142",
+      "source": "Gucci Tennis 실제 플레이 영상",
+      "text": "Gucci Tennis gameplay video"
     }
   ]
 }

@@ -912,6 +912,31 @@
       "key": "t0182",
       "source": "WriteLock 재시도(409/412)로 동시성 안전, INSUFFICIENT_FUNDS 거절",
       "text": "WriteLock 재시도(409/412)로 동시성 안전, INSUFFICIENT_FUNDS 거절"
+    },
+    {
+      "key": "t0183",
+      "source": "좌측 상단 nav 의 \"CB\" 그라데이션 아이콘을 실제 로고로 교체. .brand .logo-icon 의 텍스트를 <img> 로 변경.",
+      "text": "좌측 상단 nav 의 \"CB\" 그라데이션 아이콘을 실제 로고로 교체. .brand .logo-icon 의 텍스트를 <img> 로 변경."
+    },
+    {
+      "key": "t0184",
+      "source": "<img src=\"assets/game_F1.jpg\" alt=\"F1 게임 화면\">",
+      "text": "<img src=\"assets/game_F1.jpg\" alt=\"F1 게임 화면\">"
+    },
+    {
+      "key": "t0185",
+      "source": "로보맞고 · Robo Gostop",
+      "text": "로보맞고 · Robo Gostop"
+    },
+    {
+      "key": "t0186",
+      "source": "Silbot · 실벗 로봇 학습 시스템",
+      "text": "Silbot · 실벗 로봇 학습 시스템"
+    },
+    {
+      "key": "t0187",
+      "source": "MediaPipe 기반 체조·아케이드 인지 운동 게임",
+      "text": "MediaPipe 기반 체조·아케이드 인지 운동 게임"
     }
   ]
 }

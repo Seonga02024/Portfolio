@@ -2067,6 +2067,201 @@
       "key": "t0413",
       "source": "WordPair · 단어 짝",
       "text": "WordPair · 단어 짝"
+    },
+    {
+      "key": "t0414",
+      "source": "Luckybag · 동전 잡기",
+      "text": "Luckybag · 동전 잡기"
+    },
+    {
+      "key": "t0415",
+      "source": "Hangul · 한글 게임",
+      "text": "Hangul · 한글 게임"
+    },
+    {
+      "key": "t0416",
+      "source": "HangulBegin · 한글 배우기",
+      "text": "HangulBegin · 한글 배우기"
+    },
+    {
+      "key": "t0417",
+      "source": "Pong · 핑퐁 게임",
+      "text": "Pong · 핑퐁 게임"
+    },
+    {
+      "key": "t0418",
+      "source": "Match3 · 두뇌 과일팡",
+      "text": "Match3 · 두뇌 과일팡"
+    },
+    {
+      "key": "t0419",
+      "source": "CopyMe · 로봇 따라하기",
+      "text": "CopyMe · 로봇 따라하기"
+    },
+    {
+      "key": "t0420",
+      "source": "Drive · 로봇 조정하기",
+      "text": "Drive · 로봇 조정하기"
+    },
+    {
+      "key": "t0421",
+      "source": "PathFollow · 로봇 따라가기",
+      "text": "PathFollow · 로봇 따라가기"
+    },
+    {
+      "key": "t0422",
+      "source": "StoryBox · 이야기 기억하기",
+      "text": "StoryBox · 이야기 기억하기"
+    },
+    {
+      "key": "t0423",
+      "source": "WordPair · 단어 짝 맞추기",
+      "text": "WordPair · 단어 짝 맞추기"
+    },
+    {
+      "key": "t0424",
+      "source": "WhatsThis · 물건 맞추기",
+      "text": "WhatsThis · 물건 맞추기"
+    },
+    {
+      "key": "t0425",
+      "source": "ColorWord · 색-단어 맞추기",
+      "text": "ColorWord · 색-단어 맞추기"
+    },
+    {
+      "key": "t0426",
+      "source": "Howmuch · 계산하기",
+      "text": "Howmuch · 계산하기"
+    },
+    {
+      "key": "t0427",
+      "source": "Wisdom · 지혜의 판",
+      "text": "Wisdom · 지혜의 판"
+    },
+    {
+      "key": "t0428",
+      "source": "Match · 10원 게임",
+      "text": "Match · 10원 게임"
+    },
+    {
+      "key": "t0429",
+      "source": "Star · 반짝반짝 별자리",
+      "text": "Star · 반짝반짝 별자리"
+    },
+    {
+      "key": "t0430",
+      "source": "두뇌 과일팡",
+      "text": "두뇌 과일팡"
+    },
+    {
+      "key": "t0431",
+      "source": "10원 게임",
+      "text": "10원 게임"
+    },
+    {
+      "key": "t0432",
+      "source": "여러 개의 숫자 동전 위를 드래그해 선택한 동전들의 합이 정확히 10이 되도록 만듭니다.",
+      "text": "여러 개의 숫자 동전 위를 드래그해 선택한 동전들의 합이 정확히 10이 되도록 만듭니다."
+    },
+    {
+      "key": "t0433",
+      "source": "반짝반짝 별자리",
+      "text": "반짝반짝 별자리"
+    },
+    {
+      "key": "t0434",
+      "source": "위 .game-image 영역의 placeholder 를 <video autoplay muted loop playsinline> 로 교체할 수 있습니다.",
+      "text": "위 .game-image 영역의 placeholder 를 <video autoplay muted loop playsinline> 로 교체할 수 있습니다."
+    },
+    {
+      "key": "t0435",
+      "source": "🎬 현장 시연 — \"10원 게임\"",
+      "text": "🎬 현장 시연 — \"10원 게임\""
+    },
+    {
+      "key": "t0436",
+      "source": "본 영상의 콘텐츠는 합이 10이 되도록 동전을 연결하는 인지 훈련 게임이지만, 화면 구조와 데이터 흐름은",
+      "text": "본 영상의 콘텐츠는 합이 10이 되도록 동전을 연결하는 인지 훈련 게임이지만, 화면 구조와 데이터 흐름은"
+    },
+    {
+      "key": "t0437",
+      "source": "대화면 · 실시간 랭킹 + 게임 진행 공유",
+      "text": "대화면 · 실시간 랭킹 + 게임 진행 공유"
+    },
+    {
+      "key": "t0438",
+      "source": "드래그로 동전을 선택 → 합이 10이면 성공. 콤보 누적 시 상대 보드 공격. 가중치 기반 동전 숫자 분포.",
+      "text": "드래그로 동전을 선택 → 합이 10이면 성공. 콤보 누적 시 상대 보드 공격. 가중치 기반 동전 숫자 분포."
+    },
+    {
+      "key": "t0439",
+      "source": "마우스/터치 다운→드래그→업 흐름에서 동전 위치·거리 검사. 인접 거리(200) 초과 시 점프 방지,",
+      "text": "마우스/터치 다운→드래그→업 흐름에서 동전 위치·거리 검사. 인접 거리(200) 초과 시 점프 방지,"
+    },
+    {
+      "key": "t0440",
+      "source": "선택 동전을 LineRenderer 로 연결. 업 시점에 합 계산해 ANSWER(10) 여부 판정.",
+      "text": "선택 동전을 LineRenderer 로 연결. 업 시점에 합 계산해 ANSWER(10) 여부 판정."
+    },
+    {
+      "key": "t0441",
+      "source": "가중치 동전 생성",
+      "text": "가중치 동전 생성"
+    },
+    {
+      "key": "t0442",
+      "source": "1~9 숫자 동전을 그냥 랜덤이 아니라 가중치로 분포.",
+      "text": "1~9 숫자 동전을 그냥 랜덤이 아니라 가중치로 분포."
+    },
+    {
+      "key": "t0443",
+      "source": "마지막 동전은 전체 합이 10의 배수가 되도록 보정. 풀이 가능한 보드 자동 보장.",
+      "text": "마지막 동전은 전체 합이 10의 배수가 되도록 보정. 풀이 가능한 보드 자동 보장."
+    },
+    {
+      "key": "t0444",
+      "source": "5-07 Star · 반짝반짝 별자리 입력 & 정답 검증",
+      "text": "5-07 Star · 반짝반짝 별자리 입력 & 정답 검증"
+    },
+    {
+      "key": "t0445",
+      "source": "<img src=\"assets/game_match3.jpg\" alt=\"3-11 Match3 게임 화면\">",
+      "text": "<img src=\"assets/game_match3.jpg\" alt=\"3-11 Match3 게임 화면\">"
+    },
+    {
+      "key": "t0446",
+      "source": "케어 브레인 핏 · CareBrainFit",
+      "text": "케어 브레인 핏 · CareBrainFit"
+    },
+    {
+      "key": "t0447",
+      "source": "그 외 프로젝트 · Robocare",
+      "text": "그 외 프로젝트 · Robocare"
+    },
+    {
+      "key": "t0448",
+      "source": "실벗 로봇과 함께 진행하는 디지털 두뇌 건강 교실",
+      "text": "실벗 로봇과 함께 진행하는 디지털 두뇌 건강 교실"
+    },
+    {
+      "key": "t0449",
+      "source": "두뇌 과일팡 Match3 플레이 화면",
+      "text": "두뇌 과일팡 Match3 플레이 화면"
+    },
+    {
+      "key": "t0450",
+      "source": "10원 게임 플레이 화면",
+      "text": "10원 게임 플레이 화면"
+    },
+    {
+      "key": "t0451",
+      "source": "반짝반짝 별자리 플레이 화면",
+      "text": "반짝반짝 별자리 플레이 화면"
+    },
+    {
+      "key": "t0452",
+      "source": "실벗 발화·동작 시퀀스 빌더 화면",
+      "text": "실벗 발화·동작 시퀀스 빌더 화면"
     }
   ]
 }

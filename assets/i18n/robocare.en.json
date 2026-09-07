@@ -1,7 +1,7 @@
 {
   "page": "robocare",
   "language": "en",
-  "edit_note": "Write the English text values here. Empty text falls back to the Korean file.",
+  "edit_note": "Edit the text values. Keep key/source unchanged so the page can find each original string.",
   "entries": [
     {
       "key": "t0001",
@@ -11,12 +11,12 @@
     {
       "key": "t0002",
       "source": "(케미프렌즈 라인업)",
-      "text": "(Chemi Friends lineup)"
+      "text": "(Cami Friends lineup)"
     },
     {
       "key": "t0003",
       "source": "(케미프렌즈 앱 메인 / 재미 공간 진입 화면)",
-      "text": "(Chemi Friends app main/fun space entry screen)"
+      "text": "(Cami Friends app main/fun space entry screen)"
     },
     {
       "key": "t0004",
@@ -36,7 +36,7 @@
     {
       "key": "t0007",
       "source": "6개 케미프렌즈 콘텐츠가 같은 계정·같은 정책으로 안정적으로 운영되도록,",
-      "text": "To ensure that the six Chemi Friends contents are operated stably under the same account and same policy,"
+      "text": "To ensure that the six Cami Friends contents are operated stably under the same account and same policy,"
     },
     {
       "key": "t0008",
@@ -71,7 +71,7 @@
     {
       "key": "t0014",
       "source": "개별 게임 작업 외에, 로보케어 케미프렌즈 라인업",
-      "text": "In addition to individual game work, the RoboCare Chemi Friends lineup"
+      "text": "In addition to individual game work, the RoboCare Cami Friends lineup"
     },
     {
       "key": "t0015",
@@ -151,7 +151,7 @@
     {
       "key": "t0030",
       "source": "로보케어(Robocare)에서 작업한 케미프렌즈 재미 공간 기타 프로젝트와 공통 운영 영역을 정리한 개발자 포트폴리오.",
-      "text": "Developer portfolio summarizing the Chemi Friends fun space and other projects worked on at Robocare and common operating areas."
+      "text": "Developer portfolio summarizing the Cami Friends fun space and other projects worked on at Robocare and common operating areas."
     },
     {
       "key": "t0031",
@@ -176,7 +176,7 @@
     {
       "key": "t0035",
       "source": "모든 콘텐츠는 케미프렌즈 재미 공간 / 구글 플레이 스토어에서 다운로드할 수 있습니다.",
-      "text": "All content can be downloaded from Chemi Friends Fun Space / Google Play Store."
+      "text": "All content can be downloaded from Cami Friends Fun Space / Google Play Store."
     },
     {
       "key": "t0036",
@@ -456,27 +456,27 @@
     {
       "key": "t0091",
       "source": "케미프렌즈",
-      "text": "Chemi Friends"
+      "text": "Cami Friends"
     },
     {
       "key": "t0092",
       "source": "케미프렌즈 기타 프로젝트 정리",
-      "text": "Chemi Friends Other Project Summary"
+      "text": "Cami Friends Other Project Summary"
     },
     {
       "key": "t0093",
       "source": "케미프렌즈 앱의",
-      "text": "Chemi Friends app"
+      "text": "Cami Friends app"
     },
     {
       "key": "t0094",
       "source": "케미프렌즈 앱의 '재미 공간'",
-      "text": "‘Fun Space’ in the Chemi Friends app"
+      "text": "‘Fun Space’ in the Cami Friends app"
     },
     {
       "key": "t0095",
       "source": "케미프렌즈 앱의 재미 공간에서는 다양한 게임과 콘텐츠를 즐길 수 있습니다.",
-      "text": "You can enjoy a variety of games and content in the fun space of the Chemi Friends app."
+      "text": "You can enjoy a variety of games and content in the fun space of the Cami Friends app."
     },
     {
       "key": "t0096",
@@ -544,14 +544,9 @@
       "text": "Cloud Code script deployment, Remote Config key management, Cloud Save key policy"
     },
     {
-      "key": "t0109",
-      "source": "Kemi Friends · 재미 공간",
-      "text": "Kemi Friends · Fun Space"
-    },
-    {
       "key": "t0110",
-      "source": "KEMI FRIENDS · 재미 공간",
-      "text": "KEMI FRIENDS · Fun space"
+      "source": "Cami Friends · 재미 공간",
+      "text": "Cami Friends · Fun space"
     },
     {
       "key": "t0111",
@@ -591,7 +586,7 @@
     {
       "key": "t0118",
       "source": "Robo Gostop · 화투 멀티",
-      "text": "Robo Gostop · Hwatu Multi"
+      "text": "Robo Go-Stop · Multiplayer Hwatu"
     },
     {
       "key": "t0119",
@@ -652,6 +647,21 @@
       "key": "t0130",
       "source": "UX 개선",
       "text": "UX improvements"
+    },
+    {
+      "key": "t0131",
+      "source": "Rhythm Game · 손가락 댄스",
+      "text": "Rhythm Game · Finger Dance"
+    },
+    {
+      "key": "t0132",
+      "source": "Silbot · 실벗 로봇 학습 시스템",
+      "text": "Silbot · Robot-assisted Learning System"
+    },
+    {
+      "key": "t0133",
+      "source": "보미와 손가락 댄스 리듬게임 플레이 화면",
+      "text": "Finger Dance rhythm gameplay with Bomi"
     }
   ]
 }
