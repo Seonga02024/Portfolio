@@ -754,6 +754,10 @@
     .hl-card .hl-image img {
       width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
     }
+    .hl-card .hl-image.has-media {
+      padding: 0;
+      border-style: solid;
+    }
     .hl-card .hl-image strong {
       display: block;
       color: var(--d-text-dim);
@@ -1236,9 +1240,8 @@
         <!-- Match3 -->
         <div class="game-card">
           <div class="game-image">
-            <!-- 📸 assets/game_match3.jpg (1280x720 권장) -->
+            <img src="assets/match3.jpg" alt="두뇌 과일팡 Match3 플레이 화면" loading="lazy" decoding="async" />
             <span class="tag">3-11 · MATCH3</span>
-            게임 스크린샷<br/>assets/game_match3.jpg
           </div>
           <div class="game-body">
             <h3>두뇌 과일팡</h3>
@@ -1257,9 +1260,8 @@
         <!-- Match (5-06) -->
         <div class="game-card">
           <div class="game-image">
-            <!-- 📸 assets/game_match5_06.jpg -->
+            <img src="assets/십원게임.jpg" alt="10원 게임 플레이 화면" loading="lazy" decoding="async" />
             <span class="tag">5-06 · MATCH</span>
-            게임 스크린샷<br/>assets/game_match5_06.jpg
           </div>
           <div class="game-body">
             <h3>10원 게임</h3>
@@ -1278,9 +1280,8 @@
         <!-- Star (5-07) -->
         <div class="game-card">
           <div class="game-image">
-            <!-- 📸 assets/game_star.jpg -->
+            <img src="assets/별자리.jpg" alt="별자리 게임 플레이 화면" loading="lazy" decoding="async" />
             <span class="tag">5-07 · STAR</span>
-            게임 스크린샷<br/>assets/game_star.jpg
           </div>
           <div class="game-body">
             <h3>별자리 게임</h3>
@@ -1835,16 +1836,8 @@
               <span>Teacher Tool</span><span>Sequence Builder</span><span>PlayerPrefs JSON</span><span>Coroutine</span><span>Single Author</span>
             </div>
           </div>
-          <div class="hl-image">
-            <!-- 📸 가이드: 행사용 발화 창 UI 캡처를 여기에 추가하세요.
-                 파일명 예시: assets/feature_speech_window.jpg (또는 .png)
-                 권장 해상도: 1280 x 800 (가로) 또는 실제 UI 비율 그대로
-                 아래 placeholder 를 <img src="assets/feature_speech_window.jpg" alt="..."> 로 교체 -->
-            <div>
-              <strong>📸 FEATURE SCREENSHOT</strong>
-              assets/feature_speech_window.jpg<br/>
-              (블록 리스트 + 드롭다운 + 저장/불러오기 UI 가 보이는 캡처)
-            </div>
+          <div class="hl-image has-media">
+            <img src="assets/발화.jpg" alt="실벗 발화·동작 시퀀스 빌더 화면" loading="lazy" decoding="async" />
           </div>
         </div>
 
