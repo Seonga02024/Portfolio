@@ -15,6 +15,7 @@
   };
   var ATTRS = ["title", "alt", "aria-label", "placeholder", "content"];
   var resources = { ko: null, en: null };
+  var resourcesPromise = null;
   var sourceMap = {};
   var currentLang = readLang();
   var observer = null;
@@ -147,9 +148,10 @@
   }
 
   function loadResources() {
+    if (resourcesPromise) return resourcesPromise;
     var base = assetBase() + "i18n/" + pageId();
-    return Promise.all(["ko", "en"].map(function (lang) {
-      return fetch(base + "." + lang + ".json", { cache: "no-cache" })
+    resourcesPromise = Promise.all(["ko", "en"].map(function (lang) {
+      return fetch(base + "." + lang + ".json")
         .then(function (response) {
           if (!response.ok) throw new Error("Missing language file: " + lang);
           return response.json();
@@ -164,6 +166,7 @@
       sourceMap = {};
       showStatus("Language text files were not found.");
     });
+    return resourcesPromise;
   }
 
   function isEnglishMissing() {
@@ -233,8 +236,12 @@
   function setLanguage(lang, root) {
     saveLang(lang);
     refreshToggle();
-    applyLanguage(root);
-    showMissingEnglishNotice();
+    if (currentLang === "ko" && !resources.ko) return;
+    loadResources().then(function () {
+      applyLanguage(root);
+      showMissingEnglishNotice();
+      observeMutations();
+    });
   }
 
   function showStatus(message) {
@@ -295,6 +302,7 @@
   function init() {
     makeToggle();
     refreshToggle();
+    if (currentLang !== "en") return;
     loadResources().then(function () {
       applyLanguage(document.documentElement);
       showMissingEnglishNotice();
