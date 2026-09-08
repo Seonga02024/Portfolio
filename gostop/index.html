@@ -36,7 +36,7 @@
       --d-line: #2a3550;
       --d-text: #e6edf7;
       --d-text-dim: #9aa7be;
-      --d-text-muted: #6b7894;
+      --d-text-muted: #8290aa;
       --d-accent: #6ee7ff;
       --d-accent-2: #a78bfa;
       --d-accent-3: #f472b6;
@@ -592,7 +592,7 @@
     .layer:nth-child(4)::before { background: var(--d-amber); }
     .layer:nth-child(5)::before { background: var(--d-green); }
     .layer .layer-num { font-family: "JetBrains Mono", monospace; color: var(--d-text-muted); font-size: 11px; margin-bottom: 4px; }
-    .layer h4 { margin: 0 0 4px; font-size: 16px; }
+    .layer h3 { margin: 0 0 4px; font-size: 16px; }
     .layer .layer-path { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--d-accent); margin-bottom: 8px; }
     .layer p { margin: 0; font-size: 13.5px; color: var(--d-text-dim); }
     .arch-flow {
@@ -602,7 +602,7 @@
       padding: 24px;
       position: sticky; top: 100px;
     }
-    .arch-flow h4 { margin: 0 0 16px; font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--d-text-muted); letter-spacing: 0.04em; }
+    .arch-flow h3 { margin: 0 0 16px; font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--d-text-muted); letter-spacing: 0.04em; }
     .arch-flow pre { margin: 0; font-size: 12.5px; color: var(--d-text); line-height: 1.7; overflow-x: auto; }
     .arch-flow .ar { color: var(--d-accent); }
     .arch-flow .cm { color: var(--d-text-muted); }
@@ -829,6 +829,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- ============================================================
        NAV
@@ -846,8 +847,14 @@
         <a href="#technical" class="tech">// technical</a>
         <a href="#mine" class="tech">// my work</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
 
   <!-- ════════════════════════════════════════════════════════════
@@ -1128,38 +1135,38 @@
         <div class="arch-layers">
           <div class="layer">
             <div class="layer-num">LAYER 01 · Top</div>
-            <h4>UI Layer</h4>
+            <h3>UI Layer</h3>
             <div class="layer-path">Scripts/ui · Scripts/client</div>
             <p>비주얼 렌더링, 입력 처리, DOTween 애니메이션.</p>
           </div>
           <div class="layer">
             <div class="layer-num">LAYER 02</div>
-            <h4>Network Layer</h4>
+            <h3>Network Layer</h3>
             <div class="layer-path">Scripts/network</div>
             <p>Protocol 라우팅, CPacket 바이너리 직렬화, RPC 브리징.</p>
           </div>
           <div class="layer">
             <div class="layer-num">LAYER 03</div>
-            <h4>Room Layer</h4>
+            <h3>Room Layer</h3>
             <div class="layer-path">Scripts/CGameRoom.cs</div>
             <p>서버측 오케스트레이션, 턴 소유권 검증, 프로토콜 디스패치.</p>
           </div>
           <div class="layer">
             <div class="layer-num">LAYER 04</div>
-            <h4>Engine Layer</h4>
+            <h3>Engine Layer</h3>
             <div class="layer-path">Scripts/engine</div>
             <p>순수 게임 규칙. 카드 분배, 점수 계산(stateless). Unity 의존성 0.</p>
           </div>
           <div class="layer">
             <div class="layer-num">LAYER 05 · Bottom</div>
-            <h4>AI Layer</h4>
+            <h3>AI Layer</h3>
             <div class="layer-path">Scripts/ai</div>
             <p>Evaluation + MCTS. ScriptableObject 기반 가중치 튜닝.</p>
           </div>
         </div>
 
         <div class="arch-flow">
-          <h4>// communication flow</h4>
+          <h3>// communication flow</h3>
 <pre><span class="cm">// 싱글플레이 — 동일 프로세스 로컬 서버</span>
 Human Input
   <span class="ar">→</span> CPlayRoomUI
@@ -1450,6 +1457,8 @@ Human Input
   <!-- ============================================================
        FOOTER
        ============================================================ -->
+  </main>
+
   <footer>
     <div class="foot-inner">
       <p>© Go-Stop · Robocare · Unity 6 · 2026</p>

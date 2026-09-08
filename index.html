@@ -25,7 +25,7 @@
 
       --text: #e7ebf2;
       --text-dim: #9aa3b6;
-      --text-muted: #6b7488;
+      --text-muted: #8792a8;
       --text-mute: #4d5466;
 
       --accent: #ff6a3d;        /* Robocare signature orange */
@@ -62,7 +62,7 @@
       --line-strong: #c7b69f;
       --text: #1a1d24;
       --text-dim: #4f5665;
-      --text-muted: #7e8798;
+      --text-muted: #646d7d;
       --text-mute: #9ca6b5;
       --accent: #2f9fd8;
       --accent-deep: #69bfe7;
@@ -288,7 +288,7 @@
     }
     .theme-btn.is-active {
       background: var(--accent);
-      color: #fff;
+      color: #111827;
     }
 
     /* ============================================================
@@ -765,14 +765,14 @@
     }
     .skill-col:nth-child(2)::before { background: var(--cyan); box-shadow: 0 0 12px var(--cyan-glow); }
     .skill-col:nth-child(3)::before { background: var(--violet); box-shadow: 0 0 12px var(--violet-glow); }
-    .skill-col h4 {
+    .skill-col h3 {
       font-family: "JetBrains Mono", monospace;
       font-size: 13px; color: var(--accent);
       letter-spacing: 0.08em;
       margin: 0 0 4px;
     }
-    .skill-col:nth-child(2) h4 { color: var(--cyan); }
-    .skill-col:nth-child(3) h4 { color: var(--violet); }
+    .skill-col:nth-child(2) h3 { color: var(--cyan); }
+    .skill-col:nth-child(3) h3 { color: var(--violet); }
     .skill-col .skill-sub {
       font-size: 12.5px; color: var(--text-muted);
       margin: 0 0 22px;
@@ -980,17 +980,39 @@
       transform: scale(1.04);
       filter: saturate(1.05) brightness(1);
     }
-    .paper-card .paper-thumb.is-placeholder {
+    .paper-card .paper-thumb.is-abstract {
       background:
-        repeating-linear-gradient(45deg,
-          rgba(255,255,255,0.02) 0 12px,
-          transparent 12px 24px),
-        var(--bg-3);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted);
+        radial-gradient(circle at 78% 22%, rgba(92, 242, 255, 0.2), transparent 34%),
+        linear-gradient(135deg, var(--bg-3), var(--bg-2));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 22px;
       font-family: "JetBrains Mono", monospace;
+    }
+    .paper-card .paper-thumb.is-abstract::before {
+      content: "";
+      position: absolute;
+      inset: 18px 18px auto auto;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 28px var(--cyan-glow);
+    }
+    .paper-cover-kicker {
+      color: var(--cyan);
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: 0.08em;
+    }
+    .paper-cover-title {
+      margin-top: 5px;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
     .paper-card .paper-thumb .thumb-overlay {
       position: absolute; inset: 0;
@@ -1284,7 +1306,7 @@
       margin-bottom: 10px;
     }
     .edu-card.cert .edu-tag { color: var(--accent); }
-    .edu-card h4 {
+    .edu-card h3 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 17px; margin: 0 0 8px;
       letter-spacing: -0.01em;
@@ -1314,13 +1336,13 @@
       transition: border-color .15s;
     }
     .me-card:hover { border-color: var(--line-strong); }
-    .me-card h4 {
+    .me-card h3 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 19px; margin: 0 0 18px;
       display: flex; align-items: center; gap: 12px;
       letter-spacing: -0.01em;
     }
-    .me-card h4 .icon { font-size: 22px; }
+    .me-card h3 .icon { font-size: 22px; }
     .me-card ul { margin: 0; padding: 0; list-style: none; }
     .me-card li {
       font-size: 13.5px; color: var(--text-dim);
@@ -1375,7 +1397,7 @@
     }
     .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
     .contact-card .icon { font-size: 24px; margin-bottom: 8px; }
-    .contact-card h4 {
+    .contact-card h3 {
       font-family: "JetBrains Mono", monospace;
       font-size: 11.5px; color: var(--cyan);
       letter-spacing: 0.10em; text-transform: uppercase;
@@ -1419,7 +1441,7 @@
     .extra-mini-card .extra-body {
       padding: 16px;
     }
-    .extra-mini-card h5 {
+    .extra-mini-card h4 {
       margin: 0 0 8px;
       font-size: 15px;
       color: var(--text);
@@ -1508,6 +1530,7 @@
   <link rel="stylesheet" href="assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- =================== NAV =================== -->
   <header class="nav">
@@ -1533,9 +1556,15 @@
           <button type="button" class="theme-btn is-active" data-theme-value="black">BLACK</button>
           <button type="button" class="theme-btn" data-theme-value="white">WHITE</button>
         </div>
+        <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+          <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+          <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+        </div>
       </div>
     </div>
   </header>
+
+  <main id="main-content">
 
   <!-- =================== HERO =================== -->
   <section class="hero" id="top">
@@ -1656,25 +1685,25 @@
       <div class="edu-grid">
         <div class="edu-card edu">
           <div class="edu-tag">// UNIVERSITY</div>
-          <h4>강남대학교</h4>
+          <h3>강남대학교</h3>
           <div class="when">2018.03 ~ 2023.02</div>
           <div class="major">소프트웨어응용학부 — 학사</div>
         </div>
         <div class="edu-card edu">
           <div class="edu-tag">// HIGH_SCHOOL</div>
-          <h4>초당 고등학교</h4>
+          <h3>초당 고등학교</h3>
           <div class="when">2015.02 ~ 2017.12</div>
           <div class="major">졸업</div>
         </div>
         <div class="edu-card cert">
           <div class="edu-tag">// CERT</div>
-          <h4>정보처리기사</h4>
+          <h3>정보처리기사</h3>
           <div class="when">2024.06 취득</div>
           <div class="major">한국산업인력공단</div>
         </div>
         <div class="edu-card cert">
           <div class="edu-tag">// LANGUAGE</div>
-          <h4>TOEIC 635</h4>
+          <h3>TOEIC 635</h3>
           <div class="when">2024.08.06 취득</div>
           <div class="major">YBM 한국 TOEIC 위원회</div>
         </div>
@@ -1754,8 +1783,11 @@
           </div>
           <p><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11037805" target="_blank" rel="noopener" class="paper-link">장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 <span class="search-icon">🔍</span></a></p>
         </div>
-        <div class="paper-card has-detail" data-cat="GV" data-paper-id="terrain_altitude_sound_2021" hidden style="display: none;">
-          <div class="paper-thumb is-placeholder">// no thumbnail</div>
+        <div class="paper-card has-detail" data-cat="GV" data-paper-id="terrain_altitude_sound_2021">
+          <div class="paper-thumb is-abstract" aria-hidden="true" data-no-translate>
+            <span class="paper-cover-kicker">VR AUDIO · PAPER 06</span>
+            <span class="paper-cover-title">INTERACTIVE SOUND DESIGN</span>
+          </div>
           <div class="paper-meta">
             <span class="paper-tag">GAME · VR</span>
             <span class="paper-affiliation uni">@ 강남대학교</span>
@@ -1953,7 +1985,7 @@
 
       <div class="skills-grid">
         <div class="skill-col">
-          <h4>HARD_SKILLS</h4>
+          <h3>HARD_SKILLS</h3>
           <p class="skill-sub">// languages · engines</p>
           <ul>
             <li>
@@ -1984,7 +2016,7 @@
         </div>
 
         <div class="skill-col">
-          <h4>SOFT_SKILLS</h4>
+          <h3>SOFT_SKILLS</h3>
           <p class="skill-sub">// collaboration · mindset</p>
           <ul>
             <li>
@@ -2007,7 +2039,7 @@
         </div>
 
         <div class="skill-col">
-          <h4>TOOLS</h4>
+          <h3>TOOLS</h3>
           <p class="skill-sub">// design · docs · ops</p>
           <ul>
             <li>
@@ -2339,7 +2371,7 @@
             </div>
             <div class="feat-body">
               <h3>Rota Track</h3>
-              <div class="feat-sub">// Hybrid Casual · Android · 출시 준비 중</div>
+              <div class="feat-sub">// Hybrid Casual · Android · Google Play</div>
               <p>바이브 코딩(Vibe Coding)의 실전 활용 가능성을 테스트하기 위해 시작한 캐주얼 퍼즐 러너 프로젝트입니다. 코드를 직접 작성하지 않고 AI 에이전트에 요구사항과 구조를 지시하고 결과를 검증·개선하는 방식으로 게임 전체를 제작했습니다. 게임 로직과 UI는 물론 이미지·사운드 제작, 일일 퀘스트·업적·재화·캐릭터 시스템 및 AdMob 광고 연동까지 전 과정을 완성했습니다.</p>
               <div class="feat-stack">
                 <span>AI Agent</span><span>Unity</span><span>C#</span><span>ScriptableObject</span><span>AdMob</span><span>Image · Sound AI</span>
@@ -2424,13 +2456,13 @@
 
         <!-- ===== Extras: 컴팩트 목록 (사진 X · 클릭 시 모달) ===== -->
         <div class="extras-block">
-          <h4 class="extras-title">📦 기타 · 초기 작품 &amp; 학습 프로젝트</h4>
+          <h3 class="extras-title">📦 기타 · 초기 작품 &amp; 학습 프로젝트</h3>
           <p class="extras-note">학부 시절 ~ 초기 출시작과 스터디를 미니 갤러리로 정리했습니다. 카드를 누르면 상세 내용을 볼 수 있습니다.</p>
           <div class="extras-gallery">
             <article class="extra-mini-card has-detail" data-paper-id="extra_catcatcat_puzzle">
               <img src="assets/proj-catcatcat-puzzle-1.png" alt="CatCatCat 퍼즐" loading="lazy" />
               <div class="extra-body">
-                <h5>CatCatCat 퍼즐</h5>
+                <h4>CatCatCat 퍼즐</h4>
                 <p>Rota Track 전신 · BFS 대각선 매칭 로직 설계</p>
                 <span class="when">2023.02</span>
               </div>
@@ -2438,7 +2470,7 @@
             <article class="extra-mini-card has-detail" data-paper-id="extra_python_study">
               <img src="assets/proj-python-study-1.png" alt="Python Study" loading="lazy" />
               <div class="extra-body">
-                <h5>Python Study</h5>
+                <h4>Python Study</h4>
                 <p>데이터 시각화 + AI/AR 게임 제작 스터디</p>
                 <span class="when">2025.08 ~ 10</span>
               </div>
@@ -2446,7 +2478,7 @@
             <article class="extra-mini-card has-detail" data-paper-id="extra_runa">
               <img src="assets/proj-runa-1.png" alt="RUNA" loading="lazy" />
               <div class="extra-body">
-                <h5>RUNA</h5>
+                <h4>RUNA</h4>
                 <p>단편 추리 2D 스토리 게임</p>
                 <span class="when">2023.02 ~ 03</span>
               </div>
@@ -2454,7 +2486,7 @@
             <article class="extra-mini-card has-detail" data-paper-id="extra_knight_go">
               <img src="assets/proj-knight-go-1.png" alt="Knight Goes" loading="lazy" />
               <div class="extra-body">
-                <h5>Knight Goes</h5>
+                <h4>Knight Goes</h4>
                 <p>1개월 단기 2D 출시 프로젝트</p>
                 <span class="when">2022.02</span>
               </div>
@@ -2462,7 +2494,7 @@
             <article class="extra-mini-card has-detail" data-paper-id="extra_unity_shader">
               <img src="assets/proj-unity-shader-1.png" alt="Unity Shader" loading="lazy" />
               <div class="extra-body">
-                <h5>Unity Shader</h5>
+                <h4>Unity Shader</h4>
                 <p>비와 물결 표현 중심 그래픽 학습 프로젝트</p>
                 <span class="when">2019.10 ~ 11</span>
               </div>
@@ -2485,7 +2517,7 @@
 
       <div class="me-grid">
         <div class="me-card">
-          <h4><span class="icon">🛠️</span> How I Work</h4>
+          <h3><span class="icon">🛠️</span> How I Work</h3>
           <ul>
             <li>큰 일을 분할해 순차적으로 처리하는 편</li>
             <li>작은 것부터 차근차근 효율적으로 진행</li>
@@ -2497,7 +2529,7 @@
         </div>
 
         <div class="me-card">
-          <h4><span class="icon">🎮</span> Experience</h4>
+          <h3><span class="icon">🎮</span> Experience</h3>
           <ul>
             <li>🌏 여행 — 자유 여행을 많이 다님</li>
             <li>👾 게임 — 다양한 장르 경험·지금도 즐김</li>
@@ -2507,7 +2539,7 @@
         </div>
 
         <div class="me-card">
-          <h4><span class="icon">⚡</span> Tag Cloud</h4>
+          <h3><span class="icon">⚡</span> Tag Cloud</h3>
           <ul>
             <li><strong>#도전</strong> · 12회 수상 · 6개 대외 활동</li>
             <li><strong>#성장</strong> · 8편 논문 · 매년 새 분야 학습</li>
@@ -2532,25 +2564,25 @@
       <div class="contact-grid">
         <div class="contact-card">
           <div class="icon">✉️</div>
-          <h4>EMAIL</h4>
+          <h3>EMAIL</h3>
           <a href="mailto:psa20708@naver.com">psa20708@naver.com</a>
         </div>
 
         <div class="contact-card">
           <div class="icon">📱</div>
-          <h4>PHONE</h4>
+          <h3>PHONE</h3>
           <a href="tel:+821075255014">+82 10-7525-5014</a>
         </div>
 
         <div class="contact-card">
           <div class="icon">📍</div>
-          <h4>LOCATION</h4>
+          <h3>LOCATION</h3>
           <p>경기도 기흥구</p>
         </div>
 
         <div class="contact-card">
           <div class="icon">💻</div>
-          <h4>GITHUB</h4>
+          <h3>GITHUB</h3>
           <a href="https://github.com/seonga02024" target="_blank" rel="noopener">@seonga02024</a>
         </div>
       </div>
@@ -2558,6 +2590,8 @@
   </section>
 
   <!-- =================== FOOTER =================== -->
+  </main>
+
   <footer class="footer">
     <p class="top-line">Park Seong-A · Game Client Developer · 2026</p>
   </footer>
@@ -3517,7 +3551,9 @@
         const nextTheme = theme === 'white' ? 'white' : 'black';
         document.body.setAttribute('data-theme', nextTheme);
         themeButtons.forEach(btn => {
-          btn.classList.toggle('is-active', btn.getAttribute('data-theme-value') === nextTheme);
+          const isActive = btn.getAttribute('data-theme-value') === nextTheme;
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
         try { localStorage.setItem('portfolio-theme', nextTheme); } catch (_) {}
       }

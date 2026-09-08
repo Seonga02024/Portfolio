@@ -21,11 +21,11 @@
       --l-paper: #ffffff;
       --l-ink: #1f2e25;
       --l-ink-soft: #3d5648;
-      --l-ink-muted: #7a8d83;
-      --l-accent: #2d8a5a;
+      --l-ink-muted: #596b61;
+      --l-accent: #237348;
       --l-accent-deep: #1f6442;
       --l-accent-soft: #c8e4d3;
-      --l-blue: #4f8bb8;
+      --l-blue: #2e668f;
       --l-blue-soft: #d4e6f1;
       --l-amber: #e8b04a;
       --l-coral: #e07868;
@@ -40,7 +40,7 @@
       --d-line: #2a3550;
       --d-text: #e6edf7;
       --d-text-dim: #9aa7be;
-      --d-text-muted: #6b7894;
+      --d-text-muted: #8290aa;
       --d-accent: #6ee7ff;
       --d-accent-2: #a78bfa;
       --d-accent-3: #f472b6;
@@ -533,7 +533,7 @@
     .arch-node.client { border-left: 4px solid var(--d-accent); }
     .arch-node.server { border-left: 4px solid var(--d-accent-2); }
     .arch-node.config { border-left: 4px solid var(--d-amber); }
-    .arch-node h4 {
+    .arch-node h3 {
       margin: 0 0 12px;
       font-size: 15px; color: var(--d-text);
       font-family: "JetBrains Mono", monospace;
@@ -581,7 +581,7 @@
       font-size: 12px; color: var(--d-text-muted);
       margin-bottom: 8px;
     }
-    .hl-card h4 {
+    .hl-card h3 {
       margin: 0 0 14px;
       font-size: 19px; color: var(--d-text);
       line-height: 1.35;
@@ -624,7 +624,7 @@
       background: linear-gradient(180deg, rgba(255, 107, 53, 0.08), var(--d-bg-1) 55%);
     }
     .hl-card.mine:hover { border-color: rgba(255, 107, 53, 0.6); border-left-color: var(--mine); }
-    .hl-card.mine h4 { color: var(--mine); }
+    .hl-card.mine h3 { color: var(--mine); }
     .hl-card.mine::before {
       content: "● MAIN";
       position: absolute; top: 18px; right: 18px;
@@ -643,7 +643,7 @@
       background: linear-gradient(180deg, rgba(167, 139, 250, 0.08), var(--d-bg-1) 55%);
     }
     .hl-card.coop:hover { border-color: rgba(167, 139, 250, 0.6); border-left-color: var(--coop); }
-    .hl-card.coop h4 { color: var(--coop); }
+    .hl-card.coop h3 { color: var(--coop); }
     .hl-card.coop::before {
       content: "◐ CO-LEAD";
       position: absolute; top: 18px; right: 18px;
@@ -778,6 +778,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- =================== NAV =================== -->
   <header class="nav">
@@ -793,8 +794,14 @@
         <a class="tech" href="#game-tech">/ Tech Overview</a>
         <a class="tech" href="#highlights">/ My Main Work</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
   <!-- =================== HERO (warm) =================== -->
   <section class="hero light" id="top">
@@ -1073,7 +1080,7 @@
         <h3>// Data Sources</h3>
         <div class="arch-flow">
           <div class="arch-node client">
-            <h4>Client (Unity)</h4>
+            <h3>Client (Unity)</h3>
             <ul>
               <li>DataManager — 메모리 상태</li>
               <li>PlayerPrefs — 로컬 캐시</li>
@@ -1090,7 +1097,7 @@
             </div>
           </div>
           <div class="arch-node server">
-            <h4>Server (UGS)</h4>
+            <h3>Server (UGS)</h3>
             <ul>
               <li>Cloud Code — SpendPlayerMoney / AddPlayerMoney / GetOrInitPlayerMoney</li>
               <li>Cloud Save — player_data / player_records / <strong>PLAYER_MONEY</strong> (서버 전용)</li>
@@ -1101,7 +1108,7 @@
 
         <div style="margin-top: 28px;">
           <div class="arch-node config">
-            <h4>Remote Config <span style="color: var(--d-text-muted); font-size: 12px;">// Single source of truth for content economy</span></h4>
+            <h3>Remote Config <span style="color: var(--d-text-muted); font-size: 12px;">// Single source of truth for content economy</span></h3>
             <ul>
               <li><code style="color: var(--d-amber);">content_economy</code> — {"A1": {cost, maxReward}, "F1": {...}, ...}</li>
               <li><code style="color: var(--d-amber);">free_money</code> — 신규 사용자 초기 지급액</li>
@@ -1145,7 +1152,7 @@
         <!-- 01 -->
         <div class="hl-card coop">
           <div class="hl-num">// 01 · Architecture</div>
-          <h4>아케이드 베이스 계층 설계</h4>
+          <h3>아케이드 베이스 계층 설계</h3>
           <p>
             새 아케이드 콘텐츠를 같은 패턴으로 작성할 수 있도록 BasicArcadeView · ArcadeSubscriber · BasicArcadeEvents 3-계층을
             팀과 공동 설계. 콘텐츠 라이프사이클 규약을 합의·문서화하여 신규 콘텐츠 추가 비용을 크게 낮춤.
@@ -1163,7 +1170,7 @@
         <!-- 02 -->
         <div class="hl-card mine">
           <div class="hl-num">// 02 · Gameplay</div>
-          <h4>A1 — 반응 속도 게임 단독 제작</h4>
+          <h3>A1 — 반응 속도 게임 단독 제작</h3>
           <p>
             화면에 나타난 노드를 타이밍에 맞춰 정확히 터치하는 반응 훈련 게임. MediaPipe 자세 입력 기반의 노드 생성·콤보·점수·특수 맵 효과까지 단독 설계·구현.
           </p>
@@ -1180,7 +1187,7 @@
         <!-- 03 -->
         <div class="hl-card mine">
           <div class="hl-num">// 03 · Gameplay</div>
-          <h4>A2 — 과일 게임 단독 제작</h4>
+          <h3>A2 — 과일 게임 단독 제작</h3>
           <p>
             날아오는 과일을 손으로 잡고 폭탄을 피하는 휘두르기 게임. 손 위치·속도 기반 충돌 판정과 손 궤적 시각화를 직접 설계.
             다종 객체를 효율적으로 관리하기 위한 다중 prefab 풀을 구현.
@@ -1199,7 +1206,7 @@
         <!-- 04 -->
         <div class="hl-card mine">
           <div class="hl-num">// 04 · Backend Integration</div>
-          <h4>UGS 통합 어댑터 — PlayerDataManager 재설계</h4>
+          <h3>UGS 통합 어댑터 — PlayerDataManager 재설계</h3>
           <p>
             로그인 후 Cloud Save · Cloud Code · Authentication 에서 받은 데이터를 게임 내 DataManager 와
             <strong>단방향으로 동기화</strong>하는 어댑터 매니저를 재설계. 이전엔 게임 템플릿 잔재(Lifes/Items 등)가 섞여 있던 코드를
@@ -1218,7 +1225,7 @@
         <!-- 05 -->
         <div class="hl-card mine">
           <div class="hl-num">// 05 · Security</div>
-          <h4>서버 검증 화폐 시스템 (PLAYER_MONEY)</h4>
+          <h3>서버 검증 화폐 시스템 (PLAYER_MONEY)</h3>
           <p>
             로컬 <code>int credit</code> → 서버 <code>long money</code> 로 전환. PLAYER_MONEY 키는 Cloud Code 만 쓰기 가능하도록
             권한을 분리해서 클라이언트가 직접 잔액을 조작할 수 없도록 차단. 클라이언트는 응답값으로 캐시만 갱신.
@@ -1236,7 +1243,7 @@
         <!-- 06 -->
         <div class="hl-card mine">
           <div class="hl-num">// 06 · Config</div>
-          <h4>Remote Config 단일 진실원본 — 콘텐츠 경제</h4>
+          <h3>Remote Config 단일 진실원본 — 콘텐츠 경제</h3>
           <p>
             콘텐츠별 입장 비용·보상을 ScriptableObject 하드코딩에서 Remote Config 의 단일 JSON 키
             (<code>content_economy</code>) 로 이전. 운영팀이 빌드 없이 즉시 조정 가능해짐.
@@ -1256,7 +1263,7 @@
         <!-- 07 -->
         <div class="hl-card mine">
           <div class="hl-num">// 07 · Persistence</div>
-          <h4>Cloud Save 키 분리 저장</h4>
+          <h3>Cloud Save 키 분리 저장</h3>
           <p>
             기존 단일 키에 모든 데이터를 몰아 넣던 구조에서, 도메인별로 3개 키로 분리.
             업로드 시점·빈도가 다르므로 분리하면 부하·충돌이 줄어듦.
@@ -1274,7 +1281,7 @@
         <!-- 08 -->
         <div class="hl-card mine">
           <div class="hl-num">// 08 · UX</div>
-          <h4>Settings 디바운스 자동 동기화</h4>
+          <h3>Settings 디바운스 자동 동기화</h3>
           <p>
             슬라이더 연속 변경 시 매번 업로드하지 않고, 마지막 변경 후 500ms 가 지난 시점에 한 번만 업로드.
             <code>CancellationTokenSource</code> 로 직전 예약을 깔끔하게 취소.
@@ -1292,7 +1299,7 @@
         <!-- 09 -->
         <div class="hl-card mine">
           <div class="hl-num">// 09 · Stability</div>
-          <h4>SingletonBehaviour 베이스 클래스 버그 수정</h4>
+          <h3>SingletonBehaviour 베이스 클래스 버그 수정</h3>
           <p>
             씬 재진입 시 prefab 에 박힌 중복 인스턴스가 파괴되며 활성 <code>_Instance</code> 참조까지 <code>null</code> 화되던
             베이스 클래스 버그를 발견하고 수정. 영향 범위는 SingletonBehaviour 상속 매니저 전체.
@@ -1310,7 +1317,7 @@
         <!-- 10 -->
         <div class="hl-card mine">
           <div class="hl-num">// 10 · Concurrency</div>
-          <h4>In-flight 락 — 연타·중복 호출 방지</h4>
+          <h3>In-flight 락 — 연타·중복 호출 방지</h3>
           <p>
             서버 응답이 오기 전 같은 메서드를 또 호출하면 N번 차감/지급되던 위험을 메서드별 진행 중 플래그로 막음.
             응답 전 추가 호출은 <code>IN_PROGRESS</code> 로 즉시 거절 → 잔액 정합성 확보.
@@ -1403,42 +1410,42 @@
       <div class="highlights">
         <div class="hl-card">
           <div class="hl-num">// HERO</div>
-          <h4>assets/hero_title.jpg</h4>
+          <h3>assets/hero_title.jpg</h3>
           <p>타이틀 화면 또는 앱 메인 키 비주얼. 가로/세로 둘 다 가능. 권장 1080×1920 또는 1920×1080.</p>
           <div class="stack"><span>section.hero</span></div>
         </div>
 
         <div class="hl-card">
           <div class="hl-num">// GAMES</div>
-          <h4>assets/game_F1.jpg ~ game_A4.jpg</h4>
+          <h3>assets/game_F1.jpg ~ game_A4.jpg</h3>
           <p>각 콘텐츠 스크린샷 7장. 1280×720 권장. .game-item 안에 썸네일을 추가하거나 별도 갤러리 섹션을 만들 수 있습니다.</p>
           <div class="stack"><span>section.modes</span></div>
         </div>
 
         <div class="hl-card">
           <div class="hl-num">// PLAY VIDEO</div>
-          <h4>assets/play_demo.mp4</h4>
+          <h3>assets/play_demo.mp4</h3>
           <p>30초~1분 분량의 플레이 영상. 자동재생/음소거/루프로 임베드. .hero 또는 .modes 섹션 끝에 추가 가능.</p>
           <div class="stack"><span>video</span><span>autoplay muted loop</span></div>
         </div>
 
         <div class="hl-card">
           <div class="hl-num">// ARCH DIAGRAM</div>
-          <h4>assets/architecture.png</h4>
+          <h3>assets/architecture.png</h3>
           <p>(선택) Cloud Save / Cloud Code / Remote Config 흐름을 그린 별도 다이어그램이 있다면 #architecture 섹션 .arch-flow 위에 삽입.</p>
           <div class="stack"><span>section.dark#architecture</span></div>
         </div>
 
         <div class="hl-card">
           <div class="hl-num">// LOGO</div>
-          <h4>assets/logo.png (또는 .svg)</h4>
+          <h3>assets/logo.png (또는 .svg)</h3>
           <p>좌측 상단 nav 의 "CB" 그라데이션 아이콘을 실제 로고로 교체. .brand .logo-icon 의 텍스트를 &lt;img&gt; 로 변경.</p>
           <div class="stack"><span>header.nav</span></div>
         </div>
 
         <div class="hl-card">
           <div class="hl-num">// DEMO VIDEO</div>
-          <h4>assets/feature_*.mp4</h4>
+          <h3>assets/feature_*.mp4</h3>
           <p>특정 기능(체조 정확도 측정 / 탄막 회피 등)의 단편 영상. .feat-card 안에 작은 video 태그로 임베드 가능.</p>
           <div class="stack"><span>section.features</span>
             <span>≤ 15s</span>
@@ -1470,6 +1477,8 @@
   </nav>
 
   <!-- =================== FOOTER =================== -->
+  </main>
+
   <footer class="footer">
     <p>
       CareBrainFit · Developer Portfolio · 2026<br/>

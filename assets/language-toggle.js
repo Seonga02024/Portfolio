@@ -229,7 +229,9 @@
     document.documentElement.lang = currentLang;
     document.body.setAttribute("data-lang", currentLang);
     document.querySelectorAll(".language-toggle button").forEach(function (button) {
-      button.classList.toggle("is-active", button.getAttribute("data-lang-value") === currentLang);
+      var isActive = button.getAttribute("data-lang-value") === currentLang;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
 
@@ -261,30 +263,35 @@
   }
 
   function makeToggle() {
-    if (document.querySelector(".language-toggle")) return;
-    var toggle = document.createElement("div");
-    toggle.className = "language-toggle";
-    toggle.setAttribute("aria-label", "Language switcher");
-    toggle.setAttribute("data-no-translate", "");
-    toggle.innerHTML = '<button type="button" data-lang-value="ko">KO</button><button type="button" data-lang-value="en">EN</button>';
+    var toggle = document.querySelector(".language-toggle");
+    if (!toggle) {
+      toggle = document.createElement("div");
+      toggle.className = "language-toggle";
+      toggle.setAttribute("aria-label", "Language switcher");
+      toggle.setAttribute("data-no-translate", "");
+      toggle.innerHTML = '<button type="button" data-lang-value="ko">KO</button><button type="button" data-lang-value="en">EN</button>';
 
-    var host = document.querySelector(".nav-tools") ||
-      document.querySelector(".nav-inner") ||
-      document.querySelector("header.nav") ||
-      document.querySelector("header");
+      var host = document.querySelector(".nav-tools") ||
+        document.querySelector(".nav-inner") ||
+        document.querySelector("header.nav") ||
+        document.querySelector("header");
 
-    if (host) {
-      host.appendChild(toggle);
-    } else {
-      toggle.classList.add("is-floating");
-      document.body.appendChild(toggle);
+      if (host) {
+        host.appendChild(toggle);
+      } else {
+        toggle.classList.add("is-floating");
+        document.body.appendChild(toggle);
+      }
     }
 
-    toggle.addEventListener("click", function (event) {
-      var button = event.target.closest("button[data-lang-value]");
-      if (!button) return;
-      setLanguage(button.getAttribute("data-lang-value"));
-    });
+    if (toggle.getAttribute("data-language-toggle-bound") !== "true") {
+      toggle.setAttribute("data-language-toggle-bound", "true");
+      toggle.addEventListener("click", function (event) {
+        var button = event.target.closest("button[data-lang-value]");
+        if (!button) return;
+        setLanguage(button.getAttribute("data-lang-value"));
+      });
+    }
   }
 
   function observeMutations() {

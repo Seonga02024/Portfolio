@@ -37,7 +37,7 @@
       --d-line: #2a3550;
       --d-text: #e6edf7;
       --d-text-dim: #9aa7be;
-      --d-text-muted: #6b7894;
+      --d-text-muted: #8290aa;
       --d-accent: #6ee7ff;
       --d-accent-2: #a78bfa;
       --d-accent-3: #f472b6;
@@ -234,7 +234,7 @@
       border: none;
     }
     .btn-primary {
-      background: var(--w-accent); color: white;
+      background: var(--w-accent-deep); color: white;
       box-shadow: 0 8px 20px rgba(217, 70, 239, 0.35);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(217, 70, 239, 0.5); }
@@ -797,6 +797,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- ============================================================
        NAV
@@ -814,8 +815,14 @@
         <a href="#mine" class="tech">// my work</a>
         <a href="../index.html" class="back">← Portfolio</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
 
   <!-- ════════════════════════════════════════════════════════════
@@ -1310,6 +1317,8 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
+  </main>
+
   <footer>
     <div class="foot-inner">
       <p>© Melody Pang Pang · Redbrick · JavaScript · 2024 ~ 2026</p>

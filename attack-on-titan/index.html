@@ -37,7 +37,7 @@
       --d-line: #2c3450;
       --d-text: #ecf1fb;
       --d-text-dim: #9aa6bd;
-      --d-text-muted: #6b7894;
+      --d-text-muted: #8290aa;
       --d-accent: #f97316;       /* ember orange */
       --d-accent-2: #ef4444;     /* crimson */
       --d-accent-3: #fbbf24;     /* amber */
@@ -931,6 +931,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- ============================================================
        NAV
@@ -949,8 +950,14 @@
         <a href="#v2" class="tech">// v2</a>
         <a href="../index.html" class="back">← Portfolio</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
 
   <!-- ════════════════════════════════════════════════════════════
@@ -1544,6 +1551,8 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
+  </main>
+
   <footer>
     <div class="foot-inner">
       <p>© Zepeto 진격의 거인 · Attack on Titan · 2023.12 launch · v2 2024.05</p>

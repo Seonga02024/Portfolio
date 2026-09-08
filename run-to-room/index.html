@@ -37,7 +37,7 @@
       --d-line: #2a3550;
       --d-text: #e6edf7;
       --d-text-dim: #9aa7be;
-      --d-text-muted: #6b7894;
+      --d-text-muted: #8290aa;
       --d-accent: #fbbf24;       /* amber as primary accent */
       --d-accent-2: #4ade80;     /* green as secondary */
       --d-accent-3: #f472b6;
@@ -410,7 +410,7 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-    .video-link .vl-text h4 {
+    .video-link .vl-text h3 {
       margin: 0 0 6px;
       font-family: "Gowun Batang", serif;
       font-size: 20px;
@@ -558,7 +558,7 @@
       padding: 28px;
       margin-bottom: 28px;
     }
-    .arch-flow-card h4 {
+    .arch-flow-card h3 {
       margin: 0 0 16px;
       font-family: "JetBrains Mono", monospace;
       font-size: 13px;
@@ -827,6 +827,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- ============================================================
        NAV
@@ -844,8 +845,14 @@
         <a href="#mine" class="tech">// my work</a>
         <a href="../index.html" class="back">← Portfolio</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
 
   <!-- ════════════════════════════════════════════════════════════
@@ -985,7 +992,7 @@
       <!-- External video link -->
       <div class="video-link" hidden style="display:none;">
         <div class="vl-text">
-          <h4>▶ 실제 플레이 영상</h4>
+          <h3>▶ 실제 플레이 영상</h3>
           <p>카카오TV에서 게임의 실제 플레이 영상을 확인할 수 있어요. (소리는 미포함)</p>
         </div>
         <a class="btn btn-primary" href="https://tv.kakao.com/v/451983974" target="_blank" rel="noopener">영상 보러가기 →</a>
@@ -1072,7 +1079,7 @@
       </p>
 
       <div class="arch-flow-card">
-        <h4>// cross-game data flow · signal pipeline</h4>
+        <h3>// cross-game data flow · signal pipeline</h3>
 <pre><span class="cm">// 1. 외부 게임 → RunToRoom (입장 시 건물 번호 수신)</span>
 <span class="kw">[External Game A]</span>
   <span class="ar">→</span> Redbrick Signal <span class="st">{ buildingId: 3 }</span>
@@ -1336,6 +1343,8 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
+  </main>
+
   <footer>
     <div class="foot-inner">
       <p>© RunToRoom · Redbrick · 2024.11 — 12 · HANDOFF</p>

@@ -677,6 +677,11 @@
       "key": "t0135",
       "source": "RunToRoom 도시 컨셉과 동적 맵 생성 화면",
       "text": "RunToRoom city theme and procedural map generation"
+    },
+    {
+      "key": "t0136",
+      "source": "본문으로 바로가기",
+      "text": "Skip to main content"
     }
   ]
 }

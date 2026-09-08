@@ -715,7 +715,7 @@
       margin-bottom: 6px;
     }
     .impact-card.highlight .big { color: var(--d-accent); font-size: 44px; }
-    .impact-card h4 { margin: 12px 0 8px; font-size: 16px; color: var(--d-text); }
+    .impact-card h3 { margin: 12px 0 8px; font-size: 16px; color: var(--d-text); }
     .impact-card p { margin: 0; font-size: 13.5px; color: var(--d-text-dim); }
 
     /* ============================================================
@@ -761,6 +761,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- ============================================================
        NAV
@@ -779,8 +780,14 @@
         <a href="#code" class="tech">// code</a>
         <a href="../index.html" class="nav-back">← Portfolio</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
 
   <!-- ════════════════════════════════════════════════════════════
@@ -1291,32 +1298,32 @@
       <div class="impact-grid">
         <div class="impact-card highlight">
           <div class="big">193K+</div>
-          <h4>누적 방문 수 (2024.8 기준)</h4>
+          <h3>누적 방문 수 (2024.8 기준)</h3>
           <p>출시 약 1개월 만에 193,000+ 누적 방문 — 메타버스 콜라보 게임의 성공 지표.</p>
         </div>
         <div class="impact-card">
           <div class="big">Gucci</div>
-          <h4>브랜드 홍보 효과</h4>
+          <h3>브랜드 홍보 효과</h3>
           <p>게임 내 Gucci 의상·물품 전시 — 플레이어가 직접 입어보고 체험하는 브랜드 노출.</p>
         </div>
         <div class="impact-card">
           <div class="big">$</div>
-          <h4>인게임 수익</h4>
+          <h3>인게임 수익</h3>
           <p>콘텐츠 내 전시 아이템을 통한 직접 수익 창출 — 메타버스 커머스 검증.</p>
         </div>
         <div class="impact-card">
           <div class="big">1주</div>
-          <h4>출시 + 유지보수</h4>
+          <h3>출시 + 유지보수</h3>
           <p>2024.07.12 출시 → 1주간 집중 패치 → 안정화 완료. 빠른 대응 사이클.</p>
         </div>
         <div class="impact-card">
           <div class="big">OSS</div>
-          <h4>GitHub 코드 공개</h4>
+          <h3>GitHub 코드 공개</h3>
           <p><a href="https://github.com/Seonga02024/3D-Tennis-Game" target="_blank" rel="noopener" style="color:var(--d-accent);text-decoration:none;">Seonga02024/3D-Tennis-Game</a> — 다른 개발자에게 참고 자산으로 공유.</p>
         </div>
         <div class="impact-card">
           <div class="big">100%</div>
-          <h4>풀 사이클 경험</h4>
+          <h3>풀 사이클 경험</h3>
           <p>기획 협업 → 개발 → 서버 연결 → 출시 → 패치 → 운영까지 전 과정을 직접 수행.</p>
         </div>
       </div>
@@ -1341,6 +1348,8 @@
   <!-- ============================================================
        FOOTER
        ============================================================ -->
+  </main>
+
   <footer>
     <div class="foot-inner">
       <p>© Zepeto Gucci Tennis · 2024 · Unity + TypeScript · Built with Zepeto SDK</p>

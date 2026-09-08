@@ -9,6 +9,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(12px);
   flex: 0 0 auto;
+  color: inherit;
 }
 
 .language-toggle button {
@@ -20,7 +21,7 @@
   background: transparent;
   color: currentColor;
   cursor: pointer;
-  font: 700 12px/1 "Inter", "Noto Sans KR", system-ui, sans-serif;
+  font: 700 12px/1 "Inter", system-ui, sans-serif;
   letter-spacing: 0;
   opacity: 0.72;
   transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
@@ -32,16 +33,47 @@
 }
 
 .language-toggle button.is-active {
-  background: currentColor;
-  color: #fff;
+  background: #ffffff;
+  color: #111827;
   opacity: 1;
 }
 
 body[data-lang="en"] .language-toggle button[data-lang-value="en"],
 body[data-lang="ko"] .language-toggle button[data-lang-value="ko"] {
-  background: currentColor;
-  color: #fff;
+  background: #ffffff;
+  color: #111827;
   opacity: 1;
+}
+
+body[data-theme="white"] .language-toggle button.is-active,
+body[data-theme="white"][data-lang="en"] .language-toggle button[data-lang-value="en"],
+body[data-theme="white"][data-lang="ko"] .language-toggle button[data-lang-value="ko"] {
+  background: #111827;
+  color: #ffffff;
+}
+
+.language-toggle button:focus-visible,
+.theme-btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+.skip-link:focus-visible {
+  outline: 3px solid #5cf2ff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .language-toggle.is-floating {
@@ -64,7 +96,7 @@ body[data-lang="ko"] .language-toggle button[data-lang-value="ko"] {
   border-radius: 8px;
   background: rgba(15, 23, 42, 0.88);
   color: #fff;
-  font: 600 12px/1.45 "Inter", "Noto Sans KR", system-ui, sans-serif;
+  font: 600 12px/1.45 "Inter", system-ui, sans-serif;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
   opacity: 0;
   pointer-events: none;
@@ -80,6 +112,25 @@ body[data-lang="ko"] .language-toggle button[data-lang-value="ko"] {
 .nav-tools,
 .nav-inner {
   gap: max(12px, var(--lang-toggle-gap, 12px));
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+  font: 700 13px/1.2 "Inter", system-ui, sans-serif;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 @media (max-width: 720px) {

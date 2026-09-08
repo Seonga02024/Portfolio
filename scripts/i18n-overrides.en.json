@@ -1,5 +1,6 @@
 {
   "global": {
+    "본문으로 바로가기": "Skip to main content",
     "로보맞고": "Robo Go-Stop",
     "로보맞고 · Go-Stop": "Robo Go-Stop",
     "로보맞고 타이틀 화면": "Robo Go-Stop title screen",
@@ -127,6 +128,9 @@
     "노래를 클리어한 게임 결과 화면": "Results screen after clearing a song"
   },
   "robocare": {
+    "각 카드에는 참여 범위와 구현 내용을 요약했으며, Play Store 버튼으로 실제 배포 페이지를 확인할 수 있습니다.": "Each card summarizes my role and implementation work, with Play Store buttons linking to the published product pages.",
+    "프로젝트별 구조와 본인 담당 영역은 각 콘텐츠 카드에 함께 정리했습니다.": "Each content card summarizes the project structure and my responsibilities.",
+    "각 카드에서 구현 범위와 사용 기술을 바로 확인할 수 있습니다.": "Each card shows the implementation scope and technologies used.",
     "Rhythm Game · 손가락 댄스": "Rhythm Game · Finger Dance",
     "Silbot · 실벗 로봇 학습 시스템": "Silbot · Robot-assisted Learning System",
     "보미와 손가락 댄스 리듬게임 플레이 화면": "Finger Dance rhythm gameplay with Bomi"

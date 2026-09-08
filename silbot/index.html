@@ -21,9 +21,9 @@
       --l-paper: #ffffff;
       --l-ink: #2a2118;
       --l-ink-soft: #4d4030;
-      --l-ink-muted: #8a7d6a;
+      --l-ink-muted: #6f6250;
       --l-accent: #e36b2c;        /* warm orange — 실벗 시그니처 */
-      --l-accent-deep: #b14f17;
+      --l-accent-deep: #8c3b10;
       --l-accent-soft: #fce3cf;
       --l-blue: #3d7eb0;
       --l-blue-soft: #d6e7f2;
@@ -40,7 +40,7 @@
       --d-line: #2c3450;
       --d-text: #e8ecf7;
       --d-text-dim: #9ba6be;
-      --d-text-muted: #6c7691;
+      --d-text-muted: #8290aa;
       --d-accent: #5ed4ff;       /* network/protocol cyan */
       --d-accent-2: #b794f6;     /* photon purple */
       --d-accent-3: #f472b6;
@@ -53,7 +53,7 @@
       /* 본인 메인 담당 강조 */
       --mine: #ff7a3d;
       --mine-soft: #fff1ec;
-      --mine-deep: #c8451f;
+      --mine-deep: #a33516;
       --coop: #a78bfa;
       --coop-soft: #2a2348;
     }
@@ -255,7 +255,7 @@
       border: none;
     }
     .btn-primary {
-      background: var(--l-accent); color: white;
+      background: var(--l-accent-deep); color: white;
       box-shadow: 0 8px 20px rgba(227, 107, 44, 0.32);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(227, 107, 44, 0.45); }
@@ -365,11 +365,11 @@
     }
     .catalog-col:nth-child(2) { border-top-color: var(--l-blue); }
     .catalog-col:nth-child(3) { border-top-color: var(--l-green); }
-    .catalog-col h4 {
+    .catalog-col h3 {
       margin: 0 0 4px;
       font-size: 17px; color: var(--l-ink);
     }
-    .catalog-col h4 .id-range {
+    .catalog-col h3 .id-range {
       font-family: "JetBrains Mono", monospace;
       font-size: 12px; color: var(--l-ink-muted);
       margin-left: 8px;
@@ -412,7 +412,7 @@
     .catalog-col li.mine .gid { color: var(--mine-deep); }
     .catalog-col li.mine .gname { color: var(--mine-deep); font-weight: 700; }
     .catalog-col li.mine .gtag {
-      background: var(--mine); color: white;
+      background: var(--mine); color: var(--l-ink);
       padding: 2px 8px; border-radius: 4px;
       font-weight: 700; letter-spacing: 0.08em;
     }
@@ -509,7 +509,7 @@
     }
     .system-node.master { border-top-color: var(--l-blue); }
     .system-node.robot { border-top-color: var(--l-yellow); }
-    .system-node h4 {
+    .system-node h3 {
       margin: 0 0 6px;
       font-size: 18px; color: var(--l-ink);
       font-family: "JetBrains Mono", monospace;
@@ -637,7 +637,7 @@
     .arch-node.client { border-left: 4px solid var(--d-accent); }
     .arch-node.master { border-left: 4px solid var(--d-accent-2); }
     .arch-node.robot { border-left: 4px solid var(--d-amber); }
-    .arch-node h4 {
+    .arch-node h3 {
       margin: 0 0 12px;
       font-size: 15px; color: var(--d-text);
       font-family: "JetBrains Mono", monospace;
@@ -691,7 +691,7 @@
       font-size: 12px; color: var(--d-text-muted);
       margin-bottom: 8px;
     }
-    .hl-card h4 {
+    .hl-card h3 {
       margin: 0 0 14px;
       font-size: 19px; color: var(--d-text);
       line-height: 1.35;
@@ -776,7 +776,7 @@
       background: linear-gradient(180deg, rgba(255, 122, 61, 0.08), var(--d-bg-1) 55%);
     }
     .hl-card.mine:hover { border-color: rgba(255, 122, 61, 0.6); border-left-color: var(--mine); }
-    .hl-card.mine h4 { color: var(--mine); }
+    .hl-card.mine h3 { color: var(--mine); }
     .hl-card.mine::before {
       content: "● MAIN";
       position: absolute; top: 18px; right: 18px;
@@ -795,7 +795,7 @@
       background: linear-gradient(180deg, rgba(167, 139, 250, 0.08), var(--d-bg-1) 55%);
     }
     .hl-card.coop:hover { border-color: rgba(167, 139, 250, 0.6); border-left-color: var(--coop); }
-    .hl-card.coop h4 { color: var(--coop); }
+    .hl-card.coop h3 { color: var(--coop); }
     .hl-card.coop::before {
       content: "◐ CO-LEAD";
       position: absolute; top: 18px; right: 18px;
@@ -953,7 +953,7 @@
       font-size: 9.5px; font-weight: 700;
       letter-spacing: 0.1em;
     }
-    .game-tech-block .gt-item h5 {
+    .game-tech-block .gt-item h4 {
       margin: 0 0 8px;
       font-size: 14.5px; color: var(--d-text);
       font-family: "JetBrains Mono", monospace;
@@ -1000,7 +1000,7 @@
       .game-grid { grid-template-columns: 1fr; }
       .catalog-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .hl-card h4 { padding-right: 0; padding-top: 28px; }
+      .hl-card h3 { padding-right: 0; padding-top: 28px; }
       .video-grid { grid-template-columns: 1fr !important; }
     }
 
@@ -1054,12 +1054,13 @@
       display: flex; align-items: center; gap: 8px;
     }
     .video-card figcaption .vc-role {
-      color: var(--l-accent, #8b1a1a); font-weight: 700;
+      color: var(--l-accent-deep, #8b1a1a); font-weight: 700;
     }
   </style>
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
   <!-- =================== NAV =================== -->
   <header class="nav">
@@ -1076,8 +1077,14 @@
         <a class="tech" href="#game-tech">/ Game Tech</a>
         <a class="tech" href="#highlights">/ My Main Work</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
   <!-- =================== HERO (warm) =================== -->
   <section class="hero light" id="top">
@@ -1174,7 +1181,7 @@
 
       <div class="catalog-grid">
         <div class="catalog-col">
-          <h4>3 시리즈 <span class="id-range">3-02 ~ 3-11</span></h4>
+          <h3>3 시리즈 <span class="id-range">3-02 ~ 3-11</span></h3>
           <p class="col-sub">시지각 · 패턴 인식 · 반응 속도</p>
           <ul>
             <li><span class="gid">3-02</span><span class="gname">Luckybag · 동전 잡기</span><span class="gtag">패턴</span></li>
@@ -1191,7 +1198,7 @@
         </div>
 
         <div class="catalog-col">
-          <h4>4 시리즈 <span class="id-range">4-02 ~ 4-09</span></h4>
+          <h3>4 시리즈 <span class="id-range">4-02 ~ 4-09</span></h3>
           <p class="col-sub">언어 · 주의력 · 표현 · 따라하기</p>
           <ul>
             <li><span class="gid">4-02</span><span class="gname">CopyMe · 로봇 따라하기</span><span class="gtag">집중</span></li>
@@ -1206,7 +1213,7 @@
         </div>
 
         <div class="catalog-col">
-          <h4>5 시리즈 <span class="id-range">5-01 ~ 5-07</span></h4>
+          <h3>5 시리즈 <span class="id-range">5-01 ~ 5-07</span></h3>
           <p class="col-sub">산수 · 추론 · 지혜 · 공간</p>
           <ul>
             <li><span class="gid">5-01</span><span class="gname">Howmuch · 계산하기</span><span class="gtag">산수</span></li>
@@ -1320,7 +1327,7 @@
       <div class="system-flow">
         <div class="system-node master">
           <div class="role">// Master · 교사 PC</div>
-          <h4>수업 진행 / 출제</h4>
+          <h3>수업 진행 / 출제</h3>
           <ul>
             <li>레벨·시간·모드 선택 UI</li>
             <li>학생 진행 상황 실시간 모니터링</li>
@@ -1336,7 +1343,7 @@
 
         <div class="system-node">
           <div class="role">// Client · 학생 태블릿</div>
-          <h4>게임 플레이</h4>
+          <h3>게임 플레이</h3>
           <ul>
             <li>실제 미니게임 화면·인터랙션</li>
             <li>드래그·터치 입력 처리, 점수 계산</li>
@@ -1349,7 +1356,7 @@
       <div class="system-flow" style="grid-template-columns: 1fr; margin-top: 22px;">
         <div class="system-node robot">
           <div class="role">// Silbot · 로봇</div>
-          <h4>발화 · 표정 · 동작</h4>
+          <h3>발화 · 표정 · 동작</h3>
           <ul>
             <li>TTS 발화로 안내·격려·정답 피드백 — <em>"잘했어요!", "다시 한 번 해볼까요?"</em></li>
             <li>얼굴 테마 프로토콜로 표정 전환 (기쁨·놀람·집중·격려)</li>
@@ -1501,27 +1508,27 @@
 
         <div class="gt-grid">
           <div class="gt-item mine">
-            <h5>Match3Game · 매치 검출/연쇄</h5>
+            <h4>Match3Game · 매치 검출/연쇄</h4>
             <p>그리드 2D 배열 위에서 스왑 직후 가로·세로 3+ 매치를 스캔, 제거 후 위쪽 타일을 떨어뜨려 빈 칸을 채우고
               새 매치가 없을 때까지 반복(체인 리액션). <code>tilesToRemoveCache</code> 로 GC 부담 최소화.</p>
           </div>
           <div class="gt-item mine">
-            <h5>Tile · BombTile 다형 구조</h5>
+            <h4>Tile · BombTile 다형 구조</h4>
             <p><code>Tile.CalculationRemoveRange()</code> 가상 메서드를 BombTile(3×3) · HorizontalLine · VerticalLine · RainBomb 이
               각각 오버라이드해 폭탄별 제거 범위를 자체적으로 계산. 새 폭탄 추가가 한 클래스로 끝나도록 설계.</p>
           </div>
           <div class="gt-item mine">
-            <h5>힌트 · 보너스 코루틴</h5>
+            <h4>힌트 · 보너스 코루틴</h4>
             <p>5초 입력 없을 때 가능한 스왑을 깜빡임으로 안내. 보너스 타임에는 DOTween 으로 타일 회전 효과.
               <code>hintCoroutine</code>, <code>tileRemoveCoroutine</code> 등 타이밍 코루틴 일체.</p>
           </div>
           <div class="gt-item">
-            <h5>Match3Manager · 네트워크 어댑터</h5>
+            <h4>Match3Manager · 네트워크 어댑터</h4>
             <p>BaseManager 상속. 레벨·시간 설정 명령(<code>SELECT_LEVEL^level</code>)을 받아 게임 시작, 점수를 RPC 로
               다른 학생에게 동기화. 팀과 공동 설계, 메인 작업.</p>
           </div>
           <div class="gt-item">
-            <h5>Master 측 Match3Play</h5>
+            <h4>Master 측 Match3Play</h4>
             <p>교사 PC 의 <code>RCPlayManager2</code> 상속 클래스. <code>GOOD_JOB</code>·<code>ADD_TIME</code>·
               <code>SEND_EVENT</code>(보너스) 등 명령 송신. 팀원 작업과 통신 프로토콜만 맞춤.</p>
           </div>
@@ -1540,26 +1547,26 @@
 
         <div class="gt-grid">
           <div class="gt-item mine">
-            <h5>MouseDragController · 드래그 선택</h5>
+            <h4>MouseDragController · 드래그 선택</h4>
             <p>마우스/터치 다운→드래그→업 흐름에서 동전 위치·거리 검사. 인접 거리(200) 초과 시 점프 방지,
               선택 동전을 LineRenderer 로 연결. 업 시점에 합 계산해 ANSWER(10) 여부 판정.</p>
           </div>
           <div class="gt-item mine">
-            <h5>가중치 동전 생성</h5>
+            <h4>가중치 동전 생성</h4>
             <p>1~9 숫자 동전을 그냥 랜덤이 아니라 <code>weightedNumbers = [1,1,2,2,3,3,4,4,5,6,7,8,9]</code> 가중치로 분포.
               마지막 동전은 전체 합이 10의 배수가 되도록 보정. 풀이 가능한 보드 자동 보장.</p>
           </div>
           <div class="gt-item mine">
-            <h5>콤보 → 공격 전환</h5>
+            <h4>콤보 → 공격 전환</h4>
             <p>레벨별 <code>comboNum</code>(5~10) 도달 시 <code>OtherPlayerAttack()</code> RPC 호출.
               상대 학생 보드에 파티클 이펙트를 발생시키고 콤보 카운터를 리셋. 랭크 모드에서만 활성.</p>
           </div>
           <div class="gt-item">
-            <h5>MatchManager · BaseManager 통합</h5>
+            <h4>MatchManager · BaseManager 통합</h4>
             <p>Photon RPC 와 Socket.IO 채널 연결, 학생 수 동기화, 점수 정규화. 다른 미니게임과 동일 패턴으로 작성.</p>
           </div>
           <div class="gt-item">
-            <h5>CollaborationManager (Master)</h5>
+            <h4>CollaborationManager (Master)</h4>
             <p>협력 모드에서 학생 전원의 점수를 합산해 단계별로 표시. 이번 라운드 점수 · 누적 점수 동시 추적.
               팀원과 공동 작업.</p>
           </div>
@@ -1578,27 +1585,27 @@
 
         <div class="gt-grid">
           <div class="gt-item mine">
-            <h5>Star_GameBoard · 포인터 입력 처리</h5>
+            <h4>Star_GameBoard · 포인터 입력 처리</h4>
             <p>UnityEngine.EventSystems 의 <code>IPointerDownHandler</code> · <code>IDragHandler</code> · <code>IPointerUpHandler</code>
               구현. 화면 좌표 → RectTransform 로컬 좌표 변환, 별 근접도 검사, 정답 리스트와 비교.</p>
           </div>
           <div class="gt-item mine">
-            <h5>정답 매칭과 LineRenderer</h5>
+            <h4>정답 매칭과 LineRenderer</h4>
             <p>정답 좌표 쌍 <code>(int, int)</code> 리스트와 사용자의 입력 라인을 순서까지 일치 검사.
               실제 연결선은 LineRenderer 로 실시간 그리고, 정답 라인은 별도 prefab 으로 시연.</p>
           </div>
           <div class="gt-item mine">
-            <h5>힌트 / 실수 카운트</h5>
+            <h4>힌트 / 실수 카운트</h4>
             <p>5초 무입력 → 힌트 패널 자동 출현, <code>missCount</code> 누적 3회 → 정답 시연 + "다시 해볼까요?".
               <code>isAlreadyShowHint</code> 플래그로 중복 안내 방지.</p>
           </div>
           <div class="gt-item">
-            <h5>Star12 · 12궁 배경 반짝임</h5>
+            <h4>Star12 · 12궁 배경 반짝임</h4>
             <p>DOTween 으로 별의 알파값을 랜덤 주기·랜덤 범위로 반복 페이딩. <code>ignoreTimeScale</code> 옵션으로
               일시정지 중에도 분위기 유지. 팀원 작업, 본인은 통합·튜닝 담당.</p>
           </div>
           <div class="gt-item">
-            <h5>StarPlay (Master) · 스토리 시연</h5>
+            <h4>StarPlay (Master) · 스토리 시연</h4>
             <p>교사 PC 측에서 별자리를 천천히 그려 보여주는 시범 애니메이션. TTS 와 동기화. 통신 프로토콜
               협의·동기화 책임.</p>
           </div>
@@ -1627,7 +1634,7 @@
         <h3>// Data Flow</h3>
         <div class="arch-flow">
           <div class="arch-node master">
-            <h4>Master (Teacher PC)</h4>
+            <h3>Master (Teacher PC)</h3>
             <ul>
               <li><code>RCPlayManager2</code> — 미니게임별 진행 컨트롤</li>
               <li><code>RCCondManager</code> — 레벨/시간 설정 UI</li>
@@ -1640,7 +1647,7 @@
             <div class="arch-arrow">RPC ↔ RPC<span class="line"></span>(via Photon)</div>
           </div>
           <div class="arch-node client">
-            <h4>Client (Student Tablet)</h4>
+            <h3>Client (Student Tablet)</h3>
             <ul>
               <li><code>BaseManager</code> 상속 — 각 게임 매니저</li>
               <li><code>SocketIO3Connect</code> — 교사 명령 수신</li>
@@ -1652,7 +1659,7 @@
 
         <div style="margin-top: 28px;">
           <div class="arch-node robot">
-            <h4>Silbot Robot <span style="color: var(--d-text-muted); font-size: 12px;">// TTS · Face · Motion</span></h4>
+            <h3>Silbot Robot <span style="color: var(--d-text-muted); font-size: 12px;">// TTS · Face · Motion</span></h3>
             <ul>
               <li><code>RobotManager</code> — 소켓 통신 어댑터</li>
               <li>TTS 발화 종료 콜백(<code>RobotSentenceEnd</code>) 으로 게임 진행 트리거</li>
@@ -1698,7 +1705,7 @@
         <!-- 01 -->
         <div class="hl-card mine">
           <div class="hl-num">// 01 · Gameplay · Match3</div>
-          <h4>3-11 Match3 게임 로직 메인 구현</h4>
+          <h3>3-11 Match3 게임 로직 메인 구현</h3>
           <p>
             <strong>그리드 매치 검출 · 중력 낙하 · 연쇄 반응</strong>의 핵심 사이클을 메인으로 작성.
             8×7 기본 그리드부터 11×9 최고 난이도까지 동일 코드가 작동하도록 일반화했고,
@@ -1718,7 +1725,7 @@
         <!-- 02 -->
         <div class="hl-card mine">
           <div class="hl-num">// 02 · Gameplay · Match3</div>
-          <h4>폭탄 타일 4종 — 다형 기반 확장 구조</h4>
+          <h3>폭탄 타일 4종 — 다형 기반 확장 구조</h3>
           <p>
             제거 범위 계산을 <code>Tile</code> 베이스 클래스의 가상 메서드 <code>CalculationRemoveRange()</code> 로 위임하고,
             BombTile · HorizontalLine · VerticalLine · RainBomb 네 종류가 각자 오버라이드.
@@ -1738,7 +1745,7 @@
         <!-- 03 -->
         <div class="hl-card mine">
           <div class="hl-num">// 03 · Gameplay · Match (5-06)</div>
-          <h4>5-06 Match · 드래그 선택 & 합 판정</h4>
+          <h3>5-06 Match · 드래그 선택 & 합 판정</h3>
           <p>
             <strong>여러 사과를 드래그로 이어 선택하는 입력 시스템</strong>의 핵심 책임을 담당.
             화면 좌표 → RectTransform 로컬 좌표 변환, 사과 근접도 검사,
@@ -1759,7 +1766,7 @@
         <!-- 04 -->
         <div class="hl-card mine">
           <div class="hl-num">// 04 · Spawn Logic · Match (5-06)</div>
-          <h4>가중치 기반 사과 스폰 + 풀이 가능 보장</h4>
+          <h3>가중치 기반 사과 스폰 + 풀이 가능 보장</h3>
           <p>
             그냥 1~9 균등 랜덤으로 사과를 뿌리면 합이 10이 되는 조합이 잘 안 나오는 문제 해결.
             가중치 배열로 작은 수 비중을 키우고, 마지막 사과를 전체 합이 10의 배수가 되도록 보정해
@@ -1778,7 +1785,7 @@
         <!-- 05 -->
         <div class="hl-card mine">
           <div class="hl-num">// 05 · Gameplay · Star (5-07)</div>
-          <h4>5-07 Star · 반짝반짝 별자리 입력 & 정답 검증</h4>
+          <h3>5-07 Star · 반짝반짝 별자리 입력 & 정답 검증</h3>
           <p>
             화면 위 별을 번호 순서대로 잇는 입력 처리를 메인 담당.
             <code>IPointerDownHandler · IDragHandler · IPointerUpHandler</code> 를 직접 구현해
@@ -1798,7 +1805,7 @@
         <!-- 06 -->
         <div class="hl-card mine">
           <div class="hl-num">// 06 · UX · Star (5-07)</div>
-          <h4>힌트 시스템 — 무입력 5초 자동 안내</h4>
+          <h3>힌트 시스템 — 무입력 5초 자동 안내</h3>
           <p>
             학생이 막힌 상태로 너무 오래 두지 않도록, 5초 무입력 시 힌트 패널을 자동 노출.
             한 번 본 힌트는 같은 라운드에서 다시 뜨지 않도록 <code>isAlreadyShowHint</code> 플래그로 제어,
@@ -1818,7 +1825,7 @@
         <div class="hl-card mine wide">
           <div class="hl-text">
             <div class="hl-num">// 07 · Teacher Tool · Single Author</div>
-            <h4>행사용 발화 창 — 실벗 발화·동작 시퀀스 빌더</h4>
+            <h3>행사용 발화 창 — 실벗 발화·동작 시퀀스 빌더</h3>
             <p>
               학교 행사·시연·자유 수업에서 교사가 <strong>실벗 로봇의 발화·표정·동작을 블록 단위로 직접 구성</strong>해 재생할 수 있는 도구.
               블록마다 텍스트·재생 시간·동작·표정을 드롭다운으로 고르고, 블록 순서를 위·아래 버튼으로 재배열한 뒤
@@ -1844,7 +1851,7 @@
         <!-- 08 -->
         <div class="hl-card coop">
           <div class="hl-num">// 08 · Architecture</div>
-          <h4>BaseManager 공통 라이프사이클 (공동 설계)</h4>
+          <h3>BaseManager 공통 라이프사이클 (공동 설계)</h3>
           <p>
             모든 미니게임이 동일한 패턴으로 작성되도록 <code>BaseManager : MonoBehaviourPunCallbacks</code> 를 팀과 공동 설계.
             게임 상태 머신, Photon RPC, Socket.IO 연결을 한 곳에 모아 각 미니게임 매니저가 상속만으로 통신·상태를 가져가도록 정리.
@@ -1864,7 +1871,7 @@
         <!-- 09 -->
         <div class="hl-card coop">
           <div class="hl-num">// 09 · Robot · CO-LEAD</div>
-          <h4>실벗 얼굴 테마 프로토콜 — 표정 통합</h4>
+          <h3>실벗 얼굴 테마 프로토콜 — 표정 통합</h3>
           <p>
             게임 상황(정답·오답·격려·집중)에 맞춰 실벗 로봇 표정이 자동으로 바뀌도록
             <strong>얼굴 테마 프로토콜</strong>을 신설. 게임 코드는 키워드만 던지면 RobotManager 가 알아서
@@ -1884,7 +1891,7 @@
         <!-- 10 -->
         <div class="hl-card coop">
           <div class="hl-num">// 10 · Robot · CO-LEAD</div>
-          <h4>HiBomi2 보조 로봇 연결 통합</h4>
+          <h3>HiBomi2 보조 로봇 연결 통합</h3>
           <p>
             기존 실벗 본체 외에 HiBomi2 보조 로봇과의 연결을 추가. 두 로봇이 같은 RobotManager 인터페이스를 통해 명령을 받도록
             구조를 일반화. 발화·표정 명령이 어느 로봇에도 동일 코드로 전달.
@@ -1902,7 +1909,7 @@
         <!-- 11 -->
         <div class="hl-card coop">
           <div class="hl-num">// 11 · System · CO-LEAD</div>
-          <h4>로그인 조건 분기 정리</h4>
+          <h3>로그인 조건 분기 정리</h3>
           <p>
             게스트/계정/실벗 단독 모드 등 진입 경로별 로그인 조건이 흩어져 있던 부분을 정리.
             <code>IntentSetting</code> 의 환경값에 따라 어느 화면으로 진입할지 단일 분기점에서 결정하도록 정돈.
@@ -1921,7 +1928,7 @@
         <!-- 12 -->
         <div class="hl-card mine">
           <div class="hl-num">// 12 · Network</div>
-          <h4>Socket.IO ↔ Photon RPC 브릿지</h4>
+          <h3>Socket.IO ↔ Photon RPC 브릿지</h3>
           <p>
             교사의 Socket 명령(<code>SHOW_HINT</code>, <code>ADD_TIME</code>, <code>GAME_START</code> 등)을 받았을 때
             <strong>나만 처리하는 게 아니라 같은 방의 학생 전원이 동기적으로 처리</strong>해야 하는 케이스 처리.
@@ -1940,7 +1947,7 @@
         <!-- 13 -->
         <div class="hl-card mine">
           <div class="hl-num">// 13 · Stability</div>
-          <h4>점수 정규화 & 학생 인원 변동 대응</h4>
+          <h3>점수 정규화 & 학생 인원 변동 대응</h3>
           <p>
             게임마다 만점 기준이 다르고 학생 수도 매 수업 다른 점을 흡수하기 위해
             <code>GetNormalizedScore() = (currentScore / maxScore) × 100</code> 으로 통일.
@@ -2048,7 +2055,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
       <div class="highlights">
         <div class="hl-card">
           <div class="hl-num">// HERO</div>
-          <h4>assets/hero_classroom.jpg</h4>
+          <h3>assets/hero_classroom.jpg</h3>
           <p>실벗 로봇 + 학생 태블릿 + 교사 PC 가 한 화면에 보이는 교실 장면. 1920×1200 가로 권장.
             placeholder div 를 <code>&lt;img src=...&gt;</code> 로 교체.</p>
           <div class="stack"><span>section.hero</span><span>1920×1200</span></div>
@@ -2056,7 +2063,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// GAME SHOTS</div>
-          <h4>assets/game_match3.jpg · game_match5_06.jpg · game_star.jpg</h4>
+          <h3>assets/game_match3.jpg · game_match5_06.jpg · game_star.jpg</h3>
           <p>각 미니게임의 인게임 화면 캡처. 1280×720 권장.
             <code>.game-card .game-image</code> 의 placeholder 텍스트를 <code>&lt;img&gt;</code> 로 교체.</p>
           <div class="stack"><span>section.games</span><span>1280×720</span></div>
@@ -2064,7 +2071,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// PLAY CLIPS</div>
-          <h4>assets/play_match3.mp4 · play_match5_06.mp4 · play_star.mp4</h4>
+          <h3>assets/play_match3.mp4 · play_match5_06.mp4 · play_star.mp4</h3>
           <p>각 게임 30초 안팎 플레이 영상. <code>&lt;video autoplay muted loop playsinline&gt;</code> 로 임베드.
             소리는 음소거 권장 (자동재생 정책 호환).</p>
           <div class="stack"><span>video</span><span>autoplay muted loop</span></div>
@@ -2072,7 +2079,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// FEATURE CLIPS</div>
-          <h4>assets/clip_*.mp4 (선택)</h4>
+          <h3>assets/clip_*.mp4 (선택)</h3>
           <p>핵심 기술 컷 — Match3 연쇄·콤보 공격·힌트 시연 같은 짧은(8~15초) 클립.
             <code>.game-tech-block</code> 또는 <code>.gt-item</code> 안에 작게 임베드 가능.</p>
           <div class="stack"><span>section#per-game</span><span>≤ 15s</span></div>
@@ -2080,7 +2087,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// ROBOT</div>
-          <h4>assets/robot_silbot.jpg / robot_hibomi.jpg</h4>
+          <h3>assets/robot_silbot.jpg / robot_hibomi.jpg</h3>
           <p>실벗 본체 · HiBomi2 보조 로봇 사진. <code>#system</code> 또는 <code>#highlights</code> 의 로봇 관련 카드에 넣으면 좋음.
             배경 단정한 1:1 또는 4:5 권장.</p>
           <div class="stack"><span>section#system</span><span>1:1 / 4:5</span></div>
@@ -2088,7 +2095,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// ARCH DIAGRAM</div>
-          <h4>assets/architecture.png (선택)</h4>
+          <h3>assets/architecture.png (선택)</h3>
           <p>Master · Client · Robot 흐름을 직접 그린 다이어그램이 있다면 <code>#architecture</code> 섹션의 <code>.arch</code> 위에
             <code>&lt;img&gt;</code> 로 삽입.</p>
           <div class="stack"><span>section#architecture</span></div>
@@ -2096,7 +2103,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// LOGO</div>
-          <h4>assets/logo.png (또는 .svg)</h4>
+          <h3>assets/logo.png (또는 .svg)</h3>
           <p>좌측 상단 nav 의 "실" 그라데이션 아이콘을 실제 로고로 교체. <code>.brand .logo-icon</code> 의
             텍스트를 <code>&lt;img&gt;</code> 로 변경.</p>
           <div class="stack"><span>header.nav</span></div>
@@ -2104,7 +2111,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// FACE THEMES</div>
-          <h4>assets/face_*.png (선택)</h4>
+          <h3>assets/face_*.png (선택)</h3>
           <p>실벗 표정(기쁨·놀람·집중·격려) 캡처. <code>// 09 · 얼굴 테마 프로토콜</code> 카드 안에 작은 갤러리로 넣으면 좋음.
             한 컷 600×600 권장.</p>
           <div class="stack"><span>#highlights · CO-LEAD 09</span></div>
@@ -2112,7 +2119,7 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
 
         <div class="hl-card">
           <div class="hl-num">// SPEECH WINDOW</div>
-          <h4>assets/feature_speech_window.jpg</h4>
+          <h3>assets/feature_speech_window.jpg</h3>
           <p>행사용 발화 창 UI 캡처 — 블록 리스트 + 텍스트 입력 + 동작/표정 드롭다운 + 저장/불러오기 버튼이 보이도록.
             <code>// 07 · 행사용 발화 창</code> 카드의 오른쪽 이미지 영역에 들어갑니다. 1280×800 권장.
             로봇이 실제 동작하는 시연 영상이 있다면 <code>feature_speech_window.mp4</code> 로 대체 가능.</p>
@@ -2144,6 +2151,8 @@ tilesToRemoveCache.<span class="f">Clear</span>();</pre>
   </nav>
 
   <!-- =================== FOOTER =================== -->
+  </main>
+
   <footer class="footer">
     <p>
       Silbot · 실벗 미니게임 · Developer Portfolio · 2026<br/>

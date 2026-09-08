@@ -3607,6 +3607,11 @@
       "key": "t0721",
       "source": "Rota Track 대표 이미지",
       "text": "Rota Track key visual"
+    },
+    {
+      "key": "t0722",
+      "source": "본문으로 바로가기",
+      "text": "Skip to main content"
     }
   ]
 }

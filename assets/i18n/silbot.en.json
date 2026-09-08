@@ -2262,6 +2262,11 @@
       "key": "t0452",
       "source": "실벗 발화·동작 시퀀스 빌더 화면",
       "text": "Silbot speech and motion sequence builder"
+    },
+    {
+      "key": "t0453",
+      "source": "본문으로 바로가기",
+      "text": "Skip to main content"
     }
   ]
 }

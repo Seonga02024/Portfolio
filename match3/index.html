@@ -18,7 +18,7 @@
       --w-paper-strong: rgba(255,255,255,0.94);
       --w-ink: #29170f;
       --w-ink-soft: #65493a;
-      --w-muted: #9c7c69;
+      --w-muted: #765746;
       --w-line: rgba(92, 50, 28, 0.11);
       --w-accent: #ff7b22;
       --w-accent-2: #ffb95a;
@@ -1242,6 +1242,7 @@
   <link rel="stylesheet" href="../assets/language-toggle.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
   <header class="nav" id="topNav">
     <div class="nav-inner">
       <a class="brand" href="#top">
@@ -1257,8 +1258,14 @@
         <a href="#technical" class="tech">// technical</a>
         <a href="#systems" class="tech">// systems</a>
       </nav>
+      <div class="language-toggle" role="group" aria-label="Language switcher" data-no-translate>
+        <button type="button" data-lang-value="ko" class="is-active" aria-pressed="true">KO</button>
+        <button type="button" data-lang-value="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+
+  <main id="main-content">
 
   <section class="warm hero reveal" id="top">
     <div class="container hero-grid">
@@ -1293,9 +1300,9 @@
         </div>
       </div>
 
-      <div class="hero-panel" aria-label="match3 gameplay video">
+      <div class="hero-panel">
         <div class="hero-video-wrap">
-          <video class="hero-video" src="./assets/game play video.mp4" poster="./assets/main.png" autoplay muted loop playsinline controls></video>
+          <video class="hero-video" src="./assets/game play video.mp4" poster="./assets/main.png" autoplay muted loop playsinline controls aria-label="Match-3 gameplay video"></video>
         </div>
         <div class="board-preview">
           <div class="gem orange"></div><div class="gem pink"></div><div class="gem blue"></div><div class="gem green"></div><div class="gem purple"></div><div class="gem yellow"></div>
@@ -1754,6 +1761,8 @@
       </article>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <div class="footer-inner">
