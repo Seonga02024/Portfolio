@@ -3612,6 +3612,16 @@
       "key": "t0722",
       "source": "본문으로 바로가기",
       "text": "Skip to main content"
+    },
+    {
+      "key": "t0723",
+      "source": "Unity 기반 모바일·VR·메타버스 게임을 설계부터 출시·라이브 운영까지 경험한 게임 클라이언트 개발자입니다.",
+      "text": "I am a Unity game client developer with end-to-end experience across mobile, VR, and metaverse games—from architecture and implementation to launch and live operations."
+    },
+    {
+      "key": "t0724",
+      "source": "멀티플레이, UGS, 로봇·태블릿 연동을 중심으로 안정적인 사용자 경험과 운영 가능한 구조를 만듭니다.",
+      "text": "I build reliable user experiences and maintainable production systems, specializing in multiplayer, UGS, and robot-to-tablet integration."
     }
   ]
 }

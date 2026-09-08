@@ -17,6 +17,8 @@
     "실": "Sil"
   },
   "home": {
+    "Unity 기반 모바일·VR·메타버스 게임을 설계부터 출시·라이브 운영까지 경험한 게임 클라이언트 개발자입니다.": "I am a Unity game client developer with end-to-end experience across mobile, VR, and metaverse games—from architecture and implementation to launch and live operations.",
+    "멀티플레이, UGS, 로봇·태블릿 연동을 중심으로 안정적인 사용자 경험과 운영 가능한 구조를 만듭니다.": "I build reliable user experiences and maintainable production systems, specializing in multiplayer, UGS, and robot-to-tablet integration.",
     "교사 PC와 학생 태블릿이 실벗 로봇을 매개로 연결되어 동시 학습. 20여 종 미니게임 카탈로그 위에서 3-11 Match3 · 5-06 Match · 5-07 Star 메인 담당. 행사용 발화 창(시퀀스 빌더) 단독 작업.": "A teacher PC and student tablets connect through Silbot for synchronized learning. I led 3-11 Match3, 5-06 Match, and 5-07 Star within a catalog of over 20 mini-games, and independently built the event speech-and-motion sequence editor.",
     "인지·신체 활동을 함께 챙기는 복합 훈련. 체조 정확도에 비례한 코인 보상 → 아케이드 게임 모드. UGS 통합·서버 검증 화폐 시스템·아케이드 베이스 계층 공동 작업.": "A combined cognitive and physical training experience: exercise accuracy earns coins that unlock arcade modes. I contributed to UGS integration, the server-validated currency system, and the shared arcade base layer.",
     "// Hybrid Casual · Android · 출시 준비 중": "// Hybrid Casual · Android · Preparing for Release",
