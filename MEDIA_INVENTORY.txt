@@ -1,0 +1,185 @@
+포트폴리오 이미지 · 동영상 사용 현황
+생성일: 2026-09-09
+
+[검사 기준]
+- 저장소의 웹 자산 중 이미지(png, jpg, jpeg, gif, webp, svg, avif, bmp, ico)와 동영상(mp4, webm, mov, m4v, ogv)을 검사했습니다.
+- HTML의 실제 img/video/source 요소, CSS url(), JavaScript에서 동적으로 사용하는 미디어 경로를 '사용 중'으로 분류했습니다.
+- HTML 주석, 파일 추가 안내 문구, 예시 코드에 적힌 경로는 실제 사용으로 계산하지 않았습니다.
+- notion/ 및 .git/ 디렉터리는 검사 대상에서 제외했습니다.
+- 총 파일 141개: 사용 중 102개(이미지 91, 동영상 11), 미사용 39개(이미지 38, 동영상 1)
+- 실제 참조 경로 중 누락된 파일: 없음
+
+============================================================
+1. 사용 중인 이미지 (91개)
+============================================================
+
+- assets/paper-silbot-classroom.png | 참조: index.html | 2회
+- assets/image (8).png | 참조: index.html | 1회
+- assets/pro_img-480.jpg | 참조: index.html | 1회
+- assets/proj-attack-on-titan-1.png | 참조: index.html | 1회
+- assets/proj-catcatcat-puzzle-1.png | 참조: index.html | 2회
+- assets/proj-chef-friend-1.png | 참조: index.html | 1회
+- assets/proj-christmas-village-1.png | 참조: index.html | 1회
+- assets/proj-cracker-1.png | 참조: index.html | 1회
+- assets/proj-dangerous-lab-1.png | 참조: index.html | 1회
+- assets/proj-eatcat-1.png | 참조: index.html | 1회
+- assets/proj-gucci-community-1.png | 참조: index.html | 2회
+- assets/proj-gucci-community-2.png | 참조: index.html | 1회
+- assets/proj-gucci-tennis-1.png | 참조: index.html | 1회
+- assets/proj-knight-go-1.png | 참조: index.html | 2회
+- assets/proj-melody-pangpang-1.png | 참조: index.html | 1회
+- assets/proj-ocean-trash-vr-1.png | 참조: index.html | 2회
+- assets/proj-python-study-1.png | 참조: index.html | 2회
+- assets/proj-rpg-test-1.png | 참조: index.html | 1회
+- assets/proj-runa-1.png | 참조: index.html | 2회
+- assets/proj-run-to-room-1.png | 참조: index.html | 1회
+- assets/proj-unity-shader-1.png | 참조: index.html | 2회
+- assets/proj-xescape-1.png | 참조: index.html | 2회
+- assets/proj-xescape-2.png | 참조: index.html | 1회
+- assets/rota-track-cover.png | 참조: index.html | 1회
+- assets/리듬.png | 참조: index.html | 1회
+- assets/맞고_타이틀.jpg | 참조: index.html | 1회
+- assets/가상 환경에서 무게 감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 프로젝트_1.png | 참조: index.html | 2회
+- assets/가상 환경에서 무게 감을 효율적으로 사용자에게 전달하는 도르래 방식의 VR 인터페이스 프로젝트_2.png | 참조: index.html | 1회
+- assets/가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 제작 프로젝트_1.png | 참조: index.html | 2회
+- assets/사용자의 걷기, 뛰기, 절름발이 움직임을 몰입감 있게 표현하기 위한 VR 인터페이스 프로젝트_1.png | 참조: index.html | 2회
+- assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_1.jpg | 참조: index.html | 2회
+- assets/스케치 드로잉을 통한 사실적인 얼굴 주름의 인터페이스 생성 프로젝트_2.png | 참조: index.html | 1회
+- assets/장애물 객체의 회전 벡터를 이용한 VR 환경에서의 효율적인 음향 처리 및 합성 프로젝트 _1.png | 참조: index.html | 2회
+- assets/확장 현실에서 사용자의 팔 근육 연습 및 분석을 위한 립모션 기반 추적 프레임워크 프로젝트_1.png | 참조: index.html | 2회
+- attack-on-titan/assets/attack-update1-1.jpg | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-update1-1-optimized.jpg | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-update1-2.jpg | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-update2-1.png | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-update2-2.png | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-usage.png | 참조: attack-on-titan/index.html | 1회
+- carebrainfit/assets/carebrainfit-hero.jpg | 참조: carebrainfit/index.html | 1회
+- carebrainfit/assets/image (8).png | 참조: carebrainfit/index.html | 1회
+- carebrainfit/assets/image (9).png | 참조: carebrainfit/index.html | 1회
+- gostop/assets/gostop-title-optimized.jpg | 참조: gostop/index.html | 1회
+- gostop/assets/rank.png | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_게임.jpg | 참조: gostop/index.html | 2회
+- gostop/assets/맞고_게임2.jpg | 참조: gostop/index.html | 2회
+- gostop/assets/맞고_게임결과.jpg | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_로비.jpg | 참조: gostop/index.html | 2회
+- gostop/assets/맞고_매칭대기.jpg | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_본인기록.jpg | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_선결정.jpg | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_앱아이콘.png | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_출석체크.jpg | 참조: gostop/index.html | 1회
+- gostop/assets/맞고_프로필.jpg | 참조: gostop/index.html | 1회
+- gucci-tennis/assets/proj-gucci-tennis-1.png | 참조: gucci-tennis/index.html | 1회
+- gucci-tennis/assets/tennis-0.jpg | 참조: gucci-tennis/index.html | 1회
+- gucci-tennis/assets/tennis-1.jpg | 참조: gucci-tennis/index.html | 1회
+- gucci-tennis/assets/tennis-2.jpg | 참조: gucci-tennis/index.html | 1회
+- gucci-tennis/assets/tennis-3.jpg | 참조: gucci-tennis/index.html | 1회
+- gucci-tennis/assets/tennis-4.jpg | 참조: gucci-tennis/index.html | 1회
+- gucci-tennis/assets/tennis-5.jpg | 참조: gucci-tennis/index.html | 1회
+- match3/assets/AttendancCheckUI.png | 참조: match3/index.html | 2회
+- match3/assets/clearRewardUI.png | 참조: match3/index.html | 2회
+- match3/assets/DailyQuestUI.png | 참조: match3/index.html | 2회
+- match3/assets/game 1.png | 참조: match3/index.html | 2회
+- match3/assets/game 2.png | 참조: match3/index.html | 1회
+- match3/assets/game info.png | 참조: match3/index.html | 2회
+- match3/assets/game map 1.png | 참조: match3/index.html | 2회
+- match3/assets/game map 2.png | 참조: match3/index.html | 1회
+- match3/assets/LeaderboardUI.png | 참조: match3/index.html | 2회
+- match3/assets/main.png | 참조: match3/index.html | 4회
+- match3/assets/settingUI.png | 참조: match3/index.html | 1회
+- melody-pangpang/assets/melody-2.png | 참조: melody-pangpang/index.html | 1회
+- melody-pangpang/assets/melody-3.png | 참조: melody-pangpang/index.html | 1회
+- melody-pangpang/assets/melody-4.png | 참조: melody-pangpang/index.html | 1회
+- melody-pangpang/assets/melody-hero.jpg | 참조: melody-pangpang/index.html | 1회
+- melody-pangpang/assets/proj-melody-pangpang-1.png | 참조: melody-pangpang/index.html | 1회
+- robocare/assets/robocare-hero.jpg | 참조: robocare/index.html | 1회
+- robocare/assets/리듬.png | 참조: robocare/index.html | 1회
+- robocare/assets/오목.jpg | 참조: robocare/index.html | 1회
+- robocare/assets/인지.jpg | 참조: robocare/index.html | 1회
+- robocare/assets/핀볼.jpg | 참조: robocare/index.html | 1회
+- run-to-room/assets/proj-run-to-room-1.png | 참조: run-to-room/index.html | 1회
+- run-to-room/assets/proj-run-to-room-2.png | 참조: run-to-room/index.html | 1회
+- run-to-room/assets/run-to-room-hero.jpg | 참조: run-to-room/index.html | 1회
+- silbot/assets/match3.jpg | 참조: silbot/index.html | 1회
+- silbot/assets/silbot-classroom-hero.jpg | 참조: silbot/index.html | 1회
+- silbot/assets/발화.jpg | 참조: silbot/index.html | 1회
+- silbot/assets/별자리.jpg | 참조: silbot/index.html | 1회
+- silbot/assets/십원게임.jpg | 참조: silbot/index.html | 1회
+
+============================================================
+2. 사용 중인 동영상 (11개)
+============================================================
+
+- attack-on-titan/assets/attack-promotion.mp4 | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-update1-3.mp4 | 참조: attack-on-titan/index.html | 1회
+- attack-on-titan/assets/attack-update2-3.mp4 | 참조: attack-on-titan/index.html | 1회
+- gostop/assets/게임_플레이어1.mp4 | 참조: gostop/index.html | 1회
+- gostop/assets/게임_플레이어2.mp4 | 참조: gostop/index.html | 1회
+- gostop/assets/그외기능.mp4 | 참조: gostop/index.html | 1회
+- gucci-tennis/assets/tennis-gameplay.mp4 | 참조: gucci-tennis/index.html | 1회
+- match3/assets/game play video.mp4 | 참조: match3/index.html | 2회
+- silbot/assets/결과영상2506/십원 대화면 풀.mp4 | 참조: silbot/index.html | 1회
+- silbot/assets/결과영상2506/십원 선생님 화면.mp4 | 참조: silbot/index.html | 1회
+- silbot/assets/결과영상2506/십원 학생 풀 게임.mp4 | 참조: silbot/index.html | 1회
+
+============================================================
+3. 파일은 있지만 사용하지 않는 이미지 (38개)
+============================================================
+
+- assets/pro_img.png
+- assets/pro_img-960.jpg
+- assets/profile.jpg
+- assets/proj-attack-on-titan-2.png
+- assets/proj-catcatcat-puzzle-2.png
+- assets/proj-christmas-village-2.png
+- assets/proj-cracker-2.png
+- assets/proj-dangerous-lab-2.png
+- assets/proj-eatcat-2.png
+- assets/proj-gostop-10won-1.jpg
+- assets/proj-gostop-10won-2.jpg
+- assets/proj-gucci-tennis-2.jpg
+- assets/proj-knight-go-2.png
+- assets/proj-melody-pangpang-2.png
+- assets/proj-python-study-2.png
+- assets/proj-redbrick-extra-1.png
+- assets/proj-redbrick-extra-2.png
+- assets/proj-rpg-test-2.png
+- assets/proj-run-to-room-2.png
+- assets/가상 환경에서 사운드의 반사와 회절을 이용한 실시간 소리 제어 방법 제작 프로젝트_2.png
+- assets/확장 현실에서 사용자의 팔 근육 연습 및 분석을 위한 립모션 기반 추적 프레임워크 프로젝트_2.png
+- attack-on-titan/assets/proj-attack-on-titan-1.png
+- attack-on-titan/assets/proj-attack-on-titan-2.png
+- gostop/assets/맞고_게임3.jpg
+- gostop/assets/맞고_랭킹.jpg
+- gostop/assets/맞고_칭호.jpg
+- gostop/assets/맞고_프로필이미지.jpg
+- gucci-tennis/assets/proj-gucci-tennis-2.jpg
+- match3/assets/game clear.png
+- match3/assets/game fail.png
+- melody-pangpang/assets/melody-1.png
+- melody-pangpang/assets/proj-melody-pangpang-2.png
+- robocare/assets/carebrainfit1.png
+- robocare/assets/carebrainfit2.png
+- robocare/assets/대구국제로봇산업전_carebrainfit.jpg
+- robocare/assets/로보케어.jpg
+- robocare/assets/맞고_게임.jpg
+- robocare/assets/케미.jpg
+
+============================================================
+4. 파일은 있지만 사용하지 않는 동영상 (1개)
+============================================================
+
+- silbot/assets/결과영상2506/선생님 화면.mp4
+
+============================================================
+5. 실제 참조 경로에 없는 파일
+============================================================
+
+- 없음
+
+[참고: 파일 추가 안내에만 등장하는 미생성 경로]
+아래 경로들은 실제 img/video/source 참조가 아니라 페이지 내 안내 문구 또는 예시 코드에만 등장합니다.
+
+- carebrainfit/assets/game_F1.jpg
+- carebrainfit/assets/play_demo.mp4
+- silbot/assets/game_match3.jpg
+- silbot/assets/play_match3.mp4

@@ -682,6 +682,36 @@
       "key": "t0137",
       "source": "각 카드에서 구현 범위와 사용 기술을 바로 확인할 수 있습니다.",
       "text": "Each card shows the implementation scope and technologies used."
+    },
+    {
+      "key": "t0138",
+      "source": "모든 콘텐츠는 케미프렌즈 재미 공간 / Google Play / App Store에서 다운로드할 수 있습니다.",
+      "text": "All content is available through Cami Friends Fun Space, Google Play, and the App Store."
+    },
+    {
+      "key": "t0139",
+      "source": "각 카드에는 참여 범위와 구현 내용을 요약했으며, 스토어 버튼으로 실제 배포 페이지를 확인할 수 있습니다.",
+      "text": "Each card summarizes my role and implementation work, with store buttons linking to the published product pages."
+    },
+    {
+      "key": "t0140",
+      "source": "인지게임 App Store에서 보기",
+      "text": "View Cognitive Training Game on the App Store"
+    },
+    {
+      "key": "t0141",
+      "source": "오목게임 App Store에서 보기",
+      "text": "View Omok Game on the App Store"
+    },
+    {
+      "key": "t0142",
+      "source": "리듬게임 App Store에서 보기",
+      "text": "View Rhythm Game on the App Store"
+    },
+    {
+      "key": "t0143",
+      "source": "핀볼게임 App Store에서 보기",
+      "text": "View Pinball Game on the App Store"
     }
   ]
 }
