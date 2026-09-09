@@ -657,6 +657,12 @@
       flex-shrink: 0; margin-top: 2px;
       font-size: 11px;
     }
+    .mine-card .tag-detail {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
     .mine-card ul li code {
       color: var(--d-accent);
       background: rgba(251, 191, 36, 0.08);
@@ -1129,7 +1135,7 @@
           </p>
           <ul>
             <li>입장 시마다 다른 레이아웃 — 반복성 제거</li>
-            <li><code>buildingId</code> → 컨셉 매핑 테이블</li>
+            <li><span class="tag-detail"><code>buildingId</code><span>→ 컨셉 매핑 테이블</span></span></li>
             <li>장애물 주변 예외 처리 — 막힌 구조·고립 영역 방지</li>
             <li>블록 prefab 재활용으로 6컨셉을 1세트 자산으로 표현</li>
           </ul>
@@ -1143,9 +1149,9 @@
             테스트 및 룰 변경 시 한 모듈만 수정하면 되도록 책임을 명확히 가름.
           </p>
           <ul>
-            <li><code>ItemManager</code> — 아이템 스폰 / 회수 / 인벤토리</li>
-            <li><code>EnemyManager</code> — 적 스폰 · 추격 AI · 난이도 곡선</li>
-            <li><code>EventManager</code> — 중간 이벤트 트리거 · 보너스 페이즈</li>
+            <li><span class="tag-detail"><code>ItemManager</code><span>— 아이템 스폰 / 회수 / 인벤토리</span></span></li>
+            <li><span class="tag-detail"><code>EnemyManager</code><span>— 적 스폰 · 추격 AI · 난이도 곡선</span></span></li>
+            <li><span class="tag-detail"><code>EventManager</code><span>— 중간 이벤트 트리거 · 보너스 페이즈</span></span></li>
             <li>각 매니저는 MapGenerator로부터 컨셉 정보만 받음</li>
           </ul>
         </div>
@@ -1173,9 +1179,9 @@
             플레이 결과를 다음 게임으로 전달.
           </p>
           <ul>
-            <li><code>SignalReceiver</code> — 외부 게임의 건물 데이터 수신</li>
-            <li><code>ResultCollector</code> — 획득 아이템 누적 · 직렬화</li>
-            <li><code>LocalStorage</code> 폴백 — 시그널 미수신 시 백업 채널</li>
+            <li><span class="tag-detail"><code>SignalReceiver</code><span>— 외부 게임의 건물 데이터 수신</span></span></li>
+            <li><span class="tag-detail"><code>ResultCollector</code><span>— 획득 아이템 누적 · 직렬화</span></span></li>
+            <li><span class="tag-detail"><code>LocalStorage</code><span>폴백 — 시그널 미수신 시 백업 채널</span></span></li>
             <li>건물 데이터 부재 시 랜덤 컨셉으로 안전 폴백</li>
           </ul>
         </div>

@@ -734,7 +734,7 @@
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       gap: 30px;
-      align-items: stretch;
+      align-items: start;
     }
     .hl-card.wide .hl-text { display: flex; flex-direction: column; }
     .hl-card .hl-image {
@@ -752,11 +752,14 @@
       position: relative;
     }
     .hl-card .hl-image img {
-      width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
+      display: block;
+      width: 100%; height: auto; object-fit: contain; border-radius: 8px;
     }
     .hl-card .hl-image.has-media {
       padding: 0;
       border-style: solid;
+      min-height: 0;
+      aspect-ratio: 8 / 5;
     }
     .hl-card .hl-image strong {
       display: block;
