@@ -17,6 +17,14 @@
     "실": "Sil"
   },
   "home": {
+    "AI 코딩 도구로 아이디어를 구현한 개인 프로젝트입니다. 필요한 기능을 정의하고 결과물을 검토·개선했으며, 코드 생성과 수정에는 AI를 활용했습니다.": "Personal projects brought to life with AI coding tools. I defined the required features and reviewed and refined the results, while AI generated and revised the code.",
+    "// 안전교육 · 포인트 앤 클릭 · 웹 게임": "// Safety Education · Point-and-Click · Web Game",
+    "180초 안에 주방·캠핑장·보일러실의 위험요소를 찾고 올바른 대응을 선택하는 가스안전 교육 게임입니다. 배경 원화는 생성형 AI로 제작했습니다.": "A gas safety game in which players identify hazards in a kitchen, campsite, and boiler room and choose the correct responses within 180 seconds. The background artwork was created with generative AI.",
+    "// 자산 · 목표 · 여행 관리 웹사이트": "// Asset, Goal & Travel Management Website",
+    "자산 관리, 목표 설정, 여행 기록 등 일상에 필요한 도구를 하나의 허브에 모은 웹사이트입니다. 비로그인 상태에서는 로컬 저장을, 로그인 후에는 계정 기반 저장을 지원합니다.": "A website bringing asset management, goal setting, travel records, and other everyday tools together in one hub. It supports local storage for guests and account-based storage for signed-in users.",
+    "약 2년 9개월": "~2 yr 9 mo",
+    "2026.09 기준 · 인턴 포함": "As of Sep 2026 · Including internship",
+    "섹션 메뉴": "Section navigation",
     "Unity 기반 모바일·VR·메타버스 게임을 설계부터 출시·라이브 운영까지 경험한 게임 클라이언트 개발자입니다.": "I am a Unity game client developer with end-to-end experience across mobile, VR, and metaverse games—from architecture and implementation to launch and live operations.",
     "멀티플레이, UGS, 로봇·태블릿 연동을 중심으로 안정적인 사용자 경험과 운영 가능한 구조를 만듭니다.": "I build reliable user experiences and maintainable production systems, specializing in multiplayer, UGS, and robot-to-tablet integration.",
     "교사 PC와 학생 태블릿이 실벗 로봇을 매개로 연결되어 동시 학습. 20여 종 미니게임 카탈로그 위에서 3-11 Match3 · 5-06 Match · 5-07 Star 메인 담당. 행사용 발화 창(시퀀스 빌더) 단독 작업.": "A teacher PC and student tablets connect through Silbot for synchronized learning. I led 3-11 Match3, 5-06 Match, and 5-07 Star within a catalog of over 20 mini-games, and independently built the event speech-and-motion sequence editor.",

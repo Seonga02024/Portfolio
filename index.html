@@ -260,6 +260,9 @@
     }
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a .hash { color: var(--text-mute); }
+    main section[id] { scroll-margin-top: 100px; }
+    .hero-stats .v.career-duration { font-size: 28px; }
+    .career-basis { display: block; font-size: 12px; color: var(--text-muted); }
     .nav-tools {
       display: flex;
       align-items: center;
@@ -1543,7 +1546,18 @@
       .feat-grid { grid-template-columns: repeat(2, 1fr); }
       .career-grid { grid-template-columns: 1fr; }
       .extras-gallery { grid-template-columns: repeat(2, 1fr); }
-      .nav-links { display: none; }
+      .nav-inner { flex-wrap: wrap; gap: 12px; padding: 12px 22px; }
+      .nav-tools { width: 100%; min-width: 0; flex-wrap: wrap; gap: 10px; }
+      .nav-links {
+        order: 30;
+        width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        gap: 18px;
+        padding-bottom: 4px;
+      }
+      .nav-links a { display: inline-flex; align-items: center; min-height: 44px; flex-shrink: 0; }
+      main section[id] { scroll-margin-top: 200px; }
     }
     @media (max-width: 1024px) {
       .paper-grid { grid-template-columns: 1fr; }
@@ -1598,7 +1612,7 @@
         </span>
       </a>
       <div class="nav-tools">
-        <nav class="nav-links">
+        <nav class="nav-links" aria-label="섹션 메뉴">
           <a href="#career"><span class="hash">#</span>career</a>
           <a href="#education"><span class="hash">#</span>education</a>
           <a href="#papers"><span class="hash">#</span>papers</a>
@@ -1658,7 +1672,8 @@
         <div class="hero-stats">
           <div>
             <div class="k">CAREER</div>
-            <div class="v">2.3<span class="unit"> yr+</span></div>
+            <div class="v career-duration">약 2년 9개월</div>
+            <span class="career-basis">2026.09 기준 · 인턴 포함</span>
           </div>
           <div>
             <div class="k">SHIPPED</div>
@@ -2426,22 +2441,20 @@
         <div class="proj-group-note">// SCOPE: AI 활용 제작과 개인 개발·협업 경험을 모은 사이드 프로젝트</div>
 
         <h4 class="extras-title">AI 활용 제작 · Vibe Coding</h4>
-        <p class="extras-note">웹 개발 전문지식을 바탕으로 직접 코딩하기보다, AI 코딩 도구와 대화하며 아이디어를 구체화하고 결과물을 확인·개선한 프로젝트입니다.</p>
+        <p class="extras-note">AI 코딩 도구로 아이디어를 구현한 개인 프로젝트입니다. 필요한 기능을 정의하고 결과물을 검토·개선했으며, 코드 생성과 수정에는 AI를 활용했습니다.</p>
         <div class="feat-grid">
           <div class="feat-card">
             <div class="feat-image">
               <span class="feat-tag">// SAFETY_WEB_GAME</span>
-              <span class="role-badge cowork">AI 활용 제작</span>
               <img src="assets/no-spark-cover.png" alt="NO SPARK! 가스안전 게임 시작 화면과 세 가지 미션" loading="lazy" style="position:absolute;inset:0;" />
             </div>
             <div class="feat-body">
               <h3>NO SPARK!</h3>
-              <div class="feat-sub">// 개인 제작 · AI 바이브 코딩 · 웹 게임</div>
-              <p>가스안전 교육을 플레이로 전달하고자 제작한 2D 포인트 앤 클릭형 웹 게임입니다. 주방·캠핑장·보일러실의 위험요소를 찾고, 180초 안에 올바른 대응을 선택하는 방식으로 진행됩니다. <strong>AI 코딩 도구를 활용해 게임 아이디어를 실행 가능한 형태로 만들고, 플레이 흐름과 화면·상호작용을 확인하며 수정</strong>했습니다.</p>
-              <p><strong>제작 방식</strong> — 요구사항 전달과 결과물 확인·수정 요청을 중심으로 진행했으며, 코드 생성·수정에는 AI를 활용했습니다. 배경 원화에도 생성형 AI를 활용했습니다.</p>
+              <div class="feat-sub">// 안전교육 · 포인트 앤 클릭 · 웹 게임</div>
+              <p>180초 안에 주방·캠핑장·보일러실의 위험요소를 찾고 올바른 대응을 선택하는 가스안전 교육 게임입니다. 배경 원화는 생성형 AI로 제작했습니다.</p>
               <div class="feat-sub">// 사용 기술 · 실행 환경</div>
               <div class="feat-stack">
-                <span>AI Coding</span><span>HTML/CSS</span><span>JavaScript</span><span>Web Audio API</span><span>Browser</span>
+                <span>HTML/CSS</span><span>JavaScript</span><span>Web Audio API</span><span>Browser</span>
               </div>
               <a class="open-link" href="https://usefultool-bq1.pages.dev/no-spark/" target="_blank" rel="noopener noreferrer">바로 플레이 ↗</a>
             </div>
@@ -2450,17 +2463,15 @@
           <div class="feat-card">
             <div class="feat-image">
               <span class="feat-tag">// PERSONAL_TOOL_HUB</span>
-              <span class="role-badge cowork">AI 활용 제작</span>
               <img src="assets/usefultool-cover.png" alt="UsefulTool 메인 허브의 일상·자산 관리 도구 화면" loading="lazy" style="position:absolute;inset:0;object-position:top;" />
             </div>
             <div class="feat-body">
               <h3>UsefulTool</h3>
-              <div class="feat-sub">// 개인 제작 · AI 바이브 코딩 · 웹사이트</div>
-              <p>일상에 필요한 관리 도구를 직접 만들어보고자 시작한 웹사이트 제작 프로젝트입니다. 자산 관리, 목표 설정, 여행 기록 등 여러 도구를 하나의 허브에 모았습니다. <strong>AI와 대화하며 필요한 기능과 화면 구성을 구체화하고, 결과물을 사용해보며 개선</strong>하는 방식으로 제작했습니다.</p>
-              <p><strong>제작 방식</strong> — 필요한 기능을 요청하고 결과물을 확인하는 과정에 집중했으며, 코드 생성·수정에는 AI를 활용했습니다. 로컬 저장과 로그인 사용자의 계정 기반 저장을 지원합니다.</p>
+              <div class="feat-sub">// 자산 · 목표 · 여행 관리 웹사이트</div>
+              <p>자산 관리, 목표 설정, 여행 기록 등 일상에 필요한 도구를 하나의 허브에 모은 웹사이트입니다. 비로그인 상태에서는 로컬 저장을, 로그인 후에는 계정 기반 저장을 지원합니다.</p>
               <div class="feat-sub">// 사용 기술 · 실행 환경</div>
               <div class="feat-stack">
-                <span>AI Coding</span><span>HTML/CSS</span><span>JavaScript</span><span>Cloudflare Pages Functions</span><span>D1</span>
+                <span>HTML/CSS</span><span>JavaScript</span><span>Cloudflare Pages Functions</span><span>D1</span>
               </div>
               <a class="open-link" href="https://usefultool-bq1.pages.dev/" target="_blank" rel="noopener noreferrer">사이트 실행 ↗</a>
             </div>

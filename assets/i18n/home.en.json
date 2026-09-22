@@ -3732,6 +3732,46 @@
       "key": "t0746",
       "source": "UsefulTool 메인 허브의 일상·자산 관리 도구 화면",
       "text": "UsefulTool main hub with lifestyle and asset management tools"
+    },
+    {
+      "key": "t0747",
+      "source": "약 2년 9개월",
+      "text": "~2 yr 9 mo"
+    },
+    {
+      "key": "t0748",
+      "source": "2026.09 기준 · 인턴 포함",
+      "text": "As of Sep 2026 · Including internship"
+    },
+    {
+      "key": "t0749",
+      "source": "AI 코딩 도구로 아이디어를 구현한 개인 프로젝트입니다. 필요한 기능을 정의하고 결과물을 검토·개선했으며, 코드 생성과 수정에는 AI를 활용했습니다.",
+      "text": "Personal projects brought to life with AI coding tools. I defined the required features and reviewed and refined the results, while AI generated and revised the code."
+    },
+    {
+      "key": "t0750",
+      "source": "// 안전교육 · 포인트 앤 클릭 · 웹 게임",
+      "text": "// Safety Education · Point-and-Click · Web Game"
+    },
+    {
+      "key": "t0751",
+      "source": "180초 안에 주방·캠핑장·보일러실의 위험요소를 찾고 올바른 대응을 선택하는 가스안전 교육 게임입니다. 배경 원화는 생성형 AI로 제작했습니다.",
+      "text": "A gas safety game in which players identify hazards in a kitchen, campsite, and boiler room and choose the correct responses within 180 seconds. The background artwork was created with generative AI."
+    },
+    {
+      "key": "t0752",
+      "source": "// 자산 · 목표 · 여행 관리 웹사이트",
+      "text": "// Asset, Goal & Travel Management Website"
+    },
+    {
+      "key": "t0753",
+      "source": "자산 관리, 목표 설정, 여행 기록 등 일상에 필요한 도구를 하나의 허브에 모은 웹사이트입니다. 비로그인 상태에서는 로컬 저장을, 로그인 후에는 계정 기반 저장을 지원합니다.",
+      "text": "A website bringing asset management, goal setting, travel records, and other everyday tools together in one hub. It supports local storage for guests and account-based storage for signed-in users."
+    },
+    {
+      "key": "t0754",
+      "source": "섹션 메뉴",
+      "text": "Section navigation"
     }
   ]
 }
