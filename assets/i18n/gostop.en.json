@@ -762,6 +762,346 @@
       "key": "t0152",
       "source": "로보맞고 App Store에서 보기",
       "text": "View Robo Go-Stop on the App Store"
+    },
+    {
+      "key": "t0153",
+      "source": "로보맞고 v2.1.0 · Go-Stop — Live Service Developer Portfolio",
+      "text": "Robo Go-Stop v2.1.0 — Live Service Developer Portfolio"
+    },
+    {
+      "key": "t0154",
+      "source": "v2.1.0 업데이트",
+      "text": "v2.1.0 Update"
+    },
+    {
+      "key": "t0155",
+      "source": "친구와의 실시간 멀티플레이와 나만의 스킨까지.",
+      "text": "plus real-time multiplayer with friends and skins of your own."
+    },
+    {
+      "key": "t0156",
+      "source": "2.1.0 업데이트 보기 →",
+      "text": "Explore the 2.1.0 update →"
+    },
+    {
+      "key": "t0157",
+      "source": "내 취향으로 완성하는 한 판",
+      "text": "Make every round your own"
+    },
+    {
+      "key": "t0158",
+      "source": "기존 서비스를 분석하고 안정화한 뒤, UGS Economy 기반 상점과 커스터마이징 시스템으로 확장했습니다.",
+      "text": "After analyzing and stabilizing the existing service, I expanded it with a UGS Economy-powered store and customization system."
+    },
+    {
+      "key": "t0159",
+      "source": "이제 획득한 아이템으로 화투패, 바닥판, 프로필을 직접 바꿀 수 있습니다.",
+      "text": "Players can now customize their Hwatu cards, game board, and profile with collected items."
+    },
+    {
+      "key": "t0160",
+      "source": "플레이 경험에서",
+      "text": "From a gameplay experience"
+    },
+    {
+      "key": "t0161",
+      "source": "개인화 경험으로",
+      "text": "to a personalized experience"
+    },
+    {
+      "key": "t0162",
+      "source": "상점, 인벤토리, 장착 상태와 실제 게임 화면을 하나의 흐름으로 연결했습니다.",
+      "text": "I connected the store, inventory, equipped state, and live game screen in one continuous flow."
+    },
+    {
+      "key": "t0163",
+      "source": "상점에서 구매 → 인벤토리에 저장 → 아이템 장착 → 게임 화면 반영",
+      "text": "Purchase in store → Save to inventory → Equip item → Apply in game"
+    },
+    {
+      "key": "t0164",
+      "source": "바닥판 스킨",
+      "text": "Game-board skins"
+    },
+    {
+      "key": "t0165",
+      "source": "한 판의 분위기를 바꾸는 테마형 바닥판을 선택하고 즉시 적용합니다.",
+      "text": "Choose a themed game board and apply it instantly to change the mood of each round."
+    },
+    {
+      "key": "t0166",
+      "source": "화투패 스킨",
+      "text": "Hwatu card skins"
+    },
+    {
+      "key": "t0167",
+      "source": "플레이 가독성을 유지하면서 취향에 맞는 패 디자인으로 변경합니다.",
+      "text": "Switch to a preferred card design while preserving gameplay readability."
+    },
+    {
+      "key": "t0168",
+      "source": "프로필 커스터마이징",
+      "text": "Profile customization"
+    },
+    {
+      "key": "t0169",
+      "source": "획득한 프로필 아이템으로 플레이어의 취향과 성장 과정을 표현합니다.",
+      "text": "Use collected profile items to express each player's taste and progress."
+    },
+    {
+      "key": "t0170",
+      "source": "출시 이후, 안정화하고 확장했습니다",
+      "text": "Stabilized and expanded after launch"
+    },
+    {
+      "key": "t0171",
+      "source": "코어 게임을 완성하는 데서 멈추지 않고, 기존 서비스를 분석해 멀티플레이와 운영 기반을 안정화한 뒤",
+      "text": "I went beyond completing the core game, analyzing the existing service and stabilizing its multiplayer and live-operations foundation"
+    },
+    {
+      "key": "t0172",
+      "source": "새로운 상품과 아이템을 계속 추가할 수 있는 구조로 발전시켰습니다.",
+      "text": "before evolving it into a structure where new products and items can be added continuously."
+    },
+    {
+      "key": "t0173",
+      "source": "맞고의 기본 재미와 로봇·태블릿 환경에 필요한 핵심 경험을 완성한 최초 출시 단계입니다.",
+      "text": "The initial release established the essential Go-Stop experience for robot and tablet environments."
+    },
+    {
+      "key": "t0174",
+      "source": "전통 맞고 규칙과 점수 계산",
+      "text": "Traditional Go-Stop rules and scoring"
+    },
+    {
+      "key": "t0175",
+      "source": "AI 플레이어와 게임 엔진",
+      "text": "AI players and game engine"
+    },
+    {
+      "key": "t0176",
+      "source": "시니어 친화 UI와 로봇 연동",
+      "text": "Senior-friendly UI and robot integration"
+    },
+    {
+      "key": "t0177",
+      "source": "운영 중 확인한 문제를 분석해 멀티플레이, 로그인, 세션과 재화 흐름을 서비스 수준으로 안정화했습니다.",
+      "text": "I analyzed production issues and stabilized multiplayer, login, session, and currency flows to a service-ready level."
+    },
+    {
+      "key": "t0178",
+      "source": "UGS 멀티플레이와 연결 예외 안정화",
+      "text": "UGS multiplayer and connection-edge-case stabilization"
+    },
+    {
+      "key": "t0179",
+      "source": "플랫폼 로그인·프로필·랭킹 통합",
+      "text": "Unified platform login, profiles, and rankings"
+    },
+    {
+      "key": "t0180",
+      "source": "Cloud Save·Cloud Code 기반 운영",
+      "text": "Cloud Save and Cloud Code-powered operations"
+    },
+    {
+      "key": "t0181",
+      "source": "안정화된 서비스 위에 상점과 커스터마이징을 연결해 지속적으로 콘텐츠를 확장할 수 있게 만들었습니다.",
+      "text": "On top of the stabilized service, I connected the store and customization systems to enable continuous content expansion."
+    },
+    {
+      "key": "t0182",
+      "source": "UGS Economy 상점과 인벤토리",
+      "text": "UGS Economy store and inventory"
+    },
+    {
+      "key": "t0183",
+      "source": "패·바닥판·프로필 장착 시스템",
+      "text": "Card, game-board, and profile equip system"
+    },
+    {
+      "key": "t0184",
+      "source": "AI 보조 아이템 제작 파이프라인",
+      "text": "AI-assisted item production pipeline"
+    },
+    {
+      "key": "t0185",
+      "source": "카탈로그에서 게임 화면까지",
+      "text": "From catalog to game screen"
+    },
+    {
+      "key": "t0186",
+      "source": "상품 정의, 구매, 보유 상태와 장착 결과를 분리해 새 아이템이 추가되어도 기존 게임 로직의 변경을 최소화했습니다.",
+      "text": "I separated product definitions, purchases, ownership, and equipped state so new items require minimal changes to existing game logic."
+    },
+    {
+      "key": "t0187",
+      "source": "Economy Catalog · 상품과 가격 정의",
+      "text": "Economy Catalog · Define products and prices"
+    },
+    {
+      "key": "t0188",
+      "source": "Virtual Purchase · 재화 차감과 구매 처리",
+      "text": "Virtual Purchase · Deduct currency and process purchases"
+    },
+    {
+      "key": "t0189",
+      "source": "Player Inventory · 보유 아이템 동기화",
+      "text": "Player Inventory · Synchronize owned items"
+    },
+    {
+      "key": "t0190",
+      "source": "Equip State · 선택한 스킨 저장",
+      "text": "Equip State · Save selected skins"
+    },
+    {
+      "key": "t0191",
+      "source": "Game Runtime · 플레이 화면에 반영",
+      "text": "Game Runtime · Apply selections in gameplay"
+    },
+    {
+      "key": "t0192",
+      "source": "빠른 시안에서 검증된 게임 리소스로",
+      "text": "From rapid concepts to validated game assets"
+    },
+    {
+      "key": "t0193",
+      "source": "AI는 스타일 탐색을 가속하는 보조 도구로 활용하고, 최종 품질과 게임 적합성은 직접 검토·후처리했습니다.",
+      "text": "I used AI to accelerate style exploration, then personally reviewed and refined every asset for quality and in-game suitability."
+    },
+    {
+      "key": "t0194",
+      "source": "Concept · 게임 톤과 가독성 기준 정의",
+      "text": "Concept · Define game tone and readability standards"
+    },
+    {
+      "key": "t0195",
+      "source": "AI Draft · 스타일과 색상 시안 탐색",
+      "text": "AI Draft · Explore style and color concepts"
+    },
+    {
+      "key": "t0196",
+      "source": "Art Direction · 선별과 일관성 검토",
+      "text": "Art Direction · Select and review for consistency"
+    },
+    {
+      "key": "t0197",
+      "source": "Game Ready · 크기·투명도·압축 후처리",
+      "text": "Game Ready · Refine size, transparency, and compression"
+    },
+    {
+      "key": "t0198",
+      "source": "Release QA · Unity 등록과 실기기 검증",
+      "text": "Release QA · Integrate in Unity and validate on devices"
+    },
+    {
+      "key": "t0199",
+      "source": "직접 설계 · 구현한 7가지 핵심 영역",
+      "text": "Seven core areas I designed and implemented"
+    },
+    {
+      "key": "t0200",
+      "source": "v2.0.0의 멀티플레이·서비스 안정화부터 v2.1.0의 Economy 상점과 콘텐츠 제작 파이프라인까지.",
+      "text": "From multiplayer and service stabilization in v2.0.0 to the Economy store and content pipeline in v2.1.0."
+    },
+    {
+      "key": "t0201",
+      "source": "프로덕션의 실제 문제를 해결하고 다음 업데이트가 쉬운 구조로 발전시킨 작업들입니다.",
+      "text": "This work solved real production issues and evolved the project into a structure ready for future updates."
+    },
+    {
+      "key": "t0202",
+      "source": "UGS Economy 상점 구축",
+      "text": "Built the UGS Economy store"
+    },
+    {
+      "key": "t0203",
+      "source": "상품 카탈로그, 구매, 보유 아이템과 장착 상태를 게임 화면까지 연결해",
+      "text": "Connected the product catalog, purchases, owned items, and equipped state through to the game screen"
+    },
+    {
+      "key": "t0204",
+      "source": "운영 중에도 새 스킨을 확장할 수 있는 상점 구조를 구축.",
+      "text": "to create a store structure that supports new skins during live operation."
+    },
+    {
+      "key": "t0205",
+      "source": "패·바닥판·프로필 아이템 카탈로그 구성",
+      "text": "Structured catalogs for card, game-board, and profile items"
+    },
+    {
+      "key": "t0206",
+      "source": "상점 구매와 Player Inventory 흐름 연결",
+      "text": "Connected store purchases to the Player Inventory flow"
+    },
+    {
+      "key": "t0207",
+      "source": "보유 여부 및 장착 상태에 따른 UI 동기화",
+      "text": "Synchronized UI with ownership and equipped state"
+    },
+    {
+      "key": "t0208",
+      "source": "선택한 스킨을 실제 플레이 화면에 즉시 반영",
+      "text": "Applied selected skins instantly to live gameplay"
+    },
+    {
+      "key": "t0209",
+      "source": "AI로 초기 스타일 탐색 속도를 높이고, 선별·후처리·Unity 등록·실기기 QA를 거쳐",
+      "text": "Accelerated early style exploration with AI, then selected, refined, integrated, and device-tested the results"
+    },
+    {
+      "key": "t0210",
+      "source": "실제 서비스에 사용할 수 있는 게임 아이템으로 완성.",
+      "text": "to produce game items ready for a live service."
+    },
+    {
+      "key": "t0211",
+      "source": "게임 톤과 시니어 가독성을 기준으로 콘셉트 정의",
+      "text": "Defined concepts around the game tone and senior readability"
+    },
+    {
+      "key": "t0212",
+      "source": "다양한 스타일·색상 시안 생성 및 아트 디렉션",
+      "text": "Generated varied style and color concepts with art direction"
+    },
+    {
+      "key": "t0213",
+      "source": "크기·투명 영역·압축 설정 등 게임용 후처리",
+      "text": "Prepared game-ready size, transparency, and compression settings"
+    },
+    {
+      "key": "t0214",
+      "source": "Economy 등록 후 태블릿과 플레이 화면에서 검증",
+      "text": "Registered items in Economy and validated them on tablets and in gameplay"
+    },
+    {
+      "key": "t0215",
+      "source": "로보맞고의 v1.0.0 코어 게임부터 v2.0.0 서비스 안정화, v2.1.0 UGS Economy 상점과 AI 보조 아이템 제작까지 이어진 라이브 서비스 개발 포트폴리오.",
+      "text": "A live-service development portfolio tracing Robo Go-Stop from the v1.0.0 core game through v2.0.0 service stabilization to the v2.1.0 UGS Economy store and AI-assisted item production."
+    },
+    {
+      "key": "t0216",
+      "source": "현재 서비스 버전",
+      "text": "Current service version"
+    },
+    {
+      "key": "t0217",
+      "source": "여러 스킨이 적용된 로보맞고 화면",
+      "text": "Robo Go-Stop gameplay with multiple skins applied"
+    },
+    {
+      "key": "t0218",
+      "source": "맞고 바닥판 스킨 변경 화면",
+      "text": "Go-Stop game-board skin selection"
+    },
+    {
+      "key": "t0219",
+      "source": "맞고 화투패 스킨 변경 화면",
+      "text": "Go-Stop Hwatu card skin selection"
+    },
+    {
+      "key": "t0220",
+      "source": "맞고 프로필 이미지 변경 화면",
+      "text": "Go-Stop profile image selection"
     }
   ]
 }

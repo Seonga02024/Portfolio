@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Go-Stop · 로보맞고 — Game Showcase &amp; Developer Portfolio</title>
-  <meta name="description" content="한국 전통 화투 게임 '맞고'의 Unity 6 구현. 멀티플레이 안정화, 로그인 플랫폼 통합, 세션-재화 흐름 안정화 작업 포트폴리오." />
+  <title>로보맞고 v2.1.0 · Go-Stop — Live Service Developer Portfolio</title>
+  <meta name="description" content="로보맞고의 v1.0.0 코어 게임부터 v2.0.0 서비스 안정화, v2.1.0 UGS Economy 상점과 AI 보조 아이템 제작까지 이어진 라이브 서비스 개발 포트폴리오." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -208,6 +208,19 @@
       font-size: 19px; color: var(--w-ink-soft);
       max-width: 560px; margin: 0 0 36px;
     }
+    .hero-status {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin: -8px 0 26px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--w-accent-deep);
+    }
+    .hero-status span {
+      padding: 6px 11px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(139, 26, 26, 0.18);
+    }
+    .hero-status .live { color: #23633f; border-color: rgba(35, 99, 63, 0.28); }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -354,6 +367,57 @@
     }
 
     /* ============================================================
+       v2.1.0 update — customization showcase
+       ============================================================ */
+    .update-showcase {
+      background:
+        radial-gradient(circle at 86% 12%, rgba(200, 154, 58, 0.18), transparent 30%),
+        linear-gradient(180deg, var(--w-bg-soft), var(--w-paper));
+    }
+    .update-lead {
+      display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+      gap: 28px; align-items: stretch;
+      margin-bottom: 28px;
+    }
+    .update-media, .update-card-media {
+      position: relative; overflow: hidden; background: #17120e;
+      box-shadow: var(--w-shadow);
+    }
+    .update-media { aspect-ratio: 16 / 10; border-radius: 22px; }
+    .update-media video, .update-card-media video {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+    }
+    .update-summary {
+      border-radius: 22px; padding: 32px;
+      background: var(--w-accent-deep); color: #fffaf1;
+      display: flex; flex-direction: column; justify-content: space-between;
+      box-shadow: var(--w-shadow);
+    }
+    .update-summary .version {
+      font-family: "JetBrains Mono", monospace; color: var(--w-gold-soft);
+      font-weight: 700; font-size: 13px; letter-spacing: .08em;
+    }
+    .update-summary h3 { margin: 18px 0 12px; font-size: 27px; line-height: 1.35; }
+    .update-summary p { margin: 0; color: rgba(255,250,241,.78); font-size: 15px; }
+    .update-flow {
+      margin-top: 28px; padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      font-family: "JetBrains Mono", monospace; font-size: 12px; line-height: 1.8;
+      color: var(--w-gold-soft);
+    }
+    .update-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .update-card {
+      overflow: hidden; border-radius: 18px; background: white;
+      box-shadow: var(--w-shadow);
+    }
+    .update-card-media { aspect-ratio: 16 / 10; box-shadow: none; }
+    .update-card-copy { padding: 22px 22px 24px; }
+    .update-card-copy h3 { margin: 0 0 8px; font-size: 19px; color: var(--w-ink); }
+    .update-card-copy p { margin: 0; color: var(--w-ink-soft); font-size: 14px; }
+
+    /* ============================================================
        Gallery & Video — warm
        ============================================================ */
     .gallery { background: var(--w-bg); }
@@ -465,6 +529,65 @@
       margin: 0;
     }
     .story p strong { color: var(--w-accent); font-weight: 700; }
+
+    /* ============================================================
+       Project evolution — versioned live-service story
+       ============================================================ */
+    .evolution { background: var(--d-bg-1); }
+    .version-track {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+      position: relative; margin-bottom: 64px;
+    }
+    .version-track::before {
+      content: ""; position: absolute; top: 31px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, var(--d-text-muted), var(--d-accent), var(--d-accent-2));
+      opacity: .45;
+    }
+    .version-step {
+      position: relative; z-index: 1; min-height: 280px;
+      padding: 26px; border-radius: 16px;
+      background: rgba(26, 34, 54, .94); border: 1px solid var(--d-line);
+    }
+    .version-step.current {
+      border-color: rgba(110, 231, 255, .55);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .28), inset 0 1px rgba(110,231,255,.2);
+    }
+    .version-dot {
+      width: 14px; height: 14px; margin: 0 0 24px 2px; border-radius: 50%;
+      background: var(--d-text-muted); box-shadow: 0 0 0 7px var(--d-bg-2);
+    }
+    .version-step:nth-child(2) .version-dot { background: var(--d-accent-2); }
+    .version-step.current .version-dot { background: var(--d-accent); }
+    .version-number {
+      font: 700 13px/1 "JetBrains Mono", monospace;
+      color: var(--d-accent); letter-spacing: .08em;
+    }
+    .version-step h3 { margin: 12px 0 10px; font-size: 21px; }
+    .version-step p { margin: 0 0 16px; color: var(--d-text-dim); font-size: 14px; }
+    .version-step ul { margin: 0; padding: 0; list-style: none; color: var(--d-text-muted); font-size: 13px; }
+    .version-step li { margin-top: 7px; padding-left: 15px; position: relative; }
+    .version-step li::before { content: "›"; position: absolute; left: 0; color: var(--d-accent); }
+    .system-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .system-card {
+      padding: 30px; border-radius: 16px;
+      background: var(--d-bg-2); border: 1px solid var(--d-line);
+    }
+    .system-card .label {
+      font: 700 12px/1 "JetBrains Mono", monospace;
+      color: var(--d-accent-2); letter-spacing: .08em; text-transform: uppercase;
+    }
+    .system-card h3 { margin: 13px 0 10px; font-size: 22px; }
+    .system-card > p { margin: 0 0 24px; color: var(--d-text-dim); font-size: 14px; }
+    .system-flow { display: grid; gap: 9px; }
+    .system-flow span {
+      display: block; padding: 11px 14px; border-radius: 9px;
+      background: var(--d-bg-1); border-left: 2px solid var(--d-accent);
+      color: var(--d-text-dim); font-size: 13px;
+    }
+    .system-flow span + span::before {
+      content: "↓"; display: block; margin: -21px 0 6px -2px;
+      color: var(--d-text-muted); font-family: monospace;
+    }
 
     /* ============================================================
        Section divider — transition between warm and dark
@@ -835,7 +958,21 @@
       .arch-flow { position: static; }
       .hero-metrics { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .update-lead, .system-grid { grid-template-columns: 1fr; }
+      .update-grid, .version-track { grid-template-columns: 1fr; }
+      .version-track::before { display: none; }
+      .version-step { min-height: 0; }
       section { padding: 70px 22px; }
+    }
+    @media (max-width: 620px) {
+      .gallery-grid, .multi-view-grid { grid-template-columns: 1fr; }
+      .update-summary, .system-card { padding: 24px; }
+      .hero-status { margin-top: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-screenshot .badge .dot { animation: none; }
     }
   </style>
   <link rel="stylesheet" href="../assets/language-toggle.css" />
@@ -854,8 +991,9 @@
       </a>
       <nav class="nav-links">
         <a href="#features">게임 소개</a>
-        <a href="#kemi">케미 연동</a>
         <a href="#gallery">화면</a>
+        <a href="#update-210">v2.1.0 업데이트</a>
+        <a href="#evolution" class="tech">// evolution</a>
         <a href="#technical" class="tech">// technical</a>
         <a href="#mine" class="tech">// my work</a>
       </nav>
@@ -884,10 +1022,15 @@
         <p class="lead">
           오랜 세월 사랑받아 온 한국의 전통 카드 놀이 <strong>맞고</strong>를
           안드로이드 태블릿 위에서. 친근한 로봇 친구들, 다양한 AI 상대,
-          그리고 친구와의 실시간 멀티플레이까지.
+          친구와의 실시간 멀티플레이와 나만의 스킨까지.
         </p>
+        <div class="hero-status" aria-label="현재 서비스 버전">
+          <span class="live">● LIVE SERVICE</span>
+          <span>VERSION 2.1.0</span>
+          <span>UGS ECONOMY UPDATE</span>
+        </div>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#features">기능 살펴보기 →</a>
+          <a class="btn btn-primary" href="#update-210">2.1.0 업데이트 보기 →</a>
           <a class="btn btn-ghost" href="#gallery">화면 미리보기</a>
           <a class="btn btn-google-play" href="https://play.google.com/store/apps/details?id=com.robocare.gostop" target="_blank" rel="noopener" aria-label="Open Robo Go-Stop on Google Play">▶ Google Play</a>
           <a class="btn btn-app-store" href="https://apps.apple.com/kr/app/%EB%A1%9C%EB%B3%B4%EC%BC%80%EC%96%B4-%EB%A1%9C%EB%B3%B4%EB%A7%9E%EA%B3%A0/id6785418297" target="_blank" rel="noopener" aria-label="로보맞고 App Store에서 보기"> App Store</a>
@@ -1060,6 +1203,72 @@
   </section>
 
   <!-- ============================================================
+       VERSION 2.1.0 — CUSTOMIZATION & ECONOMY
+       ============================================================ -->
+  <section class="warm update-showcase reveal" id="update-210">
+    <div class="container">
+      <span class="section-eyebrow">WHAT'S NEW · VERSION 2.1.0</span>
+      <h2 class="section-title">내 취향으로 완성하는 한 판</h2>
+      <p class="section-sub">
+        기존 서비스를 분석하고 안정화한 뒤, UGS Economy 기반 상점과 커스터마이징 시스템으로 확장했습니다.
+        이제 획득한 아이템으로 화투패, 바닥판, 프로필을 직접 바꿀 수 있습니다.
+      </p>
+
+      <div class="update-lead">
+        <div class="update-media">
+          <video autoplay muted loop playsinline preload="metadata" aria-label="여러 스킨이 적용된 로보맞고 화면">
+            <source src="assets/여러 스킨 버전.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="update-summary">
+          <div>
+            <div class="version">LATEST RELEASE · v2.1.0</div>
+            <h3>플레이 경험에서<br />개인화 경험으로</h3>
+            <p>상점, 인벤토리, 장착 상태와 실제 게임 화면을 하나의 흐름으로 연결했습니다.</p>
+          </div>
+          <div class="update-flow">상점에서 구매 → 인벤토리에 저장 → 아이템 장착 → 게임 화면 반영</div>
+        </div>
+      </div>
+
+      <div class="update-grid">
+        <article class="update-card">
+          <div class="update-card-media">
+            <video class="lazy-video" autoplay muted loop playsinline preload="none" aria-label="맞고 바닥판 스킨 변경 화면">
+              <source data-src="assets/맞고 바닥판 변경.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="update-card-copy">
+            <h3>바닥판 스킨</h3>
+            <p>한 판의 분위기를 바꾸는 테마형 바닥판을 선택하고 즉시 적용합니다.</p>
+          </div>
+        </article>
+        <article class="update-card">
+          <div class="update-card-media">
+            <video class="lazy-video" autoplay muted loop playsinline preload="none" aria-label="맞고 화투패 스킨 변경 화면">
+              <source data-src="assets/맞고 패 변경.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="update-card-copy">
+            <h3>화투패 스킨</h3>
+            <p>플레이 가독성을 유지하면서 취향에 맞는 패 디자인으로 변경합니다.</p>
+          </div>
+        </article>
+        <article class="update-card">
+          <div class="update-card-media">
+            <video class="lazy-video" autoplay muted loop playsinline preload="none" aria-label="맞고 프로필 이미지 변경 화면">
+              <source data-src="assets/맞고 프로필 변경.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="update-card-copy">
+            <h3>프로필 커스터마이징</h3>
+            <p>획득한 프로필 아이템으로 플레이어의 취향과 성장 과정을 표현합니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SHORT STORY — 게임 한 줄 소개
        ============================================================ -->
   <section class="warm story reveal">
@@ -1101,6 +1310,83 @@
   </section>
 
   <!-- ============================================================
+       PROJECT EVOLUTION — RELEASE & LIVE SERVICE
+       ============================================================ -->
+  <section class="dark evolution reveal" id="evolution">
+    <div class="container">
+      <span class="section-eyebrow">// project_evolution</span>
+      <h2 class="section-title">출시 이후, 안정화하고 확장했습니다</h2>
+      <p class="section-sub">
+        코어 게임을 완성하는 데서 멈추지 않고, 기존 서비스를 분석해 멀티플레이와 운영 기반을 안정화한 뒤
+        새로운 상품과 아이템을 계속 추가할 수 있는 구조로 발전시켰습니다.
+      </p>
+
+      <div class="version-track">
+        <article class="version-step">
+          <div class="version-dot"></div>
+          <div class="version-number">VERSION 1.0.0</div>
+          <h3>Core Game</h3>
+          <p>맞고의 기본 재미와 로봇·태블릿 환경에 필요한 핵심 경험을 완성한 최초 출시 단계입니다.</p>
+          <ul>
+            <li>전통 맞고 규칙과 점수 계산</li>
+            <li>AI 플레이어와 게임 엔진</li>
+            <li>시니어 친화 UI와 로봇 연동</li>
+          </ul>
+        </article>
+        <article class="version-step">
+          <div class="version-dot"></div>
+          <div class="version-number">VERSION 2.0.0</div>
+          <h3>Stabilization &amp; Service Integration</h3>
+          <p>운영 중 확인한 문제를 분석해 멀티플레이, 로그인, 세션과 재화 흐름을 서비스 수준으로 안정화했습니다.</p>
+          <ul>
+            <li>UGS 멀티플레이와 연결 예외 안정화</li>
+            <li>플랫폼 로그인·프로필·랭킹 통합</li>
+            <li>Cloud Save·Cloud Code 기반 운영</li>
+          </ul>
+        </article>
+        <article class="version-step current">
+          <div class="version-dot"></div>
+          <div class="version-number">VERSION 2.1.0 · CURRENT</div>
+          <h3>Economy &amp; Content Expansion</h3>
+          <p>안정화된 서비스 위에 상점과 커스터마이징을 연결해 지속적으로 콘텐츠를 확장할 수 있게 만들었습니다.</p>
+          <ul>
+            <li>UGS Economy 상점과 인벤토리</li>
+            <li>패·바닥판·프로필 장착 시스템</li>
+            <li>AI 보조 아이템 제작 파이프라인</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="system-grid">
+        <article class="system-card">
+          <div class="label">UGS ECONOMY · RUNTIME FLOW</div>
+          <h3>카탈로그에서 게임 화면까지</h3>
+          <p>상품 정의, 구매, 보유 상태와 장착 결과를 분리해 새 아이템이 추가되어도 기존 게임 로직의 변경을 최소화했습니다.</p>
+          <div class="system-flow">
+            <span>Economy Catalog · 상품과 가격 정의</span>
+            <span>Virtual Purchase · 재화 차감과 구매 처리</span>
+            <span>Player Inventory · 보유 아이템 동기화</span>
+            <span>Equip State · 선택한 스킨 저장</span>
+            <span>Game Runtime · 플레이 화면에 반영</span>
+          </div>
+        </article>
+        <article class="system-card">
+          <div class="label">AI-ASSISTED · CONTENT PIPELINE</div>
+          <h3>빠른 시안에서 검증된 게임 리소스로</h3>
+          <p>AI는 스타일 탐색을 가속하는 보조 도구로 활용하고, 최종 품질과 게임 적합성은 직접 검토·후처리했습니다.</p>
+          <div class="system-flow">
+            <span>Concept · 게임 톤과 가독성 기준 정의</span>
+            <span>AI Draft · 스타일과 색상 시안 탐색</span>
+            <span>Art Direction · 선별과 일관성 검토</span>
+            <span>Game Ready · 크기·투명도·압축 후처리</span>
+            <span>Release QA · Unity 등록과 실기기 검증</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        STACK
        ============================================================ -->
   <section class="dark stack reveal">
@@ -1128,6 +1414,7 @@
         <div class="stack-badge"><div class="icon">CS</div><div><div class="name">UGS Cloud Save</div><div class="role">Data Sync</div></div></div>
         <div class="stack-badge"><div class="icon">CC</div><div><div class="name">UGS Cloud Code</div><div class="role">Server Validation</div></div></div>
         <div class="stack-badge"><div class="icon">LB</div><div><div class="name">UGS Leaderboard</div><div class="role">Ranking</div></div></div>
+        <div class="stack-badge"><div class="icon">EC</div><div><div class="name">UGS Economy</div><div class="role">Store &amp; Inventory</div></div></div>
         <div class="stack-badge"><div class="icon">RC</div><div><div class="name">Remote Config</div><div class="role">Live Ops</div></div></div>
       </div>
     </div>
@@ -1215,10 +1502,10 @@ Human Input
   <section class="dark mine reveal" id="mine">
     <div class="container">
       <div class="mine-banner">MY CONTRIBUTIONS · 내가 작업한 영역</div>
-      <h2 class="section-title">직접 설계 · 구현한 4가지 핵심 영역</h2>
+      <h2 class="section-title">직접 설계 · 구현한 7가지 핵심 영역</h2>
       <p class="section-sub">
-        UGS 멀티플레이 안정화부터 로그인 플랫폼 통합, 세션-재화 동기화까지.
-        프로덕션 환경에서 마주친 실제 문제들을 해결하며 게임의 안정성을 끌어올린 작업들입니다.
+        v2.0.0의 멀티플레이·서비스 안정화부터 v2.1.0의 Economy 상점과 콘텐츠 제작 파이프라인까지.
+        프로덕션의 실제 문제를 해결하고 다음 업데이트가 쉬운 구조로 발전시킨 작업들입니다.
       </p>
 
       <div class="mine-grid">
@@ -1295,6 +1582,36 @@ Human Input
             <li><span class="stacked-copy"><code>Cloud Code</code><span>재화 증감·출석 체크 서버 검증 및 클라이언트 변조 차단</span></span></li>
             <li><span class="stacked-copy"><code>UGS Leaderboard</code><span>케미 사용자 전용 실시간 랭킹 보드</span></span></li>
             <li><span class="stacked-copy"><code>Remote Config</code><span>재배포 없는 인앱 업데이트 및 게임 수치 조정</span></span></li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 06 · ECONOMY STORE &amp; INVENTORY</div>
+          <h3>UGS Economy 상점 구축</h3>
+          <p class="desc">
+            상품 카탈로그, 구매, 보유 아이템과 장착 상태를 게임 화면까지 연결해
+            운영 중에도 새 스킨을 확장할 수 있는 상점 구조를 구축.
+          </p>
+          <ul>
+            <li>패·바닥판·프로필 아이템 카탈로그 구성</li>
+            <li>상점 구매와 Player Inventory 흐름 연결</li>
+            <li>보유 여부 및 장착 상태에 따른 UI 동기화</li>
+            <li>선택한 스킨을 실제 플레이 화면에 즉시 반영</li>
+          </ul>
+        </div>
+
+        <div class="mine-card">
+          <div class="area-tag">AREA 07 · AI-ASSISTED CONTENT</div>
+          <h3>AI 보조 아이템 제작 파이프라인</h3>
+          <p class="desc">
+            AI로 초기 스타일 탐색 속도를 높이고, 선별·후처리·Unity 등록·실기기 QA를 거쳐
+            실제 서비스에 사용할 수 있는 게임 아이템으로 완성.
+          </p>
+          <ul>
+            <li>게임 톤과 시니어 가독성을 기준으로 콘셉트 정의</li>
+            <li>다양한 스타일·색상 시안 생성 및 아트 디렉션</li>
+            <li>크기·투명 영역·압축 설정 등 게임용 후처리</li>
+            <li>Economy 등록 후 태블릿과 플레이 화면에서 검증</li>
           </ul>
         </div>
 
@@ -1478,6 +1795,8 @@ Human Input
       <p>© Go-Stop · Robocare · Unity 6 · 2026</p>
       <div class="foot-links">
         <a href="#features">게임 소개</a>
+        <a href="#update-210">v2.1.0 업데이트</a>
+        <a href="#evolution">// evolution</a>
         <a href="#technical">// technical</a>
         <a href="#mine">// my work</a>
       </div>
@@ -1492,6 +1811,28 @@ Human Input
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Load update videos only when they approach the viewport.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const videoIo = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const video = entry.target;
+        const source = video.querySelector('source[data-src]');
+        if (source) {
+          source.src = source.dataset.src;
+          source.removeAttribute('data-src');
+          video.load();
+        }
+        if (!reduceMotion) video.play().catch(() => {});
+        observer.unobserve(video);
+      });
+    }, { rootMargin: '240px 0px' });
+    document.querySelectorAll('.lazy-video').forEach(video => {
+      if (reduceMotion) video.removeAttribute('autoplay');
+      videoIo.observe(video);
+    });
+    if (reduceMotion) document.querySelectorAll('.update-media video').forEach(video => video.pause());
 
     // Code tabs
     const tabs = document.querySelectorAll('.code-tab');
