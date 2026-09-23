@@ -261,7 +261,11 @@
     .nav-links a:hover { color: var(--cyan); }
     .nav-links a .hash { color: var(--text-mute); }
     main section[id] { scroll-margin-top: 100px; }
-    .hero-stats .v.career-duration { font-size: 28px; }
+    .hero-stats .v.career-duration {
+      font-size: clamp(20px, 1.8vw, 24px);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
     .career-basis { display: block; font-size: 12px; color: var(--text-muted); }
     .nav-tools {
       display: flex;
@@ -2218,7 +2222,7 @@
           <div class="feat-card">
             <div class="feat-image">
               <span class="feat-tag">// COMPANY_HUB</span>
-              <span class="role-badge main">● MAIN</span>
+              <span class="role-badge cowork">◐ CO-WORK</span>
               <img src="assets/리듬.png" alt="로보케어 리듬게임 플레이 화면" loading="lazy" style="position:absolute;inset:0;" />
             </div>
             <div class="feat-body">
